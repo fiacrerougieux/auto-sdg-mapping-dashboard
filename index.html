@@ -137,6 +137,69 @@
             color: #333;
         }
 
+        #facultySelect {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        #facultySelect option {
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #facultySelect option:hover:not(:checked) {
+            background-color: #f0f0f0;
+        }
+
+        #facultySelect option:checked,
+        #facultySelect option[selected] {
+            background: #4CAF50 !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+            -webkit-appearance: none;
+            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
+        }
+        #facultySelect::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #facultySelect::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        #facultySelect::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        #facultySelect::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        #facultySelect:focus option:checked {
+            background: #4CAF50 !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+        }
+
+        @-moz-document url-prefix() {
+            #facultySelect option:checked,
+            #facultySelect option[selected] {
+                background: #4CAF50 !important;
+                color: white !important;
+            }
+        }
+        #facultySelect, #disciplineSelect {
+            max-height: 200px;
+            overflow-y: auto;
+        }
         #disciplineSelect option {
             padding: 8px 12px;
             cursor: pointer;
@@ -280,6 +343,19 @@
             <button id="cumulativeBtn" class="switch-button">Cumulative SDGs</button>
         </div>
         <div class="button-group">
+            <h3 class="section-title">Faculty</h3>
+            <select id="facultySelect" class="switch-button" size="8">
+                <option value="ALL">All Faculties</option>
+                <option value="ADA">Arts, Design & Architecture</option>
+                <option value="BUSINESS">Business School</option>
+                <option value="ENG">Engineering</option>
+                <option value="LAW">Law & Justice</option>
+                <option value="MED">Medicine & Health</option>
+                <option value="SCIENCE">Science</option>
+                <option value="CANBERRA">UNSW Canberra</option>
+            </select>
+        </div>
+        <div class="button-group">
             <h3 class="section-title">Discipline</h3>
             <select id="disciplineSelect" class="switch-button" size="8">
                 <!-- Options will be populated by JavaScript -->
@@ -312,6 +388,7 @@
     
     <script>
         let currentDiscipline = 'ALL';
+        let currentFaculty = 'ALL';
 
         const specializationNames = {
             'ANAT': 'Anatomy',
@@ -321,9 +398,30 @@
             'MICR': 'Microbiology',
             'PATH': 'Pathology',
             'PHSL': 'Physiology',
-            'SOLA': 'Photovoltaic and Solar Energy'
+            'SOLA': 'Photovoltaic and Solar Energy',
+            'MECH': 'Mechanical Engineering',
+            'MINE': 'Mining Engineering',
+            'MTRN': 'Mechatronic Engineering',
+            'GMAT': 'Surveying & Spatial Information Systems',
+            'ELEC': 'Electrical Engineering'
         };
 
+        const facultyMapping = {
+            'ANAT': 'MED',
+            'BABS': 'SCIENCE',
+            'COMM': 'BUSINESS',
+            'CVEN': 'ENG',
+            'MICR': 'SCIENCE',
+            'PATH': 'MED',
+            'PHSL': 'MED',
+            'SOLA': 'ENG',
+            'MECH': 'ENG',
+            'MINE': 'ENG',
+            'MTRN': 'ENG',
+            'GMAT': 'ENG',
+            'ELEC': 'ENG'
+        };
+        
         // Sidebar toggle
         document.getElementById('toggle-sidebar').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('active');
@@ -367,12 +465,18 @@
             toggleDisclaimer();
         });
 
-        function getDisciplines(data) {
+        function getDisciplines(data, selectedFaculty = 'ALL') {
             const disciplines = new Set(
-                data.map(row => row.course_code.substring(0, 4))
+                data
+                    .filter(row => {
+                        const discipline = row.course_code.substring(0, 4);
+                        return selectedFaculty === 'ALL' || facultyMapping[discipline] === selectedFaculty;
+                    })
+                    .map(row => row.course_code.substring(0, 4))
             );
             return Array.from(disciplines).sort();
         }
+
         async function loadData() {
             try {
                 const response = await fetch('sdg_analysis.csv');
@@ -391,16 +495,16 @@
                     };
                 }).filter(row => row.course_code);
 
-                // Modified discipline selector population
-                const disciplines = getDisciplines(data);
+                // Get disciplines filtered by current faculty
+                const disciplines = getDisciplines(data, currentFaculty);
                 const select = document.getElementById('disciplineSelect');
                 
                 // Set initial discipline if not set
-                if (!currentDiscipline || currentDiscipline === 'ALL') {
+                if (!currentDiscipline || !disciplines.includes(currentDiscipline)) {
                     currentDiscipline = disciplines[0];
                 }
                 
-                // Populate select with full names
+                // Populate select with full names, maintaining current selection
                 select.innerHTML = disciplines.map(discipline => 
                     `<option value="${discipline}" ${discipline === currentDiscipline ? 'selected' : ''}>
                         ${specializationNames[discipline] || discipline}
@@ -421,7 +525,18 @@
 
 
         function filterDataByDiscipline(data, discipline) {
-            return data.filter(row => row.course_code.startsWith(discipline));
+            return data.filter(row => {
+                const rowDiscipline = row.course_code.substring(0, 4);
+                const rowFaculty = facultyMapping[rowDiscipline];
+                
+                // First filter by faculty if selected
+                if (currentFaculty !== 'ALL' && rowFaculty !== currentFaculty) {
+                    return false;
+                }
+                
+                // Then filter by discipline
+                return rowDiscipline === discipline;
+            });
         }
 
         function createHeatmap(data, isCumulative) {
@@ -644,6 +759,21 @@
             currentDiscipline = this.value;
             
             loadData().then(data => {
+                if (document.getElementById('radarBtn').classList.contains('active')) {
+                    createRadar(data);
+                } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+                    createHeatmap(data, true);
+                } else {
+                    createHeatmap(data, false);
+                }
+            });
+        });
+
+        document.getElementById('facultySelect').addEventListener('change', function() {
+            currentFaculty = this.value;
+            
+            loadData().then(data => {
+                // Update visualization
                 if (document.getElementById('radarBtn').classList.contains('active')) {
                     createRadar(data);
                 } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {

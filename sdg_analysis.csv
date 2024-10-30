@@ -1311,3 +1311,706 @@ PHSL2101,14,Life Below Water,No,Not addressed in course content,2024-10-30 13:02
 PHSL2101,15,Life on Land,No,Not addressed in course content,2024-10-30 13:02:45.894853
 PHSL2101,16,"Peace, Justice and Strong Institutions",No,Not addressed in course content,2024-10-30 13:02:45.894855
 PHSL2101,17,Partnerships for the Goals,No,Not addressed in course content,2024-10-30 13:02:45.894856
+MINE8445,4,Quality Education,Yes,Course provides postgraduate research education in mining engineering,2024-10-30 19:36:42.929358
+MINE8445,8,Decent Work and Economic Growth,Yes,Focuses on mining industry research and cost-effective solutions,2024-10-30 19:36:42.929365
+MINE8445,9,Industry Innovation and Infrastructure,Yes,Develops research capabilities and innovative solutions for mining industry,2024-10-30 19:36:42.929367
+MINE8445,12,Responsible Consumption and Production,Yes,Emphasizes safe and sustainable mining practices through research,2024-10-30 19:36:42.929369
+MINE8445,13,Climate Action,No,Not explicitly addressed in course content,2024-10-30 19:36:42.929371
+MINE8445,15,Life on Land,Yes,Mining engineering research includes environmental impact considerations,2024-10-30 19:36:42.929372
+MINE8445,17,Partnerships for the Goals,Yes,Requires industry collaboration and partnerships for research projects,2024-10-30 19:36:42.929374
+MECH4900,4,Quality Education,Yes,Course provides advanced technical education in mechanical engineering at undergraduate/postgraduate level,2024-10-30 19:36:46.840231
+MECH4900,9,"Industry, Innovation and Infrastructure",Yes,Course teaches analysis of structural materials and prevention of mechanical failures which is critical for infrastructure reliability,2024-10-30 19:36:46.840239
+MECH4900,11,Sustainable Cities and Communities,Yes,Course focuses on safety and reliability of structures used in buildings and infrastructure,2024-10-30 19:36:46.840241
+MECH4900,12,Responsible Consumption and Production,Yes,"Course teaches methods to prevent material failures and extend structural lifetimes, reducing waste",2024-10-30 19:36:46.840243
+MINE3630,4,Quality Education,Yes,Course provides technical engineering education in mining and rock breakage methods,2024-10-30 19:36:50.956662
+MINE3630,8,Decent Work and Economic Growth,Yes,Teaches skills for mining industry employment and efficient resource extraction,2024-10-30 19:36:50.956670
+MINE3630,9,Industry Innovation and Infrastructure,Yes,Covers emerging technologies and innovative methods in rock breakage and mining,2024-10-30 19:36:50.956672
+MINE3630,12,Responsible Consumption and Production,Yes,Includes environmental management and efficient resource extraction techniques,2024-10-30 19:36:50.956674
+MINE3630,15,Life on Land,Yes,Addresses environmental management and blast damage control in mining operations,2024-10-30 19:36:50.956676
+MINE3630,16,Peace Justice and Strong Institutions,Yes,"Covers safety regulations, security requirements and legislative compliance for explosives",2024-10-30 19:36:50.956678
+MECH4880,7,Affordable and Clean Energy,Yes,Course covers energy systems and efficiency in air conditioning and refrigeration,2024-10-30 19:36:54.640723
+MECH4880,9,Industry Innovation and Infrastructure,Yes,Teaches technical aspects of HVAC systems and infrastructure design,2024-10-30 19:36:54.640732
+MECH4880,11,Sustainable Cities and Communities,Yes,Focuses on building systems that create comfortable indoor environments,2024-10-30 19:36:54.640734
+MECH4880,12,Responsible Consumption and Production,Yes,Covers efficient use of energy resources and refrigerants,2024-10-30 19:36:54.640735
+MECH4880,13,Climate Action,Yes,Addresses energy efficiency and environmental impact of cooling systems,2024-10-30 19:36:54.640737
+MINE3910,4,Quality Education,Yes,Course provides undergraduate education in mining engineering and environmental management,2024-10-30 19:36:58.903455
+MINE3910,8,Decent Work and Economic Growth,Yes,Covers mining industry practices and social license to operate,2024-10-30 19:36:58.903464
+MINE3910,9,Industry Innovation and Infrastructure,Yes,Focuses on state-of-the-art techniques in mine site management,2024-10-30 19:36:58.903466
+MINE3910,11,Sustainable Cities and Communities,Yes,Addresses social/community impacts of mining operations,2024-10-30 19:36:58.903468
+MINE3910,12,Responsible Consumption and Production,Yes,Teaches principles of sustainable development in mining context,2024-10-30 19:36:58.903470
+MINE3910,15,Life on Land,Yes,Covers environmental management of mine sites and their impacts,2024-10-30 19:36:58.903473
+MINE3910,16,Peace Justice and Strong Institutions,Yes,Addresses ethical context of mining and social license to operate,2024-10-30 19:36:58.903474
+MINE3910,17,Partnerships for the Goals,Yes,Examines company initiatives and community engagement in mining sector,2024-10-30 19:36:58.903476
+MINE5010,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:37:02.734368
+MINE5010,8,Decent Work and Economic Growth,Yes,Focuses on mining safety and ground control which promotes safer working conditions,2024-10-30 19:37:02.734373
+MINE5010,9,Industry Innovation and Infrastructure,Yes,Teaches advanced technical knowledge for mining infrastructure and operations,2024-10-30 19:37:02.734373
+MINE5010,12,Responsible Consumption and Production,Yes,Addresses sustainable and safe mining practices through geotechnical engineering,2024-10-30 19:37:02.734374
+MINE5010,13,Climate Action,No,Not explicitly addressing climate change or environmental impacts,2024-10-30 19:37:02.734375
+MINE5010,15,Life on Land,Yes,Covers environmental geomechanics and impact of mining on geological environments,2024-10-30 19:37:02.734376
+MECH3610,4,Quality Education,Yes,Course provides advanced technical education in engineering thermofluids,2024-10-30 19:37:06.730178
+MECH3610,7,Affordable and Clean Energy,Yes,"Covers energy systems, heat transfer and combustion analysis",2024-10-30 19:37:06.730188
+MECH3610,9,Industry Innovation and Infrastructure,Yes,Develops engineering knowledge for industrial applications in thermodynamics and fluid mechanics,2024-10-30 19:37:06.730190
+MECH3610,12,Responsible Consumption and Production,Yes,Teaches efficient heat transfer and energy systems design,2024-10-30 19:37:06.730192
+MECH3610,13,Climate Action,Yes,Covers topics related to energy systems and combustion which are relevant to climate impacts,2024-10-30 19:37:06.730195
+MINE8940,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:37:10.935325
+MINE8940,8,Decent Work and Economic Growth,Yes,Focuses on workplace safety and risk management in mining operations,2024-10-30 19:37:10.935332
+MINE8940,9,Industry Innovation and Infrastructure,Yes,Teaches advanced monitoring technologies and instrumentation for mining,2024-10-30 19:37:10.935334
+MINE8940,12,Responsible Consumption and Production,Yes,Addresses responsible mining practices and risk management,2024-10-30 19:37:10.935336
+MINE8940,13,Climate Action,Yes,Considers environmental factors like rainfall in mining operations,2024-10-30 19:37:10.935337
+MINE8940,15,Life on Land,Yes,Covers management of land stability and environmental monitoring in mining operations,2024-10-30 19:37:10.935339
+MINE8680,4,Quality Education,Yes,Course provides postgraduate technical education in geotechnical engineering and data analysis,2024-10-30 19:37:15.043981
+MINE8680,8,Decent Work and Economic Growth,Yes,Course develops skills for mining industry professionals to ensure safer and more efficient mining operations,2024-10-30 19:37:15.043991
+MINE8680,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced monitoring technologies and data analysis for mining infrastructure,2024-10-30 19:37:15.043994
+MINE8680,12,Responsible Consumption and Production,Yes,Teaches sustainable mining practices through proper geotechnical monitoring and analysis,2024-10-30 19:37:15.043997
+MINE8680,13,Climate Action,No,Not directly addressed in course content,2024-10-30 19:37:15.043999
+MINE8680,15,Life on Land,Yes,Includes content on monitoring and managing environmental impacts of mining through pit slope monitoring and ground stress management,2024-10-30 19:37:15.044002
+MINE3510,3,Good Health and Well-being,Yes,Course focuses on mine ventilation and hazard control to protect worker health and safety,2024-10-30 19:37:19.220579
+MINE3510,4,Quality Education,Yes,Provides technical engineering education in mine ventilation systems,2024-10-30 19:37:19.220586
+MINE3510,8,Decent Work and Economic Growth,Yes,Addresses workplace safety and environmental controls in mining operations,2024-10-30 19:37:19.220587
+MINE3510,9,Industry Innovation and Infrastructure,Yes,Teaches technical design and innovation in mine ventilation systems,2024-10-30 19:37:19.220589
+MINE3510,12,Responsible Consumption and Production,Yes,Covers environmental monitoring and hazard management in mining operations,2024-10-30 19:37:19.220590
+MINE3510,13,Climate Action,Yes,Addresses gas monitoring and environmental control in mines,2024-10-30 19:37:19.220592
+MECH4100,4,Quality Education,Yes,Course provides advanced mechanical engineering education with hands-on project experience,2024-10-30 19:37:23.106907
+MECH4100,8,Decent Work and Economic Growth,Yes,Prepares students for professional engineering careers through industry-relevant project work,2024-10-30 19:37:23.106914
+MECH4100,9,Industry Innovation and Infrastructure,Yes,Focuses on mechanical design innovation and prototype development,2024-10-30 19:37:23.106916
+MECH4100,12,Responsible Consumption and Production,Yes,"Includes design considerations for manufacturing, reliability, affordability and sustainability",2024-10-30 19:37:23.106918
+MECH4100,17,Partnerships for the Goals,Yes,Involves collaboration with industry partners and technical staff,2024-10-30 19:37:23.106920
+MINE8130,4,Quality Education,Yes,Course provides technical education in mining engineering at university level,2024-10-30 19:37:26.797822
+MINE8130,8,Decent Work and Economic Growth,Yes,Focuses on innovation and technology management in mining industry to improve efficiency,2024-10-30 19:37:26.797830
+MINE8130,9,Industry Innovation and Infrastructure,Yes,Directly addresses technological innovation and implementation in mining sector,2024-10-30 19:37:26.797832
+MINE8130,12,Responsible Consumption and Production,Yes,Addresses sustainable mining practices and efficient resource extraction through technology,2024-10-30 19:37:26.797833
+MINE8130,13,Climate Action,Yes,Considers environmental impacts and technological solutions in mining operations,2024-10-30 19:37:26.797835
+MINE8130,17,Partnerships for the Goals,Yes,Involves collaboration between industry and academia for technological advancement,2024-10-30 19:37:26.797836
+MECH4620,4,Quality Education,Yes,Course provides advanced technical education in computational fluid dynamics for engineering students,2024-10-30 19:37:31.470583
+MECH4620,7,Affordable and Clean Energy,Yes,Course teaches skills for modeling and optimizing fluid dynamics which is crucial for energy systems,2024-10-30 19:37:31.470591
+MECH4620,9,Industry Innovation and Infrastructure,Yes,Develops expertise in industrial CFD software and engineering problem-solving,2024-10-30 19:37:31.470593
+MECH4620,12,Responsible Consumption and Production,Yes,Teaches methods to optimize and improve industrial processes through computational modeling,2024-10-30 19:37:31.470595
+MECH4620,13,Climate Action,Yes,CFD skills enable modeling of environmental flows and climate-related phenomena,2024-10-30 19:37:31.470596
+MECH9761,4,Quality Education,Yes,Course provides technical engineering education in automobile technology,2024-10-30 19:37:51.782400
+MECH9761,7,Affordable and Clean Energy,Yes,"Covers alternative fuels, hybrid engines, and electric drives for sustainable transportation",2024-10-30 19:37:51.782409
+MECH9761,9,Industry Innovation and Infrastructure,Yes,Focuses on advancing automobile engine technology and industry innovations,2024-10-30 19:37:51.782412
+MECH9761,11,Sustainable Cities and Communities,Yes,Addresses sustainable transportation technologies and pollution reduction,2024-10-30 19:37:51.782414
+MECH9761,12,Responsible Consumption and Production,Yes,Teaches about engine efficiency and cleaner production technologies,2024-10-30 19:37:51.782416
+MECH9761,13,Climate Action,Yes,Covers emission reduction technologies and alternative clean energy powertrains,2024-10-30 19:37:51.782418
+MINE3310,4,Quality Education,Yes,Course provides technical engineering education in geomechanics,2024-10-30 19:37:56.082722
+MINE3310,8,Decent Work and Economic Growth,Yes,Develops skills for mining industry employment,2024-10-30 19:37:56.082732
+MINE3310,9,Industry Innovation and Infrastructure,Yes,Teaches engineering principles for mining infrastructure,2024-10-30 19:37:56.082734
+MINE3310,12,Responsible Consumption and Production,Yes,Focuses on responsible mining practices and soil/rock mechanics,2024-10-30 19:37:56.082736
+MINE3310,15,Life on Land,Yes,Addresses soil and rock mechanics which impact land management,2024-10-30 19:37:56.082739
+MECH9720,7,Affordable and Clean Energy,Yes,Course focuses on solar thermal energy technologies and their applications for sustainable power generation,2024-10-30 19:38:00.818447
+MECH9720,9,"Industry, Innovation and Infrastructure",Yes,Teaches engineering design and analysis of solar thermal systems and infrastructure,2024-10-30 19:38:00.818456
+MECH9720,11,Sustainable Cities and Communities,Yes,Covers solar thermal applications for residential and industrial sectors,2024-10-30 19:38:00.818458
+MECH9720,12,Responsible Consumption and Production,Yes,Addresses sustainable energy production through solar thermal technologies,2024-10-30 19:38:00.818460
+MECH9720,13,Climate Action,Yes,Solar thermal energy contributes to reducing greenhouse gas emissions and combating climate change,2024-10-30 19:38:00.818462
+MECH9720,4,Quality Education,Yes,Provides advanced technical education in renewable energy engineering,2024-10-30 19:38:00.818464
+MECH9720,17,Partnerships for the Goals,Yes,Includes industry standards and professional practices for solar thermal systems,2024-10-30 19:38:00.818466
+MINE9100,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering with focus on design skills,2024-10-30 19:38:20.892830
+MINE9100,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills for mining industry employment,2024-10-30 19:38:20.892840
+MINE9100,9,Industry Innovation and Infrastructure,Yes,Focuses on mining engineering design and innovation in industrial processes,2024-10-30 19:38:20.892843
+MINE9100,12,Responsible Consumption and Production,Yes,Teaches sustainable mining practices and resource management,2024-10-30 19:38:20.892845
+MINE9100,13,Climate Action,No,No explicit focus on climate change or emissions,2024-10-30 19:38:20.892848
+MINE9100,15,Life on Land,Yes,Mining engineering course includes consideration of environmental impacts,2024-10-30 19:38:20.892851
+MINE9100,17,Partnerships for the Goals,Yes,Course involves industry partnerships and guest experts for student learning,2024-10-30 19:38:20.892853
+MINE3430,8,Decent Work and Economic Growth,Yes,Course teaches mining systems and methods which relate to industrial productivity and economic development,2024-10-30 19:38:24.938905
+MINE3430,9,Industry Innovation and Infrastructure,Yes,"Covers technical trends, innovative opportunities and infrastructure in mining systems",2024-10-30 19:38:24.938915
+MINE3430,12,Responsible Consumption and Production,Yes,Addresses sustainability and efficiency in mining operations and resource extraction,2024-10-30 19:38:24.938918
+MINE3430,13,Climate Action,No,Not explicitly addressed in course content,2024-10-30 19:38:24.938921
+MINE3430,15,Life on Land,Yes,Mining systems course includes consideration of environmental impacts through sustainability focus,2024-10-30 19:38:24.938923
+MINE3430,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-10-30 19:38:24.938926
+MECH4620,4,Quality Education,Yes,Course provides advanced technical education in computational fluid dynamics,2024-10-30 19:38:29.108735
+MECH4620,7,Affordable and Clean Energy,Yes,Course teaches skills for modeling and optimizing fluid dynamics which is crucial for energy systems,2024-10-30 19:38:29.108744
+MECH4620,9,Industry Innovation and Infrastructure,Yes,Develops expertise in industrial CFD software and engineering problem-solving,2024-10-30 19:38:29.108750
+MECH4620,12,Responsible Consumption and Production,Yes,Teaches simulation methods to optimize industrial processes and reduce resource waste,2024-10-30 19:38:29.108751
+MECH4620,13,Climate Action,Yes,CFD skills enable modeling of environmental flows and climate-related phenomena,2024-10-30 19:38:29.108753
+MINE8850,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:38:45.270378
+MINE8850,8,Decent Work and Economic Growth,Yes,Focuses on mine planning and feasibility studies which contribute to economic development,2024-10-30 19:38:45.270386
+MINE8850,9,Industry Innovation and Infrastructure,Yes,Teaches modern mine design principles and technical innovation in mining industry,2024-10-30 19:38:45.270388
+MINE8850,12,Responsible Consumption and Production,Yes,Covers resource extraction planning and optimization techniques,2024-10-30 19:38:45.270390
+MINE8850,15,Life on Land,Yes,Includes consideration of waste dump design and environmental impacts of mining,2024-10-30 19:38:45.270392
+MINE4710,3,Good Health and Well-being,Yes,Course covers mine safety management and duty of care,2024-10-30 19:38:49.434491
+MINE4710,4,Quality Education,Yes,Provides technical education in mining management and operations,2024-10-30 19:38:49.434500
+MINE4710,8,Decent Work and Economic Growth,Yes,"Covers industrial relations, project management, and mineral economics",2024-10-30 19:38:49.434502
+MINE4710,9,Industry Innovation and Infrastructure,Yes,Addresses mining operations management and infrastructure,2024-10-30 19:38:49.434504
+MINE4710,12,Responsible Consumption and Production,Yes,Focuses on sustainable and responsible resource recovery,2024-10-30 19:38:49.434506
+MINE4710,15,Life on Land,Yes,Includes environmental management and impact considerations in mining operations,2024-10-30 19:38:49.434508
+MINE4710,16,Peace Justice and Strong Institutions,Yes,Covers legislative frameworks and regulatory compliance in mining,2024-10-30 19:38:49.434510
+MINE8440,4,Quality Education,Yes,Course provides postgraduate research education in mining engineering,2024-10-30 19:38:53.326954
+MINE8440,8,Decent Work and Economic Growth,Yes,Research projects focus on industry partnerships and applied solutions for mining sector,2024-10-30 19:38:53.326961
+MINE8440,9,Industry Innovation and Infrastructure,Yes,Course aims to develop innovative solutions and research for mining industry problems,2024-10-30 19:38:53.326963
+MINE8440,12,Responsible Consumption and Production,Yes,Research focuses on developing cost-effective and sustainable mining practices,2024-10-30 19:38:53.326964
+MINE8440,17,Partnerships for the Goals,Yes,Course requires industry partnerships and collaboration between academia and mining sector,2024-10-30 19:38:53.326966
+MINE5040,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 19:39:14.116427
+MINE5040,8,Decent Work and Economic Growth,Yes,Course teaches mining methods and safety which directly relates to work conditions in mining industry,2024-10-30 19:39:14.116435
+MINE5040,9,Industry Innovation and Infrastructure,Yes,Covers advanced mining techniques and engineering design methodologies,2024-10-30 19:39:14.116438
+MINE5040,12,Responsible Consumption and Production,Yes,Focuses on mining methods and planning with consideration for subsidence control and environmental impacts,2024-10-30 19:39:14.116440
+MINE5040,13,Climate Action,No,Coal mining is covered but sustainability aspects not explicitly addressed,2024-10-30 19:39:14.116441
+MINE5040,15,Life on Land,Yes,Addresses subsidence mechanics and environmental impacts of mining operations,2024-10-30 19:39:14.116443
+MINE8820,6,Clean Water and Sanitation,Yes,Course addresses water usage in mineral processing,2024-10-30 19:39:18.341905
+MINE8820,7,Affordable and Clean Energy,Yes,Course covers energy efficiency in mineral processing,2024-10-30 19:39:18.341911
+MINE8820,9,Industry Innovation and Infrastructure,Yes,Course teaches industrial mineral processing techniques and innovations,2024-10-30 19:39:18.341913
+MINE8820,12,Responsible Consumption and Production,Yes,Covers sustainable mineral processing and mine-to-mill concepts,2024-10-30 19:39:18.341914
+MINE8820,13,Climate Action,Yes,Addresses energy efficiency and sustainable processing methods,2024-10-30 19:39:18.341916
+MINE8820,14,Life Below Water,Yes,Considers water usage and processing impacts on water resources,2024-10-30 19:39:18.341918
+MINE8820,15,Life on Land,Yes,Addresses environmental aspects of mineral processing and sustainability,2024-10-30 19:39:18.341919
+MINE4250,4,Quality Education,Yes,Course provides technical education in mining engineering at university level,2024-10-30 19:39:22.819054
+MINE4250,8,Decent Work and Economic Growth,Yes,Teaches mine feasibility studies and economic evaluation of mining projects,2024-10-30 19:39:22.819062
+MINE4250,9,Industry Innovation and Infrastructure,Yes,Covers advanced mining software and technological innovation in mine design,2024-10-30 19:39:22.819064
+MINE4250,12,Responsible Consumption and Production,Yes,Includes sustainability criteria and resource optimization in mine planning,2024-10-30 19:39:22.819067
+MINE4250,13,Climate Action,Yes,Considers environmental impacts and sustainable development in mining projects,2024-10-30 19:39:22.819069
+MINE4250,15,Life on Land,Yes,Addresses mine closure and environmental impact considerations,2024-10-30 19:39:22.819071
+MINE4250,16,Peace Justice and Strong Institutions,Yes,Covers mining legislation and regulatory compliance requirements,2024-10-30 19:39:22.819073
+MINE5020,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:39:40.757882
+MINE5020,8,Decent Work and Economic Growth,Yes,Focuses on mining safety and hazard management in industrial settings,2024-10-30 19:39:40.757890
+MINE5020,9,Industry Innovation and Infrastructure,Yes,Teaches advanced geotechnical assessment methods for mining operations,2024-10-30 19:39:40.757892
+MINE5020,12,Responsible Consumption and Production,Yes,Addresses sustainable and safe mining practices through geotechnical assessment,2024-10-30 19:39:40.757894
+MINE5020,13,Climate Action,No,Not explicitly addressing climate or environmental impacts,2024-10-30 19:39:40.757896
+MINE5020,15,Life on Land,Yes,Includes assessment of ground conditions and environmental hazards in mining operations,2024-10-30 19:39:40.757898
+MINE3230,4,Quality Education,Yes,Course provides technical education in mining engineering with focus on mine planning and optimization,2024-10-30 19:39:46.069152
+MINE3230,8,Decent Work and Economic Growth,Yes,Teaches economic evaluation and optimization of mining operations for sustainable business growth,2024-10-30 19:39:46.069161
+MINE3230,9,Industry Innovation and Infrastructure,Yes,"Covers mining technologies, software tools and innovative planning methods",2024-10-30 19:39:46.069163
+MINE3230,12,Responsible Consumption and Production,Yes,Focuses on sustainable and efficient resource extraction and processing strategies,2024-10-30 19:39:46.069165
+MINE3230,13,Climate Action,No,No explicit coverage of climate impacts or mitigation strategies,2024-10-30 19:39:46.069168
+MINE3230,15,Life on Land,Yes,Includes consideration of environmental impacts through sustainable mine planning,2024-10-30 19:39:46.069170
+MINE3230,17,Partnerships for the Goals,Yes,Emphasizes integration across mining value chain and stakeholder collaboration,2024-10-30 19:39:46.069173
+MINE8115,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering systems,2024-10-30 19:40:00.117654
+MINE8115,8,Decent Work and Economic Growth,Yes,Focuses on mining operations management and process optimization,2024-10-30 19:40:00.117662
+MINE8115,9,Industry Innovation and Infrastructure,Yes,Teaches systems engineering and process management for mining operations,2024-10-30 19:40:00.117665
+MINE8115,12,Responsible Consumption and Production,Yes,Covers analysis of mining systems for operational efficiency and resource management,2024-10-30 19:40:00.117667
+MINE8115,15,Life on Land,Yes,Addresses mining operations' impact on land use and management strategies,2024-10-30 19:40:00.117669
+MECH3110,4,Quality Education,Yes,Course provides technical engineering education in mechanical design,2024-10-30 19:40:03.882602
+MECH3110,8,Decent Work and Economic Growth,Yes,Focuses on industry-standard design practices and professional skill development,2024-10-30 19:40:03.882611
+MECH3110,9,Industry Innovation and Infrastructure,Yes,Teaches mechanical design and innovation for industrial applications,2024-10-30 19:40:03.882613
+MECH3110,12,Responsible Consumption and Production,Yes,Includes prototyping and manufacturing considerations in design process,2024-10-30 19:40:03.882615
+MECH3110,17,Partnerships for the Goals,Yes,Incorporates industry guest lectures and professional standards alignment,2024-10-30 19:40:03.882617
+MINE3220,4,Quality Education,Yes,Course provides technical education in mining engineering and resource estimation,2024-10-30 19:40:19.651288
+MINE3220,8,Decent Work and Economic Growth,Yes,Teaches skills for mining industry employment and economic evaluation,2024-10-30 19:40:19.651296
+MINE3220,9,Industry Innovation and Infrastructure,Yes,Covers advanced mining technology and software tools for resource estimation,2024-10-30 19:40:19.651298
+MINE3220,12,Responsible Consumption and Production,Yes,Focuses on responsible resource estimation and mining planning practices,2024-10-30 19:40:19.651300
+MINE3220,15,Life on Land,Yes,Addresses impact assessment and management of mining operations on land resources,2024-10-30 19:40:19.651303
+MINE3220,17,Partnerships for the Goals,Yes,Incorporates industry standards (JORC code) and professional collaboration,2024-10-30 19:40:19.651305
+MINE8780,3,Good Health and Well-being,Yes,Course covers environmental management impacts on communities and health,2024-10-30 19:40:24.875454
+MINE8780,4,Quality Education,Yes,Provides postgraduate education in environmental management,2024-10-30 19:40:24.875464
+MINE8780,8,Decent Work and Economic Growth,Yes,Addresses mining industry practices and sustainable development,2024-10-30 19:40:24.875466
+MINE8780,9,Industry Innovation and Infrastructure,Yes,Covers state-of-the-art techniques in mining environmental management,2024-10-30 19:40:24.875469
+MINE8780,11,Sustainable Cities and Communities,Yes,Focuses on social/community impacts of mining and management strategies,2024-10-30 19:40:24.875471
+MINE8780,12,Responsible Consumption and Production,Yes,Teaches sustainable mining practices and environmental management,2024-10-30 19:40:24.875473
+MINE8780,13,Climate Action,Yes,Addresses environmental impacts and management of mining operations,2024-10-30 19:40:24.875475
+MINE8780,15,Life on Land,Yes,Covers environmental management and protection of ecosystems in mining contexts,2024-10-30 19:40:24.875477
+MINE8780,16,"Peace, Justice and Strong Institutions",Yes,"Addresses legal, political and ethical context of mining operations",2024-10-30 19:40:24.875479
+MINE8780,17,Partnerships for the Goals,Yes,Includes international context and collaboration in mining management,2024-10-30 19:40:24.875482
+MINE4310,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-30 19:40:28.559957
+MINE4310,8,Decent Work and Economic Growth,Yes,Focuses on mining safety and risk assessment systems,2024-10-30 19:40:28.559965
+MINE4310,9,Industry Innovation and Infrastructure,Yes,Covers innovative technologies and engineering principles in mining infrastructure,2024-10-30 19:40:28.559967
+MINE4310,12,Responsible Consumption and Production,Yes,Addresses sustainable mining practices and tailings dam design,2024-10-30 19:40:28.559968
+MINE4310,15,Life on Land,Yes,Includes environmental considerations in mining operations and ground stability,2024-10-30 19:40:28.559970
+MECH9325,3,Good Health and Well-being,Yes,"Course covers effects of noise on human health, hearing loss, and occupational noise management standards",2024-10-30 19:40:43.820240
+MECH9325,4,Quality Education,Yes,Provides technical education in acoustics and noise control engineering,2024-10-30 19:40:43.820248
+MECH9325,9,"Industry, Innovation and Infrastructure",Yes,Teaches industrial noise control and measurement techniques,2024-10-30 19:40:43.820250
+MECH9325,11,Sustainable Cities and Communities,Yes,Addresses urban noise management and control for community wellbeing,2024-10-30 19:40:43.820253
+MECH9325,12,Responsible Consumption and Production,Yes,Covers design of noise control elements and sound transmission reduction,2024-10-30 19:40:43.820255
+MINE8760,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering and geology,2024-10-30 19:40:47.607695
+MINE8760,8,Decent Work and Economic Growth,Yes,Develops professional skills for mining industry employment,2024-10-30 19:40:47.607701
+MINE8760,9,Industry Innovation and Infrastructure,Yes,Teaches modern geophysical techniques and mining technologies,2024-10-30 19:40:47.607703
+MINE8760,12,Responsible Consumption and Production,Yes,Focuses on geological assessment and resource estimation for responsible mining,2024-10-30 19:40:47.607704
+MINE8760,15,Life on Land,Yes,Includes study of environmental impacts through hydrogeology and geological assessment,2024-10-30 19:40:47.607706
+MINE1010,4,Quality Education,Yes,Course provides technical education in mining engineering at university level,2024-10-30 19:40:51.499834
+MINE1010,8,Decent Work and Economic Growth,Yes,Covers mining industry employment and economic aspects of mineral resources,2024-10-30 19:40:51.499843
+MINE1010,9,Industry Innovation and Infrastructure,Yes,Focuses on mining technologies and industry processes,2024-10-30 19:40:51.499846
+MINE1010,12,Responsible Consumption and Production,Yes,Addresses mineral resource extraction and processing methods,2024-10-30 19:40:51.499848
+MINE1010,13,Climate Action,Yes,Discusses environmental impacts of mining operations,2024-10-30 19:40:51.499850
+MINE1010,15,Life on Land,Yes,Covers environmental impacts and sustainability practices in mining,2024-10-30 19:40:51.499852
+MECH4305,4,Quality Education,Yes,Course provides advanced technical education in engineering at undergraduate/postgraduate level,2024-10-30 19:41:10.636925
+MECH4305,8,Decent Work and Economic Growth,Yes,Course teaches skills for industrial machine monitoring and maintenance which promotes workplace safety and economic efficiency,2024-10-30 19:41:10.636933
+MECH4305,9,Industry Innovation and Infrastructure,Yes,Focuses on vibration analysis for improving industrial machinery reliability and infrastructure maintenance,2024-10-30 19:41:10.636936
+MECH4305,12,Responsible Consumption and Production,Yes,Teaches methods to monitor and maintain machines for longer operational life and better resource efficiency,2024-10-30 19:41:10.636937
+MINE5030,4,Quality Education,Yes,Course provides specialized postgraduate technical education in mining engineering,2024-10-30 19:41:14.540262
+MINE5030,8,Decent Work and Economic Growth,Yes,Focuses on safe and efficient mining operations for industry professionals,2024-10-30 19:41:14.540273
+MINE5030,9,Industry Innovation and Infrastructure,Yes,Teaches advanced engineering techniques for mining excavations and infrastructure,2024-10-30 19:41:14.540276
+MINE5030,12,Responsible Consumption and Production,Yes,Addresses sustainable and safe mining practices through proper excavation techniques,2024-10-30 19:41:14.540278
+MINE5030,13,Climate Action,No,Not directly addressed in course content,2024-10-30 19:41:14.540279
+MINE5030,15,Life on Land,Yes,Covers impact assessment and regional stability considerations for mining operations,2024-10-30 19:41:14.540281
+MINE8101,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:41:18.429307
+MINE8101,8,Decent Work and Economic Growth,Yes,Focuses on mining industry practices and professional development,2024-10-30 19:41:18.429314
+MINE8101,9,Industry Innovation and Infrastructure,Yes,Covers mining engineering principles and technological aspects,2024-10-30 19:41:18.429316
+MINE8101,12,Responsible Consumption and Production,Yes,Addresses sustainable mining practices and resource extraction,2024-10-30 19:41:18.429318
+MINE8101,13,Climate Action,Yes,Includes sustainable mining practices and environmental impact considerations,2024-10-30 19:41:18.429319
+MINE8101,15,Life on Land,Yes,Covers mine closure and environmental impact of mining operations,2024-10-30 19:41:18.429321
+MINE8101,17,Partnerships for the Goals,Yes,Includes industry engagement and professional networking components,2024-10-30 19:41:18.429323
+MINE8140,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:41:32.563042
+MINE8140,8,Decent Work and Economic Growth,Yes,Focuses on mining operations and workplace safety through geomechanics,2024-10-30 19:41:32.563051
+MINE8140,9,Industry Innovation and Infrastructure,Yes,Teaches advanced technical methods for mining infrastructure and operations,2024-10-30 19:41:32.563053
+MINE8140,12,Responsible Consumption and Production,Yes,Addresses sustainable mining practices and ground control management,2024-10-30 19:41:32.563055
+MINE8140,15,Life on Land,Yes,Covers environmental geomechanics and impact management of mining operations,2024-10-30 19:41:32.563058
+MINE2820,6,Clean Water and Sanitation,Yes,Course addresses water usage reduction in mineral processing,2024-10-30 19:41:36.350921
+MINE2820,7,Affordable and Clean Energy,Yes,Course covers energy reduction in crushing and grinding processes,2024-10-30 19:41:36.350931
+MINE2820,9,Industry Innovation and Infrastructure,Yes,Teaches industrial mineral processing and technological innovations,2024-10-30 19:41:36.350933
+MINE2820,12,Responsible Consumption and Production,Yes,Focuses on sustainable processing and waste management,2024-10-30 19:41:36.350935
+MINE2820,13,Climate Action,Yes,Addresses environmental damage minimization and sustainable practices,2024-10-30 19:41:36.350937
+MINE2820,15,Life on Land,Yes,Covers waste management and environmental impact reduction strategies,2024-10-30 19:41:36.350940
+MINE8120,3,Good Health and Well-being,Yes,Course focuses on safety management and hazard prevention in mining operations,2024-10-30 19:41:40.651432
+MINE8120,4,Quality Education,Yes,Provides postgraduate education in mining safety and risk management,2024-10-30 19:41:40.651440
+MINE8120,8,Decent Work and Economic Growth,Yes,Addresses workplace safety and risk management in mining industry,2024-10-30 19:41:40.651442
+MINE8120,9,Industry Innovation and Infrastructure,Yes,Covers mining infrastructure safety and operational risk management,2024-10-30 19:41:40.651444
+MINE8120,12,Responsible Consumption and Production,Yes,Teaches responsible mining practices and risk management,2024-10-30 19:41:40.651446
+MINE8120,13,Climate Action,No,Not explicitly addressed in course content,2024-10-30 19:41:40.651448
+MINE8120,15,Life on Land,Yes,Addresses environmental risks and impacts of mining operations,2024-10-30 19:41:40.651450
+MINE8120,16,Peace Justice and Strong Institutions,Yes,Covers governance and risk management systems in mining operations,2024-10-30 19:41:40.651452
+MINE8860,4,Quality Education,Yes,Course provides postgraduate technical education in mining engineering,2024-10-30 19:41:56.523746
+MINE8860,8,Decent Work and Economic Growth,Yes,Teaches skills for efficient mining operations and productivity,2024-10-30 19:41:56.523753
+MINE8860,9,Industry Innovation and Infrastructure,Yes,Covers advanced technologies and methods in drilling and excavation,2024-10-30 19:41:56.523755
+MINE8860,12,Responsible Consumption and Production,Yes,Addresses mine-to-mill optimization and efficient resource extraction,2024-10-30 19:41:56.523757
+MINE8860,15,Life on Land,Yes,Includes environmental impact management and blast damage control,2024-10-30 19:41:56.523759
+MINE8930,7,Affordable and Clean Energy,Yes,Course focuses on uranium mining for nuclear energy production,2024-10-30 19:42:00.417239
+MINE8930,8,Decent Work and Economic Growth,Yes,"Covers mining operations, safety practices, and industry professional development",2024-10-30 19:42:00.417251
+MINE8930,9,Industry Innovation and Infrastructure,Yes,Teaches technical aspects of uranium mining and processing infrastructure,2024-10-30 19:42:00.417253
+MINE8930,12,Responsible Consumption and Production,Yes,Addresses waste management and sustainable mining practices,2024-10-30 19:42:00.417255
+MINE8930,13,Climate Action,Yes,Nuclear energy production contributes to low-carbon energy solutions,2024-10-30 19:42:00.417257
+MINE8930,15,Life on Land,Yes,Covers environmental protection and impact management in mining operations,2024-10-30 19:42:00.417259
+MINE8930,16,Peace Justice and Strong Institutions,Yes,Addresses regulatory compliance and safety legislation in uranium mining,2024-10-30 19:42:00.417261
+MECH9420,4,Quality Education,Yes,Course provides technical education in engineering at undergraduate and postgraduate levels,2024-10-30 19:42:04.103460
+MECH9420,8,Decent Work and Economic Growth,Yes,Develops skills in composite materials manufacturing and testing relevant to industry,2024-10-30 19:42:04.103470
+MECH9420,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced materials and manufacturing techniques for engineering applications,2024-10-30 19:42:04.103472
+MECH9420,12,Responsible Consumption and Production,Yes,Teaches sustainable materials design and manufacturing processes,2024-10-30 19:42:04.103475
+MECH9420,13,Climate Action,Yes,Lightweight composite materials contribute to fuel efficiency and emissions reduction,2024-10-30 19:42:04.103477
+MINE9910,3,Good Health and Well-being,Yes,Course focuses on mine ventilation and air quality control for worker health and safety,2024-10-30 19:42:22.231843
+MINE9910,4,Quality Education,Yes,Provides postgraduate technical education in mining engineering,2024-10-30 19:42:22.231851
+MINE9910,8,Decent Work and Economic Growth,Yes,Addresses workplace safety and efficient mining operations,2024-10-30 19:42:22.231853
+MINE9910,9,Industry Innovation and Infrastructure,Yes,Teaches modern ventilation system design and monitoring technologies,2024-10-30 19:42:22.231855
+MINE9910,12,Responsible Consumption and Production,Yes,Covers sustainable mining practices and environmental control systems,2024-10-30 19:42:22.231857
+MINE9910,13,Climate Action,Yes,Addresses gas management and emissions control in mining operations,2024-10-30 19:42:22.231859
+MINE8870,4,Quality Education,Yes,Course provides postgraduate engineering education in space resources,2024-10-30 19:42:26.121039
+MINE8870,8,Decent Work and Economic Growth,Yes,Focuses on new mining technologies and business opportunities in space resources,2024-10-30 19:42:26.121047
+MINE8870,9,Industry Innovation and Infrastructure,Yes,Develops technical knowledge for space mining operations and new technologies,2024-10-30 19:42:26.121049
+MINE8870,12,Responsible Consumption and Production,Yes,Addresses resource utilization and extraction in space environments,2024-10-30 19:42:26.121051
+MINE8870,13,Climate Action,Yes,Promotes off-Earth resource extraction as alternative to terrestrial mining,2024-10-30 19:42:26.121053
+MINE8870,17,Partnerships for the Goals,Yes,Involves collaboration between research and industry experts,2024-10-30 19:42:26.121054
+GMAT3150,4,Quality Education,Yes,Provides technical education in surveying and engineering,2024-10-31 09:45:48.110196
+GMAT3150,8,Decent Work and Economic Growth,Yes,Develops professional surveying skills needed for employment,2024-10-31 09:45:48.110200
+GMAT3150,9,Industry Innovation and Infrastructure,Yes,Teaches infrastructure planning and surveying techniques,2024-10-31 09:45:48.110201
+GMAT3150,11,Sustainable Cities and Communities,Yes,Covers urban/rural surveying and infrastructure planning,2024-10-31 09:45:48.110202
+GMAT3150,17,Partnerships for the Goals,Yes,Involves group work and collaborative field projects,2024-10-31 09:45:48.110203
+ELEC2117,4,Quality Education,Yes,Course provides technical education in electrical engineering systems design and modeling,2024-10-31 09:45:52.417857
+ELEC2117,7,Affordable and Clean Energy,Yes,Course teaches electrical systems design which is fundamental to energy systems,2024-10-31 09:45:52.417869
+ELEC2117,9,Industry Innovation and Infrastructure,Yes,Focuses on modern engineering design and simulation tools for infrastructure development,2024-10-31 09:45:52.417873
+ELEC2117,12,Responsible Consumption and Production,Yes,Teaches efficient system design and modeling to optimize performance and reduce waste,2024-10-31 09:45:52.417876
+ELEC2117,13,Climate Action,No,"While energy systems are covered, climate impact is not explicitly addressed",2024-10-31 09:45:52.417880
+ELEC2117,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-10-31 09:45:52.417884
+ELEC9711,7,Affordable and Clean Energy,Yes,Course focuses on power electronics for renewable energy integration and distributed generation,2024-10-31 09:45:56.704725
+ELEC9711,9,Industry Innovation and Infrastructure,Yes,Covers advanced power electronics and grid infrastructure technologies,2024-10-31 09:45:56.704733
+ELEC9711,11,Sustainable Cities and Communities,Yes,Addresses distributed generation and renewable energy integration for sustainable power systems,2024-10-31 09:45:56.704736
+ELEC9711,12,Responsible Consumption and Production,Yes,Focuses on efficient power conversion and renewable energy utilization,2024-10-31 09:45:56.704738
+ELEC9711,13,Climate Action,Yes,Course directly supports transition to renewable energy sources and reduction of fossil fuel dependence,2024-10-31 09:45:56.704740
+ELEC9731,4,Quality Education,Yes,Course provides advanced technical education in control systems engineering at postgraduate level,2024-10-31 09:46:01.697865
+ELEC9731,7,Affordable and Clean Energy,Yes,Includes case studies on control of wind power systems,2024-10-31 09:46:01.697871
+ELEC9731,9,Industry Innovation and Infrastructure,Yes,Teaches advanced control theory critical for industrial automation and infrastructure systems,2024-10-31 09:46:01.697872
+ELEC9731,3,Good Health and Well-being,Yes,Includes biomedical engineering case studies and applications,2024-10-31 09:46:01.697873
+ELEC9731,11,Sustainable Cities and Communities,Yes,Control systems knowledge supports development of smart infrastructure and power systems,2024-10-31 09:46:01.697875
+ELEC9731,12,Responsible Consumption and Production,Yes,Covers optimization and efficiency in control systems for industrial processes,2024-10-31 09:46:01.697876
+ELEC4605,4,Quality Education,Yes,Course provides advanced technical education in quantum engineering and computing,2024-10-31 09:46:05.514126
+ELEC4605,8,Decent Work and Economic Growth,Yes,Aims to prepare students for emerging quantum technology workforce demands,2024-10-31 09:46:05.514139
+ELEC4605,9,Industry Innovation and Infrastructure,Yes,Focuses on quantum computing and devices which represent cutting-edge technological innovation,2024-10-31 09:46:05.514143
+ELEC4605,17,Partnerships for the Goals,No,No explicit mention of partnerships or collaboration beyond the university,2024-10-31 09:46:05.514146
+ELEC4953,4,Quality Education,Yes,Course provides research and technical education in engineering,2024-10-31 09:46:10.940725
+ELEC4953,5,Gender Equality,No,Not enough information,2024-10-31 09:46:10.940735
+ELEC4953,7,Affordable and Clean Energy,No,Not enough information,2024-10-31 09:46:10.940737
+ELEC4953,8,Decent Work and Economic Growth,No,Not enough information,2024-10-31 09:46:10.940739
+ELEC4953,9,Industry Innovation and Infrastructure,Yes,Course focuses on engineering innovation and research,2024-10-31 09:46:10.940742
+ELEC4953,11,Sustainable Cities and Communities,No,Not enough information,2024-10-31 09:46:10.940744
+ELEC4953,12,Responsible Consumption and Production,No,Not enough information,2024-10-31 09:46:10.940746
+ELEC4953,13,Climate Action,No,Not enough information,2024-10-31 09:46:10.940748
+ELEC4953,17,Partnerships for the Goals,No,Not enough information,2024-10-31 09:46:10.940750
+ELEC9741,4,Quality Education,Yes,Course provides advanced technical education in electrical engineering and data science,2024-10-31 09:46:14.624823
+ELEC9741,8,Decent Work and Economic Growth,Yes,Develops professional skills in data science and engineering for industry application,2024-10-31 09:46:14.624827
+ELEC9741,9,Industry Innovation and Infrastructure,Yes,"Focuses on data science, machine learning and technological innovation",2024-10-31 09:46:14.624828
+ELEC9741,12,Responsible Consumption and Production,Yes,Teaches data analysis for optimizing systems and processes,2024-10-31 09:46:14.624829
+ELEC9741,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-10-31 09:46:14.624830
+ELEC4614,7,Affordable and Clean Energy,Yes,"Course focuses on power electronics for renewable energy systems, energy storage, and efficient power conversion",2024-10-31 09:46:19.004172
+ELEC4614,9,Industry Innovation and Infrastructure,Yes,"Covers industrial applications and infrastructure for power electronics in transmission, manufacturing, and transportation",2024-10-31 09:46:19.004185
+ELEC4614,11,Sustainable Cities and Communities,Yes,"Addresses power electronics for electric vehicles, energy efficient lighting, and sustainable urban infrastructure",2024-10-31 09:46:19.004190
+ELEC4614,12,Responsible Consumption and Production,Yes,Emphasizes energy efficiency and quality control in power conversion systems,2024-10-31 09:46:19.004194
+ELEC4614,13,Climate Action,Yes,Course content supports renewable energy integration and electrification of transport for reduced emissions,2024-10-31 09:46:19.004197
+ELEC4614,4,Quality Education,Yes,Provides technical engineering education at university level with hands-on laboratory work,2024-10-31 09:46:19.004201
+ELEC3705,4,Quality Education,Yes,Course provides technical education in quantum engineering at university level,2024-10-31 09:46:22.354472
+ELEC3705,8,Decent Work and Economic Growth,Yes,Course prepares students for emerging quantum technology industries,2024-10-31 09:46:22.354481
+ELEC3705,9,Industry Innovation and Infrastructure,Yes,Focuses on quantum computing and innovative quantum technologies,2024-10-31 09:46:22.354483
+ELEC3705,17,Partnerships for the Goals,No,Not enough evidence of partnerships or collaboration,2024-10-31 09:46:22.354485
+ELEC3114,4,Quality Education,Yes,Course provides technical education in control systems engineering,2024-10-31 09:46:42.793814
+ELEC3114,8,Decent Work and Economic Growth,Yes,Course develops professional engineering skills for industry,2024-10-31 09:46:42.793823
+ELEC3114,9,Industry Innovation and Infrastructure,Yes,Teaches industrial control systems and automation technology,2024-10-31 09:46:42.793826
+ELEC3114,12,Responsible Consumption and Production,Yes,Covers efficient control systems for industrial processes,2024-10-31 09:46:42.793827
+ELEC3114,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-10-31 09:46:42.793829
+ELEC3117,4,Quality Education,Yes,Course provides technical engineering education and develops professional skills,2024-10-31 09:46:46.511761
+ELEC3117,8,Decent Work and Economic Growth,Yes,"Focuses on product development, entrepreneurship and business planning",2024-10-31 09:46:46.511765
+ELEC3117,9,Industry Innovation and Infrastructure,Yes,"Teaches electrical engineering design, innovation and manufacturing processes",2024-10-31 09:46:46.511765
+ELEC3117,12,Responsible Consumption and Production,Yes,"Covers lifecycle costs, sustainable manufacturing and quality design principles",2024-10-31 09:46:46.511766
+ELEC3117,17,Partnerships for the Goals,Yes,Emphasizes teamwork and collaboration in engineering projects,2024-10-31 09:46:46.511767
+ELEC9771,4,Quality Education,Yes,Course provides postgraduate engineering education and research skills development,2024-10-31 09:47:07.158266
+ELEC9771,8,Decent Work and Economic Growth,Yes,Develops professional engineering capabilities and industry-relevant project skills,2024-10-31 09:47:07.158274
+ELEC9771,9,Industry Innovation and Infrastructure,Yes,Students work on engineering design and innovation projects with industry applications,2024-10-31 09:47:07.158276
+ELEC9771,12,Responsible Consumption and Production,Yes,Projects may involve sustainable engineering solutions and responsible design practices,2024-10-31 09:47:07.158278
+ELEC9771,17,Partnerships for the Goals,Yes,Promotes collaboration between academia and industry through supervised projects,2024-10-31 09:47:07.158281
+ELEC9713,7,Affordable and Clean Energy,Yes,"Course focuses on electrical power systems, distribution, and energy efficiency",2024-10-31 09:47:10.433616
+ELEC9713,9,"Industry, Innovation and Infrastructure",Yes,Covers industrial and commercial power infrastructure design and maintenance,2024-10-31 09:47:10.433623
+ELEC9713,11,Sustainable Cities and Communities,Yes,Addresses power systems for buildings and urban infrastructure,2024-10-31 09:47:10.433625
+ELEC9713,12,Responsible Consumption and Production,Yes,Includes energy efficiency and energy management components,2024-10-31 09:47:10.433627
+ELEC9713,13,Climate Action,Yes,Covers energy efficiency and sustainable power systems that reduce emissions,2024-10-31 09:47:10.433629
+ELEC4621,4,Quality Education,Yes,Course provides advanced technical education in digital signal processing at university level,2024-10-31 09:47:14.150611
+ELEC4621,9,Industry Innovation and Infrastructure,Yes,Teaches advanced signal processing techniques essential for modern technological infrastructure,2024-10-31 09:47:14.150624
+ELEC4621,12,Responsible Consumption and Production,Yes,Covers efficient digital processing methods and system optimization,2024-10-31 09:47:14.150626
+ELEC4621,17,Partnerships for the Goals,Yes,Includes professional engineering competencies and industry standards alignment,2024-10-31 09:47:14.150628
+ELEC3115,4,Quality Education,Yes,Course provides technical education in electrical engineering fundamentals,2024-10-31 09:47:39.241908
+ELEC3115,7,Affordable and Clean Energy,Yes,Covers electromagnetic principles essential for power systems and energy transmission,2024-10-31 09:47:39.241921
+ELEC3115,9,Industry Innovation and Infrastructure,Yes,Teaches fundamentals for communications infrastructure and electronic devices,2024-10-31 09:47:39.241925
+ELEC3115,11,Sustainable Cities and Communities,Yes,Knowledge supports development of electrical infrastructure for urban systems,2024-10-31 09:47:39.241928
+ELEC3115,12,Responsible Consumption and Production,Yes,Includes content on power losses and efficiency in electromagnetic systems,2024-10-31 09:47:39.241931
+ELEC2134,4,Quality Education,Yes,Course provides technical education in electrical engineering fundamentals,2024-10-31 09:47:43.101898
+ELEC2134,7,Affordable and Clean Energy,Yes,Course covers AC power systems and circuit analysis essential for energy systems,2024-10-31 09:47:43.101906
+ELEC2134,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental electrical engineering concepts needed for infrastructure development,2024-10-31 09:47:43.101908
+ELEC2134,12,Responsible Consumption and Production,Yes,Includes content on power efficiency and AC power factor analysis,2024-10-31 09:47:43.101909
+ELEC4602,4,Quality Education,Yes,Course provides technical education in microelectronics engineering,2024-10-31 09:48:04.194137
+ELEC4602,8,Decent Work and Economic Growth,Yes,Develops professional skills for industry employment in microelectronics,2024-10-31 09:48:04.194144
+ELEC4602,9,Industry Innovation and Infrastructure,Yes,Focuses on integrated circuit design and manufacturing technology,2024-10-31 09:48:04.194145
+ELEC4602,12,Responsible Consumption and Production,Yes,Teaches efficient electronic design and manufacturing processes,2024-10-31 09:48:04.194147
+ELEC4632,4,Quality Education,Yes,Course provides advanced technical education in computer control systems engineering,2024-10-31 09:48:08.291921
+ELEC4632,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills needed for industrial control systems,2024-10-31 09:48:08.291931
+ELEC4632,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced computer control systems and industrial automation technologies,2024-10-31 09:48:08.291934
+ELEC4632,12,Responsible Consumption and Production,Yes,Covers optimization and efficient control of systems like wind power,2024-10-31 09:48:08.291937
+ELEC4632,13,Climate Action,Yes,Includes case studies on wind power systems and renewable energy management,2024-10-31 09:48:08.291939
+ELEC4632,17,Partnerships for the Goals,Yes,Aligns with professional engineering standards and industry partnerships,2024-10-31 09:48:08.291942
+ELEC9725,4,Quality Education,Yes,Course provides postgraduate technical education in satellite navigation systems,2024-10-31 09:48:25.617306
+ELEC9725,9,Industry Innovation and Infrastructure,Yes,Teaches advanced technological systems and infrastructure related to global navigation,2024-10-31 09:48:25.617317
+ELEC9725,11,Sustainable Cities and Communities,Yes,Covers technology essential for smart transportation and urban positioning systems,2024-10-31 09:48:25.617321
+ELEC9725,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-10-31 09:48:25.617323
+ELEC9725,13,Climate Action,No,Not directly addressed in course content,2024-10-31 09:48:25.617326
+ELEC9725,17,Partnerships for the Goals,Yes,"Covers international collaboration through global navigation satellite systems like GPS, GLONASS, Galileo",2024-10-31 09:48:25.617329
+ELEC2141,4,Quality Education,Yes,Course provides technical education in digital circuit design and engineering,2024-10-31 09:48:29.723094
+ELEC2141,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills for industry employment,2024-10-31 09:48:29.723099
+ELEC2141,9,Industry Innovation and Infrastructure,Yes,Teaches digital systems design fundamental to modern technology infrastructure,2024-10-31 09:48:29.723101
+ELEC2141,12,Responsible Consumption and Production,Yes,Covers efficient digital circuit design and implementation,2024-10-31 09:48:29.723102
+ELEC2141,17,Partnerships for the Goals,Yes,Includes industry-standard tools and practices used globally,2024-10-31 09:48:29.723103
+GMAT3100,4,Quality Education,Yes,Course provides technical education in engineering surveying,2024-10-31 09:48:49.664731
+GMAT3100,8,Decent Work and Economic Growth,Yes,Develops professional surveying skills for industry applications,2024-10-31 09:48:49.664736
+GMAT3100,9,Industry Innovation and Infrastructure,Yes,"Focuses on industrial surveying, infrastructure monitoring and innovative measurement techniques",2024-10-31 09:48:49.664737
+GMAT3100,11,Sustainable Cities and Communities,Yes,"Covers monitoring of buildings, bridges and urban infrastructure",2024-10-31 09:48:49.664738
+GMAT3100,12,Responsible Consumption and Production,Yes,Teaches precise measurement techniques for efficient resource extraction in mining,2024-10-31 09:48:49.664739
+GMAT3100,17,Partnerships for the Goals,Yes,Includes review of international conference papers and professional publications,2024-10-31 09:48:49.664740
+ELEC4604,4,Quality Education,Yes,Course provides technical education in RF circuit design at university level,2024-10-31 09:48:53.292283
+ELEC4604,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills for industry employment,2024-10-31 09:48:53.292294
+ELEC4604,9,Industry Innovation and Infrastructure,Yes,Focuses on RF technology innovation and infrastructure development,2024-10-31 09:48:53.292297
+ELEC4604,12,Responsible Consumption and Production,Yes,Teaches efficient circuit design and modern CAD techniques,2024-10-31 09:48:53.292300
+ELEC4604,17,Partnerships for the Goals,Yes,Includes industry collaboration through CSIRO facility visits,2024-10-31 09:48:53.292302
+ELEC9719,4,Quality Education,Yes,Course provides postgraduate technical education in electrical engineering,2024-10-31 09:48:57.240996
+ELEC9719,7,Affordable and Clean Energy,Yes,"Course focuses on power systems, electricity networks, and renewable energy integration",2024-10-31 09:48:57.241008
+ELEC9719,9,Industry Innovation and Infrastructure,Yes,Teaches modern simulation techniques for power infrastructure and industrial applications,2024-10-31 09:48:57.241011
+ELEC9719,11,Sustainable Cities and Communities,Yes,Addresses power systems and infrastructure for modern electricity networks,2024-10-31 09:48:57.241014
+ELEC9719,12,Responsible Consumption and Production,Yes,Focuses on efficient power systems and renewable energy integration,2024-10-31 09:48:57.241016
+ELEC9719,13,Climate Action,Yes,Course includes content on renewable energy systems and sustainable power infrastructure,2024-10-31 09:48:57.241019
+ELEC9773,4,Quality Education,Yes,Course provides postgraduate engineering education with focus on practical skills and professional development,2024-10-31 09:49:22.022716
+ELEC9773,7,Affordable and Clean Energy,Yes,Course covers power and energy systems as part of electrical engineering discipline,2024-10-31 09:49:22.022721
+ELEC9773,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills and prepares students for industry careers,2024-10-31 09:49:22.022722
+ELEC9773,9,Industry Innovation and Infrastructure,Yes,"Focuses on engineering innovation, infrastructure development and technological advancement",2024-10-31 09:49:22.022723
+ELEC9773,11,Sustainable Cities and Communities,Yes,Addresses power systems and automation that enable sustainable urban infrastructure,2024-10-31 09:49:22.022725
+ELEC9773,12,Responsible Consumption and Production,Yes,Covers energy systems and efficiency in electrical engineering applications,2024-10-31 09:49:22.022726
+ELEC9773,17,Partnerships for the Goals,Yes,Encourages collaboration between students and engagement with industry partners,2024-10-31 09:49:22.022727
+GMAT2500,4,Quality Education,Yes,Course provides technical education in engineering surveying and computations,2024-10-31 09:49:26.629645
+GMAT2500,8,Decent Work and Economic Growth,Yes,Develops professional skills for surveying industry employment,2024-10-31 09:49:26.629652
+GMAT2500,9,Industry Innovation and Infrastructure,Yes,Teaches modern CAD software and infrastructure design techniques,2024-10-31 09:49:26.629654
+GMAT2500,11,Sustainable Cities and Communities,Yes,Covers urban planning through land subdivisions and road design,2024-10-31 09:49:26.629656
+GMAT2500,17,Partnerships for the Goals,Yes,Promotes teamwork and multicultural collaboration through group projects,2024-10-31 09:49:26.629658
+ELEC4613,7,Affordable and Clean Energy,Yes,Course focuses on electric drive systems and energy efficiency in industrial processes and transport,2024-10-31 09:49:32.059568
+ELEC4613,9,"Industry, Innovation and Infrastructure",Yes,"Covers industrial automation, robotics, and advanced motor control systems",2024-10-31 09:49:32.059576
+ELEC4613,11,Sustainable Cities and Communities,Yes,Addresses transport electrification and sustainable industrial processes,2024-10-31 09:49:32.059579
+ELEC4613,12,Responsible Consumption and Production,Yes,Emphasizes energy efficient production systems and sustainable industrial automation,2024-10-31 09:49:32.059581
+ELEC4613,13,Climate Action,Yes,Promotes electrification and energy efficient systems that reduce emissions,2024-10-31 09:49:32.059583
+ELEC9782,4,Quality Education,Yes,Course provides advanced postgraduate education in electrical engineering with clear learning outcomes and assessment structure,2024-10-31 09:49:53.007224
+ELEC9782,7,Affordable and Clean Energy,No,"While electrical engineering related, course does not specifically address energy systems or sustainability",2024-10-31 09:49:53.007231
+ELEC9782,9,"Industry, Innovation and Infrastructure",Yes,Covers advanced technological innovation in quantum engineering and control systems,2024-10-31 09:49:53.007233
+ELEC9782,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-10-31 09:49:53.007235
+ELEC4122,4,Quality Education,Yes,Course provides professional engineering education with focus on ethics and leadership,2024-10-31 09:49:57.864333
+ELEC4122,5,Gender Equality,Yes,Course emphasizes inclusive leadership and addresses unconscious bias,2024-10-31 09:49:57.864342
+ELEC4122,8,Decent Work and Economic Growth,Yes,Prepares students for professional engineering careers with focus on ethical workplace practices,2024-10-31 09:49:57.864345
+ELEC4122,9,Industry Innovation and Infrastructure,Yes,"Covers engineering innovation, technological advancement and professional practice",2024-10-31 09:49:57.864347
+ELEC4122,10,Reduced Inequalities,Yes,Addresses inclusive leadership and equitable practices in engineering,2024-10-31 09:49:57.864349
+ELEC4122,12,Responsible Consumption and Production,Yes,Covers ethical decision-making in engineering processes and products,2024-10-31 09:49:57.864351
+ELEC4122,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on professional ethics, codes of conduct and organizational governance",2024-10-31 09:49:57.864353
+ELEC4122,17,Partnerships for the Goals,Yes,Promotes collaboration between academia and industry through guest lectures and professional partnerships,2024-10-31 09:49:57.864355
+ELEC9772,4,Quality Education,Yes,Course provides postgraduate engineering education with focus on research and technical skills,2024-10-31 09:50:17.503885
+ELEC9772,8,Decent Work and Economic Growth,Yes,Develops professional engineering competencies and industry-relevant project skills,2024-10-31 09:50:17.503891
+ELEC9772,9,Industry Innovation and Infrastructure,Yes,Students work on innovative engineering projects and develop new technical solutions,2024-10-31 09:50:17.503892
+ELEC9772,12,Responsible Consumption and Production,Yes,Projects may involve developing sustainable engineering processes and designs,2024-10-31 09:50:17.503893
+ELEC9772,17,Partnerships for the Goals,Yes,"Promotes collaboration between students, academia and industry through team projects",2024-10-31 09:50:17.503894
+MTRN2500,4,Quality Education,Yes,Course provides technical education in engineering and programming skills,2024-10-31 09:50:20.902374
+MTRN2500,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for engineering careers,2024-10-31 09:50:20.902381
+MTRN2500,9,Industry Innovation and Infrastructure,Yes,Teaches programming for mechatronic systems and industrial automation,2024-10-31 09:50:20.902383
+MTRN2500,12,Responsible Consumption and Production,Yes,Focuses on efficient programming and system control optimization,2024-10-31 09:50:20.902385
+MTRN2500,17,Partnerships for the Goals,Yes,Includes industry visits and professional collaboration tools training,2024-10-31 09:50:20.902386
+ELEC3145,4,Quality Education,Yes,Course provides technical education in engineering with focus on real-time instrumentation,2024-10-31 09:50:24.180748
+ELEC3145,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills needed for industry employment,2024-10-31 09:50:24.180755
+ELEC3145,9,Industry Innovation and Infrastructure,Yes,Teaches industrial control systems and instrumentation technology,2024-10-31 09:50:24.180757
+ELEC3145,12,Responsible Consumption and Production,Yes,Covers efficient system design and control optimization principles,2024-10-31 09:50:24.180759
+ELEC4123,4,Quality Education,Yes,Course provides advanced technical education in electrical engineering design with industry-relevant skills,2024-10-31 09:50:50.610412
+ELEC4123,7,Affordable and Clean Energy,Yes,Includes elective topics on energy systems and power engineering,2024-10-31 09:50:50.610419
+ELEC4123,8,Decent Work and Economic Growth,Yes,Prepares students for professional engineering workforce with industry-ready skills,2024-10-31 09:50:50.610421
+ELEC4123,9,Industry Innovation and Infrastructure,Yes,"Focuses on engineering design, innovation and technical infrastructure development",2024-10-31 09:50:50.610422
+ELEC4123,12,Responsible Consumption and Production,Yes,Teaches sustainable engineering practices and responsible design principles,2024-10-31 09:50:50.610424
+ELEC4123,17,Partnerships for the Goals,Yes,Involves collaboration with industry and professional engineering bodies,2024-10-31 09:50:50.610426
+ELEC4951,4,Quality Education,Yes,Course provides research and technical education at undergraduate level,2024-10-31 09:50:54.756658
+ELEC4951,8,Decent Work and Economic Growth,Yes,Develops professional engineering capabilities and innovation skills,2024-10-31 09:50:54.756668
+ELEC4951,9,Industry Innovation and Infrastructure,Yes,Focuses on engineering research and technological innovation,2024-10-31 09:50:54.756670
+ELEC4951,12,Responsible Consumption and Production,Yes,Includes sustainability considerations in engineering practice,2024-10-31 09:50:54.756672
+ELEC4951,17,Partnerships for the Goals,Yes,Promotes collaboration between academia and industry through research projects,2024-10-31 09:50:54.756674
+ELEC9453,4,Quality Education,Yes,Course provides postgraduate engineering education and research training,2024-10-31 09:51:19.375811
+ELEC9453,8,Decent Work and Economic Growth,Yes,Develops professional engineering capabilities and innovation skills,2024-10-31 09:51:19.375821
+ELEC9453,9,Industry Innovation and Infrastructure,Yes,"Focuses on engineering design, research and development of new technologies",2024-10-31 09:51:19.375824
+ELEC9453,12,Responsible Consumption and Production,Yes,Teaches sustainable engineering practices and professional accountability,2024-10-31 09:51:19.375826
+ELEC9453,17,Partnerships for the Goals,Yes,Promotes collaboration between academia and industry through research projects,2024-10-31 09:51:19.375828
+ELEC4617,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-31 09:51:23.576983
+ELEC4617,7,Affordable and Clean Energy,Yes,Course focuses on power system protection and electrical grid reliability,2024-10-31 09:51:23.576989
+ELEC4617,9,Industry Innovation and Infrastructure,Yes,Teaches protection of critical power infrastructure and emerging technologies,2024-10-31 09:51:23.576990
+ELEC4617,11,Sustainable Cities and Communities,Yes,Addresses reliable power supply systems for urban infrastructure,2024-10-31 09:51:23.576998
+ELEC4617,13,Climate Action,Partial,Includes content on distributed generation which supports renewable energy integration,2024-10-31 09:51:23.577000
+GMAT2550,4,Quality Education,Yes,Course provides technical education in engineering surveying and computations,2024-10-31 09:51:27.364167
+GMAT2550,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced surveying techniques and computations essential for infrastructure development,2024-10-31 09:51:27.364175
+GMAT2550,11,Sustainable Cities and Communities,Yes,Surveying skills taught are fundamental to urban planning and development,2024-10-31 09:51:27.364177
+GMAT2550,17,Partnerships for the Goals,No,No clear evidence of partnerships or collaboration focus,2024-10-31 09:51:27.364179
+ELEC9715,7,Affordable and Clean Energy,Yes,"Course focuses on electricity industry operation, renewable energy integration, and power system control",2024-10-31 09:51:50.300887
+ELEC9715,9,Industry Innovation and Infrastructure,Yes,"Covers electricity infrastructure operation, technological developments, and industry restructuring",2024-10-31 09:51:50.300896
+ELEC9715,11,Sustainable Cities and Communities,Yes,Addresses power system operation and distributed energy resources for urban infrastructure,2024-10-31 09:51:50.300898
+ELEC9715,12,Responsible Consumption and Production,Yes,"Explores economic dispatch, energy management and efficient resource utilization",2024-10-31 09:51:50.300900
+ELEC9715,13,Climate Action,Yes,Covers environmental concerns and integration of renewable energy sources,2024-10-31 09:51:50.300902
+ELEC9715,17,Partnerships for the Goals,Yes,Includes industry collaboration and international electricity market perspectives,2024-10-31 09:51:50.300904
+GMAT4400,11,Sustainable Cities and Communities,Yes,"Course focuses on urban development, residential planning, and sustainable neighborhood design",2024-10-31 09:51:54.908966
+GMAT4400,13,Climate Action,Yes,Includes consideration of climate and environmental factors in site analysis and development,2024-10-31 09:51:54.908972
+GMAT4400,15,Life on Land,Yes,"Covers land use analysis, vegetation assessment, and environmental considerations in development",2024-10-31 09:51:54.908974
+GMAT4400,4,Quality Education,Yes,Provides technical education in land management and urban development,2024-10-31 09:51:54.908975
+GMAT4400,6,Clean Water and Sanitation,Yes,Includes drainage system design and water engineering aspects,2024-10-31 09:51:54.908977
+GMAT4400,9,Industry Innovation and Infrastructure,Yes,"Teaches infrastructure planning including roads, drainage, and urban development",2024-10-31 09:51:54.908979
+GMAT4400,12,Responsible Consumption and Production,Yes,Addresses sustainable land use and development practices,2024-10-31 09:51:54.908980
+GMAT4400,17,Partnerships for the Goals,Yes,Involves collaboration with industry professionals and group project work,2024-10-31 09:51:54.908982
+GMAT9600,4,Quality Education,Yes,Course provides technical education in remote sensing at university level,2024-10-31 09:51:58.394485
+GMAT9600,9,Industry Innovation and Infrastructure,Yes,Teaches advanced remote sensing technology and data analysis techniques,2024-10-31 09:51:58.394493
+GMAT9600,11,Sustainable Cities and Communities,Yes,Covers monitoring and mapping applications for urban and environmental management,2024-10-31 09:51:58.394495
+GMAT9600,13,Climate Action,Yes,Includes monitoring of floods and bushfires through remote sensing,2024-10-31 09:51:58.394497
+GMAT9600,15,Life on Land,Yes,Focuses on Earth observation and environmental monitoring applications,2024-10-31 09:51:58.394499
+GMAT2120,4,Quality Education,Yes,Course provides technical education in engineering surveying and geospatial technology,2024-10-31 09:52:02.383940
+GMAT2120,9,"Industry, Innovation and Infrastructure",Yes,Teaches modern surveying instrumentation and infrastructure measurement techniques,2024-10-31 09:52:02.383948
+GMAT2120,11,Sustainable Cities and Communities,Yes,Course develops skills for precise infrastructure and construction measurements essential for urban development,2024-10-31 09:52:02.383950
+GMAT2120,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-10-31 09:52:02.383952
+GMAT2120,13,Climate Action,No,Not directly addressed in course content,2024-10-31 09:52:02.383954
+GMAT2120,17,Partnerships for the Goals,No,Not directly addressed in course content,2024-10-31 09:52:02.383956
+ELEC9732,4,Quality Education,Yes,Course provides advanced technical education in nonlinear control engineering at postgraduate level,2024-10-31 09:52:22.205097
+ELEC9732,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced control systems theory critical for industrial automation and infrastructure,2024-10-31 09:52:22.205107
+ELEC9732,12,Responsible Consumption and Production,Yes,Course covers optimal control and system efficiency optimization,2024-10-31 09:52:22.205110
+ELEC9732,13,Climate Action,No,Not directly addressed in course content,2024-10-31 09:52:22.205112
+ELEC9732,17,Partnerships for the Goals,No,No explicit focus on partnerships or collaboration,2024-10-31 09:52:22.205115
+ELEC2133,4,Quality Education,Yes,Course provides technical education in electrical engineering with hands-on laboratory experience,2024-10-31 09:52:27.472547
+ELEC2133,7,Affordable and Clean Energy,Yes,Course teaches electronics fundamentals crucial for energy systems and power electronics,2024-10-31 09:52:27.472554
+ELEC2133,9,Industry Innovation and Infrastructure,Yes,Develops skills in analog electronics essential for industrial and infrastructure applications,2024-10-31 09:52:27.472556
+ELEC2133,12,Responsible Consumption and Production,Yes,Lab work emphasizes safety and proper use of electronic equipment and resources,2024-10-31 09:52:27.472558
+ELEC2133,17,Partnerships for the Goals,Yes,Course involves industry-aligned engineering competencies and professional accreditation standards,2024-10-31 09:52:27.472559
+ELEC4611,7,Affordable and Clean Energy,Yes,"Course focuses on electrical power systems, equipment, and infrastructure for energy transmission and distribution",2024-10-31 09:52:53.501154
+ELEC4611,9,"Industry, Innovation and Infrastructure",Yes,"Covers critical power infrastructure, technical innovations in power systems, and industrial equipment",2024-10-31 09:52:53.501162
+ELEC4611,11,Sustainable Cities and Communities,Yes,Addresses power system infrastructure essential for sustainable urban development,2024-10-31 09:52:53.501165
+ELEC4611,12,Responsible Consumption and Production,Yes,Teaches efficient power system design and equipment maintenance for sustainable energy use,2024-10-31 09:52:53.501167
+ELEC4611,13,Climate Action,Yes,Includes content on renewable energy integration and power system modernization,2024-10-31 09:52:53.501169
+ELEC4611,4,Quality Education,Yes,Provides advanced technical education in electrical engineering,2024-10-31 09:52:53.501172
+ELEC4611,8,Decent Work and Economic Growth,Yes,Develops skills needed for employment in power engineering sector,2024-10-31 09:52:53.501174
+GMAT1110,4,Quality Education,Yes,Course provides technical education in engineering surveying and geospatial technologies,2024-10-31 09:52:57.067237
+GMAT1110,9,"Industry, Innovation and Infrastructure",Yes,Teaches modern surveying techniques and technologies for infrastructure development,2024-10-31 09:52:57.067245
+GMAT1110,11,Sustainable Cities and Communities,Yes,Covers mapping and geospatial data for urban planning and development,2024-10-31 09:52:57.067247
+GMAT1110,15,Life on Land,Yes,Includes terrain mapping and geographic information systems for land management,2024-10-31 09:52:57.067249
+GMAT1110,17,Partnerships for the Goals,Yes,Uses industry standard tools and technologies preparing students for professional practice,2024-10-31 09:52:57.067251
+MTRN4230,4,Quality Education,Yes,Course provides advanced technical education in robotics and engineering,2024-10-31 09:53:00.392347
+MTRN4230,8,Decent Work and Economic Growth,Yes,Prepares students for professional roles in mechatronics industry,2024-10-31 09:53:00.392357
+MTRN4230,9,Industry Innovation and Infrastructure,Yes,Focuses on industrial robotics applications and technological innovation,2024-10-31 09:53:00.392360
+MTRN4230,12,Responsible Consumption and Production,Yes,Teaches efficient use of industrial robots and automation systems,2024-10-31 09:53:00.392362
+ELEC9764,4,Quality Education,Yes,Course provides advanced technical education in space systems engineering at postgraduate level,2024-10-31 09:53:20.515915
+ELEC9764,9,Industry Innovation and Infrastructure,Yes,Focuses on ground segment infrastructure and satellite communications technology,2024-10-31 09:53:20.515922
+ELEC9764,11,Sustainable Cities and Communities,Yes,Covers satellite communication systems that support modern infrastructure and connectivity,2024-10-31 09:53:20.515924
+ELEC9764,13,Climate Action,Yes,Satellite systems enable climate monitoring and environmental data collection,2024-10-31 09:53:20.515926
+ELEC9764,17,Partnerships for the Goals,Yes,Involves industry partnerships and international space mission collaboration,2024-10-31 09:53:20.515928
+ELEC3104,4,Quality Education,Yes,Course provides technical education in digital signal processing and engineering,2024-10-31 09:53:25.276817
+ELEC3104,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills for industry employment,2024-10-31 09:53:25.276830
+ELEC3104,9,Industry Innovation and Infrastructure,Yes,Teaches digital signal processing fundamentals crucial for technological infrastructure,2024-10-31 09:53:25.276834
+ELEC3104,12,Responsible Consumption and Production,Yes,Covers efficient digital systems design and implementation,2024-10-31 09:53:25.276837
+MTRN4231,4,Quality Education,Yes,Course provides advanced technical education in robotics engineering,2024-10-31 09:53:45.412733
+MTRN4231,8,Decent Work and Economic Growth,Yes,Focuses on industrial robotics applications and prepares students for professional work,2024-10-31 09:53:45.412739
+MTRN4231,9,Industry Innovation and Infrastructure,Yes,Teaches advanced robotics technology and industrial automation systems,2024-10-31 09:53:45.412741
+MTRN4231,12,Responsible Consumption and Production,Yes,Teaches efficient automation systems for industrial production,2024-10-31 09:53:45.412743
+MTRN4231,17,Partnerships for the Goals,Yes,Involves team-based projects and collaboration skills development,2024-10-31 09:53:45.412744
+ELEC4631,4,Quality Education,Yes,Course provides technical education in electrical engineering and control systems at undergraduate/postgraduate level,2024-10-31 09:53:50.282435
+ELEC4631,7,Affordable and Clean Energy,Yes,Course teaches control systems which are essential for efficient energy systems and renewable energy integration,2024-10-31 09:53:50.282440
+ELEC4631,9,Industry Innovation and Infrastructure,Yes,Teaches modern control theory and industrial automation technologies essential for infrastructure development,2024-10-31 09:53:50.282442
+ELEC4631,11,Sustainable Cities and Communities,Yes,Control systems knowledge supports development of smart infrastructure and automated urban systems,2024-10-31 09:53:50.282443
+ELEC4631,12,Responsible Consumption and Production,Yes,Control systems enable more efficient and optimized industrial processes and resource usage,2024-10-31 09:53:50.282448
+GMAT2700,4,Quality Education,Yes,Course provides technical education in geodesy and geospatial engineering,2024-10-31 09:54:07.642140
+GMAT2700,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced positioning and mapping technologies essential for infrastructure development,2024-10-31 09:54:07.642149
+GMAT2700,11,Sustainable Cities and Communities,Yes,Covers reference systems and mapping crucial for urban planning and development,2024-10-31 09:54:07.642152
+GMAT2700,13,Climate Action,Yes,Addresses Earth monitoring and reference frames used in climate science,2024-10-31 09:54:07.642154
+GMAT2700,17,Partnerships for the Goals,Yes,Incorporates international reference systems and standards for global coordination,2024-10-31 09:54:07.642156
+ELEC4612,7,Affordable and Clean Energy,Yes,Course focuses on power system analysis and electrical grid systems,2024-10-31 09:54:12.035849
+ELEC4612,9,Industry Innovation and Infrastructure,Yes,Teaches technical aspects of power infrastructure and system analysis,2024-10-31 09:54:12.035861
+ELEC4612,11,Sustainable Cities and Communities,Yes,Covers power distribution systems essential for sustainable urban infrastructure,2024-10-31 09:54:12.035865
+ELEC4612,12,Responsible Consumption and Production,Yes,Includes economic dispatch and power system control for efficient energy use,2024-10-31 09:54:12.035867
+ELEC4612,13,Climate Action,Yes,Power systems knowledge enables transition to clean energy infrastructure,2024-10-31 09:54:12.035868
+ELEC4612,4,Quality Education,Yes,Provides advanced technical education in engineering,2024-10-31 09:54:12.035871
+ELEC4612,8,Decent Work and Economic Growth,Yes,Prepares students for careers in power engineering industry,2024-10-31 09:54:12.035873
+ELEC3105,7,Affordable and Clean Energy,Yes,"Course focuses on electrical energy systems, renewable energy sources, and energy efficiency",2024-10-31 09:54:32.738606
+ELEC3105,8,Decent Work and Economic Growth,Yes,Links energy consumption to economic growth and discusses industrial applications,2024-10-31 09:54:32.738614
+ELEC3105,9,Industry Innovation and Infrastructure,Yes,"Covers electrical infrastructure, power systems, and industrial applications of electrical machines",2024-10-31 09:54:32.738617
+ELEC3105,11,Sustainable Cities and Communities,Yes,Addresses electrical energy distribution and utilization in urban infrastructure,2024-10-31 09:54:32.738619
+ELEC3105,12,Responsible Consumption and Production,Yes,Discusses energy efficiency and sustainable energy consumption patterns,2024-10-31 09:54:32.738620
+ELEC3105,13,Climate Action,Yes,Covers renewable energy sources and environmental aspects of energy generation,2024-10-31 09:54:32.738623
+GMAT4150,4,Quality Education,Yes,Course provides technical education in surveying and geospatial engineering,2024-10-31 09:54:37.130164
+GMAT4150,8,Decent Work and Economic Growth,Yes,Students learn project management and professional skills including time tracking and costing,2024-10-31 09:54:37.130177
+GMAT4150,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced surveying technology and infrastructure mapping techniques,2024-10-31 09:54:37.130180
+GMAT4150,11,Sustainable Cities and Communities,Yes,Students learn techniques for mapping and documenting built environment,2024-10-31 09:54:37.130183
+GMAT4150,12,Responsible Consumption and Production,Yes,Students learn efficient resource use through project planning and management,2024-10-31 09:54:37.130186
+GMAT4150,17,Partnerships for the Goals,Yes,Course involves collaboration with industry and potential publication of findings,2024-10-31 09:54:37.130189
+ELEC9781,4,Quality Education,Yes,Course provides advanced technical education in electrical engineering at postgraduate level,2024-10-31 09:54:41.414630
+ELEC9781,7,Affordable and Clean Energy,Yes,"Focuses on renewable energy, energy storage systems, and clean energy technologies",2024-10-31 09:54:41.414641
+ELEC9781,9,Industry Innovation and Infrastructure,Yes,Covers advanced electrical engineering topics and emerging technologies,2024-10-31 09:54:41.414643
+ELEC9781,11,Sustainable Cities and Communities,Yes,Addresses urban planning for EV charging infrastructure and sustainable transportation,2024-10-31 09:54:41.414646
+ELEC9781,12,Responsible Consumption and Production,Yes,Teaches energy storage management and efficient resource utilization,2024-10-31 09:54:41.414648
+ELEC9781,13,Climate Action,Yes,Focuses on renewable energy integration and net-zero emission goals,2024-10-31 09:54:41.414651
+ELEC9765,4,Quality Education,Yes,Course provides postgraduate education in space law and engineering,2024-10-31 09:55:02.510120
+ELEC9765,9,"Industry, Innovation and Infrastructure",Yes,Covers space technology regulations and infrastructure development,2024-10-31 09:55:02.510130
+ELEC9765,11,Sustainable Cities and Communities,Yes,Addresses space regulations and environmental implications,2024-10-31 09:55:02.510132
+ELEC9765,12,Responsible Consumption and Production,Yes,Covers environmental aspects of space law including space debris,2024-10-31 09:55:02.510135
+ELEC9765,16,"Peace, Justice and Strong Institutions",Yes,Focuses on international space law frameworks and treaties,2024-10-31 09:55:02.510137
+ELEC9765,17,Partnerships for the Goals,Yes,Addresses international cooperation and regulatory frameworks for space activities,2024-10-31 09:55:02.510140
+ELEC1111,4,Quality Education,Yes,Course provides fundamental electrical engineering education and technical skills,2024-10-31 09:55:06.510900
+ELEC1111,7,Affordable and Clean Energy,Yes,Course teaches fundamentals of electrical circuits and power systems,2024-10-31 09:55:06.510913
+ELEC1111,9,Industry Innovation and Infrastructure,Yes,Develops engineering capabilities for electrical infrastructure and innovation,2024-10-31 09:55:06.510917
+ELEC1111,12,Responsible Consumption and Production,Yes,Covers energy efficiency and power management concepts,2024-10-31 09:55:06.510920
+ELEC1111,13,Climate Action,No,Not enough direct focus on climate change or environmental impacts,2024-10-31 09:55:06.510924
+ELEC4445,4,Quality Education,Yes,Course provides technical and entrepreneurial education for engineering students,2024-10-31 09:55:26.574596
+ELEC4445,8,Decent Work and Economic Growth,Yes,"Focuses on startup creation, entrepreneurship, and economic opportunities",2024-10-31 09:55:26.574607
+ELEC4445,9,Industry Innovation and Infrastructure,Yes,Teaches innovation through entrepreneurship and high-tech venture creation,2024-10-31 09:55:26.574610
+ELEC4445,12,Responsible Consumption and Production,No,Not enough information,2024-10-31 09:55:26.574612
+ELEC4445,17,Partnerships for the Goals,No,Not enough information,2024-10-31 09:55:26.574614
+ELEC9701,4,Quality Education,Yes,Course provides advanced technical education in microelectronics engineering at postgraduate level,2024-10-31 09:55:30.564905
+ELEC9701,8,Decent Work and Economic Growth,Yes,Develops advanced technical skills needed for employment in semiconductor industry,2024-10-31 09:55:30.564910
+ELEC9701,9,Industry Innovation and Infrastructure,Yes,Focuses on integrated circuit design and microelectronics technology advancement,2024-10-31 09:55:30.564912
+ELEC9701,12,Responsible Consumption and Production,Yes,Teaches efficient circuit design and technology scaling for sustainable electronics,2024-10-31 09:55:30.564913
+ELEC4952,4,Quality Education,Yes,Course provides research and technical education in electrical engineering,2024-10-31 09:55:54.224348
+ELEC4952,8,Decent Work and Economic Growth,Yes,Develops professional engineering capabilities and industry-relevant skills,2024-10-31 09:55:54.224361
+ELEC4952,9,Industry Innovation and Infrastructure,Yes,"Focus on engineering innovation, research and development of new technologies",2024-10-31 09:55:54.224365
+ELEC4952,12,Responsible Consumption and Production,Yes,Teaches sustainable engineering practices and professional accountability,2024-10-31 09:55:54.224368
+ELEC4952,17,Partnerships for the Goals,Yes,Promotes collaboration between academia and industry through research projects,2024-10-31 09:55:54.224370
+ELEC9716,3,Good Health and Well-being,Yes,Course focuses on electrical safety and protecting human life from electrical hazards,2024-10-31 09:55:58.840132
+ELEC9716,4,Quality Education,Yes,Provides postgraduate technical education in electrical safety engineering,2024-10-31 09:55:58.840141
+ELEC9716,7,Affordable and Clean Energy,Yes,Covers safety aspects of emerging energy sources and power systems,2024-10-31 09:55:58.840144
+ELEC9716,8,Decent Work and Economic Growth,Yes,Addresses workplace safety and professional standards in electrical installations,2024-10-31 09:55:58.840147
+ELEC9716,9,Industry Innovation and Infrastructure,Yes,Teaches safety standards for industrial electrical infrastructure and innovations,2024-10-31 09:55:58.840149
+ELEC9716,11,Sustainable Cities and Communities,Yes,Covers safety in domestic and commercial electrical installations,2024-10-31 09:55:58.840152
+ELEC9716,12,Responsible Consumption and Production,Yes,Addresses safe electrical systems and prevention of accidents/fires,2024-10-31 09:55:58.840154
+ELEC9714,7,Affordable and Clean Energy,Yes,"Course focuses on electricity industry planning, economics and clean energy transition including renewable energy deployment",2024-10-31 09:56:03.752812
+ELEC9714,9,Industry Innovation and Infrastructure,Yes,"Covers electricity infrastructure planning, technological developments and industry restructuring",2024-10-31 09:56:03.752826
+ELEC9714,11,Sustainable Cities and Communities,Yes,Addresses distributed energy resources and power system planning for sustainable electricity supply,2024-10-31 09:56:03.752829
+ELEC9714,13,Climate Action,Yes,Explicitly covers climate change impacts on electricity industry and clean energy transition,2024-10-31 09:56:03.752831
+ELEC9714,4,Quality Education,Yes,Provides postgraduate technical education in electrical engineering and energy systems,2024-10-31 09:56:03.752834
+ELEC9714,8,Decent Work and Economic Growth,Yes,Covers electricity market economics and industry investment planning,2024-10-31 09:56:03.752837
+ELEC9714,12,Responsible Consumption and Production,Yes,Addresses sustainable electricity generation and consumption through planning and economics,2024-10-31 09:56:03.752840
+ELEC4603,4,Quality Education,Yes,Course provides advanced technical education in electrical engineering and semiconductor physics,2024-10-31 09:56:31.809080
+ELEC4603,7,Affordable and Clean Energy,Yes,Covers photovoltaic cells and semiconductor technologies relevant to solar energy,2024-10-31 09:56:31.809086
+ELEC4603,9,Industry Innovation and Infrastructure,Yes,Focuses on semiconductor device fabrication and integrated circuit technologies,2024-10-31 09:56:31.809087
+ELEC4603,12,Responsible Consumption and Production,Yes,Teaches microfabrication processes and efficient electronic device design,2024-10-31 09:56:31.809087
+ELEC4603,13,Climate Action,Yes,Includes content on solar cells and energy-efficient electronic devices,2024-10-31 09:56:31.809088
+GMAT3700,4,Quality Education,Yes,Course provides technical education in engineering and geospatial technologies,2024-10-31 09:56:35.193652
+GMAT3700,9,Industry Innovation and Infrastructure,Yes,Teaches advanced positioning and geodetic infrastructure technologies,2024-10-31 09:56:35.193660
+GMAT3700,11,Sustainable Cities and Communities,Yes,Supports precise positioning for urban infrastructure and planning,2024-10-31 09:56:35.193663
+GMAT3700,17,Partnerships for the Goals,Yes,"Covers international geodetic services and global partnerships (IAG, IGS, GGOS)",2024-10-31 09:56:35.193665
+GMAT3220,4,Quality Education,Yes,Course provides technical education in geospatial information systems,2024-10-31 09:56:38.979932
+GMAT3220,9,Industry Innovation and Infrastructure,Yes,Teaches modern GIS technology and infrastructure mapping skills,2024-10-31 09:56:38.979944
+GMAT3220,11,Sustainable Cities and Communities,Yes,GIS skills support urban planning and community development,2024-10-31 09:56:38.979947
+GMAT3220,13,Climate Action,Yes,GIS tools can be used for environmental monitoring and climate analysis,2024-10-31 09:56:38.979950
+GMAT3220,15,Life on Land,Yes,Course covers spatial analysis tools used in land management and ecosystem mapping,2024-10-31 09:56:38.979952
+GMAT3220,17,Partnerships for the Goals,Yes,Teaches web-based GIS for information sharing and collaboration,2024-10-31 09:56:38.979955
+MTRN3020,4,Quality Education,Yes,Course provides technical education in engineering control systems and mechatronics,2024-10-31 09:57:01.603966
+MTRN3020,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced control systems and automation technology essential for industrial applications,2024-10-31 09:57:01.603977
+MTRN3020,12,Responsible Consumption and Production,Yes,Focuses on efficient control systems that optimize resource usage and system performance,2024-10-31 09:57:01.603979
+MTRN3020,13,Climate Action,No,Not enough information about environmental impacts or sustainability,2024-10-31 09:57:01.603982
+MTRN3020,17,Partnerships for the Goals,No,Not enough information about broader collaborations or partnerships,2024-10-31 09:57:01.603984
+ELEC9703,4,Quality Education,Yes,Course provides advanced technical education in microsystems engineering at postgraduate level,2024-10-31 09:57:05.495665
+ELEC9703,8,Decent Work and Economic Growth,Yes,Course develops skills for high-tech industry employment in MEMS/microsystems,2024-10-31 09:57:05.495673
+ELEC9703,9,Industry Innovation and Infrastructure,Yes,Focuses on cutting-edge microsystems technology and innovation in manufacturing,2024-10-31 09:57:05.495675
+ELEC9703,12,Responsible Consumption and Production,Yes,Teaches microfabrication techniques that enable more efficient/miniaturized devices,2024-10-31 09:57:05.495676
+ELEC9712,7,Affordable and Clean Energy,Yes,Course focuses on high voltage power systems and electrical energy transmission which is crucial for energy infrastructure,2024-10-31 09:57:26.899066
+ELEC9712,9,Industry Innovation and Infrastructure,Yes,Course covers technical innovation in power system equipment and infrastructure design,2024-10-31 09:57:26.899071
+ELEC9712,11,Sustainable Cities and Communities,Yes,Content relates to power distribution systems that enable sustainable urban development,2024-10-31 09:57:26.899072
+ELEC9712,12,Responsible Consumption and Production,Yes,Teaches efficient power transmission and loss reduction in energy systems,2024-10-31 09:57:26.899073
+ELEC9712,13,Climate Action,Yes,Course enables clean energy transmission which supports climate action goals,2024-10-31 09:57:26.899074
+ELEC9712,4,Quality Education,Yes,Provides advanced technical education in power engineering,2024-10-31 09:57:26.899075
+ELEC9712,8,Decent Work and Economic Growth,Yes,Develops professional skills for energy sector employment,2024-10-31 09:57:26.899075
+MTRN9400,4,Quality Education,Yes,Course provides advanced technical education in robotics and control systems,2024-10-31 09:57:30.070319
+MTRN9400,8,Decent Work and Economic Growth,Yes,Develops skills for industrial automation and robotics applications,2024-10-31 09:57:30.070324
+MTRN9400,9,Industry Innovation and Infrastructure,Yes,Teaches advanced robotics control systems relevant to industrial automation,2024-10-31 09:57:30.070326
+MTRN9400,12,Responsible Consumption and Production,Yes,Focuses on efficient control systems that can optimize industrial processes,2024-10-31 09:57:30.070327
+MTRN3500,4,Quality Education,Yes,Course provides technical education in computing and mechatronics engineering,2024-10-31 09:57:34.071988
+MTRN3500,9,"Industry, Innovation and Infrastructure",Yes,Teaches industrial programming and control systems for mechatronic applications,2024-10-31 09:57:34.072000
+MTRN3500,11,Sustainable Cities and Communities,Yes,Develops software for autonomous vehicles and smart transportation systems,2024-10-31 09:57:34.072003
+MTRN3500,12,Responsible Consumption and Production,No,Not enough information,2024-10-31 09:57:34.072005
+MTRN3500,13,Climate Action,No,Not enough information,2024-10-31 09:57:34.072008
+MTRN3500,17,Partnerships for the Goals,No,Not enough information,2024-10-31 09:57:34.072012
+GMAT4220,4,Quality Education,Yes,Course provides advanced technical education in geospatial information systems,2024-10-31 09:57:58.230747
+GMAT4220,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced spatial analysis and database management technologies,2024-10-31 09:57:58.230759
+GMAT4220,11,Sustainable Cities and Communities,Yes,Covers land information systems and spatial analysis for urban planning,2024-10-31 09:57:58.230762
+GMAT4220,13,Climate Action,Yes,Includes terrain analysis and elevation modeling relevant for environmental monitoring,2024-10-31 09:57:58.230765
+GMAT4220,15,Life on Land,Yes,Addresses geographic information systems for land management and environmental analysis,2024-10-31 09:57:58.230767
+GMAT4220,16,"Peace, Justice and Strong Institutions",Yes,Includes crime scene investigation applications and land ownership systems,2024-10-31 09:57:58.230770
+GMAT4220,17,Partnerships for the Goals,Yes,Involves working with spatial data across different organizations and government departments,2024-10-31 09:57:58.230773
+ELEC3111,7,Affordable and Clean Energy,Yes,Course focuses on distributed energy generation including renewable sources and grid integration,2024-10-31 09:58:02.638900
+ELEC3111,9,Industry Innovation and Infrastructure,Yes,"Covers power distribution systems, grid modernization and technical innovations",2024-10-31 09:58:02.638910
+ELEC3111,11,Sustainable Cities and Communities,Yes,Addresses distributed energy systems for urban infrastructure and community microgrids,2024-10-31 09:58:02.638913
+ELEC3111,12,Responsible Consumption and Production,Yes,Teaches efficient energy generation and distribution systems,2024-10-31 09:58:02.638915
+ELEC3111,13,Climate Action,Yes,Focuses on low-carbon energy sources and renewable technologies,2024-10-31 09:58:02.638917
+ELEC3111,4,Quality Education,Yes,Provides technical engineering education in sustainable energy systems,2024-10-31 09:58:02.638920
+GMAT3420,4,Quality Education,Yes,Course provides technical education in surveying and land law,2024-10-31 09:58:20.655914
+GMAT3420,11,Sustainable Cities and Communities,Yes,Focuses on cadastral surveying and land management which is essential for urban planning and development,2024-10-31 09:58:20.655923
+GMAT3420,16,"Peace, Justice and Strong Institutions",Yes,"Covers legal systems, land law, and professional ethics in land management",2024-10-31 09:58:20.655925
+GMAT3420,17,Partnerships for the Goals,Yes,Emphasizes multidisciplinary teamwork and professional collaboration,2024-10-31 09:58:20.655928
+MTRN3100,4,Quality Education,Yes,Course provides technical education in robotics engineering,2024-10-31 09:58:24.346670
+MTRN3100,8,Decent Work and Economic Growth,Yes,Develops professional skills in mechatronics and robotics design,2024-10-31 09:58:24.346678
+MTRN3100,9,Industry Innovation and Infrastructure,Yes,Teaches advanced robotics technology and innovation,2024-10-31 09:58:24.346681
+MTRN3100,12,Responsible Consumption and Production,Yes,Includes hands-on design and fabrication with consideration for materials and resources,2024-10-31 09:58:24.346683
+MTRN3100,17,Partnerships for the Goals,Yes,Promotes teamwork and collaboration through group projects,2024-10-31 09:58:24.346684
+ELEC4123,4,Quality Education,Yes,Course provides advanced technical education in electrical engineering design,2024-10-31 09:58:29.666719
+ELEC4123,5,Gender Equality,No,No specific gender equality components mentioned,2024-10-31 09:58:29.666725
+ELEC4123,7,Affordable and Clean Energy,Yes,Includes energy systems and power systems design components,2024-10-31 09:58:29.666726
+ELEC4123,8,Decent Work and Economic Growth,Yes,Prepares students for professional engineering workforce with industry-relevant skills,2024-10-31 09:58:29.666727
+ELEC4123,9,Industry Innovation and Infrastructure,Yes,Focuses on engineering design and innovation in electrical infrastructure,2024-10-31 09:58:29.666728
+ELEC4123,11,Sustainable Cities and Communities,Yes,Covers power systems and energy infrastructure relevant to sustainable development,2024-10-31 09:58:29.666730
+ELEC4123,12,Responsible Consumption and Production,Yes,Includes sustainable engineering practice and design principles,2024-10-31 09:58:29.666730
+ELEC4123,17,Partnerships for the Goals,Yes,Involves collaboration with industry and Engineers Australia accreditation,2024-10-31 09:58:29.666731
+ELEC9452,4,Quality Education,Yes,Course provides postgraduate engineering education and research skills development,2024-10-31 09:59:01.396597
+ELEC9452,8,Decent Work and Economic Growth,Yes,Develops professional engineering capabilities for industry,2024-10-31 09:59:01.396604
+ELEC9452,9,Industry Innovation and Infrastructure,Yes,"Focus on engineering innovation, design and research methods",2024-10-31 09:59:01.396606
+ELEC9452,12,Responsible Consumption and Production,Yes,Teaches sustainable engineering practices and professional accountability,2024-10-31 09:59:01.396607
+ELEC9452,17,Partnerships for the Goals,Yes,Promotes collaboration between academia and industry through research projects,2024-10-31 09:59:01.396609
+ELEC3106,4,Quality Education,Yes,Course provides technical education in electronics engineering at undergraduate level,2024-10-31 09:59:05.314517
+ELEC3106,7,Affordable and Clean Energy,Yes,"Covers power supplies, solar cells, and energy-efficient circuit design",2024-10-31 09:59:05.314527
+ELEC3106,9,Industry Innovation and Infrastructure,Yes,Teaches electronic circuit design and technology for industrial applications,2024-10-31 09:59:05.314529
+ELEC3106,12,Responsible Consumption and Production,Yes,"Addresses reliability, power efficiency, and sustainable electronic design principles",2024-10-31 09:59:05.314531
+ELEC9762,4,Quality Education,Yes,Course provides postgraduate engineering education in space mission development,2024-10-31 09:59:20.261174
+ELEC9762,8,Decent Work and Economic Growth,Yes,Develops professional skills for space industry employment,2024-10-31 09:59:20.261181
+ELEC9762,9,Industry Innovation and Infrastructure,Yes,Teaches technical innovation and infrastructure development for space missions,2024-10-31 09:59:20.261183
+ELEC9762,11,Sustainable Cities and Communities,No,Not explicitly addressed in course content,2024-10-31 09:59:20.261184
+ELEC9762,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-10-31 09:59:20.261186
+ELEC9762,13,Climate Action,No,Not explicitly covered in course material,2024-10-31 09:59:20.261188
+ELEC9762,17,Partnerships for the Goals,Yes,Course develops skills for international space mission collaboration,2024-10-31 09:59:20.261190
+ELEC2911,7,Affordable and Clean Energy,Yes,"Course focuses on renewable energy systems, power engineering for solar and wind energy integration",2024-10-31 09:59:24.675541
+ELEC2911,9,"Industry, Innovation and Infrastructure",Yes,"Covers electrical infrastructure, power systems, and grid integration of renewables",2024-10-31 09:59:24.675553
+ELEC2911,11,Sustainable Cities and Communities,Yes,Addresses power distribution and infrastructure for sustainable energy systems,2024-10-31 09:59:24.675556
+ELEC2911,13,Climate Action,Yes,Focus on transitioning from fossil fuels to renewable energy sources for electricity generation,2024-10-31 09:59:24.675558
+ELEC2911,4,Quality Education,Yes,Provides technical engineering education in renewable energy systems,2024-10-31 09:59:24.675561
+ELEC2911,12,Responsible Consumption and Production,Yes,Teaches efficient power systems and sustainable energy production methods,2024-10-31 09:59:24.675564
+GMAT3500,4,Quality Education,Yes,Course provides technical education in remote sensing and photogrammetry at university level,2024-10-31 09:59:37.769615
+GMAT3500,9,Industry Innovation and Infrastructure,Yes,Teaches advanced technological skills in remote sensing and digital mapping systems,2024-10-31 09:59:37.769623
+GMAT3500,11,Sustainable Cities and Communities,Yes,Course covers mapping and environmental monitoring techniques for urban and land management,2024-10-31 09:59:37.769626
+GMAT3500,13,Climate Action,Yes,Remote sensing applications enable environmental monitoring and climate change tracking,2024-10-31 09:59:37.769628
+GMAT3500,15,Life on Land,Yes,Course includes environmental monitoring and Earth observation techniques for land management,2024-10-31 09:59:37.769630
+MTRN4010,4,Quality Education,Yes,Course provides advanced technical education in autonomous systems and robotics engineering,2024-10-31 09:59:41.451319
+MTRN4010,9,"Industry, Innovation and Infrastructure",Yes,Focuses on developing autonomous systems and sensor technologies for industrial applications,2024-10-31 09:59:41.451330
+MTRN4010,11,Sustainable Cities and Communities,Yes,Teaches technologies relevant to autonomous vehicles and smart city infrastructure,2024-10-31 09:59:41.451333
+MTRN4010,12,Responsible Consumption and Production,Yes,Includes optimization techniques for efficient resource use in autonomous systems,2024-10-31 09:59:41.451335
