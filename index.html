@@ -54,7 +54,55 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .disclaimer-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
+        .disclaimer-button {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            text-align: left;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .disclaimer-button:hover {
+            background-color: #e9ecef;
+        }
+
+        .disclaimer-content {
+            display: none;  /* Starts collapsed */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+
+        .disclaimer-content p {
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .disclaimer-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .disclaimer-content li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        .disclaimer-button.active {
+            background-color: #e9ecef;
+        }
         .button-group {
             margin-bottom: 30px;
         }
@@ -239,20 +287,25 @@
         </div>
     </div>
 
+
     <div id="main-content">
-        <div id="plot-container"></div>
-        <div class="disclaimer">
-            <h4>Disclaimer</h4>
-            <p>This visualization represents a high-level, automated mapping of UN Sustainable Development Goals (SDGs) across courses. Please note:</p>
-            <ul>
-                <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
-                <li>The mapping is likely incomplete and may contain inaccuracies</li>
-                <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
-                <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
-                <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes</li>
-                <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum mapping initiatives</li>
-            </ul>
+        <div class="disclaimer-container">
+            <button class="disclaimer-button" onclick="toggleDisclaimer()">
+                ▼ Disclaimer
+            </button>
+            <div class="disclaimer-content" id="disclaimerContent" style="display: none;">
+                <p>This visualization represents a high-level, automated mapping of UN Sustainable Development Goals (SDGs) across courses. Please note:</p>
+                <ul>
+                    <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+                    <li>The mapping is likely incomplete and may contain inaccuracies</li>
+                    <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+                    <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
+                    <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes</li>
+                    <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum mapping initiatives</li>
+                </ul>
+            </div>
         </div>
+        <div id="plot-container"></div>
     </div>
 
 
@@ -293,6 +346,26 @@
                 height: container.offsetHeight
             };
         }
+
+        function toggleDisclaimer() {
+            const content = document.getElementById('disclaimerContent');
+            const button = document.querySelector('.disclaimer-button');
+            
+            if (content.style.display === '' || content.style.display === 'block') {
+                content.style.display = 'none';
+                button.innerHTML = '▼ Disclaimer';
+                button.classList.remove('active');
+            } else {
+                content.style.display = 'block';
+                button.innerHTML = '▲ Disclaimer';
+                button.classList.add('active');
+            }
+        }
+
+        // Optional: Show disclaimer by default when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleDisclaimer();
+        });
 
         function getDisciplines(data) {
             const disciplines = new Set(
@@ -583,6 +656,7 @@
 
         // Initial load
         loadData().then(data => createRadar(data));
+        toggleDisclaimer(); 
     </script>
 </body>
 </html>
