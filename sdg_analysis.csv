@@ -1,0 +1,1313 @@
+course_code,sdg_number,sdg_name,addressed,justification,timestamp
+SOLA2540,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic systems and renewable energy technology,2024-10-29 23:19:35.241874
+SOLA2540,8,Decent Work and Economic Growth,Yes,Includes economic analysis and payback calculations for PV systems,2024-10-29 23:19:35.241877
+SOLA2540,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills in PV system design and implementation,2024-10-29 23:19:35.241878
+SOLA2540,11,Sustainable Cities and Communities,Yes,Addresses sustainable energy solutions for communities through PV systems,2024-10-29 23:19:35.241878
+SOLA2540,12,Responsible Consumption and Production,Yes,Focuses on sustainable energy production and system efficiency,2024-10-29 23:19:35.241879
+SOLA2540,13,Climate Action,Yes,Directly addresses climate change through clean energy alternatives to fossil fuels,2024-10-29 23:19:35.241879
+SOLA2540,17,Partnerships for the Goals,Yes,Includes compliance with Australian standards and industry partnerships,2024-10-29 23:19:35.241886
+SOLA1070,4,Quality Education,Yes,Course provides undergraduate engineering education in sustainable energy systems,2024-10-29 23:19:39.538403
+SOLA1070,7,Affordable and Clean Energy,Yes,"Focuses on renewable energy technologies, energy efficiency, and sustainable power systems",2024-10-29 23:19:39.538408
+SOLA1070,9,Industry Innovation and Infrastructure,Yes,Teaches design of energy infrastructure and modern energy technologies,2024-10-29 23:19:39.538410
+SOLA1070,11,Sustainable Cities and Communities,Yes,Addresses energy infrastructure design for communities with focus on sustainability,2024-10-29 23:19:39.538411
+SOLA1070,12,Responsible Consumption and Production,Yes,Covers energy efficiency and sustainable resource use,2024-10-29 23:19:39.538412
+SOLA1070,13,Climate Action,Yes,Directly addresses climate change impacts and CO2 emissions reduction,2024-10-29 23:19:39.538414
+SOLA1070,17,Partnerships for the Goals,Yes,Includes multiple guest lecturers from different expertise areas collaborating on sustainability education,2024-10-29 23:19:39.538415
+SOLA5051,4,Quality Education,Yes,Course provides postgraduate/undergraduate education in environmental assessment methods,2024-10-29 23:35:02.311913
+SOLA5051,7,Affordable and Clean Energy,Yes,Focuses on life cycle assessment of renewable energy systems and technologies,2024-10-29 23:35:02.311919
+SOLA5051,9,Industry Innovation and Infrastructure,Yes,Teaches industrial assessment methods and software tools for environmental impact analysis,2024-10-29 23:35:02.311921
+SOLA5051,12,Responsible Consumption and Production,Yes,Centers on life cycle assessment methodology for analyzing environmental impacts of products and processes,2024-10-29 23:35:02.311923
+SOLA5051,13,Climate Action,Yes,Addresses environmental impact assessment and sustainability of energy systems,2024-10-29 23:35:02.311925
+SOLA5051,17,Partnerships for the Goals,Yes,Includes industry guest lectures and collaboration with experts from academia and sustainability firms,2024-10-29 23:35:02.311928
+SOLA5053,7,Affordable and Clean Energy,Yes,"Course focuses on wind energy technology, design, and implementation for power generation",2024-10-29 23:35:06.920249
+SOLA5053,8,Decent Work and Economic Growth,Yes,Covers wind farm economics and industry development,2024-10-29 23:35:06.920257
+SOLA5053,9,Industry Innovation and Infrastructure,Yes,Teaches technical aspects of wind turbine design and grid integration,2024-10-29 23:35:06.920259
+SOLA5053,11,Sustainable Cities and Communities,Yes,Addresses community impacts and environmental considerations of wind farms,2024-10-29 23:35:06.920261
+SOLA5053,12,Responsible Consumption and Production,Yes,Focuses on renewable energy production and sustainable power generation,2024-10-29 23:35:06.920262
+SOLA5053,13,Climate Action,Yes,Wind energy directly contributes to reducing carbon emissions and fighting climate change,2024-10-29 23:35:06.920264
+SOLA5053,4,Quality Education,Yes,Provides technical engineering education at university level,2024-10-29 23:35:06.920266
+SOLA5053,17,Partnerships for the Goals,Yes,Covers integration of wind power into existing energy systems and infrastructure,2024-10-29 23:35:06.920267
+SOLA9120,4,Quality Education,Yes,Provides advanced technical education in photovoltaic manufacturing at postgraduate level,2024-10-29 23:35:10.709832
+SOLA9120,7,Affordable and Clean Energy,Yes,Focuses on solar cell manufacturing and improving production efficiency,2024-10-29 23:35:10.709841
+SOLA9120,9,Industry Innovation and Infrastructure,Yes,Teaches industrial manufacturing processes and engineering improvements for solar technology,2024-10-29 23:35:10.709843
+SOLA9120,12,Responsible Consumption and Production,Yes,Covers cost modeling and production optimization for sustainable manufacturing,2024-10-29 23:35:10.709845
+SOLA9120,13,Climate Action,Yes,Advances solar energy technology which helps combat climate change,2024-10-29 23:35:10.709846
+SOLA5057,7,Affordable and Clean Energy,Yes,Course focuses on energy efficiency technologies and methods to reduce energy consumption,2024-10-29 23:35:15.420831
+SOLA5057,11,Sustainable Cities and Communities,Yes,"Covers urban design, public transport, and building energy efficiency",2024-10-29 23:35:15.420838
+SOLA5057,12,Responsible Consumption and Production,Yes,Teaches energy management and efficient resource use in industrial and residential settings,2024-10-29 23:35:15.420840
+SOLA5057,13,Climate Action,Yes,Directly addresses greenhouse gas emissions reduction through energy efficiency measures,2024-10-29 23:35:15.420841
+SOLA5057,4,Quality Education,Yes,Provides technical education in energy systems and sustainability,2024-10-29 23:35:15.420843
+SOLA5057,9,Industry Innovation and Infrastructure,Yes,Covers industrial systems optimization and energy infrastructure improvements,2024-10-29 23:35:15.420845
+SOLA5057,17,Partnerships for the Goals,No,No clear evidence of partnership development or global collaboration focus,2024-10-29 23:35:15.420847
+SOLA5057,8,Decent Work and Economic Growth,Yes,Addresses economic viability of energy efficiency measures and cost analysis,2024-10-29 23:35:15.420848
+SOLA9104,1,No Poverty,Yes,Course addresses energy access for disadvantaged communities and rural areas,2024-10-29 23:35:20.031402
+SOLA9104,4,Quality Education,Yes,Provides postgraduate technical education in renewable energy systems,2024-10-29 23:35:20.031409
+SOLA9104,7,Affordable and Clean Energy,Yes,Focuses on hybrid renewable energy systems design and implementation for energy access,2024-10-29 23:35:20.031412
+SOLA9104,9,Industry Innovation and Infrastructure,Yes,Teaches design and optimization of energy infrastructure systems,2024-10-29 23:35:20.031413
+SOLA9104,10,Reduced Inequalities,Yes,Addresses energy access for disadvantaged and remote communities,2024-10-29 23:35:20.031415
+SOLA9104,11,Sustainable Cities and Communities,Yes,Develops sustainable energy solutions for communities,2024-10-29 23:35:20.031417
+SOLA9104,12,Responsible Consumption and Production,Yes,Teaches optimization of energy systems and resource management,2024-10-29 23:35:20.031419
+SOLA9104,13,Climate Action,Yes,Promotes renewable energy systems to reduce carbon emissions,2024-10-29 23:35:20.031420
+SOLA9104,17,Partnerships for the Goals,Yes,Includes project management and implementation models for sustainable development,2024-10-29 23:35:20.031421
+SOLA2051,4,Quality Education,Yes,Course provides technical engineering education in photovoltaics and renewable energy,2024-10-29 23:35:23.628199
+SOLA2051,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic systems and renewable energy technology,2024-10-29 23:35:23.628206
+SOLA2051,9,Industry Innovation and Infrastructure,Yes,"Students learn about design, testing and implementation of solar technology systems",2024-10-29 23:35:23.628208
+SOLA2051,12,Responsible Consumption and Production,Yes,Course teaches sustainable energy production through solar power systems,2024-10-29 23:35:23.628210
+SOLA2051,13,Climate Action,Yes,Training in renewable energy technologies contributes to climate change mitigation,2024-10-29 23:35:23.628212
+SOLA4953,4,Quality Education,Yes,Course provides research and technical education in engineering at undergraduate level,2024-10-29 23:35:27.429106
+SOLA4953,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic and renewable energy engineering research,2024-10-29 23:35:27.429112
+SOLA4953,9,"Industry, Innovation and Infrastructure",Yes,Students develop innovative engineering solutions and conduct research projects,2024-10-29 23:35:27.429114
+SOLA4953,12,Responsible Consumption and Production,Yes,Research in renewable energy contributes to sustainable production systems,2024-10-29 23:35:27.429116
+SOLA4953,13,Climate Action,Yes,Focus on renewable energy research supports climate change mitigation,2024-10-29 23:35:27.429118
+SOLA4953,17,Partnerships for the Goals,Yes,"Course involves collaboration between students, supervisors and industry partners",2024-10-29 23:35:27.429120
+SOLA9451,4,Quality Education,Yes,Course provides postgraduate research and engineering education,2024-10-29 23:35:30.819759
+SOLA9451,7,Affordable and Clean Energy,Yes,Focus on photovoltaic and renewable energy engineering research,2024-10-29 23:35:30.819767
+SOLA9451,9,Industry Innovation and Infrastructure,Yes,Develops engineering solutions and innovative processes through research projects,2024-10-29 23:35:30.819769
+SOLA9451,12,Responsible Consumption and Production,Yes,Research in renewable energy contributes to sustainable production systems,2024-10-29 23:35:30.819771
+SOLA9451,13,Climate Action,Yes,Research in photovoltaic and renewable energy addresses climate change mitigation,2024-10-29 23:35:30.819773
+SOLA5056,1,No Poverty,Yes,Course addresses energy access for disadvantaged communities and poverty alleviation,2024-10-29 23:35:36.514770
+SOLA5056,4,Quality Education,Yes,Course provides technical education in sustainable energy systems,2024-10-29 23:35:36.514779
+SOLA5056,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-29 23:35:36.514781
+SOLA5056,7,Affordable and Clean Energy,Yes,Focus on renewable energy systems and energy access for developing countries,2024-10-29 23:35:36.514783
+SOLA5056,8,Decent Work and Economic Growth,Yes,Addresses productive energy use and economic prosperity through energy services,2024-10-29 23:35:36.514785
+SOLA5056,9,Industry Innovation and Infrastructure,Yes,Covers energy infrastructure development and technical innovation,2024-10-29 23:35:36.514787
+SOLA5056,10,Reduced Inequalities,Yes,Focuses on improving access to energy services for disadvantaged communities,2024-10-29 23:35:36.514789
+SOLA5056,11,Sustainable Cities and Communities,Yes,Addresses sustainable energy solutions for rural and urban communities,2024-10-29 23:35:36.514791
+SOLA5056,12,Responsible Consumption and Production,Yes,Emphasizes sustainable and appropriate technology selection,2024-10-29 23:35:36.514793
+SOLA5056,13,Climate Action,Yes,Focus on renewable energy and climate resilience,2024-10-29 23:35:36.514794
+SOLA5056,17,Partnerships for the Goals,Yes,Involves working with communities and stakeholders in developing countries,2024-10-29 23:35:36.514796
+SOLA5050,7,Affordable and Clean Energy,Yes,"Course focuses on renewable energy policy, markets, and integration of clean energy technologies",2024-10-29 23:35:40.917849
+SOLA5050,8,Decent Work and Economic Growth,Yes,"Examines renewable energy industry development, business models and market structures",2024-10-29 23:35:40.917858
+SOLA5050,9,Industry Innovation and Infrastructure,Yes,"Covers technological innovation, infrastructure planning and energy market transformation",2024-10-29 23:35:40.917860
+SOLA5050,11,Sustainable Cities and Communities,Yes,Addresses distributed energy systems and integration of renewables into urban infrastructure,2024-10-29 23:35:40.917862
+SOLA5050,12,Responsible Consumption and Production,Yes,Explores sustainable energy transitions and clean energy deployment,2024-10-29 23:35:40.917864
+SOLA5050,13,Climate Action,Yes,Directly addresses climate policy and greenhouse gas emissions reduction strategies,2024-10-29 23:35:40.917866
+SOLA5050,17,Partnerships for the Goals,Yes,Examines international climate agreements and multi-stakeholder policy processes,2024-10-29 23:35:40.917868
+SOLA9105,4,Quality Education,Yes,Course provides postgraduate engineering education with focus on technical skills and teamwork,2024-10-29 23:35:45.221102
+SOLA9105,7,Affordable and Clean Energy,Yes,Course focuses on renewable energy system design and implementation,2024-10-29 23:35:45.221109
+SOLA9105,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills for designing renewable energy infrastructure,2024-10-29 23:35:45.221111
+SOLA9105,11,Sustainable Cities and Communities,Yes,Addresses renewable energy solutions for built environment,2024-10-29 23:35:45.221112
+SOLA9105,12,Responsible Consumption and Production,Yes,Focuses on sustainable energy production systems,2024-10-29 23:35:45.221113
+SOLA9105,13,Climate Action,Yes,Course directly addresses climate change through renewable energy solutions,2024-10-29 23:35:45.221115
+SOLA9105,17,Partnerships for the Goals,Yes,Includes team-based projects and industry collaboration through design tasks,2024-10-29 23:35:45.221116
+SOLA3020,4,Quality Education,Yes,Course provides technical education in photovoltaic manufacturing at university level,2024-10-29 23:35:48.905148
+SOLA3020,7,Affordable and Clean Energy,Yes,Course focuses on solar cell technology and manufacturing processes,2024-10-29 23:35:48.905156
+SOLA3020,9,Industry Innovation and Infrastructure,Yes,Teaches industrial manufacturing processes and optimization for solar technology,2024-10-29 23:35:48.905158
+SOLA3020,12,Responsible Consumption and Production,Yes,Covers sustainable manufacturing and lean production principles,2024-10-29 23:35:48.905160
+SOLA3020,13,Climate Action,Yes,Solar energy technology directly contributes to climate change mitigation,2024-10-29 23:35:48.905163
+SOLA4012,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic system design and implementation for renewable energy generation,2024-10-29 23:35:53.373256
+SOLA4012,8,Decent Work and Economic Growth,Yes,Prepares students for employment in growing PV industry and covers business/economic aspects,2024-10-29 23:35:53.373264
+SOLA4012,9,Industry Innovation and Infrastructure,Yes,Teaches technical innovation in PV systems and infrastructure development,2024-10-29 23:35:53.373266
+SOLA4012,11,Sustainable Cities and Communities,Yes,Addresses urban and remote area PV installations for sustainable energy solutions,2024-10-29 23:35:53.373268
+SOLA4012,12,Responsible Consumption and Production,Yes,Focuses on sustainable energy production and optimal system design,2024-10-29 23:35:53.373270
+SOLA4012,13,Climate Action,Yes,Directly addresses reducing greenhouse gas emissions through renewable energy,2024-10-29 23:35:53.373272
+SOLA4012,17,Partnerships for the Goals,Yes,"Involves industry standards, clean energy council accreditation, and professional collaboration",2024-10-29 23:35:53.373274
+SOLA4952,4,Quality Education,Yes,Course provides research and technical education at undergraduate level with focus on engineering methods,2024-10-29 23:36:13.074426
+SOLA4952,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic and renewable energy engineering research,2024-10-29 23:36:13.074437
+SOLA4952,9,"Industry, Innovation and Infrastructure",Yes,Students develop innovative solutions and conduct research in engineering infrastructure,2024-10-29 23:36:13.074439
+SOLA4952,12,Responsible Consumption and Production,Yes,Research in renewable energy contributes to sustainable production systems,2024-10-29 23:36:13.074440
+SOLA4952,13,Climate Action,Yes,Focus on renewable energy research supports climate action through clean energy development,2024-10-29 23:36:13.074442
+SOLA4952,17,Partnerships for the Goals,Yes,"Course involves collaboration between students, supervisors and industry for research projects",2024-10-29 23:36:13.074444
+SOLA2060,4,Quality Education,Yes,Course provides technical education in electronic devices and renewable energy engineering,2024-10-29 23:36:16.558002
+SOLA2060,7,Affordable and Clean Energy,Yes,Course covers solar cells and renewable energy applications,2024-10-29 23:36:16.558011
+SOLA2060,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental electronic devices and circuit analysis relevant to modern infrastructure,2024-10-29 23:36:16.558013
+SOLA2060,12,Responsible Consumption and Production,Yes,Focuses on renewable energy technologies and sustainable electronics,2024-10-29 23:36:16.558016
+SOLA2060,13,Climate Action,Yes,Course content relates to renewable energy technologies that help combat climate change,2024-10-29 23:36:16.558018
+SOLA9001,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic systems and renewable energy technology,2024-10-29 23:36:20.182097
+SOLA9001,11,Sustainable Cities and Communities,Yes,Teaches design of sustainable power systems for communities,2024-10-29 23:36:20.182103
+SOLA9001,12,Responsible Consumption and Production,Yes,Covers lifecycle costs and sustainable energy production methods,2024-10-29 23:36:20.182105
+SOLA9001,13,Climate Action,Yes,Directly addresses climate change through clean energy solutions,2024-10-29 23:36:20.182107
+SOLA9001,4,Quality Education,Yes,Provides technical education in renewable energy engineering,2024-10-29 23:36:20.182109
+SOLA9001,9,Industry Innovation and Infrastructure,Yes,Teaches design and implementation of modern energy infrastructure,2024-10-29 23:36:20.182110
+SOLA9103,7,Affordable and Clean Energy,Yes,"Course focuses on renewable energy systems modeling, analysis and performance assessment",2024-10-29 23:36:37.542994
+SOLA9103,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills for renewable energy infrastructure development and analysis,2024-10-29 23:36:37.543001
+SOLA9103,11,Sustainable Cities and Communities,Yes,Addresses renewable energy systems for sustainable power generation in communities,2024-10-29 23:36:37.543003
+SOLA9103,13,Climate Action,Yes,Course directly supports transition to renewable energy to combat climate change,2024-10-29 23:36:37.543005
+SOLA9103,4,Quality Education,Yes,Provides advanced technical education in renewable energy engineering,2024-10-29 23:36:37.543007
+SOLA9103,12,Responsible Consumption and Production,Yes,Focuses on efficient renewable energy production and system optimization,2024-10-29 23:36:37.543009
+SOLA9101,4,Quality Education,Yes,Course provides advanced technical education in photovoltaic engineering at postgraduate level,2024-10-29 23:36:43.139536
+SOLA9101,7,Affordable and Clean Energy,Yes,Course focuses on photovoltaic technology and solar cell efficiency improvements,2024-10-29 23:36:43.139541
+SOLA9101,9,Industry Innovation and Infrastructure,Yes,Covers advanced manufacturing and technological innovations in solar cell development,2024-10-29 23:36:43.139542
+SOLA9101,11,Sustainable Cities and Communities,Yes,Addresses solar energy technology for sustainable power generation,2024-10-29 23:36:43.139543
+SOLA9101,12,Responsible Consumption and Production,Yes,Teaches efficient energy conversion and sustainable manufacturing of solar cells,2024-10-29 23:36:43.139544
+SOLA9101,13,Climate Action,Yes,Solar energy technology directly contributes to reducing carbon emissions,2024-10-29 23:36:43.139545
+SOLA3010,7,Affordable and Clean Energy,Yes,Course focuses on renewable energy through photovoltaics and energy efficient building design,2024-10-29 23:36:47.169077
+SOLA3010,11,Sustainable Cities and Communities,Yes,Teaches low energy building design and urban solar integration,2024-10-29 23:36:47.169086
+SOLA3010,12,Responsible Consumption and Production,Yes,Focuses on reducing energy consumption in buildings through efficient design,2024-10-29 23:36:47.169088
+SOLA3010,13,Climate Action,Yes,Addresses greenhouse gas reduction through energy efficient buildings and renewable energy,2024-10-29 23:36:47.169090
+SOLA3010,4,Quality Education,Yes,Provides technical education in sustainable building and renewable energy systems,2024-10-29 23:36:47.169091
+SOLA3010,9,Industry Innovation and Infrastructure,Yes,Teaches innovative building technologies and infrastructure solutions for sustainability,2024-10-29 23:36:47.169093
+SOLA5052,7,Affordable and Clean Energy,Yes,Course focuses on bioenergy and renewable fuels technologies,2024-10-29 23:37:11.753497
+SOLA5052,9,Industry Innovation and Infrastructure,Yes,Covers industrial processes for biofuel production and energy conversion,2024-10-29 23:37:11.753505
+SOLA5052,11,Sustainable Cities and Communities,Yes,Addresses sustainable energy production from waste and biomass resources,2024-10-29 23:37:11.753507
+SOLA5052,12,Responsible Consumption and Production,Yes,Teaches sustainable use of biomass resources and waste-to-energy conversion,2024-10-29 23:37:11.753509
+SOLA5052,13,Climate Action,Yes,Focuses on renewable energy alternatives to fossil fuels,2024-10-29 23:37:11.753510
+SOLA5052,15,Life on Land,Yes,Covers sustainable use of forestry and agricultural resources for energy,2024-10-29 23:37:11.753513
+SOLA9453,4,Quality Education,Yes,Course provides postgraduate engineering education and research training,2024-10-29 23:37:15.130577
+SOLA9453,7,Affordable and Clean Energy,Yes,Focus on photovoltaic and renewable energy engineering research,2024-10-29 23:37:15.130584
+SOLA9453,9,Industry Innovation and Infrastructure,Yes,Students develop engineering solutions and innovations through research projects,2024-10-29 23:37:15.130585
+SOLA9453,12,Responsible Consumption and Production,Yes,Research in renewable energy contributes to sustainable production systems,2024-10-29 23:37:15.130588
+SOLA9453,13,Climate Action,Yes,Focus on renewable energy technology development addresses climate change mitigation,2024-10-29 23:37:15.130589
+SOLA4951,4,Quality Education,Yes,Course provides research and technical education at undergraduate level,2024-10-29 23:37:18.305002
+SOLA4951,7,Affordable and Clean Energy,Yes,Focus on photovoltaic and renewable energy engineering research,2024-10-29 23:37:18.305013
+SOLA4951,9,Industry Innovation and Infrastructure,Yes,Develops engineering research and innovation capabilities through thesis projects,2024-10-29 23:37:18.305016
+SOLA4951,12,Responsible Consumption and Production,Yes,Research in renewable energy contributes to sustainable production systems,2024-10-29 23:37:18.305019
+SOLA4951,13,Climate Action,Yes,Research in renewable energy technologies addresses climate change mitigation,2024-10-29 23:37:18.305022
+SOLA9452,4,Quality Education,Yes,Course provides postgraduate engineering education and research training,2024-10-29 23:42:11.884442
+SOLA9452,7,Affordable and Clean Energy,Yes,Focus on photovoltaic and renewable energy engineering research,2024-10-29 23:42:11.884449
+SOLA9452,9,"Industry, Innovation and Infrastructure",Yes,Students develop engineering solutions and conduct research projects,2024-10-29 23:42:11.884451
+SOLA9452,12,Responsible Consumption and Production,Yes,Research in renewable energy systems promotes sustainable production,2024-10-29 23:42:11.884453
+SOLA9452,13,Climate Action,Yes,Course focuses on renewable energy technology development which addresses climate change,2024-10-29 23:42:11.884454
+SOLA9452,17,Partnerships for the Goals,Yes,"Involves collaboration between students, faculty and industry for research projects",2024-10-29 23:42:11.884456
+CVEN4050,4,Quality Education,Yes,Course provides undergraduate engineering research and thesis preparation skills,2024-10-30 10:16:25.258678
+CVEN4050,9,Industry Innovation and Infrastructure,Yes,Students analyze and critique infrastructure systems through research projects,2024-10-30 10:16:25.258685
+CVEN4050,11,Sustainable Cities and Communities,Yes,Course includes sustainability topics and infrastructure system analysis,2024-10-30 10:16:25.258687
+CVEN4050,12,Responsible Consumption and Production,Yes,Sustainability principles are covered in course content and project work,2024-10-30 10:16:25.258689
+CVEN4050,17,Partnerships for the Goals,Yes,Students learn professional skills for industry collaboration and project management,2024-10-30 10:16:25.258691
+CVEN3502,3,Good Health and Well-being,Yes,Course focuses on water and wastewater treatment which directly impacts public health,2024-10-30 10:16:29.714517
+CVEN3502,4,Quality Education,Yes,Provides technical engineering education in water systems,2024-10-30 10:16:29.714526
+CVEN3502,6,Clean Water and Sanitation,Yes,"Core focus on water treatment, wastewater management and sanitation systems",2024-10-30 10:16:29.714528
+CVEN3502,9,Industry Innovation and Infrastructure,Yes,Covers design and operation of water infrastructure systems,2024-10-30 10:16:29.714529
+CVEN3502,11,Sustainable Cities and Communities,Yes,Addresses urban water management and infrastructure for sustainable communities,2024-10-30 10:16:29.714532
+CVEN3502,12,Responsible Consumption and Production,Yes,Includes water management concepts and effluent reuse,2024-10-30 10:16:29.714534
+CVEN3502,14,Life Below Water,Yes,Covers wastewater treatment and environmental implications of discharge,2024-10-30 10:16:29.714536
+CVEN3502,15,Life on Land,Yes,Addresses environmental impacts of water systems and treatment,2024-10-30 10:16:29.714537
+CVEN3401,9,"Industry, Innovation and Infrastructure",Yes,Course covers transport infrastructure design and engineering,2024-10-30 10:16:33.700633
+CVEN3401,11,Sustainable Cities and Communities,Yes,Focus on sustainable transport systems and highway engineering for urban development,2024-10-30 10:16:33.700640
+CVEN3401,13,Climate Action,Yes,Sustainable transport planning helps reduce emissions and environmental impact,2024-10-30 10:16:33.700642
+CVEN3401,4,Quality Education,Yes,Provides technical education in transport engineering and infrastructure design,2024-10-30 10:16:33.700644
+CVEN3401,3,Good Health and Well-being,Yes,Safe transport infrastructure design promotes road safety and public health,2024-10-30 10:16:33.700646
+CVEN3401,8,Decent Work and Economic Growth,Yes,Transport infrastructure enables economic development and connectivity,2024-10-30 10:16:33.700648
+CVEN3401,12,Responsible Consumption and Production,Yes,Course promotes sustainable infrastructure development practices,2024-10-30 10:16:33.700649
+CVEN4309,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-30 10:16:37.186564
+CVEN4309,9,Industry Innovation and Infrastructure,Yes,Teaches design and engineering of sustainable building structures,2024-10-30 10:16:37.186568
+CVEN4309,11,Sustainable Cities and Communities,Yes,Focuses on sustainable timber construction for buildings and infrastructure,2024-10-30 10:16:37.186568
+CVEN4309,12,Responsible Consumption and Production,Yes,Promotes sustainable use of timber materials in construction,2024-10-30 10:16:37.186569
+CVEN4309,13,Climate Action,Yes,Emphasizes sustainable timber as an alternative to carbon-intensive building materials,2024-10-30 10:16:37.186569
+CVEN4309,15,Life on Land,Yes,Promotes sustainable forestry through focus on timber as renewable construction material,2024-10-30 10:16:37.186570
+CVEN4202,4,Quality Education,Yes,Course provides advanced technical education in geotechnical engineering at university level,2024-10-30 10:16:41.072739
+CVEN4202,7,Affordable and Clean Energy,Yes,Focuses on geothermal energy systems and ground source heat pump technology,2024-10-30 10:16:41.072747
+CVEN4202,9,Industry Innovation and Infrastructure,Yes,Teaches advanced engineering methods and computational modeling for infrastructure,2024-10-30 10:16:41.072749
+CVEN4202,11,Sustainable Cities and Communities,Yes,Covers sustainable geothermal systems for urban development,2024-10-30 10:16:41.072751
+CVEN4202,12,Responsible Consumption and Production,Yes,Teaches optimization of geothermal systems for efficient energy use,2024-10-30 10:16:41.072753
+CVEN4202,13,Climate Action,Yes,Addresses renewable geothermal energy which helps reduce carbon emissions,2024-10-30 10:16:41.072755
+CVEN4404,3,Good Health and Well-being,Yes,Course addresses traffic safety and efficient movement of people which impacts public health,2024-10-30 10:16:44.805302
+CVEN4404,4,Quality Education,Yes,Provides technical education in traffic engineering fundamentals and practical skills,2024-10-30 10:16:44.805310
+CVEN4404,9,"Industry, Innovation and Infrastructure",Yes,"Focuses on transportation infrastructure design, management and innovation in traffic systems",2024-10-30 10:16:44.805312
+CVEN4404,11,Sustainable Cities and Communities,Yes,Addresses urban traffic management and transportation systems for sustainable mobility,2024-10-30 10:16:44.805313
+CVEN4404,13,Climate Action,No,No explicit coverage of environmental or climate impacts of transportation,2024-10-30 10:16:44.805315
+CVEN4404,17,Partnerships for the Goals,No,No clear focus on partnerships or collaboration beyond technical content,2024-10-30 10:16:44.805317
+CVEN4301,4,Quality Education,Yes,Course provides advanced technical education in structural engineering,2024-10-30 10:16:48.305169
+CVEN4301,9,Industry Innovation and Infrastructure,Yes,Focuses on concrete structures design and analysis for infrastructure,2024-10-30 10:16:48.305178
+CVEN4301,11,Sustainable Cities and Communities,Yes,Teaches design of critical infrastructure components for buildings and structures,2024-10-30 10:16:48.305180
+CVEN4301,12,Responsible Consumption and Production,Yes,Covers concrete design which requires efficient use of materials and resources,2024-10-30 10:16:48.305183
+CVEN4503,6,Clean Water and Sanitation,Yes,"Course focuses on groundwater resources, investigation methods, and water quality assessment",2024-10-30 10:16:51.972746
+CVEN4503,11,Sustainable Cities and Communities,Yes,Addresses groundwater management for sustainable urban water resources,2024-10-30 10:16:51.972758
+CVEN4503,13,Climate Action,Yes,Covers groundwater in hydrological cycle and water balance calculations,2024-10-30 10:16:51.972762
+CVEN4503,14,Life Below Water,Yes,Studies groundwater-surface water interactions and water quality,2024-10-30 10:16:51.972764
+CVEN4503,15,Life on Land,Yes,Examines groundwater's role in terrestrial ecosystems and soil-water interactions,2024-10-30 10:16:51.972767
+CVEN4503,17,Partnerships for the Goals,Yes,Includes field work and collaborative learning through group assignments,2024-10-30 10:16:51.972769
+CVEN2101,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-30 10:16:55.090790
+CVEN2101,8,Decent Work and Economic Growth,Yes,Teaches construction management and equipment optimization for economic efficiency,2024-10-30 10:16:55.090799
+CVEN2101,9,Industry Innovation and Infrastructure,Yes,"Focuses on construction processes, equipment and infrastructure development",2024-10-30 10:16:55.090802
+CVEN2101,11,Sustainable Cities and Communities,Yes,Covers sustainable construction practices and infrastructure development,2024-10-30 10:16:55.090804
+CVEN2101,12,Responsible Consumption and Production,Yes,"Addresses recycling, waste management and sustainable construction methods",2024-10-30 10:16:55.090805
+CVEN2101,13,Climate Action,Yes,Includes sustainability in construction and environmental impact considerations,2024-10-30 10:16:55.090807
+CVEN4405,3,Good Health and Well-being,Yes,Course focuses on human factors and safety in transport systems to reduce road accidents and injuries,2024-10-30 10:16:59.176839
+CVEN4405,4,Quality Education,Yes,Provides technical education in civil engineering with focus on human-centered design,2024-10-30 10:16:59.176846
+CVEN4405,9,"Industry, Innovation and Infrastructure",Yes,Addresses infrastructure design and innovation in transport systems for safety and efficiency,2024-10-30 10:16:59.176847
+CVEN4405,11,Sustainable Cities and Communities,Yes,Focuses on making transport systems and urban infrastructure safer and more sustainable,2024-10-30 10:16:59.176849
+CVEN4405,12,Responsible Consumption and Production,Yes,Teaches human-centered design principles for responsible infrastructure development,2024-10-30 10:16:59.176850
+CVEN4405,17,Partnerships for the Goals,Yes,Involves multidisciplinary collaboration between engineering and human factors disciplines,2024-10-30 10:16:59.176852
+CVEN2303,4,Quality Education,Yes,Course provides technical engineering education in structural analysis,2024-10-30 10:17:02.267997
+CVEN2303,9,Industry Innovation and Infrastructure,Yes,Teaches structural analysis and design principles critical for infrastructure development,2024-10-30 10:17:02.268005
+CVEN2303,11,Sustainable Cities and Communities,Yes,Develops skills for analyzing and designing safe structural systems for buildings and infrastructure,2024-10-30 10:17:02.268007
+CVEN2303,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 10:17:02.268008
+CVEN2303,13,Climate Action,No,Not enough information,2024-10-30 10:17:02.268010
+CVEN2303,17,Partnerships for the Goals,No,Not enough information,2024-10-30 10:17:02.268012
+CVEN4103,4,Quality Education,Yes,Course provides professional engineering education at university level,2024-10-30 10:17:05.393157
+CVEN4103,8,Decent Work and Economic Growth,Yes,Covers employment contracts and professional workforce entry,2024-10-30 10:17:05.393165
+CVEN4103,9,Industry Innovation and Infrastructure,Yes,Focuses on engineering contracts and infrastructure project delivery,2024-10-30 10:17:05.393167
+CVEN4103,16,Peace Justice and Strong Institutions,Yes,"Covers legal frameworks, dispute resolution, and contract law",2024-10-30 10:17:05.393168
+CVEN4103,17,Partnerships for the Goals,Yes,Addresses professional partnerships through contract management and tender processes,2024-10-30 10:17:05.393170
+CVEN4701,6,Clean Water and Sanitation,Yes,Course covers water and wastewater engineering and sustainable water management,2024-10-30 10:17:09.167520
+CVEN4701,7,Affordable and Clean Energy,Yes,Course includes energy supply and distribution systems planning,2024-10-30 10:17:09.167527
+CVEN4701,9,Industry Innovation and Infrastructure,Yes,Core focus on sustainable infrastructure planning and design,2024-10-30 10:17:09.167528
+CVEN4701,11,Sustainable Cities and Communities,Yes,Addresses urban and regional infrastructure planning with sustainability principles,2024-10-30 10:17:09.167530
+CVEN4701,12,Responsible Consumption and Production,Yes,Includes waste management and sustainable resource use,2024-10-30 10:17:09.167531
+CVEN4701,13,Climate Action,Yes,Sustainability principles and environmental concepts are integrated throughout,2024-10-30 10:17:09.167533
+CVEN4701,17,Partnerships for the Goals,Yes,Course emphasizes teamwork and group projects for sustainable development,2024-10-30 10:17:09.167534
+CVEN4308,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-30 10:17:26.226031
+CVEN4308,9,"Industry, Innovation and Infrastructure",Yes,Teaches structural dynamics essential for infrastructure design and safety,2024-10-30 10:17:26.226038
+CVEN4308,11,Sustainable Cities and Communities,Yes,"Focuses on designing structures to withstand dynamic loads like earthquakes and wind, contributing to resilient infrastructure",2024-10-30 10:17:26.226040
+CVEN4308,13,Climate Action,Yes,Includes study of wind loads and structural responses relevant to extreme weather events,2024-10-30 10:17:26.226042
+CVEN4308,17,Partnerships for the Goals,Yes,Promotes collaborative learning and teamwork through group assignments,2024-10-30 10:17:26.226044
+CVEN4951,4,Quality Education,Yes,Course provides research-based thesis education at undergraduate level,2024-10-30 10:17:29.769213
+CVEN4951,9,Industry Innovation and Infrastructure,Yes,Students develop engineering solutions and innovations through research projects,2024-10-30 10:17:29.769221
+CVEN4951,11,Sustainable Cities and Communities,Yes,Course includes focus on civil and environmental engineering research,2024-10-30 10:17:29.769223
+CVEN4951,12,Responsible Consumption and Production,Yes,Environmental engineering aspects and sustainable infrastructure planning are covered,2024-10-30 10:17:29.769225
+CVEN4951,17,Partnerships for the Goals,Yes,Students work with academic supervisors and potentially industry partners,2024-10-30 10:17:29.769227
+CVEN2303,4,Quality Education,Yes,Course provides technical engineering education in structural analysis,2024-10-30 10:17:44.646385
+CVEN2303,9,"Industry, Innovation and Infrastructure",Yes,Teaches fundamental concepts for structural engineering and infrastructure design,2024-10-30 10:17:44.646392
+CVEN2303,11,Sustainable Cities and Communities,Yes,Develops skills for analyzing and designing safe structural systems for buildings,2024-10-30 10:17:44.646394
+CVEN2303,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-10-30 10:17:44.646396
+CVEN2303,13,Climate Action,No,Not directly addressed in course content,2024-10-30 10:17:44.646397
+CVEN2303,17,Partnerships for the Goals,No,Not directly addressed in course content,2024-10-30 10:17:44.646399
+CVEN3402,3,Good Health and Well-being,Yes,Course addresses transport-related air pollution and noise pollution impacts on public health,2024-10-30 10:17:48.907589
+CVEN3402,7,Affordable and Clean Energy,Yes,"Covers low carbon fuels, hydrogen vehicles and energy consumption in transport",2024-10-30 10:17:48.907600
+CVEN3402,9,Industry Innovation and Infrastructure,Yes,"Focuses on transport infrastructure planning, design and sustainable transport systems",2024-10-30 10:17:48.907603
+CVEN3402,11,Sustainable Cities and Communities,Yes,"Addresses urban transport planning, sustainable mobility and traffic management",2024-10-30 10:17:48.907605
+CVEN3402,12,Responsible Consumption and Production,Yes,Includes lifecycle analysis and sustainable transport strategies,2024-10-30 10:17:48.907608
+CVEN3402,13,Climate Action,Yes,"Covers vehicle emissions, low carbon transport and strategies for net zero targets",2024-10-30 10:17:48.907611
+CVEN3402,17,Partnerships for the Goals,No,No explicit coverage of multi-stakeholder partnerships,2024-10-30 10:17:48.907613
+CVEN4952,4,Quality Education,Yes,Course provides research and technical education at undergraduate level with focus on engineering thesis development,2024-10-30 10:17:52.946976
+CVEN4952,8,Decent Work and Economic Growth,Yes,Develops professional research and engineering skills for future employment,2024-10-30 10:17:52.946985
+CVEN4952,9,Industry Innovation and Infrastructure,Yes,Students develop innovative engineering solutions and research projects,2024-10-30 10:17:52.946987
+CVEN4952,12,Responsible Consumption and Production,Yes,Students learn sustainable engineering practices through required course CVEN4701 Planning Sustainable Infrastructure,2024-10-30 10:17:52.946988
+CVEN4952,17,Partnerships for the Goals,Yes,Students work closely with academic supervisors and develop collaborative research skills,2024-10-30 10:17:52.946990
+CVEN3203,4,Quality Education,Yes,Course provides technical education in civil engineering with focus on geotechnics and geology,2024-10-30 10:18:16.087514
+CVEN3203,9,"Industry, Innovation and Infrastructure",Yes,Course teaches engineering principles for infrastructure development and construction,2024-10-30 10:18:16.087524
+CVEN3203,11,Sustainable Cities and Communities,Yes,Focuses on safe foundation and structural design for urban development,2024-10-30 10:18:16.087527
+CVEN3203,12,Responsible Consumption and Production,Yes,Teaches sustainable use of geological resources and responsible construction practices,2024-10-30 10:18:16.087530
+CVEN3203,13,Climate Action,Yes,Includes study of geological processes and environmental impacts,2024-10-30 10:18:16.087532
+CVEN3203,15,Life on Land,Yes,"Covers soil science, geology and environmental impacts of construction",2024-10-30 10:18:16.087535
+CVEN4051,4,Quality Education,Yes,Course provides advanced research and technical education in civil/environmental engineering,2024-10-30 10:18:19.572534
+CVEN4051,8,Decent Work and Economic Growth,Yes,Develops professional skills including resume writing and interview preparation,2024-10-30 10:18:19.572555
+CVEN4051,9,Industry Innovation and Infrastructure,Yes,Focuses on civil and environmental engineering solutions to real-world infrastructure problems,2024-10-30 10:18:19.572558
+CVEN4051,11,Sustainable Cities and Communities,Yes,Addresses civil and environmental engineering challenges related to urban infrastructure,2024-10-30 10:18:19.572559
+CVEN4051,12,Responsible Consumption and Production,Yes,Environmental engineering component addresses sustainable solutions,2024-10-30 10:18:19.572561
+CVEN4051,17,Partnerships for the Goals,Yes,Involves industry collaboration and multi-disciplinary approaches to engineering problems,2024-10-30 10:18:19.572563
+CVEN4402,9,"Industry, Innovation and Infrastructure",Yes,"Course focuses on transport systems analysis, network optimization and infrastructure planning",2024-10-30 10:18:23.235840
+CVEN4402,11,Sustainable Cities and Communities,Yes,Course covers urban transport network planning and optimization for efficient city systems,2024-10-30 10:18:23.235848
+CVEN4402,13,Climate Action,No,No explicit coverage of climate or environmental impacts of transport,2024-10-30 10:18:23.235851
+CVEN4402,4,Quality Education,Yes,Provides advanced technical education in transport engineering and planning,2024-10-30 10:18:23.235852
+CVEN4402,8,Decent Work and Economic Growth,No,Not directly addressed in course content,2024-10-30 10:18:23.235854
+CVEN4402,12,Responsible Consumption and Production,No,Not explicitly covered in course materials,2024-10-30 10:18:23.235857
+CVEN4402,17,Partnerships for the Goals,No,No focus on partnerships or collaboration,2024-10-30 10:18:23.235858
+CVEN3701,4,Quality Education,Yes,Course provides technical education in environmental engineering and management,2024-10-30 10:18:41.083090
+CVEN3701,8,Decent Work and Economic Growth,Yes,Covers environmental economics and professional development for engineers,2024-10-30 10:18:41.083098
+CVEN3701,11,Sustainable Cities and Communities,Yes,Addresses environmental impact assessments and sustainable infrastructure planning,2024-10-30 10:18:41.083101
+CVEN3701,12,Responsible Consumption and Production,Yes,Focuses on environmental management systems and sustainable resource use,2024-10-30 10:18:41.083103
+CVEN3701,13,Climate Change Action,Yes,Includes content on carbon trading and climate change economics,2024-10-30 10:18:41.083105
+CVEN3701,15,Life on Land,Yes,Covers environmental impact assessments and protection of ecosystems,2024-10-30 10:18:41.083107
+CVEN3701,16,"Peace, Justice and Strong Institutions",Yes,Addresses environmental law and regulatory frameworks,2024-10-30 10:18:41.083109
+CVEN3701,17,Partnerships for the Goals,Yes,"Emphasizes multidisciplinary collaboration between engineers, economists and legal experts",2024-10-30 10:18:41.083111
+CVEN4201,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-30 10:18:45.325530
+CVEN4201,8,Decent Work and Economic Growth,Yes,Teaches professional skills in rock and slope engineering needed for infrastructure development,2024-10-30 10:18:45.325539
+CVEN4201,9,Industry Innovation and Infrastructure,Yes,Focuses on engineering techniques for infrastructure development and safety,2024-10-30 10:18:45.325541
+CVEN4201,11,Sustainable Cities and Communities,Yes,Addresses infrastructure safety and stability through rock/slope engineering,2024-10-30 10:18:45.325552
+CVEN4201,12,Responsible Consumption and Production,Yes,Teaches sustainable engineering practices and responsible resource management,2024-10-30 10:18:45.325554
+CVEN4201,13,Climate Action,Yes,Includes analysis of slope stability which is relevant to climate-related hazards,2024-10-30 10:18:45.325557
+CVEN4201,15,Life on Land,Yes,Addresses land stability and environmental protection through proper engineering practices,2024-10-30 10:18:45.325558
+CVEN4201,17,Partnerships for the Goals,Yes,Includes team-based assignments and industry-relevant software training,2024-10-30 10:18:45.325560
+CVEN4953,4,Quality Education,Yes,Course provides research and technical education at undergraduate level with focus on engineering thesis development,2024-10-30 10:18:48.874257
+CVEN4953,8,Decent Work and Economic Growth,Yes,Develops professional research and engineering skills for future employment,2024-10-30 10:18:48.874265
+CVEN4953,9,Industry Innovation and Infrastructure,Yes,Students develop innovative engineering solutions and research projects,2024-10-30 10:18:48.874268
+CVEN4953,12,Responsible Consumption and Production,Yes,Students learn to analyze and develop sustainable engineering processes and designs,2024-10-30 10:18:48.874270
+CVEN4953,17,Partnerships for the Goals,Yes,"Involves collaboration between students, academic supervisors and industry partners",2024-10-30 10:18:48.874271
+CVEN4104,4,Quality Education,Yes,Course provides technical education in sustainable construction engineering,2024-10-30 10:19:07.803129
+CVEN4104,7,Affordable and Clean Energy,Yes,Covers energy consumption in buildings and sustainable energy resources,2024-10-30 10:19:07.803133
+CVEN4104,9,Industry Innovation and Infrastructure,Yes,Focuses on sustainable construction and infrastructure development,2024-10-30 10:19:07.803133
+CVEN4104,11,Sustainable Cities and Communities,Yes,Addresses sustainable building design and green rating systems,2024-10-30 10:19:07.803134
+CVEN4104,12,Responsible Consumption and Production,Yes,Teaches life cycle assessment and sustainable resource use,2024-10-30 10:19:07.803135
+CVEN4104,13,Climate Action,Yes,Addresses global warming impacts and environmental sustainability in construction,2024-10-30 10:19:07.803136
+CVEN4104,17,Partnerships for the Goals,Yes,"Covers sustainability policies, programs and stakeholder collaboration",2024-10-30 10:19:07.803137
+CVEN4204,4,Quality Education,Yes,Course provides technical engineering education at university level,2024-10-30 10:19:12.758524
+CVEN4204,9,Industry Innovation and Infrastructure,Yes,Focuses on ground improvement techniques and infrastructure development,2024-10-30 10:19:12.758527
+CVEN4204,11,Sustainable Cities and Communities,Yes,Teaches methods for improving soil stability and foundation engineering for urban development,2024-10-30 10:19:12.758528
+CVEN4204,12,Responsible Consumption and Production,Yes,Covers sustainable soil improvement and construction techniques,2024-10-30 10:19:12.758529
+CVEN4204,13,Climate Action,Yes,Addresses soil stabilization and engineering solutions that help adapt to environmental challenges,2024-10-30 10:19:12.758529
+CVEN4204,15,Life on Land,Yes,Focuses on soil improvement and land management techniques that affect terrestrial ecosystems,2024-10-30 10:19:12.758530
+CVEN4204,17,Partnerships for the Goals,Yes,Includes industry guest lectures showing academic-industry collaboration,2024-10-30 10:19:12.758530
+CVEN3101,4,Quality Education,Yes,Course provides engineering education and project management skills,2024-10-30 10:19:16.263737
+CVEN3101,8,Decent Work and Economic Growth,Yes,"Covers engineering economics, project management and professional skills",2024-10-30 10:19:16.263745
+CVEN3101,9,Industry Innovation and Infrastructure,Yes,Focuses on construction project management and engineering operations,2024-10-30 10:19:16.263747
+CVEN3101,11,Sustainable Cities and Communities,Yes,Addresses construction and infrastructure project management,2024-10-30 10:19:16.263749
+CVEN3101,12,Responsible Consumption and Production,Yes,Includes cost estimation and resource management concepts,2024-10-30 10:19:16.263751
+CVEN3101,16,Peace Justice and Strong Institutions,Yes,Covers engineering ethics and professional responsibility,2024-10-30 10:19:16.263753
+CVEN3101,17,Partnerships for the Goals,Yes,Includes contract management and project collaboration concepts,2024-10-30 10:19:16.263754
+CVEN4705,4,Quality Education,Yes,Course provides postgraduate and undergraduate education in environmental sustainability methods and tools,2024-10-30 10:19:21.083467
+CVEN4705,6,Clean Water and Sanitation,Yes,Course covers water footprints and environmental management of water resources,2024-10-30 10:19:21.083474
+CVEN4705,7,Affordable and Clean Energy,Yes,Course includes carbon footprinting and climate action reporting,2024-10-30 10:19:21.083476
+CVEN4705,9,Industry Innovation and Infrastructure,Yes,Covers sustainable infrastructure assessment frameworks and circular economy principles,2024-10-30 10:19:21.083477
+CVEN4705,11,Sustainable Cities and Communities,Yes,Addresses sustainable building design and infrastructure development,2024-10-30 10:19:21.083479
+CVEN4705,12,Responsible Consumption and Production,Yes,"Focuses on lifecycle assessment, material flow analysis, and circular economy concepts",2024-10-30 10:19:21.083481
+CVEN4705,13,Climate Action,Yes,"Includes carbon footprinting, climate reporting, and environmental impact assessment",2024-10-30 10:19:21.083482
+CVEN4705,15,Life on Land,Yes,Covers ecological footprints and environmental impact assessment of projects,2024-10-30 10:19:21.083484
+CVEN4705,17,Partnerships for the Goals,Yes,Incorporates SDG frameworks and sustainability reporting standards,2024-10-30 10:19:21.083485
+CVEN2701,4,Quality Education,Yes,Course provides technical education in environmental engineering,2024-10-30 10:19:40.463422
+CVEN2701,6,Clean Water and Sanitation,Yes,Course focuses on water chemistry and water quality analysis,2024-10-30 10:19:40.463430
+CVEN2701,13,Climate Action,Yes,Course covers atmospheric chemistry and environmental processes,2024-10-30 10:19:40.463432
+CVEN2701,14,Life Below Water,Yes,Course addresses marine environments and aquatic chemical processes,2024-10-30 10:19:40.463433
+CVEN2701,15,Life on Land,Yes,"Course covers groundwater, rivers, and lakes chemistry",2024-10-30 10:19:40.463435
+CVEN3202,4,Quality Education,Yes,Course provides technical engineering education in soil mechanics,2024-10-30 10:19:43.752929
+CVEN3202,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental engineering principles for infrastructure development,2024-10-30 10:19:43.752936
+CVEN3202,11,Sustainable Cities and Communities,Yes,Covers soil mechanics essential for sustainable construction and infrastructure,2024-10-30 10:19:43.752937
+CVEN3202,12,Responsible Consumption and Production,Yes,Includes environmental impact considerations of soil behavior,2024-10-30 10:19:43.752939
+CVEN3202,13,Climate Action,Yes,Addresses soil behavior and environmental impacts relevant to climate resilience,2024-10-30 10:19:43.752941
+CVEN3202,15,Life on Land,Yes,Studies soil properties and behavior which impacts terrestrial ecosystems,2024-10-30 10:19:43.752943
+CVEN4102,4,Quality Education,Yes,Course provides engineering education at university level with focus on construction operations and project management,2024-10-30 10:19:56.295595
+CVEN4102,8,Decent Work and Economic Growth,Yes,Teaches professional skills for construction industry operations and project management,2024-10-30 10:19:56.295603
+CVEN4102,9,Industry Innovation and Infrastructure,Yes,Focuses on infrastructure construction methods including tunneling and engineering operations,2024-10-30 10:19:56.295606
+CVEN4102,11,Sustainable Cities and Communities,Yes,Covers infrastructure development and construction methods essential for urban development,2024-10-30 10:19:56.295608
+CVEN4102,12,Responsible Consumption and Production,Yes,Teaches efficient resource management in construction operations and projects,2024-10-30 10:19:56.295610
+CVEN4102,17,Partnerships for the Goals,Yes,Emphasizes teamwork and collaborative approaches through group assignments,2024-10-30 10:19:56.295613
+CVEN2002,4,Quality Education,Yes,Course provides technical education in engineering computation and statistics,2024-10-30 10:19:59.565407
+CVEN2002,9,Industry Innovation and Infrastructure,Yes,Teaches advanced analytical and numerical techniques for civil engineering,2024-10-30 10:19:59.565411
+CVEN2002,11,Sustainable Cities and Communities,Yes,Focuses on civil and environmental engineering applications,2024-10-30 10:19:59.565412
+CVEN2002,13,Climate Action,Yes,Environmental engineering components address environmental challenges,2024-10-30 10:19:59.565412
+CVEN2002,17,Partnerships for the Goals,No,No explicit focus on partnerships or collaboration,2024-10-30 10:19:59.565413
+CVEN1701,4,Quality Education,Yes,Course provides undergraduate engineering education focused on sustainability,2024-10-30 10:20:03.044982
+CVEN1701,7,Affordable and Clean Energy,Yes,Covers climate change mitigation which includes clean energy transitions,2024-10-30 10:20:03.044987
+CVEN1701,11,Sustainable Cities and Communities,Yes,Addresses sustainable infrastructure and engineering systems,2024-10-30 10:20:03.044988
+CVEN1701,12,Responsible Consumption and Production,Yes,"Covers circular economy, material flow analysis, and life cycle assessment",2024-10-30 10:20:03.044989
+CVEN1701,13,Climate Action,Yes,"Directly focuses on climate change science, impacts, adaptation and mitigation",2024-10-30 10:20:03.044990
+CVEN1701,17,Partnerships for the Goals,Yes,References SDG framework and sustainable development principles,2024-10-30 10:20:03.044991
+CVEN4701,4,Quality Education,Yes,Course provides technical education in engineering and infrastructure planning,2024-10-30 10:20:20.951434
+CVEN4701,6,Clean Water and Sanitation,Yes,Covers water and waste management infrastructure planning,2024-10-30 10:20:20.951437
+CVEN4701,7,Affordable and Clean Energy,Yes,Includes energy supply and distribution systems planning,2024-10-30 10:20:20.951437
+CVEN4701,9,Industry Innovation and Infrastructure,Yes,Focuses on sustainable infrastructure planning and design,2024-10-30 10:20:20.951438
+CVEN4701,11,Sustainable Cities and Communities,Yes,Addresses urban and regional infrastructure planning for sustainable communities,2024-10-30 10:20:20.951438
+CVEN4701,12,Responsible Consumption and Production,Yes,Covers waste management and sustainable resource use,2024-10-30 10:20:20.951439
+CVEN4701,13,Climate Action,Yes,Incorporates sustainability principles in infrastructure planning,2024-10-30 10:20:20.951440
+CVEN4701,17,Partnerships for the Goals,Yes,Emphasizes teamwork and group projects for sustainable development,2024-10-30 10:20:20.951440
+CVEN4703,3,Good Health and Well-being,Yes,Course covers water quality and treatment which directly impacts public health,2024-10-30 10:20:25.269908
+CVEN4703,4,Quality Education,Yes,Provides advanced technical education in water quality principles,2024-10-30 10:20:25.269911
+CVEN4703,6,Clean Water and Sanitation,Yes,"Focuses on water treatment, quality standards, and wastewater management",2024-10-30 10:20:25.269912
+CVEN4703,9,Industry Innovation and Infrastructure,Yes,Covers advanced water treatment technologies and infrastructure,2024-10-30 10:20:25.269912
+CVEN4703,11,Sustainable Cities and Communities,Yes,Addresses urban water quality management and treatment systems,2024-10-30 10:20:25.269913
+CVEN4703,12,Responsible Consumption and Production,Yes,Teaches sustainable water management and treatment processes,2024-10-30 10:20:25.269914
+CVEN4703,13,Climate Action,No,Climate change impacts not explicitly covered in outline,2024-10-30 10:20:25.269914
+CVEN4703,14,Life Below Water,Yes,Covers aquatic ecosystems and water quality in natural systems,2024-10-30 10:20:25.269915
+CVEN4703,15,Life on Land,Yes,Addresses soil and land-based impacts on water quality,2024-10-30 10:20:25.269915
+CVEN4961,4,Quality Education,Yes,Course provides advanced research and thesis development skills at undergraduate level,2024-10-30 10:20:28.419751
+CVEN4961,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 10:20:28.419754
+CVEN4961,8,Decent Work and Economic Growth,No,Not explicitly addressed in course content,2024-10-30 10:20:28.419755
+CVEN4961,9,Industry Innovation and Infrastructure,Yes,Develops research capabilities in civil and environmental engineering,2024-10-30 10:20:28.419756
+CVEN4961,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-10-30 10:20:28.419756
+CVEN4961,17,Partnerships for the Goals,Yes,Promotes collaboration between students and academic staff for research development,2024-10-30 10:20:28.419757
+CVEN4106,4,Quality Education,Yes,Course provides hands-on engineering education and professional skills development,2024-10-30 10:20:44.733822
+CVEN4106,8,Decent Work and Economic Growth,Yes,"Focuses on project management, financial viability, and professional practice in construction",2024-10-30 10:20:44.733826
+CVEN4106,9,Industry Innovation and Infrastructure,Yes,Centers on infrastructure development and construction project management,2024-10-30 10:20:44.733826
+CVEN4106,11,Sustainable Cities and Communities,Yes,"Involves work on infrastructure projects including buildings, bridges, and water systems",2024-10-30 10:20:44.733827
+CVEN4106,12,Responsible Consumption and Production,Yes,Teaches project planning and resource management in construction,2024-10-30 10:20:44.733828
+CVEN4106,17,Partnerships for the Goals,Yes,Involves collaboration with industry partners and external stakeholders,2024-10-30 10:20:44.733829
+CVEN3304,4,Quality Education,Yes,Course provides technical engineering education in concrete structures,2024-10-30 10:20:47.687936
+CVEN3304,9,"Industry, Innovation and Infrastructure",Yes,Teaches design and analysis of concrete structures which are fundamental to infrastructure,2024-10-30 10:20:47.687939
+CVEN3304,11,Sustainable Cities and Communities,Yes,Focuses on structural engineering knowledge essential for building safe urban infrastructure,2024-10-30 10:20:47.687940
+CVEN3304,12,Responsible Consumption and Production,Yes,Covers concrete materials and production processes with emphasis on standards compliance,2024-10-30 10:20:47.687940
+CVEN4507,4,Quality Education,Yes,Course provides advanced technical education in water engineering,2024-10-30 10:20:51.480878
+CVEN4507,6,Clean Water and Sanitation,Yes,"Focuses on water engineering, hydraulics, and reservoir design",2024-10-30 10:20:51.480883
+CVEN4507,9,Industry Innovation and Infrastructure,Yes,Covers design of water infrastructure and hydraulic structures,2024-10-30 10:20:51.480884
+CVEN4507,11,Sustainable Cities and Communities,Yes,Addresses flood engineering and water supply systems,2024-10-30 10:20:51.480884
+CVEN4507,13,Climate Action,Yes,Includes climate change considerations in hydrologic calculations,2024-10-30 10:20:51.480885
+CVEN4507,14,Life Below Water,Yes,Covers sediment transport processes in water systems,2024-10-30 10:20:51.480886
+CVEN4507,15,Life on Land,Yes,Addresses catchment processes and watershed management,2024-10-30 10:20:51.480887
+CVEN3303,4,Quality Education,Yes,Course provides technical engineering education in steel structures design,2024-10-30 10:21:07.070952
+CVEN3303,9,Industry Innovation and Infrastructure,Yes,Focuses on design and construction of steel infrastructure,2024-10-30 10:21:07.070961
+CVEN3303,11,Sustainable Cities and Communities,Yes,Teaches design of building structures and infrastructure components,2024-10-30 10:21:07.070963
+CVEN3303,12,Responsible Consumption and Production,Yes,Emphasizes steel as 100% recyclable material and reuse to reduce embodied carbon,2024-10-30 10:21:07.070965
+CVEN3303,13,Climate Action,Yes,Addresses carbon reduction through sustainable steel use and recycling,2024-10-30 10:21:07.070967
+MICR3621,3,Good Health and Well-being,Yes,Course covers microbial genetics and disease which impacts human health,2024-10-30 12:13:41.152619
+MICR3621,4,Quality Education,Yes,Provides advanced undergraduate education in microbial genetics and biotechnology,2024-10-30 12:13:41.152627
+MICR3621,9,"Industry, Innovation and Infrastructure",Yes,Covers industrial applications of microbial genetics and biotechnology innovations,2024-10-30 12:13:41.152629
+MICR3621,15,Life on Land,Yes,Studies microorganisms and their genetics which are fundamental to terrestrial ecosystems,2024-10-30 12:13:41.152631
+MICR3621,17,Partnerships for the Goals,Yes,Includes collaboration between researchers and industry partners in microbial genetics applications,2024-10-30 12:13:41.152633
+ANAT2241,3,Good Health and Well-being,Yes,"Course teaches microscopic anatomy of human body systems and their functions, directly contributing to medical knowledge and health education",2024-10-30 12:13:44.985348
+ANAT2241,4,Quality Education,Yes,Provides comprehensive tertiary education in human anatomy and histology with clear learning outcomes and assessment structure,2024-10-30 12:13:44.985359
+ANAT2241,5,Gender Equality,Yes,"Course covers both male and female reproductive systems equally, promoting understanding of all human anatomy regardless of gender",2024-10-30 12:13:44.985363
+ANAT2241,9,"Industry, Innovation and Infrastructure",Yes,Uses virtual histological imaging and modern learning technologies for education,2024-10-30 12:13:44.985365
+ANAT2241,10,Reduced Inequalities,Yes,Course provides equitable learning support services and accommodations for students with disabilities,2024-10-30 12:13:44.985367
+PATH3205,3,Good Health and Well-being,Yes,"Course focuses on understanding disease mechanisms, inflammation, and immune responses",2024-10-30 12:13:48.219197
+PATH3205,4,Quality Education,Yes,Provides advanced undergraduate education in molecular pathology with research integration,2024-10-30 12:13:48.219205
+PATH3205,9,Industry Innovation and Infrastructure,Yes,Students learn state-of-the-art research techniques and diagnostic methods,2024-10-30 12:13:48.219207
+PATH3205,17,Partnerships for the Goals,Yes,"Course involves partnerships between students, researchers and mentors for collaborative learning",2024-10-30 12:13:48.219209
+ANAT2241,3,Good Health and Well-being,Yes,"Course teaches microscopic anatomy of human body systems and their functions, directly contributing to medical knowledge and health education",2024-10-30 12:13:51.856368
+ANAT2241,4,Quality Education,Yes,Provides comprehensive tertiary education in human anatomy and histology with clear learning outcomes and assessment structure,2024-10-30 12:13:51.856376
+ANAT2241,5,Gender Equality,Yes,"Course covers both male and female reproductive systems equally, promoting understanding of all human anatomy regardless of gender",2024-10-30 12:13:51.856378
+ANAT2241,9,"Industry, Innovation and Infrastructure",Yes,Uses virtual histological imaging and modern learning technologies for education,2024-10-30 12:13:51.856379
+ANAT2241,10,Reduced Inequalities,Yes,Course provides equitable learning support and accessibility services for all students,2024-10-30 12:13:51.856381
+MICR3061,3,Good Health and Well-being,Yes,"Course focuses on viruses, diseases, vaccines and public health measures",2024-10-30 12:13:54.890293
+MICR3061,4,Quality Education,Yes,Provides university-level education in virology and biotechnology,2024-10-30 12:13:54.890298
+MICR3061,9,Industry Innovation and Infrastructure,Yes,"Covers viral research, laboratory techniques and biotechnology applications",2024-10-30 12:13:54.890299
+MICR3061,17,Partnerships for the Goals,Yes,Includes hospital excursions and industry consultancy work,2024-10-30 12:13:54.890300
+PATH2202,3,Good Health and Well-being,Yes,"Course focuses on understanding human diseases, pathological processes, and health outcomes",2024-10-30 12:14:00.355817
+PATH2202,4,Quality Education,Yes,Provides comprehensive medical education in pathology and disease processes,2024-10-30 12:14:00.355827
+PATH2202,5,Gender Equality,No,Not enough information,2024-10-30 12:14:00.355830
+PATH2202,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:14:00.355831
+PATH2202,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:14:00.355833
+PATH2202,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:14:00.355835
+PATH2202,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:14:00.355837
+PATH2202,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:14:00.355838
+PATH2202,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:14:00.355840
+PATH2202,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:14:00.355842
+PATH2202,13,Climate Action,No,Not enough information,2024-10-30 12:14:00.355843
+PATH2202,14,Life Below Water,No,Not enough information,2024-10-30 12:14:00.355845
+PATH2202,15,Life on Land,No,Not enough information,2024-10-30 12:14:00.355846
+PATH2202,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:14:00.355847
+PATH2202,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:14:00.355849
+MICR2011,2,Zero Hunger,Yes,Course covers food microbiology and foodborne pathogens,2024-10-30 12:14:05.137257
+MICR2011,3,Good Health and Well-being,Yes,"Covers medical microbiology, human health, diseases, and pathogens",2024-10-30 12:14:05.137264
+MICR2011,4,Quality Education,Yes,Provides comprehensive education in microbiology with practical lab experience,2024-10-30 12:14:05.137266
+MICR2011,6,Clean Water and Sanitation,Yes,Covers environmental microbiology and microbial interactions,2024-10-30 12:14:05.137268
+MICR2011,9,Industry Innovation and Infrastructure,Yes,Includes content on biotechnology and synthetic biology applications,2024-10-30 12:14:05.137269
+MICR2011,12,Responsible Consumption and Production,Yes,Addresses food microbiology and safety,2024-10-30 12:14:05.137271
+MICR2011,14,Life Below Water,Yes,Environmental microbiology content includes microbial ecosystems,2024-10-30 12:14:05.137273
+MICR2011,15,Life on Land,Yes,Covers environmental microbiology and microbial diversity in ecosystems,2024-10-30 12:14:05.137274
+ANAT1452,3,Good Health and Well-being,Yes,"Course focuses on human anatomy, biomechanics and health-related functions of the body",2024-10-30 12:14:24.959275
+ANAT1452,4,Quality Education,Yes,Provides comprehensive tertiary education in biomedical sciences with hands-on laboratory learning,2024-10-30 12:14:24.959282
+ANAT1452,5,Gender Equality,No,Not enough information,2024-10-30 12:14:24.959284
+ANAT1452,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:14:24.959286
+ANAT1452,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:14:24.959288
+ANAT1452,10,Reduced Inequalities,Yes,Course emphasizes ethical principles in working with diverse groups,2024-10-30 12:14:24.959290
+ANAT1452,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:14:24.959291
+ANAT1452,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:14:24.959292
+ANAT1452,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:14:24.959294
+ANAT3131,3,Good Health and Well-being,Yes,Course teaches functional anatomy essential for medical knowledge and healthcare,2024-10-30 12:14:30.552056
+ANAT3131,4,Quality Education,Yes,Provides comprehensive tertiary education in human anatomy with practical laboratory components,2024-10-30 12:14:30.552064
+ANAT3131,5,Gender Equality,No,Not enough information,2024-10-30 12:14:30.552066
+ANAT3131,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:14:30.552068
+ANAT3131,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:14:30.552070
+ANAT3131,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:14:30.552071
+ANAT3131,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:14:30.552073
+ANAT3131,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:14:30.552074
+ANAT3131,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:14:30.552076
+ANAT3131,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:14:30.552078
+ANAT3131,13,Climate Action,No,Not enough information,2024-10-30 12:14:30.552079
+ANAT3131,14,Life Below Water,No,Not enough information,2024-10-30 12:14:30.552081
+ANAT3131,15,Life on Land,No,Not enough information,2024-10-30 12:14:30.552082
+ANAT3131,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:14:30.552083
+ANAT3131,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:14:30.552085
+ANAT3131,1,No Poverty,No,Not enough information,2024-10-30 12:14:30.552086
+ANAT3131,2,Zero Hunger,No,Not enough information,2024-10-30 12:14:30.552088
+ANAT2341,3,Good Health and Well-being,Yes,"Course focuses on human embryonic development and birth defects, directly contributing to understanding health and medical conditions",2024-10-30 12:14:34.698035
+ANAT2341,4,Quality Education,Yes,Provides comprehensive university education in biomedical sciences with practical laboratory skills,2024-10-30 12:14:34.698041
+ANAT2341,5,Gender Equality,No,Not enough information,2024-10-30 12:14:34.698043
+ANAT2341,8,Decent Work and Economic Growth,Yes,"Prepares graduates for various career paths including biomedical research, education, and policy",2024-10-30 12:14:34.698045
+ANAT2341,9,Industry Innovation and Infrastructure,Yes,Covers cutting-edge developmental and stem cell biology research,2024-10-30 12:14:34.698046
+ANAT2341,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:14:34.698048
+ANAT2341,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:14:34.698049
+ANAT2341,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:14:34.698051
+ANAT2521,3,Good Health and Well-being,Yes,Course teaches forensic anthropology which contributes to death investigations and public health,2024-10-30 12:14:59.715292
+ANAT2521,4,Quality Education,Yes,Provides university education in forensic science and anthropology,2024-10-30 12:14:59.715299
+ANAT2521,5,Gender Equality,Yes,Course examines biological sex determination methods and human variation,2024-10-30 12:14:59.715300
+ANAT2521,10,Reduced Inequalities,Yes,Course promotes understanding of human biological variation and diversity,2024-10-30 12:14:59.715302
+ANAT2521,16,"Peace, Justice and Strong Institutions",Yes,Supports justice system through forensic investigation and expert testimony,2024-10-30 12:14:59.715303
+ANAT2521,17,Partnerships for the Goals,Yes,Involves collaboration between academic institutions and legal/forensic systems,2024-10-30 12:14:59.715305
+ANAT3411,3,Good Health and Well-being,Yes,Course focuses on neuroanatomy and understanding of human nervous system which directly relates to health,2024-10-30 12:15:04.672369
+ANAT3411,4,Quality Education,Yes,Provides comprehensive higher education in neuroscience and medical training,2024-10-30 12:15:04.672375
+ANAT3411,9,"Industry, Innovation and Infrastructure",Yes,Course teaches advanced medical knowledge and research skills relevant to healthcare infrastructure,2024-10-30 12:15:04.672376
+ANAT3411,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:15:04.672378
+ANAT3411,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:15:04.672379
+ANAT3411,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:15:04.672380
+ANAT3411,13,Climate Action,No,Not enough information,2024-10-30 12:15:04.672381
+ANAT3411,14,Life Below Water,No,Not enough information,2024-10-30 12:15:04.672382
+ANAT3411,15,Life on Land,No,Not enough information,2024-10-30 12:15:04.672383
+ANAT3411,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:15:04.672385
+ANAT3411,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:15:04.672386
+PATH3206,3,Good Health and Well-being,Yes,"Course focuses on cancer pathology, diagnosis and treatment which directly relates to health outcomes",2024-10-30 12:15:36.131038
+PATH3206,4,Quality Education,Yes,Provides advanced education in medical science and pathology,2024-10-30 12:15:36.131049
+PATH3206,9,"Industry, Innovation and Infrastructure",Yes,Covers research advances and novel therapies in cancer treatment,2024-10-30 12:15:36.131052
+PATH3206,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-10-30 12:15:36.131054
+PATH3206,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-10-30 12:15:36.131057
+PATH3206,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-10-30 12:15:36.131059
+MICR3071,10,Reduced Inequalities,Yes,Course explicitly addresses SDG10 and incorporates diverse perspectives and Indigenous knowledge,2024-10-30 12:15:41.089863
+MICR3071,13,Climate Action,Yes,Course directly addresses climate change impacts and environmental sustainability,2024-10-30 12:15:41.089870
+MICR3071,14,Life Below Water,Yes,Course covers marine ecosystems and microbial life in aquatic environments,2024-10-30 12:15:41.089872
+MICR3071,15,Life on Land,Yes,Course examines terrestrial ecosystems and microbial roles in soil/land environments,2024-10-30 12:15:41.089874
+MICR3071,4,Quality Education,Yes,Provides comprehensive higher education in environmental microbiology with research skills,2024-10-30 12:15:41.089875
+MICR3071,6,Clean Water and Sanitation,Yes,"Covers water quality, waste water treatment and drinking water microbiology",2024-10-30 12:15:41.089877
+MICR3071,9,Industry Innovation and Infrastructure,Yes,Addresses industrial applications and biotechnology innovations,2024-10-30 12:15:41.089879
+MICR3071,12,Responsible Consumption and Production,Yes,Focuses on sustainable resource development and environmental protection,2024-10-30 12:15:41.089880
+PHSL3211,3,Good Health and Well-being,Yes,"Course focuses on cardiovascular physiology and pathophysiology, directly addressing health and disease",2024-10-30 12:16:02.068182
+PHSL3211,4,Quality Education,Yes,Provides university-level education in biomedical sciences with practical components and research skills,2024-10-30 12:16:02.068185
+PHSL3211,5,Gender Equality,No,Not enough information,2024-10-30 12:16:02.068186
+PHSL3211,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:16:02.068186
+PHSL3211,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:16:02.068187
+PHSL3211,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:16:02.068187
+PHSL3211,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:16:02.068188
+ANAT3121,3,Good Health and Well-being,Yes,Course focuses on human anatomy and medical knowledge essential for healthcare,2024-10-30 12:16:07.878011
+ANAT3121,4,Quality Education,Yes,Provides comprehensive medical education in anatomy and clinical applications,2024-10-30 12:16:07.878019
+ANAT3121,5,Gender Equality,No,Not enough information,2024-10-30 12:16:07.878020
+ANAT3121,6,Clean Water and Sanitation,No,Not addressed in course content,2024-10-30 12:16:07.878022
+ANAT3121,7,Affordable and Clean Energy,No,Not addressed in course content,2024-10-30 12:16:07.878023
+ANAT3121,8,Decent Work and Economic Growth,No,Not addressed in course content,2024-10-30 12:16:07.878025
+ANAT3121,9,Industry Innovation and Infrastructure,No,Not addressed in course content,2024-10-30 12:16:07.878027
+ANAT3121,10,Reduced Inequalities,No,Not addressed in course content,2024-10-30 12:16:07.878028
+ANAT3121,11,Sustainable Cities and Communities,No,Not addressed in course content,2024-10-30 12:16:07.878029
+ANAT3121,12,Responsible Consumption and Production,No,Not addressed in course content,2024-10-30 12:16:07.878031
+ANAT3121,13,Climate Action,No,Not addressed in course content,2024-10-30 12:16:07.878032
+ANAT3121,14,Life Below Water,No,Not addressed in course content,2024-10-30 12:16:07.878033
+ANAT3121,15,Life on Land,No,Not addressed in course content,2024-10-30 12:16:07.878034
+ANAT3121,16,"Peace, Justice and Strong Institutions",No,Not addressed in course content,2024-10-30 12:16:07.878035
+ANAT3121,17,Partnerships for the Goals,No,Not addressed in course content,2024-10-30 12:16:07.878036
+ANAT2451,3,Good Health and Well-being,Yes,Course focuses on human anatomy and function related to health and exercise science,2024-10-30 12:16:30.087822
+ANAT2451,4,Quality Education,Yes,Provides comprehensive tertiary education in functional anatomy with practical and theoretical components,2024-10-30 12:16:30.087829
+ANAT2451,5,Gender Equality,No,Not enough information,2024-10-30 12:16:30.087831
+ANAT2451,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:16:30.087832
+ANAT2451,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:16:30.087834
+ANAT2451,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:16:30.087836
+ANAT2451,9,"Industry, Innovation and Infrastructure",No,Not enough information,2024-10-30 12:16:30.087838
+ANAT2451,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:16:30.087840
+ANAT2451,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:16:30.087841
+ANAT2451,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:16:30.087843
+ANAT2451,13,Climate Action,No,Not enough information,2024-10-30 12:16:30.087845
+ANAT2451,14,Life Below Water,No,Not enough information,2024-10-30 12:16:30.087846
+ANAT2451,15,Life on Land,No,Not enough information,2024-10-30 12:16:30.087847
+ANAT2451,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:16:30.087849
+ANAT2451,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:16:30.087851
+PATH2201,3,Good Health and Well-being,Yes,"Course focuses on understanding human diseases, pathological processes and medical conditions",2024-10-30 12:16:35.229109
+PATH2201,4,Quality Education,Yes,Provides comprehensive medical education in pathology and disease processes,2024-10-30 12:16:35.229119
+PATH2201,9,"Industry, Innovation and Infrastructure",Yes,Course incorporates modern medical technologies and research methods,2024-10-30 12:16:35.229122
+PATH2201,10,Reduced Inequalities,No,Not enough evidence of addressing health inequalities,2024-10-30 12:16:35.229124
+PATH2201,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-10-30 12:16:35.229127
+PATH2201,13,Climate Action,No,Not addressed in course content,2024-10-30 12:16:35.229129
+PATH2201,14,Life Below Water,No,Not addressed in course content,2024-10-30 12:16:35.229131
+PATH2201,15,Life on Land,No,Not addressed in course content,2024-10-30 12:16:35.229133
+PATH2201,16,"Peace, Justice and Strong Institutions",No,Not directly addressed in course content,2024-10-30 12:16:35.229136
+PATH2201,17,Partnerships for the Goals,No,Not enough evidence of addressing partnerships,2024-10-30 12:16:35.229138
+PATH3210,3,Good Health and Well-being,Yes,Course focuses on medical imaging techniques and disease diagnosis,2024-10-30 12:16:57.584730
+PATH3210,4,Quality Education,Yes,Provides advanced education in biomedical imaging and research methods,2024-10-30 12:16:57.584736
+PATH3210,9,"Industry, Innovation and Infrastructure",Yes,Covers advanced imaging technologies and artificial intelligence applications,2024-10-30 12:16:57.584738
+PATH3210,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:16:57.584740
+PATH3210,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:16:57.584741
+PATH3210,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:16:57.584743
+PATH3210,13,Climate Action,No,Not enough information,2024-10-30 12:16:57.584744
+PATH3210,14,Life Below Water,No,Not enough information,2024-10-30 12:16:57.584745
+PATH3210,15,Life on Land,No,Not enough information,2024-10-30 12:16:57.584747
+PATH3210,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:16:57.584748
+PATH3210,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:16:57.584750
+ANAT2452,3,Good Health and Well-being,Yes,"Course teaches neuroanatomy fundamentals for allied health professionals, directly contributing to healthcare education and medical knowledge",2024-10-30 12:17:01.441481
+ANAT2452,4,Quality Education,Yes,Provides comprehensive tertiary education in medical sciences with hands-on laboratory learning,2024-10-30 12:17:01.441492
+ANAT2452,5,Gender Equality,No,Not enough information,2024-10-30 12:17:01.441495
+ANAT2452,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:17:01.441496
+ANAT2452,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:17:01.441498
+ANAT2452,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:17:01.441500
+ANAT2452,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:17:01.441502
+ANAT2452,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:17:01.441503
+MICR2012,3,Good Health and Well-being,Yes,"Course focuses on microbial infections, disease processes, and pharmaceutical treatments",2024-10-30 12:17:21.111875
+MICR2012,4,Quality Education,Yes,Provides comprehensive education in microbiology with practical lab skills and research methods,2024-10-30 12:17:21.111885
+MICR2012,9,"Industry, Innovation and Infrastructure",Yes,Teaches modern laboratory techniques and biotechnology applications,2024-10-30 12:17:21.111888
+MICR2012,12,Responsible Consumption and Production,Yes,Covers environmental microbiology and sustainable microbial processes,2024-10-30 12:17:21.111890
+MICR2012,15,Life on Land,Yes,Examines microbial ecosystems and environmental microbiology,2024-10-30 12:17:21.111892
+MICR2012,17,Partnerships for the Goals,Yes,Emphasizes team-based learning and collaborative research projects,2024-10-30 12:17:21.111895
+MICR9071,4,Quality Education,Yes,Course provides postgraduate education in marine microbiology with practical research skills,2024-10-30 12:17:25.715833
+MICR9071,13,Climate Action,Yes,Course covers microbial roles in biogeochemical cycling and climate-relevant processes,2024-10-30 12:17:25.715840
+MICR9071,14,Life Below Water,Yes,Focuses on marine microbiology and marine ecosystem processes,2024-10-30 12:17:25.715842
+MICR9071,15,Life on Land,Yes,Covers microbial ecology and environmental microbiology concepts,2024-10-30 12:17:25.715844
+MICR9071,10,Reduced Inequalities,Yes,Course explicitly aims to create inclusive learning environment and incorporate Indigenous knowledge,2024-10-30 12:17:25.715845
+MICR9071,17,Partnerships for the Goals,Yes,Includes industry partnerships and Indigenous knowledge integration for environmental protection,2024-10-30 12:17:25.715847
+ANAT2511,3,Good Health and Well-being,Yes,Course teaches human anatomy and physiology which directly relates to understanding health and medical knowledge,2024-10-30 12:17:47.397690
+ANAT2511,4,Quality Education,Yes,Provides tertiary education in medical sciences with practical laboratory experience,2024-10-30 12:17:47.397697
+ANAT2511,5,Gender Equality,No,Not enough information,2024-10-30 12:17:47.397699
+ANAT2511,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:17:47.397700
+ANAT2511,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:17:47.397702
+ANAT2511,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:17:47.397703
+ANAT2511,9,Industry Innovation and Infrastructure,Yes,Covers biomedical engineering applications and recent medical research advances,2024-10-30 12:17:47.397705
+ANAT2511,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:17:47.397707
+ANAT2511,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:17:47.397708
+ANAT2511,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:17:47.397710
+ANAT2511,13,Climate Action,No,Not enough information,2024-10-30 12:17:47.397711
+ANAT2511,14,Life Below Water,No,Not enough information,2024-10-30 12:17:47.397712
+ANAT2511,15,Life on Land,No,Not enough information,2024-10-30 12:17:47.397714
+ANAT2511,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:17:47.397715
+ANAT2511,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:17:47.397716
+ANAT3141,3,Good Health and Well-being,Yes,"Course teaches anatomy and function of human limbs, directly contributing to medical education and healthcare knowledge",2024-10-30 12:17:52.786733
+ANAT3141,4,Quality Education,Yes,Provides detailed university-level education in human anatomy with clear learning outcomes and assessments,2024-10-30 12:17:52.786742
+ANAT3141,5,Gender Equality,No,Not enough information,2024-10-30 12:17:52.786745
+ANAT3141,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:17:52.786746
+ANAT3141,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:17:52.786748
+ANAT3141,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:17:52.786749
+ANAT3141,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:17:52.786751
+ANAT3141,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:17:52.786752
+ANAT3141,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:17:52.786753
+ANAT3141,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:17:52.786755
+ANAT3141,13,Climate Action,No,Not enough information,2024-10-30 12:17:52.786756
+ANAT3141,14,Life Below Water,No,Not enough information,2024-10-30 12:17:52.786757
+ANAT3141,15,Life on Land,No,Not enough information,2024-10-30 12:17:52.786759
+ANAT3141,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:17:52.786760
+ANAT3141,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:17:52.786761
+ANAT2111,3,Good Health and Well-being,Yes,Course provides detailed education about human anatomy and body systems essential for health professionals,2024-10-30 12:18:14.069763
+ANAT2111,4,Quality Education,Yes,Provides comprehensive tertiary education in human anatomy with clear learning outcomes and assessment structure,2024-10-30 12:18:14.069770
+ANAT2111,5,Gender Equality,No,Not enough information,2024-10-30 12:18:14.069772
+ANAT2111,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:18:14.069774
+ANAT2111,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:18:14.069775
+ANAT2111,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:18:14.069777
+ANAT2111,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:18:14.069779
+ANAT2111,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:18:14.069780
+ANAT2111,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:18:14.069781
+ANAT2111,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:18:14.069783
+ANAT2111,13,Climate Action,No,Not enough information,2024-10-30 12:18:14.069784
+ANAT2111,14,Life Below Water,No,Not enough information,2024-10-30 12:18:14.069785
+ANAT2111,15,Life on Land,No,Not enough information,2024-10-30 12:18:14.069787
+ANAT2111,16,"Peace, Justice and Strong Institutions",Yes,Course emphasizes ethical considerations and respect for human remains through clear code of practice,2024-10-30 12:18:14.069788
+ANAT2111,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:18:14.069789
+PATH3209,3,Good Health and Well-being,Yes,"Course focuses on clinical immunology, disease mechanisms, and treatments for immune disorders",2024-10-30 12:18:52.613715
+PATH3209,4,Quality Education,Yes,"Provides advanced understanding of clinical immunology through lectures, labs, and research projects",2024-10-30 12:18:52.613723
+PATH3209,9,Industry Innovation and Infrastructure,Yes,Covers cutting-edge research and diagnostic tools in immunology including genomics and big data,2024-10-30 12:18:52.613725
+PATH3209,10,Reduced Inequalities,No,Not enough information about addressing healthcare disparities,2024-10-30 12:18:52.613726
+PATH3209,16,Peace Justice and Strong Institutions,No,Not explicitly addressed in course content,2024-10-30 12:18:52.613728
+PATH3209,17,Partnerships for the Goals,No,No clear focus on global partnerships,2024-10-30 12:18:52.613730
+ANAT1451,3,Good Health and Well-being,Yes,"Course focuses on human anatomy, biomechanics and physical health assessment",2024-10-30 12:18:56.491919
+ANAT1451,4,Quality Education,Yes,Provides comprehensive higher education in functional anatomy and biomechanics,2024-10-30 12:18:56.491928
+ANAT1451,5,Gender Equality,No,Not enough information,2024-10-30 12:18:56.491930
+ANAT1451,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:18:56.491932
+ANAT1451,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:18:56.491934
+ANAT1451,10,Reduced Inequalities,Yes,Course emphasizes ethical principles of working with diverse groups of people,2024-10-30 12:18:56.491936
+ANAT1451,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:18:56.491938
+ANAT1451,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:18:56.491939
+PATH3207,3,Good Health and Well-being,Yes,"Course focuses on musculoskeletal diseases, diagnosis and treatment",2024-10-30 12:19:01.645341
+PATH3207,4,Quality Education,Yes,Provides advanced medical education in pathology and biomedical sciences,2024-10-30 12:19:01.645348
+PATH3207,9,"Industry, Innovation and Infrastructure",Yes,"Covers advances in biomedical research, biomaterials and prosthetic devices",2024-10-30 12:19:01.645350
+PATH3207,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:19:01.645351
+PATH3207,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:19:01.645353
+PATH3207,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:19:01.645354
+PATH3207,13,Climate Action,No,Not enough information,2024-10-30 12:19:01.645356
+PATH3207,14,Life Below Water,No,Not enough information,2024-10-30 12:19:01.645357
+PATH3207,15,Life on Land,No,Not enough information,2024-10-30 12:19:01.645358
+PATH3207,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:19:01.645360
+PATH3207,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:19:01.645361
+ANAT1521,3,Good Health and Well-being,Yes,Course provides detailed education on human anatomy and body systems essential for medical science and healthcare,2024-10-30 12:19:26.820612
+ANAT1521,4,Quality Education,Yes,Provides comprehensive tertiary education in medical science with structured learning outcomes,2024-10-30 12:19:26.820619
+ANAT1521,5,Gender Equality,No,Not enough information,2024-10-30 12:19:26.820621
+ANAT1521,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:19:26.820622
+ANAT1521,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:19:26.820623
+ANAT1521,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:19:26.820625
+ANAT1521,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:19:26.820626
+ANAT1521,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:19:26.820627
+ANAT1521,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:19:26.820629
+ANAT1521,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:19:26.820630
+ANAT1521,13,Climate Action,No,Not enough information,2024-10-30 12:19:26.820631
+ANAT1521,14,Life Below Water,No,Not enough information,2024-10-30 12:19:26.820632
+ANAT1521,15,Life on Land,No,Not enough information,2024-10-30 12:19:26.820634
+ANAT1521,16,"Peace, Justice and Strong Institutions",Yes,Course emphasizes ethical considerations and respect for human remains through strict code of practice,2024-10-30 12:19:26.820635
+ANAT1521,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:19:26.820636
+BABS3041,3,Good Health and Well-being,Yes,"Course focuses on immunology and human health, including disease prevention and treatment",2024-10-30 12:25:09.109803
+BABS3041,4,Quality Education,Yes,Provides comprehensive tertiary education in immunology with practical laboratory training,2024-10-30 12:25:09.109808
+BABS3041,9,Industry Innovation and Infrastructure,Yes,Teaches diagnostic techniques and laboratory experiments related to medical innovation,2024-10-30 12:25:09.109809
+BABS3041,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-10-30 12:25:09.109810
+BABS3041,16,Peace Justice and Strong Institutions,No,Not explicitly addressed in course content,2024-10-30 12:25:09.109812
+BABS3041,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-10-30 12:25:09.109813
+BABS3301,3,Good Health and Well-being,Yes,Course focuses on biomolecular sciences and biotechnology research relevant to health,2024-10-30 12:25:12.301622
+BABS3301,4,Quality Education,Yes,Provides advanced laboratory research training and scientific skill development,2024-10-30 12:25:12.301633
+BABS3301,9,Industry Innovation and Infrastructure,Yes,Teaches laboratory techniques and research methodologies in biotechnology,2024-10-30 12:25:12.301636
+BABS3301,12,Responsible Consumption and Production,Yes,Includes training on proper laboratory procedures and safety protocols,2024-10-30 12:25:12.301638
+BABS3301,17,Partnerships for the Goals,Yes,Involves academic supervision and peer collaboration in research projects,2024-10-30 12:25:12.301640
+BABS3200,3,Good Health and Well-being,Yes,Course covers biomedical applications and CAR-T cell engineering for therapeutic purposes,2024-10-30 12:25:16.552909
+BABS3200,4,Quality Education,Yes,Provides advanced education in biotechnology and synthetic biology,2024-10-30 12:25:16.552915
+BABS3200,9,Industry Innovation and Infrastructure,Yes,Focuses on engineering biological systems and innovation in biotechnology,2024-10-30 12:25:16.552916
+BABS3200,12,Responsible Consumption and Production,Yes,Covers cellular agriculture and sustainable production methods,2024-10-30 12:25:16.552917
+BABS3200,13,Climate Action,Yes,Addresses biofuels and environmental biosensors,2024-10-30 12:25:16.552918
+BABS3200,14,Life Below Water,Yes,Includes content on bio-control methods for aquatic ecosystems,2024-10-30 12:25:16.552919
+BABS3200,15,Life on Land,Yes,Covers plant engineering and biological pest control methods,2024-10-30 12:25:16.552921
+BABS3281,3,Good Health and Well-being,Yes,Course focuses on biomedical research and molecular biology techniques used in health research,2024-10-30 12:25:19.847076
+BABS3281,4,Quality Education,Yes,Provides advanced undergraduate education in molecular biology and research techniques,2024-10-30 12:25:19.847083
+BABS3281,9,"Industry, Innovation and Infrastructure",Yes,Teaches cutting-edge biotechnology methods and research infrastructure use,2024-10-30 12:25:19.847085
+BABS3281,17,Partnerships for the Goals,Yes,Includes collaboration between academia and research institutions through guest lectures,2024-10-30 12:25:19.847087
+BABS2204,3,Good Health and Well-being,Yes,Course covers genetics and genomics with applications in medicine and health,2024-10-30 12:25:22.506514
+BABS2204,4,Quality Education,Yes,Provides university-level education in genetics with practical laboratory experience,2024-10-30 12:25:22.506523
+BABS2204,9,Industry Innovation and Infrastructure,Yes,Teaches modern biotechnology and genomics techniques,2024-10-30 12:25:22.506525
+BABS2204,15,Life on Land,Yes,Covers genetics applications in agriculture and plant biology research,2024-10-30 12:25:22.506527
+BABS1112,3,Good Health and Well-being,Yes,"Course covers genetic testing, precision medicine and human health applications",2024-10-30 12:25:26.127762
+BABS1112,4,Quality Education,Yes,Provides education on genetics and scientific literacy for informed decision making,2024-10-30 12:25:26.127771
+BABS1112,9,Industry Innovation and Infrastructure,Yes,Covers biotechnology advances and genetic applications in various sectors,2024-10-30 12:25:26.127772
+BABS1112,10,Reduced Inequalities,Yes,Addresses ethical and social implications of genetic interventions and applications,2024-10-30 12:25:26.127773
+BABS1112,15,Life on Land,Yes,Covers agricultural applications and impacts of genetic modifications,2024-10-30 12:25:26.127774
+BABS1112,16,Peace Justice and Strong Institutions,Yes,Examines legal and ethical implications of genetic technologies in society,2024-10-30 12:25:26.127775
+BABS2202,3,Good Health and Well-being,Yes,Course covers cellular biology and immunology which directly relates to human health,2024-10-30 12:25:29.166640
+BABS2202,4,Quality Education,Yes,Provides university-level education in biotechnology and biomolecular sciences,2024-10-30 12:25:29.166650
+BABS2202,9,"Industry, Innovation and Infrastructure",Yes,Teaches laboratory techniques and research methods relevant to biotechnology industry,2024-10-30 12:25:29.166653
+BABS2202,15,Life on Land,Yes,Covers fundamental cellular processes that underpin all life forms and their interactions,2024-10-30 12:25:29.166655
+BABS3061,3,Good Health and Well-being,Yes,"Course focuses on medical biotechnology, disease treatments, and healthcare innovations",2024-10-30 12:25:32.746197
+BABS3061,4,Quality Education,Yes,Provides advanced education in biotechnology and biomolecular sciences with practical lab experience,2024-10-30 12:25:32.746205
+BABS3061,9,"Industry, Innovation and Infrastructure",Yes,"Covers biotechnology innovations, research and development of medical treatments",2024-10-30 12:25:32.746208
+BABS3061,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:25:32.746210
+BABS3061,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:25:32.746212
+BABS3061,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:25:32.746214
+BABS3299,4,Quality Education,Yes,Course provides structured work placement experience and professional skills development,2024-10-30 12:25:35.870960
+BABS3299,8,Decent Work and Economic Growth,Yes,"Focuses on workplace skills, professional development, and career preparation",2024-10-30 12:25:35.870968
+BABS3299,9,Industry Innovation and Infrastructure,Yes,Students work in biotechnology and scientific workplace settings,2024-10-30 12:25:35.870970
+BABS3299,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry through work placements,2024-10-30 12:25:35.870972
+BABS1202,3,Good Health and Well-being,Yes,"Course covers vaccines, medical biotechnology and microbiology",2024-10-30 12:25:39.843333
+BABS1202,4,Quality Education,Yes,Provides university-level education in biomolecular sciences with practical laboratory skills,2024-10-30 12:25:39.843342
+BABS1202,6,Clean Water and Sanitation,Yes,Covers bioremediation and microbial processes relevant to water treatment,2024-10-30 12:25:39.843344
+BABS1202,7,Affordable and Clean Energy,Yes,Includes content on biofuels and sustainable energy production,2024-10-30 12:25:39.843345
+BABS1202,9,"Industry, Innovation and Infrastructure",Yes,"Teaches biotechnology, bioprocessing and industrial applications",2024-10-30 12:25:39.843347
+BABS1202,12,Responsible Consumption and Production,Yes,Covers sustainable bioprocesses and industrial biotechnology,2024-10-30 12:25:39.843349
+BABS1202,15,Life on Land,Yes,Addresses microbial diversity and environmental applications through bioremediation,2024-10-30 12:25:39.843351
+BABS3199,4,Quality Education,Yes,Course provides work placement experience and professional skills development for science students,2024-10-30 12:25:42.845800
+BABS3199,8,Decent Work and Economic Growth,Yes,Focuses on workplace integration and professional development in scientific fields,2024-10-30 12:25:42.845809
+BABS3199,9,Industry Innovation and Infrastructure,Yes,Students apply scientific knowledge in professional biotechnology and biomolecular settings,2024-10-30 12:25:42.845811
+BABS3199,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry through work placements,2024-10-30 12:25:42.845813
+BABS3071,3,Good Health and Well-being,Yes,Course focuses on biotechnology commercialization including therapeutic biologicals and health innovations,2024-10-30 12:25:46.693511
+BABS3071,4,Quality Education,Yes,Provides tertiary education in biotechnology and business principles,2024-10-30 12:25:46.693517
+BABS3071,8,Decent Work and Economic Growth,Yes,Teaches commercial biotechnology skills and business development for industry,2024-10-30 12:25:46.693519
+BABS3071,9,Industry Innovation and Infrastructure,Yes,"Focuses on biotechnology innovation, manufacturing systems, and industry development",2024-10-30 12:25:46.693521
+BABS3071,12,Responsible Consumption and Production,Yes,Covers manufacturing systems and sustainable biotechnology production,2024-10-30 12:25:46.693522
+BABS3071,17,Partnerships for the Goals,Yes,Involves collaboration between academia and industry professionals in biotechnology sector,2024-10-30 12:25:46.693524
+BABS3291,3,Good Health and Well-being,Yes,"Course covers genomics and genetics related to human health, immunity and cancer",2024-10-30 12:25:50.362820
+BABS3291,4,Quality Education,Yes,Provides advanced education in biotechnology and genomics with hands-on training,2024-10-30 12:25:50.362831
+BABS3291,9,Industry Innovation and Infrastructure,Yes,Teaches modern genomic technologies and bioinformatics tools,2024-10-30 12:25:50.362834
+BABS3291,14,Life Below Water,Yes,Covers conservation genomics which can be applied to marine species,2024-10-30 12:25:50.362836
+BABS3291,15,Life on Land,Yes,"Includes content on conservation biology, biodiversity and evolution",2024-10-30 12:25:50.362838
+BABS3081,3,Good Health and Well-being,Yes,"Course focuses on bacterial diseases, their mechanisms, prevention and control strategies",2024-10-30 12:26:01.443956
+BABS3081,4,Quality Education,Yes,Provides university-level education in microbiology with practical laboratory skills,2024-10-30 12:26:01.443963
+BABS3081,9,Industry Innovation and Infrastructure,Yes,Teaches contemporary medical microbiology techniques and research methods,2024-10-30 12:26:01.443965
+BABS3081,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:26:01.443966
+BABS3021,3,Good Health and Well-being,Yes,Course covers microbial genetics and epidemiology which relates to disease prevention and health,2024-10-30 12:26:05.323758
+BABS3021,4,Quality Education,Yes,Provides advanced undergraduate education in biotechnology and biomolecular sciences,2024-10-30 12:26:05.323765
+BABS3021,9,"Industry, Innovation and Infrastructure",Yes,Covers industrial applications of microbial genetics and contemporary research techniques,2024-10-30 12:26:05.323767
+BABS3021,12,Responsible Consumption and Production,Yes,Discusses industrial microbiology and sustainable biotechnology applications,2024-10-30 12:26:05.323768
+BABS3021,15,Life on Land,Yes,Covers environmental microbiology and terrestrial microbiome studies,2024-10-30 12:26:05.323770
+BABS3021,17,Partnerships for the Goals,Yes,Includes collaborative research projects and knowledge sharing between academia and industry,2024-10-30 12:26:05.323771
+BABS1201,3,Good Health and Well-being,Yes,Course covers cell biology and genetics which are fundamental to understanding human health,2024-10-30 12:26:23.759780
+BABS1201,4,Quality Education,Yes,Provides university-level education in biological sciences with clear learning outcomes,2024-10-30 12:26:23.759788
+BABS1201,9,Industry Innovation and Infrastructure,Yes,Teaches laboratory techniques and scientific research methods,2024-10-30 12:26:23.759790
+BABS1201,15,Life on Land,Yes,"Covers fundamental biology concepts including cell structures, genetics and evolution",2024-10-30 12:26:23.759791
+BABS2011,2,Zero Hunger,Yes,Course covers biotechnology applications in agriculture,2024-10-30 12:26:27.344201
+BABS2011,3,Good Health and Well-being,Yes,Addresses biotechnology applications in medicine and health,2024-10-30 12:26:27.344209
+BABS2011,4,Quality Education,Yes,Provides technical education in biotechnology and science communication,2024-10-30 12:26:27.344212
+BABS2011,8,Decent Work and Economic Growth,Yes,Covers commercialization and business aspects of biotechnology,2024-10-30 12:26:27.344214
+BABS2011,9,Industry Innovation and Infrastructure,Yes,Focuses on technological innovation and research methods,2024-10-30 12:26:27.344217
+BABS2011,12,Responsible Consumption and Production,Yes,Addresses sustainable agricultural applications,2024-10-30 12:26:27.344220
+BABS2011,13,Climate Action,Yes,Covers environmental management and climate-related applications,2024-10-30 12:26:27.344222
+BABS2011,15,Life on Land,Yes,Addresses agricultural and environmental biotechnology applications,2024-10-30 12:26:27.344224
+BABS2264,3,Good Health and Well-being,Yes,Course covers genetics and genomics with applications in medicine and health,2024-10-30 12:26:30.154144
+BABS2264,4,Quality Education,Yes,Provides advanced undergraduate education in genetics and research methods,2024-10-30 12:26:30.154151
+BABS2264,9,Industry Innovation and Infrastructure,Yes,Teaches modern genomics techniques and biotechnology applications,2024-10-30 12:26:30.154153
+BABS2264,15,Life on Land,Yes,Covers genetics related to plant material identification and biological systems,2024-10-30 12:26:30.154154
+BABS3151,3,Good Health and Well-being,Yes,"Course focuses on human genetics, disease understanding and personalized medicine",2024-10-30 12:26:42.523918
+BABS3151,4,Quality Education,Yes,Provides advanced education in molecular genetics and bioinformatics,2024-10-30 12:26:42.523925
+BABS3151,9,Industry Innovation and Infrastructure,Yes,Covers advances in genetic sequencing technologies and bioinformatics,2024-10-30 12:26:42.523927
+BABS3151,10,Reduced Inequalities,Yes,Addresses personalized medicine and genetic testing accessibility,2024-10-30 12:26:42.523928
+BABS3151,16,Peace Justice and Strong Institutions,Yes,Covers ethical implications of genetic testing and data privacy,2024-10-30 12:26:42.523930
+BABS3631,3,Good Health and Well-being,Yes,Course covers biopharmaceutical manufacturing and bioprocessing which contributes to medical advancement,2024-10-30 12:26:46.286135
+BABS3631,4,Quality Education,Yes,Provides advanced technical education in biotechnology and bioengineering,2024-10-30 12:26:46.286141
+BABS3631,9,"Industry, Innovation and Infrastructure",Yes,Teaches industrial bioprocessing and scale-up of biotechnology innovations,2024-10-30 12:26:46.286143
+BABS3631,12,Responsible Consumption and Production,Yes,Focuses on sustainable bioprocessing and efficient production methods,2024-10-30 12:26:46.286145
+BABS3631,15,Life on Land,Yes,Covers biofuel production and sustainable biotechnology processes that can reduce environmental impact,2024-10-30 12:26:46.286146
+BABS3121,3,Good Health and Well-being,Yes,"Course covers molecular biology and genetics which contribute to understanding health and disease, particularly cancer biology",2024-10-30 12:26:49.511461
+BABS3121,4,Quality Education,Yes,Provides comprehensive university education in molecular biology with both theoretical and practical components,2024-10-30 12:26:49.511474
+BABS3121,9,"Industry, Innovation and Infrastructure",Yes,Teaches modern molecular techniques and biotechnology applications relevant to industry,2024-10-30 12:26:49.511478
+BABS3121,15,Life on Land,Yes,Study of DNA and genetics relates to understanding biological systems and life processes,2024-10-30 12:26:49.511481
+BABS3031,3,Good Health and Well-being,Yes,Course covers biopharmaceutical manufacturing and bioprocessing principles relevant to health products,2024-10-30 12:27:04.321079
+BABS3031,4,Quality Education,Yes,Provides advanced technical education in biotechnology and bioengineering,2024-10-30 12:27:04.321082
+BABS3031,9,"Industry, Innovation and Infrastructure",Yes,Teaches industrial bioprocessing and scale-up of biotechnology innovations,2024-10-30 12:27:04.321083
+BABS3031,12,Responsible Consumption and Production,Yes,Covers sustainable bioprocessing and biofuel production principles,2024-10-30 12:27:04.321084
+BABS3031,13,Climate Action,Yes,Includes content on biofuels which can help reduce carbon emissions,2024-10-30 12:27:04.321084
+BABS3031,15,Life on Land,Yes,Addresses use of biological resources and organisms in sustainable bioprocessing,2024-10-30 12:27:04.321085
+BABS1111,3,Good Health and Well-being,Yes,"Course focuses on health, nutrition, weight management and metabolic processes",2024-10-30 12:27:09.674156
+BABS1111,4,Quality Education,Yes,Provides university education with focus on scientific literacy and critical thinking,2024-10-30 12:27:09.674166
+BABS1111,5,Gender Equality,No,Not enough information,2024-10-30 12:27:09.674169
+BABS1111,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:27:09.674171
+BABS1111,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:27:09.674174
+BABS1111,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:27:09.674178
+BABS1111,9,Industry Innovation and Infrastructure,No,Not enough information,2024-10-30 12:27:09.674181
+BABS1111,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:27:09.674184
+BABS1111,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:27:09.674186
+BABS1111,12,Responsible Consumption and Production,Yes,Teaches about responsible food consumption and healthy lifestyle choices,2024-10-30 12:27:09.674189
+BABS1111,13,Climate Action,No,Not enough information,2024-10-30 12:27:09.674192
+BABS1111,14,Life Below Water,No,Not enough information,2024-10-30 12:27:09.674195
+BABS1111,15,Life on Land,No,Not enough information,2024-10-30 12:27:09.674197
+BABS1111,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:27:09.674200
+BABS1111,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:27:09.674203
+COMM5010,4,Quality Education,Yes,Course provides postgraduate business education focused on strategy and management,2024-10-30 12:38:28.777187
+COMM5010,8,Decent Work and Economic Growth,Yes,"Focuses on business strategy, innovation and future of work",2024-10-30 12:38:28.777196
+COMM5010,9,Industry Innovation and Infrastructure,Yes,"Covers disruptive innovation, analytics and business transformation",2024-10-30 12:38:28.777198
+COMM5010,12,Responsible Consumption and Production,Yes,Includes content on sustainability and ethical business practices,2024-10-30 12:38:28.777201
+COMM5010,13,Climate Action,Yes,Addresses sustainability challenges for business functions,2024-10-30 12:38:28.777202
+COMM5010,16,"Peace, Justice and Strong Institutions",Yes,Covers business ethics and responsible business practices,2024-10-30 12:38:28.777205
+COMM5010,17,Partnerships for the Goals,Yes,Emphasizes global business collaboration and cultural awareness,2024-10-30 12:38:28.777206
+COMM5999,4,Quality Education,Yes,Course provides postgraduate business education and professional development,2024-10-30 12:38:31.944819
+COMM5999,8,Decent Work and Economic Growth,Yes,"Focus on career development, employability skills and professional portfolio building",2024-10-30 12:38:31.944826
+COMM5999,9,Industry Innovation and Infrastructure,Yes,Develops business and professional competencies for industry,2024-10-30 12:38:31.944827
+COMM5999,10,Reduced Inequalities,Yes,Provides access to professional development and career advancement opportunities,2024-10-30 12:38:31.944828
+COMM5999,17,Partnerships for the Goals,Yes,Encourages building professional networks and partnerships,2024-10-30 12:38:31.944829
+COMM5713,1,No Poverty,No,Not directly addressed in course content,2024-10-30 12:38:36.945539
+COMM5713,2,Zero Hunger,No,Not directly addressed in course content,2024-10-30 12:38:36.945551
+COMM5713,3,Good Health and Well-being,No,Not directly addressed in course content,2024-10-30 12:38:36.945553
+COMM5713,4,Quality Education,Yes,Course provides postgraduate education in social impact and collaboration,2024-10-30 12:38:36.945554
+COMM5713,5,Gender Equality,No,Not directly addressed in course content,2024-10-30 12:38:36.945555
+COMM5713,8,Decent Work and Economic Growth,No,Not directly addressed in course content,2024-10-30 12:38:36.945556
+COMM5713,9,Industry Innovation and Infrastructure,No,Not directly addressed in course content,2024-10-30 12:38:36.945557
+COMM5713,10,Reduced Inequalities,Yes,Course focuses on addressing complex social challenges and system change,2024-10-30 12:38:36.945559
+COMM5713,11,Sustainable Cities and Communities,Yes,Course examines cross-sector collaboration for social impact in communities,2024-10-30 12:38:36.945560
+COMM5713,16,"Peace, Justice and Strong Institutions",Yes,Course develops skills in building partnerships and collaborative governance,2024-10-30 12:38:36.945561
+COMM5713,17,Partnerships for the Goals,Yes,Core focus on developing cross-sector partnerships and collaboration skills,2024-10-30 12:38:36.945562
+COMM5008,4,Quality Education,Yes,Course provides postgraduate business education and professional skills development,2024-10-30 12:38:40.637789
+COMM5008,8,Decent Work and Economic Growth,Yes,Focuses on startup/enterprise skills and workplace readiness,2024-10-30 12:38:40.637793
+COMM5008,9,Industry Innovation and Infrastructure,Yes,Students work with startup companies on real business challenges,2024-10-30 12:38:40.637794
+COMM5008,17,Partnerships for the Goals,Yes,Creates partnerships between university students and industry/startup companies,2024-10-30 12:38:40.637795
+COMM5008,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:38:40.637795
+COMM5008,10,Reduced Inequalities,No,Not specifically covered in course materials,2024-10-30 12:38:40.637796
+COMM5008,12,Responsible Consumption and Production,No,Only briefly mentioned in responsible business practices workshop,2024-10-30 12:38:40.637797
+COMM1150,1,No Poverty,No,Not directly addressed in course content,2024-10-30 12:38:46.152362
+COMM1150,2,Zero Hunger,No,Not directly addressed in course content,2024-10-30 12:38:46.152368
+COMM1150,3,Good Health and Well-being,No,Not directly addressed in course content,2024-10-30 12:38:46.152370
+COMM1150,4,Quality Education,Yes,Course provides business education with focus on global perspectives,2024-10-30 12:38:46.152372
+COMM1150,5,Gender Equality,No,Not directly addressed in course content,2024-10-30 12:38:46.152373
+COMM1150,8,Decent Work and Economic Growth,Yes,"Covers economic environment, business cycles, and employment",2024-10-30 12:38:46.152375
+COMM1150,9,Industry Innovation and Infrastructure,Yes,Addresses business environments and technological development,2024-10-30 12:38:46.152377
+COMM1150,10,Reduced Inequalities,Yes,Addresses sociocultural differences and global business impacts,2024-10-30 12:38:46.152378
+COMM1150,11,Sustainable Cities and Communities,Yes,Covered in sustainability lens and environmental analysis,2024-10-30 12:38:46.152379
+COMM1150,12,Responsible Consumption and Production,Yes,Addressed through sustainability lens and business responsibility,2024-10-30 12:38:46.152381
+COMM1150,13,Climate Action,Yes,Covered in environmental sustainability component,2024-10-30 12:38:46.152382
+COMM1150,16,"Peace, Justice and Strong Institutions",Yes,"Covers political environment, legal systems, and corruption",2024-10-30 12:38:46.152384
+COMM1150,17,Partnerships for the Goals,Yes,Explicitly mentions UN SDGs and includes group sustainability presentation,2024-10-30 12:38:46.152385
+COMM5020,4,Quality Education,Yes,Course provides postgraduate business education with international exposure and workplace skills development,2024-10-30 12:38:49.585072
+COMM5020,8,Decent Work and Economic Growth,Yes,Focuses on business practices and workplace skills in international contexts,2024-10-30 12:38:49.585082
+COMM5020,9,Industry Innovation and Infrastructure,Yes,Students work on real business issues and innovation projects with host companies,2024-10-30 12:38:49.585085
+COMM5020,10,Reduced Inequalities,Yes,Promotes cross-cultural understanding and international business cooperation,2024-10-30 12:38:49.585087
+COMM5020,17,Partnerships for the Goals,Yes,Creates partnerships between universities and businesses across different countries for sustainable development,2024-10-30 12:38:49.585089
+COMM5203,4,Quality Education,Yes,Course provides postgraduate education in social and environmental impact measurement,2024-10-30 12:38:53.546043
+COMM5203,8,Decent Work and Economic Growth,Yes,Teaches evaluation of organizational sustainability and economic assessment methods,2024-10-30 12:38:53.546047
+COMM5203,12,Responsible Consumption and Production,Yes,Focuses on measuring and evaluating environmental outcomes and sustainability reporting,2024-10-30 12:38:53.546048
+COMM5203,13,Climate Action,Yes,Covers environmental impact assessment and sustainability measurement frameworks,2024-10-30 12:38:53.546049
+COMM5203,16,"Peace, Justice and Strong Institutions",Yes,Addresses stakeholder analysis and institutional accountability through impact measurement,2024-10-30 12:38:53.546050
+COMM5203,17,Partnerships for the Goals,Yes,"Examines collaboration between sectors (government, business, non-profit) for measuring social impact",2024-10-30 12:38:53.546051
+COMM5615,4,Quality Education,Yes,Course provides postgraduate business education with focus on systems thinking and modeling,2024-10-30 12:38:57.617916
+COMM5615,8,Decent Work and Economic Growth,Yes,Teaches business dynamics and growth strategies for enterprises,2024-10-30 12:38:57.617923
+COMM5615,9,Industry Innovation and Infrastructure,Yes,"Covers modeling of business innovations and technological systems like Tesla, Uber",2024-10-30 12:38:57.617926
+COMM5615,11,Sustainable Cities and Communities,Yes,Addresses complex societal problems and public policy issues through systems thinking,2024-10-30 12:38:57.617928
+COMM5615,12,Responsible Consumption and Production,Yes,Examines environmental sustainability and responsible business practices,2024-10-30 12:38:57.617929
+COMM5615,13,Climate Action,Yes,Includes environmental sustainability modeling and analysis,2024-10-30 12:38:57.617931
+COMM5615,17,Partnerships for the Goals,Yes,"Focuses on interconnected business, social and environmental systems",2024-10-30 12:38:57.617933
+COMM1140,4,Quality Education,Yes,Course provides university-level business and financial management education,2024-10-30 12:39:01.178809
+COMM1140,8,Decent Work and Economic Growth,Yes,Teaches financial management and business skills needed for economic participation,2024-10-30 12:39:01.178812
+COMM1140,9,Industry Innovation and Infrastructure,Yes,Develops skills in financial analysis and business management,2024-10-30 12:39:01.178813
+COMM1140,12,Responsible Consumption and Production,Yes,Includes content on sustainability reporting and ethical business practices,2024-10-30 12:39:01.178814
+COMM1140,16,Peace Justice and Strong Institutions,Yes,"Covers audit, internal controls and responsible financial management",2024-10-30 12:39:01.178815
+COMM1140,17,Partnerships for the Goals,Yes,Addresses integrated reporting practices that consider social and environmental impacts,2024-10-30 12:39:01.178816
+COMM5703,1,No Poverty,Yes,Course covers social investment and philanthropy aimed at addressing poverty and community services,2024-10-30 12:39:06.121659
+COMM5703,4,Quality Education,Yes,Course provides postgraduate education in social impact investment,2024-10-30 12:39:06.121668
+COMM5703,8,Decent Work and Economic Growth,Yes,Covers sustainable business models and social enterprise development,2024-10-30 12:39:06.121671
+COMM5703,9,Industry Innovation and Infrastructure,Yes,Addresses innovative financing models and social impact investment infrastructure,2024-10-30 12:39:06.121673
+COMM5703,10,Reduced Inequalities,Yes,Focuses on addressing social inequalities through impact investment and philanthropy,2024-10-30 12:39:06.121675
+COMM5703,11,Sustainable Cities and Communities,Yes,Covers community services and sustainable development through social investment,2024-10-30 12:39:06.121677
+COMM5703,12,Responsible Consumption and Production,Yes,Addresses sustainable business models and responsible investment practices,2024-10-30 12:39:06.121679
+COMM5703,16,"Peace, Justice and Strong Institutions",Yes,Examines governance and institutional frameworks for social impact investment,2024-10-30 12:39:06.121681
+COMM5703,17,Partnerships for the Goals,Yes,"Focuses on collaboration between philanthropy, government and private sector for social impact",2024-10-30 12:39:06.121683
+COMM1190,4,Quality Education,Yes,Course provides technical education in data analytics and business decision making,2024-10-30 12:39:22.991232
+COMM1190,8,Decent Work and Economic Growth,Yes,Develops skills for business analytics and organizational decision-making,2024-10-30 12:39:22.991238
+COMM1190,9,Industry Innovation and Infrastructure,Yes,Teaches data analysis and technological tools for business innovation,2024-10-30 12:39:22.991240
+COMM1190,12,Responsible Consumption and Production,Yes,Includes focus on ethical implications of data use and responsible business practices,2024-10-30 12:39:22.991242
+COMM1190,16,Peace Justice and Strong Institutions,Yes,Addresses ethical data use and responsible organizational practices,2024-10-30 12:39:22.991244
+COMM1190,17,Partnerships for the Goals,Yes,Develops skills for stakeholder communication and collaboration in business contexts,2024-10-30 12:39:22.991245
+COMM5005,4,Quality Education,Yes,Course provides postgraduate business education and quantitative skills training,2024-10-30 12:39:27.627160
+COMM5005,8,Decent Work and Economic Growth,Yes,Develops analytical and financial skills needed for business and economic analysis,2024-10-30 12:39:27.627165
+COMM5005,9,Industry Innovation and Infrastructure,Yes,Teaches quantitative methods and tools for business innovation and analysis,2024-10-30 12:39:27.627165
+COMM5005,12,Responsible Consumption and Production,Yes,Includes content on ethical business practices and responsible statistical reporting,2024-10-30 12:39:27.627166
+COMM5005,16,Peace Justice and Strong Institutions,Yes,Addresses ethical issues in business practice and promotes academic integrity,2024-10-30 12:39:27.627167
+COMM5005,17,Partnerships for the Goals,Yes,Includes collaborative group work and promotes global business communication skills,2024-10-30 12:39:27.627168
+COMM5501,4,Quality Education,Yes,Course teaches advanced data visualization and communication skills at postgraduate level,2024-10-30 12:39:42.938896
+COMM5501,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:39:42.938902
+COMM5501,8,Decent Work and Economic Growth,Yes,Develops professional business communication and analytical skills,2024-10-30 12:39:42.938903
+COMM5501,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills in data visualization software and techniques,2024-10-30 12:39:42.938904
+COMM5501,12,Responsible Consumption and Production,Yes,Focuses on responsible data presentation and interpretation,2024-10-30 12:39:42.938905
+COMM5501,16,"Peace, Justice and Strong Institutions",Yes,Emphasizes ethical data communication and critical evaluation of information,2024-10-30 12:39:42.938907
+COMM5501,17,Partnerships for the Goals,Yes,Students work on UN SDG-related challenges and develop solutions,2024-10-30 12:39:42.938908
+COMM8101,4,Quality Education,Yes,Course provides advanced statistical research methods education at postgraduate level,2024-10-30 12:39:46.436052
+COMM8101,5,Gender Equality,No,Not enough information,2024-10-30 12:39:46.436061
+COMM8101,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:39:46.436063
+COMM8101,9,Industry Innovation and Infrastructure,Yes,Develops research and analytical capabilities for business innovation,2024-10-30 12:39:46.436066
+COMM8101,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:39:46.436068
+COMM8101,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:39:46.436070
+COMM8101,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:39:46.436072
+COMM5030,1,No Poverty,Yes,Course focuses on social entrepreneurship to address social problems including poverty,2024-10-30 12:40:11.529185
+COMM5030,4,Quality Education,Yes,Course provides postgraduate education and practical skills development,2024-10-30 12:40:11.529193
+COMM5030,8,Decent Work and Economic Growth,Yes,Teaches business models that combine economic and social goals,2024-10-30 12:40:11.529195
+COMM5030,9,Industry Innovation and Infrastructure,Yes,Focuses on innovative social enterprise solutions and business models,2024-10-30 12:40:11.529197
+COMM5030,10,Reduced Inequalities,Yes,Aims to create positive social outcomes and reach people in need,2024-10-30 12:40:11.529199
+COMM5030,11,Sustainable Cities and Communities,Yes,Projects work with social enterprises to build sustainable community solutions,2024-10-30 12:40:11.529201
+COMM5030,12,Responsible Consumption and Production,Yes,Teaches sustainable business models and social impact measurement,2024-10-30 12:40:11.529203
+COMM5030,17,Partnerships for the Goals,Yes,Students work directly with social enterprises and non-profits on real projects,2024-10-30 12:40:11.529205
+COMM5205,4,Quality Education,Yes,Course provides postgraduate education in sustainability leadership and change management,2024-10-30 12:40:16.256538
+COMM5205,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:40:16.256556
+COMM5205,8,Decent Work and Economic Growth,Yes,Focuses on sustainable business practices and organizational change,2024-10-30 12:40:16.256558
+COMM5205,9,Industry Innovation and Infrastructure,Yes,Covers business model innovation and sustainable transitions,2024-10-30 12:40:16.256559
+COMM5205,10,Reduced Inequalities,Yes,"Addresses ethics, human rights and equitable transitions",2024-10-30 12:40:16.256561
+COMM5205,11,Sustainable Cities and Communities,Yes,Includes focus on campus sustainability and community engagement,2024-10-30 12:40:16.256562
+COMM5205,12,Responsible Consumption and Production,Yes,Covers circular economy and resource efficiency,2024-10-30 12:40:16.256564
+COMM5205,13,Climate Action,Yes,Explicitly addresses climate action and sustainability strategies,2024-10-30 12:40:16.256565
+COMM5205,16,Peace Justice and Strong Institutions,Yes,Addresses ethical leadership and organizational governance,2024-10-30 12:40:16.256566
+COMM5205,17,Partnerships for the Goals,Yes,Emphasizes building networks and partnerships for sustainability initiatives,2024-10-30 12:40:16.256568
+COMM1100,4,Quality Education,Yes,Course provides undergraduate business education with focus on decision-making and problem-solving skills,2024-10-30 12:40:20.004856
+COMM1100,8,Decent Work and Economic Growth,Yes,"Covers economic principles, market dynamics, and business operations",2024-10-30 12:40:20.004863
+COMM1100,9,Industry Innovation and Infrastructure,Yes,Teaches business innovation and organizational management concepts,2024-10-30 12:40:20.004865
+COMM1100,12,Responsible Consumption and Production,Yes,Addresses corporate sustainability and responsible business practices,2024-10-30 12:40:20.004866
+COMM1100,16,Peace Justice and Strong Institutions,Yes,"Covers legal frameworks, corporate governance, and stakeholder rights",2024-10-30 12:40:20.004868
+COMM1100,17,Partnerships for the Goals,Yes,Emphasizes stakeholder collaboration and business-society relationships,2024-10-30 12:40:20.004869
+COMM3202,4,Quality Education,Yes,Course provides practical work experience and professional skill development through industry placement,2024-10-30 12:40:42.032389
+COMM3202,8,Decent Work and Economic Growth,Yes,"Focuses on workplace skills, professional development, and business experience",2024-10-30 12:40:42.032395
+COMM3202,9,Industry Innovation and Infrastructure,Yes,Students work directly with industry partners and learn about business operations and innovation,2024-10-30 12:40:42.032396
+COMM3202,12,Responsible Consumption and Production,Yes,Course includes focus on evaluating business decisions for environmental and social sustainability,2024-10-30 12:40:42.032397
+COMM3202,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry for student development and knowledge transfer,2024-10-30 12:40:42.032399
+COMM5040,1,No Poverty,No,Not addressed in course content,2024-10-30 12:40:48.195511
+COMM5040,2,Zero Hunger,No,Not addressed in course content,2024-10-30 12:40:48.195523
+COMM5040,3,Good Health and Well-being,No,Not addressed in course content,2024-10-30 12:40:48.195527
+COMM5040,4,Quality Education,Yes,Course provides postgraduate education in entrepreneurship and innovation,2024-10-30 12:40:48.195530
+COMM5040,5,Gender Equality,No,Not addressed in course content,2024-10-30 12:40:48.195533
+COMM5040,6,Clean Water and Sanitation,No,Not addressed in course content,2024-10-30 12:40:48.195536
+COMM5040,7,Affordable and Clean Energy,No,Not addressed in course content,2024-10-30 12:40:48.195539
+COMM5040,8,Decent Work and Economic Growth,Yes,"Focus on entrepreneurship, startup ecosystems and economic development",2024-10-30 12:40:48.195559
+COMM5040,9,Industry Innovation and Infrastructure,Yes,"Covers innovation, technology and entrepreneurial infrastructure development",2024-10-30 12:40:48.195562
+COMM5040,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-10-30 12:40:48.195565
+COMM5040,11,Sustainable Cities and Communities,Yes,Examines development of entrepreneurial cities and ecosystems,2024-10-30 12:40:48.195567
+COMM5040,12,Responsible Consumption and Production,No,Not addressed in course content,2024-10-30 12:40:48.195570
+COMM5040,13,Climate Action,No,Not addressed in course content,2024-10-30 12:40:48.195572
+COMM5040,14,Life Below Water,No,Not addressed in course content,2024-10-30 12:40:48.195575
+COMM5040,15,Life on Land,No,Not addressed in course content,2024-10-30 12:40:48.195578
+COMM5040,16,"Peace, Justice and Strong Institutions",No,Not addressed in course content,2024-10-30 12:40:48.195580
+COMM5040,17,Partnerships for the Goals,Yes,"Emphasizes collaboration between government, universities, and businesses",2024-10-30 12:40:48.195583
+COMM3020,4,Quality Education,Yes,Course provides international business education and practical work experience,2024-10-30 12:41:08.141060
+COMM3020,8,Decent Work and Economic Growth,Yes,Focuses on developing workplace skills and business capabilities in international context,2024-10-30 12:41:08.141067
+COMM3020,9,Industry Innovation and Infrastructure,Yes,Students work with international corporations on business innovation projects,2024-10-30 12:41:08.141070
+COMM3020,10,Reduced Inequalities,Yes,Promotes cross-cultural understanding and international business cooperation,2024-10-30 12:41:08.141071
+COMM3020,17,Partnerships for the Goals,Yes,Creates partnerships between educational institution and international businesses,2024-10-30 12:41:08.141073
+COMM2244,4,Quality Education,Yes,Course provides business education and professional skills development,2024-10-30 12:41:12.636521
+COMM2244,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:41:12.636528
+COMM2244,8,Decent Work and Economic Growth,Yes,"Focuses on future of work, workplace skills, and economic sustainability",2024-10-30 12:41:12.636530
+COMM2244,9,Industry Innovation and Infrastructure,Yes,"Addresses emerging technologies, innovation and future workplace transformation",2024-10-30 12:41:12.636532
+COMM2244,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-10-30 12:41:12.636533
+COMM2244,11,Sustainable Cities and Communities,No,Not explicitly addressed in course content,2024-10-30 12:41:12.636535
+COMM2244,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-10-30 12:41:12.636537
+COMM2244,13,Climate Action,No,Not explicitly addressed in course content,2024-10-30 12:41:12.636538
+COMM2244,16,"Peace, Justice and Strong Institutions",No,Not explicitly addressed in course content,2024-10-30 12:41:12.636540
+COMM2244,17,Partnerships for the Goals,Yes,Involves industry partnerships and collaborative problem-solving projects,2024-10-30 12:41:12.636542
+COMM1900,4,Quality Education,Yes,Course provides undergraduate business education focused on organizational management and decision-making,2024-10-30 12:41:16.702356
+COMM1900,8,Decent Work and Economic Growth,Yes,Focuses on business environments and organizational management for sustainable operations,2024-10-30 12:41:16.702364
+COMM1900,9,Industry Innovation and Infrastructure,Yes,Covers technological aspects of business environments and organizational innovation,2024-10-30 12:41:16.702366
+COMM1900,12,Responsible Consumption and Production,Yes,Addresses corporate sustainability and responsible business practices,2024-10-30 12:41:16.702367
+COMM1900,13,Climate Action,Yes,Includes environmental responsibility and sustainability in business decision-making,2024-10-30 12:41:16.702369
+COMM1900,16,Peace Justice and Strong Institutions,Yes,Covers legal and political aspects of business environments and corporate governance,2024-10-30 12:41:16.702371
+COMM1900,17,Partnerships for the Goals,Yes,Recognizes UN SDGs and PRME principles in business education,2024-10-30 12:41:16.702373
+COMM5202,1,No Poverty,Yes,Course examines social sustainability and business responsibility towards communities,2024-10-30 12:41:43.620288
+COMM5202,2,Zero Hunger,No,Not explicitly addressed in course content,2024-10-30 12:41:43.620294
+COMM5202,3,Good Health and Well-being,Yes,Covers social sustainability and building healthy communities,2024-10-30 12:41:43.620296
+COMM5202,4,Quality Education,Yes,Provides postgraduate education in sustainability management,2024-10-30 12:41:43.620298
+COMM5202,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:41:43.620300
+COMM5202,6,Clean Water and Sanitation,No,Not explicitly addressed in course content,2024-10-30 12:41:43.620301
+COMM5202,7,Affordable and Clean Energy,No,Not explicitly addressed in course content,2024-10-30 12:41:43.620303
+COMM5202,8,Decent Work and Economic Growth,Yes,Covers sustainable business models and employment ethics,2024-10-30 12:41:43.620305
+COMM5202,9,Industry Innovation and Infrastructure,Yes,Examines sustainable business practices and organizational models,2024-10-30 12:41:43.620307
+COMM5202,10,Reduced Inequalities,Yes,Addresses social sustainability and stakeholder engagement,2024-10-30 12:41:43.620308
+COMM5202,11,Sustainable Cities and Communities,Yes,Focuses on building strong communities and social sustainability,2024-10-30 12:41:43.620310
+COMM5202,12,Responsible Consumption and Production,Yes,Covers sustainable supply chains and operations,2024-10-30 12:41:43.620311
+COMM5202,13,Climate Action,Yes,Addresses environmental sustainability and ecological systems,2024-10-30 12:41:43.620312
+COMM5202,14,Life Below Water,No,Not explicitly addressed in course content,2024-10-30 12:41:43.620314
+COMM5202,15,Life on Land,Yes,Examines environmental sustainability and ecosystems,2024-10-30 12:41:43.620315
+COMM5202,16,"Peace, Justice and Strong Institutions",Yes,Covers corporate governance and ethical business practices,2024-10-30 12:41:43.620316
+COMM5202,17,Partnerships for the Goals,Yes,Emphasizes stakeholder collaboration and systems thinking,2024-10-30 12:41:43.620317
+COMM5601,4,Quality Education,Yes,Course provides postgraduate education in data analytics and business applications,2024-10-30 12:41:47.014765
+COMM5601,8,Decent Work and Economic Growth,Yes,Develops skills for business analytics and data-driven decision making,2024-10-30 12:41:47.014774
+COMM5601,9,Industry Innovation and Infrastructure,Yes,Focuses on analytics techniques and technological innovation for business,2024-10-30 12:41:47.014776
+COMM5601,12,Responsible Consumption and Production,Yes,Includes ethics and sustainability implications in data analysis and modeling,2024-10-30 12:41:47.014778
+COMM5601,17,Partnerships for the Goals,Yes,Involves industry collaboration and cross-disciplinary problem solving,2024-10-30 12:41:47.014780
+COMM2222,4,Quality Education,Yes,Course provides practical industry experience and professional skills development,2024-10-30 12:41:49.895159
+COMM2222,8,Decent Work and Economic Growth,Yes,Focuses on workplace integration and professional development in business settings,2024-10-30 12:41:49.895164
+COMM2222,9,Industry Innovation and Infrastructure,Yes,Students work directly with industry partners on real business projects,2024-10-30 12:41:49.895166
+COMM2222,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry for student development,2024-10-30 12:41:49.895167
+COMM1120,4,Quality Education,Yes,Course provides structured business education focused on innovation and collaboration skills,2024-10-30 12:42:09.415621
+COMM1120,8,Decent Work and Economic Growth,Yes,Develops skills for business innovation and effective workplace collaboration,2024-10-30 12:42:09.415627
+COMM1120,9,Industry Innovation and Infrastructure,Yes,Focuses on innovation processes and creative problem-solving in business contexts,2024-10-30 12:42:09.415629
+COMM1120,10,Reduced Inequalities,Yes,Emphasizes cultural competence and diverse perspectives in teamwork,2024-10-30 12:42:09.415631
+COMM1120,12,Responsible Consumption and Production,Yes,Addresses business challenges with focus on social impact solutions,2024-10-30 12:42:09.415632
+COMM1120,17,Partnerships for the Goals,Yes,Promotes collaborative approaches and teamwork for solving complex problems,2024-10-30 12:42:09.415633
+COMM1120,4,Quality Education,Yes,Course provides business education focused on collaboration and innovation skills,2024-10-30 12:42:13.411171
+COMM1120,8,Decent Work and Economic Growth,Yes,Develops skills for business innovation and effective workplace collaboration,2024-10-30 12:42:13.411178
+COMM1120,9,Industry Innovation and Infrastructure,Yes,Focuses on innovation processes and creative solutions for business challenges,2024-10-30 12:42:13.411180
+COMM1120,10,Reduced Inequalities,Yes,Emphasizes diverse teams and cultural perspectives in collaborative work,2024-10-30 12:42:13.411181
+COMM1120,12,Responsible Consumption and Production,Yes,Addresses business solutions for complex 21st century challenges,2024-10-30 12:42:13.411182
+COMM1120,17,Partnerships for the Goals,Yes,Develops skills for effective teamwork and cross-cultural collaboration,2024-10-30 12:42:13.411184
+COMM5022,4,Quality Education,Yes,Course provides practical work experience and professional skill development for postgraduate students,2024-10-30 12:42:30.515601
+COMM5022,8,Decent Work and Economic Growth,Yes,"Focuses on workplace experience, professional development, and career preparation",2024-10-30 12:42:30.515605
+COMM5022,9,"Industry, Innovation and Infrastructure",Yes,Students gain industry experience and contribute to business practices through placements,2024-10-30 12:42:30.515607
+COMM5022,12,Responsible Consumption and Production,Yes,Students analyze organizational purpose and responsible business practices,2024-10-30 12:42:30.515608
+COMM5022,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry for student development,2024-10-30 12:42:30.515608
+COMM1999,4,Quality Education,Yes,Course provides business education and professional development through portfolio building,2024-10-30 12:42:34.522879
+COMM1999,8,Decent Work and Economic Growth,Yes,Focuses on work integrated learning and professional development for business careers,2024-10-30 12:42:34.522888
+COMM1999,9,Industry Innovation and Infrastructure,Yes,Develops digital technology skills and business innovation capabilities,2024-10-30 12:42:34.522890
+COMM1999,12,Responsible Consumption and Production,Yes,Includes learning outcomes focused on responsible business practices,2024-10-30 12:42:34.522892
+COMM1999,16,Peace Justice and Strong Institutions,Yes,Addresses responsible business practices and ethical leadership development,2024-10-30 12:42:34.522894
+COMM1999,17,Partnerships for the Goals,Yes,Integrates global competence and cross-cultural business understanding,2024-10-30 12:42:34.522896
+COMM2233,4,Quality Education,Yes,Course provides practical business education through industry consulting projects,2024-10-30 12:42:37.426528
+COMM2233,8,Decent Work and Economic Growth,Yes,Develops workplace skills and connects students with industry partners,2024-10-30 12:42:37.426541
+COMM2233,9,Industry Innovation and Infrastructure,Yes,Students work on real business problems and contribute to industry solutions,2024-10-30 12:42:37.426562
+COMM2233,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry for student learning,2024-10-30 12:42:37.426565
+COMM1180,4,Quality Education,Yes,Course provides undergraduate business education focused on value creation and critical thinking,2024-10-30 12:42:57.518379
+COMM1180,8,Decent Work and Economic Growth,Yes,Teaches fundamentals of business value creation and investment decisions,2024-10-30 12:42:57.518388
+COMM1180,9,Industry Innovation and Infrastructure,Yes,Covers how technology and innovation enable value creation in organizations,2024-10-30 12:42:57.518390
+COMM1180,12,Responsible Consumption and Production,Yes,Addresses sustainable value creation and social responsibilities in business contexts,2024-10-30 12:42:57.518391
+COMM1180,16,Peace Justice and Strong Institutions,Yes,Emphasizes ethical decision making and responsible business practices,2024-10-30 12:42:57.518393
+COMM1180,17,Partnerships for the Goals,Yes,Focuses on multi-stakeholder collaboration and creating shared value,2024-10-30 12:42:57.518395
+COMM3000,4,Quality Education,Yes,Course provides business education with focus on evidence-based decision making and professional skills development,2024-10-30 12:43:01.559333
+COMM3000,8,Decent Work and Economic Growth,Yes,Course teaches business analysis and intervention design skills relevant for professional work environments,2024-10-30 12:43:01.559340
+COMM3000,9,Industry Innovation and Infrastructure,Yes,Students learn to analyze and design interventions for business and organizational improvement,2024-10-30 12:43:01.559342
+COMM3000,12,Responsible Consumption and Production,Yes,Course emphasizes evidence-based evaluation of interventions and responsible business practices,2024-10-30 12:43:01.559344
+COMM3000,16,Peace Justice and Strong Institutions,Yes,Focus on designing and evaluating interventions for organizational effectiveness and ethical frameworks,2024-10-30 12:43:01.559345
+COMM3000,17,Partnerships for the Goals,Yes,Course involves collaboration between academic institution and industry through guest lectures and real-world projects,2024-10-30 12:43:01.559347
+COMM8100,4,Quality Education,Yes,Course provides postgraduate research education and training in business research methods,2024-10-30 12:43:21.958724
+COMM8100,5,Gender Equality,No,Not enough information,2024-10-30 12:43:21.958729
+COMM8100,8,Decent Work and Economic Growth,Yes,Course develops business research capabilities that contribute to economic knowledge,2024-10-30 12:43:21.958731
+COMM8100,9,Industry Innovation and Infrastructure,Yes,Course teaches research methods that support business innovation and knowledge creation,2024-10-30 12:43:21.958733
+COMM8100,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:43:21.958734
+COMM8100,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:43:21.958735
+COMM8100,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-10-30 12:43:21.958736
+COMM8100,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:43:21.958737
+COMM3900,4,Quality Education,Yes,Course provides undergraduate business education with focus on professional skills development,2024-10-30 12:43:25.959022
+COMM3900,8,Decent Work and Economic Growth,Yes,Focuses on sustainable business models and economic systems,2024-10-30 12:43:25.959029
+COMM3900,9,Industry Innovation and Infrastructure,Yes,Covers innovation models and new business approaches,2024-10-30 12:43:25.959030
+COMM3900,12,Responsible Consumption and Production,Yes,Addresses sustainable value chains and business practices,2024-10-30 12:43:25.959031
+COMM3900,13,Climate Action,Yes,Includes climate change and risk analysis components,2024-10-30 12:43:25.959032
+COMM3900,16,Peace Justice and Strong Institutions,Yes,"Covers governance, regulation and reporting",2024-10-30 12:43:25.959034
+COMM3900,17,Partnerships for the Goals,Yes,Emphasizes stakeholder collaboration and interdisciplinary approaches,2024-10-30 12:43:25.959035
+COMM5709,8,Decent Work and Economic Growth,Yes,"Course examines corporate responsibility in workplace and market spheres, including business ethics and labor practices",2024-10-30 12:43:31.133198
+COMM5709,9,Industry Innovation and Infrastructure,Yes,Covers business models for sustainability and corporate governance innovation,2024-10-30 12:43:31.133210
+COMM5709,12,Responsible Consumption and Production,Yes,"Focuses on corporate sustainability reporting, supply chain management, and environmental impact",2024-10-30 12:43:31.133211
+COMM5709,13,Climate Action,Yes,Includes content on environmental responsibility and natural resource management,2024-10-30 12:43:31.133213
+COMM5709,16,Peace Justice and Strong Institutions,Yes,"Addresses corporate governance, accountability, transparency and ethical business practices",2024-10-30 12:43:31.133215
+COMM5709,17,Partnerships for the Goals,Yes,Examines business-community partnerships and corporate-government relationships for sustainability,2024-10-30 12:43:31.133217
+COMM5709,4,Quality Education,Yes,Provides postgraduate education in corporate responsibility and sustainability management,2024-10-30 12:43:31.133219
+COMM5709,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:43:31.133221
+COMM5709,10,Reduced Inequalities,No,Not specifically covered in course outline,2024-10-30 12:43:31.133223
+COMM5022,4,Quality Education,Yes,Course provides practical work experience and professional skill development for postgraduate students,2024-10-30 12:43:53.070001
+COMM5022,8,Decent Work and Economic Growth,Yes,"Focuses on workplace experience, professional development, and career preparation",2024-10-30 12:43:53.070010
+COMM5022,9,Industry Innovation and Infrastructure,Yes,Students work directly with industry partners and analyze business practices,2024-10-30 12:43:53.070012
+COMM5022,12,Responsible Consumption and Production,Yes,Students analyze organizational purpose and responsible business practices,2024-10-30 12:43:53.070014
+COMM5022,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry for student development,2024-10-30 12:43:53.070016
+COMM3030,1,No Poverty,Yes,Course addresses social challenges and works with social enterprises focused on addressing poverty,2024-10-30 12:43:58.034606
+COMM3030,4,Quality Education,Yes,Course provides experiential learning and professional skill development,2024-10-30 12:43:58.034613
+COMM3030,8,Decent Work and Economic Growth,Yes,Course focuses on social entrepreneurship and sustainable business models,2024-10-30 12:43:58.034616
+COMM3030,9,Industry Innovation and Infrastructure,Yes,Students work on innovative social enterprise projects and business solutions,2024-10-30 12:43:58.034617
+COMM3030,10,Reduced Inequalities,Yes,Course addresses social challenges and inequalities through social entrepreneurship,2024-10-30 12:43:58.034618
+COMM3030,11,Sustainable Cities and Communities,Yes,Projects may focus on community development and sustainable solutions,2024-10-30 12:43:58.034620
+COMM3030,12,Responsible Consumption and Production,Yes,Course covers sustainable business models and social enterprise,2024-10-30 12:43:58.034621
+COMM3030,16,Peace Justice and Strong Institutions,Yes,Addresses corporate social responsibility and ethical business practices,2024-10-30 12:43:58.034623
+COMM3030,17,Partnerships for the Goals,Yes,Students partner with social enterprises and organizations to achieve social impact,2024-10-30 12:43:58.034624
+COMM1170,4,Quality Education,Yes,Course provides business education at undergraduate level with clear learning outcomes and assessment structure,2024-10-30 12:44:18.009171
+COMM1170,8,Decent Work and Economic Growth,Yes,Focuses on organizational resource management and competitive advantage in business contexts,2024-10-30 12:44:18.009183
+COMM1170,9,Industry Innovation and Infrastructure,Yes,Covers technology resources and innovation in organizational management,2024-10-30 12:44:18.009187
+COMM1170,12,Responsible Consumption and Production,Yes,"Addresses resource management, budgeting and sustainable business practices",2024-10-30 12:44:18.009190
+COMM1170,16,Peace Justice and Strong Institutions,Yes,Develops leadership skills and organizational management capabilities,2024-10-30 12:44:18.009192
+COMM1170,17,Partnerships for the Goals,Yes,Emphasizes collaboration and resource mobilization across organizations,2024-10-30 12:44:18.009195
+COMM3501,4,Quality Education,Yes,Course provides technical education in business analytics and data science,2024-10-30 12:44:21.850583
+COMM3501,8,Decent Work and Economic Growth,Yes,Develops skills for business decision-making and analytics careers,2024-10-30 12:44:21.850591
+COMM3501,9,Industry Innovation and Infrastructure,Yes,Teaches modern analytical tools and techniques for business innovation,2024-10-30 12:44:21.850593
+COMM3501,12,Responsible Consumption and Production,Yes,Covers ethical and social issues in data analytics and business decisions,2024-10-30 12:44:21.850595
+COMM3501,16,Peace Justice and Strong Institutions,Yes,Addresses regulatory issues and ethical considerations in data analytics,2024-10-30 12:44:21.850597
+COMM3501,17,Partnerships for the Goals,Yes,Includes group projects and cross-disciplinary collaboration,2024-10-30 12:44:21.850599
+COMM2822,4,Quality Education,Yes,Course provides technical education in database management and business analytics,2024-10-30 12:44:26.752323
+COMM2822,8,Decent Work and Economic Growth,Yes,Develops professional skills in database management needed for business careers,2024-10-30 12:44:26.752332
+COMM2822,9,Industry Innovation and Infrastructure,Yes,Teaches database infrastructure and technological innovation skills,2024-10-30 12:44:26.752335
+COMM2822,12,Responsible Consumption and Production,Yes,Covers data management and ethical implications of big data analytics,2024-10-30 12:44:26.752336
+COMM2822,16,Peace Justice and Strong Institutions,Yes,"Addresses database security, access control, and ethical data management",2024-10-30 12:44:26.752338
+COMM2822,17,Partnerships for the Goals,Yes,Includes team-based projects and collaborative problem solving,2024-10-30 12:44:26.752340
+COMM5044,4,Quality Education,Yes,Course provides postgraduate business education with focus on future workforce skills,2024-10-30 12:44:50.130930
+COMM5044,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:44:50.130938
+COMM5044,8,Decent Work and Economic Growth,Yes,"Focuses on future of work, workforce skills, and sustainable business practices",2024-10-30 12:44:50.130941
+COMM5044,9,Industry Innovation and Infrastructure,Yes,Addresses business innovation and future workplace challenges through industry partnerships,2024-10-30 12:44:50.130943
+COMM5044,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-10-30 12:44:50.130945
+COMM5044,11,Sustainable Cities and Communities,No,Not explicitly addressed in course content,2024-10-30 12:44:50.130947
+COMM5044,12,Responsible Consumption and Production,Yes,Includes focus on business sustainability and ESG principles,2024-10-30 12:44:50.130948
+COMM5044,13,Climate Action,No,Not explicitly addressed in course content,2024-10-30 12:44:50.130950
+COMM5044,16,"Peace, Justice and Strong Institutions",No,Not explicitly addressed in course content,2024-10-30 12:44:50.130951
+COMM5044,17,Partnerships for the Goals,Yes,Course involves industry partnerships and cross-disciplinary collaboration,2024-10-30 12:44:50.130953
+COMM5701,1,No Poverty,Yes,Course examines intractable social and economic problems and solutions through social innovation,2024-10-30 12:44:55.399144
+COMM5701,3,Good Health and Well-being,Yes,Addresses social issues and community wellbeing through cross-sector collaboration,2024-10-30 12:44:55.399151
+COMM5701,4,Quality Education,Yes,Provides postgraduate education in social impact and innovation,2024-10-30 12:44:55.399153
+COMM5701,8,Decent Work and Economic Growth,Yes,Explores social enterprises and business models for social change,2024-10-30 12:44:55.399155
+COMM5701,9,Industry Innovation and Infrastructure,Yes,Covers social innovation and new organizational forms for social purpose,2024-10-30 12:44:55.399157
+COMM5701,10,Reduced Inequalities,Yes,Addresses complex social issues and systemic inequalities,2024-10-30 12:44:55.399158
+COMM5701,11,Sustainable Cities and Communities,Yes,Focuses on creating social value and impact in communities,2024-10-30 12:44:55.399160
+COMM5701,16,"Peace, Justice and Strong Institutions",Yes,Examines cross-sector collaboration and governance for social impact,2024-10-30 12:44:55.399161
+COMM5701,17,Partnerships for the Goals,Yes,Emphasizes cross-sector partnerships and collaboration for social impact,2024-10-30 12:44:55.399163
+COMM8102,4,Quality Education,Yes,Course provides advanced statistical and econometric education at postgraduate level,2024-10-30 12:44:59.377525
+COMM8102,8,Decent Work and Economic Growth,Yes,Course teaches economic analysis and research skills relevant for business and economic growth,2024-10-30 12:44:59.377530
+COMM8102,9,Industry Innovation and Infrastructure,Yes,Teaches advanced analytical methods and software tools used in economic research and industry,2024-10-30 12:44:59.377532
+COMM8102,17,Partnerships for the Goals,Yes,Course develops skills for analyzing economic data that can inform policy and development goals,2024-10-30 12:44:59.377533
+COMM5710,1,No Poverty,Yes,Course focuses on advancing economic conditions in communities through business innovation,2024-10-30 12:45:26.017192
+COMM5710,3,Good Health and Well-being,Yes,Addresses social needs and reconceiving products/markets to improve community conditions,2024-10-30 12:45:26.017202
+COMM5710,4,Quality Education,Yes,Provides postgraduate education in sustainable business practices,2024-10-30 12:45:26.017204
+COMM5710,8,Decent Work and Economic Growth,Yes,Focuses on enhancing business competitiveness while improving economic conditions,2024-10-30 12:45:26.017207
+COMM5710,9,Industry Innovation and Infrastructure,Yes,Emphasizes business innovation and productivity improvements in value chains,2024-10-30 12:45:26.017209
+COMM5710,10,Reduced Inequalities,Yes,Aims to advance social conditions and create value for communities,2024-10-30 12:45:26.017212
+COMM5710,11,Sustainable Cities and Communities,Yes,Addresses development of local clusters and community advancement,2024-10-30 12:45:26.017214
+COMM5710,12,Responsible Consumption and Production,Yes,Covers reconceiving products/markets and value chain productivity,2024-10-30 12:45:26.017215
+COMM5710,17,Partnerships for the Goals,Yes,Focuses on stakeholder collaboration and partnerships between sectors,2024-10-30 12:45:26.017217
+COMM5007,4,Quality Education,Yes,Course provides technical education in programming and business analytics,2024-10-30 12:45:30.724162
+COMM5007,5,Gender Equality,No,Not enough information,2024-10-30 12:45:30.724176
+COMM5007,8,Decent Work and Economic Growth,Yes,Develops professional programming skills for business applications,2024-10-30 12:45:30.724180
+COMM5007,9,Industry Innovation and Infrastructure,Yes,Teaches digital skills and programming for business innovation,2024-10-30 12:45:30.724183
+COMM5007,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:45:30.724186
+COMM5007,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:45:30.724190
+COMM5007,17,Partnerships for the Goals,Yes,Emphasizes collaborative teamwork and group projects,2024-10-30 12:45:30.724193
+COMM8103,4,Quality Education,Yes,Course provides postgraduate research education and academic skill development,2024-10-30 12:45:33.762464
+COMM8103,8,Decent Work and Economic Growth,Yes,Focus on business research and professional development for academic careers,2024-10-30 12:45:33.762477
+COMM8103,9,Industry Innovation and Infrastructure,Yes,Develops research capabilities in business innovation and academic knowledge creation,2024-10-30 12:45:33.762481
+COMM8103,17,Partnerships for the Goals,Yes,Emphasizes research collaboration and academic networking,2024-10-30 12:45:33.762484
+COMM5706,1,No Poverty,Yes,Course focuses on social innovation and impact to address complex social issues,2024-10-30 12:45:58.230282
+COMM5706,3,Good Health and Well-being,Yes,Design thinking applied to social service provision and social issues,2024-10-30 12:45:58.230289
+COMM5706,4,Quality Education,Yes,Provides postgraduate education in design thinking and social innovation,2024-10-30 12:45:58.230291
+COMM5706,8,Decent Work and Economic Growth,Yes,Covers business model redesign for social impact,2024-10-30 12:45:58.230293
+COMM5706,9,Industry Innovation and Infrastructure,Yes,Teaches design and innovation principles for organizational change,2024-10-30 12:45:58.230295
+COMM5706,10,Reduced Inequalities,Yes,Addresses social issues and inclusive design approaches,2024-10-30 12:45:58.230296
+COMM5706,11,Sustainable Cities and Communities,Yes,Social innovation and systems thinking for community impact,2024-10-30 12:45:58.230297
+COMM5706,12,Responsible Consumption and Production,Yes,Focus on sustainable business models and social enterprise,2024-10-30 12:45:58.230299
+COMM5706,16,"Peace, Justice and Strong Institutions",Yes,Covers governance and institutional design for social impact,2024-10-30 12:45:58.230300
+COMM5706,17,Partnerships for the Goals,Yes,Emphasizes multi-stakeholder collaboration and systems approach,2024-10-30 12:45:58.230301
+COMM2501,4,Quality Education,Yes,Course teaches data visualization and communication skills at university level,2024-10-30 12:46:02.435391
+COMM2501,8,Decent Work and Economic Growth,Yes,Develops professional skills for business communication and leadership,2024-10-30 12:46:02.435399
+COMM2501,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills in data analytics and visualization,2024-10-30 12:46:02.435401
+COMM2501,10,Reduced Inequalities,Yes,Focuses on addressing global challenges and cultural diversity,2024-10-30 12:46:02.435403
+COMM2501,12,Responsible Consumption and Production,Yes,Teaches responsible data representation and ethical practices,2024-10-30 12:46:02.435405
+COMM2501,16,Peace Justice and Strong Institutions,Yes,Emphasizes ethical data practices and responsible business conduct,2024-10-30 12:46:02.435407
+COMM2501,17,Partnerships for the Goals,Yes,Students work on UN SDG-related challenges and develop solutions,2024-10-30 12:46:02.435408
+COMM3050,4,Quality Education,Yes,Course provides undergraduate business education focused on data analytics and ethics,2024-10-30 12:46:06.180313
+COMM3050,8,Decent Work and Economic Growth,Yes,Teaches responsible data use in business contexts and professional development,2024-10-30 12:46:06.180326
+COMM3050,9,Industry Innovation and Infrastructure,Yes,Focuses on data analytics and technological innovation in business,2024-10-30 12:46:06.180329
+COMM3050,12,Responsible Consumption and Production,Yes,Addresses ethical data use and responsible business practices,2024-10-30 12:46:06.180331
+COMM3050,16,Peace Justice and Strong Institutions,Yes,"Covers data governance, regulations, and legal frameworks for business",2024-10-30 12:46:06.180333
+COMM3050,17,Partnerships for the Goals,Yes,Emphasizes teamwork and collaborative approaches to addressing data challenges,2024-10-30 12:46:06.180335
+COMM5902,1,No Poverty,Yes,Course focuses on social impact and improving social outcomes through leadership,2024-10-30 12:46:30.676920
+COMM5902,2,Zero Hunger,No,Not explicitly addressed in course content,2024-10-30 12:46:30.676927
+COMM5902,3,Good Health and Well-being,No,Not explicitly addressed in course content,2024-10-30 12:46:30.676929
+COMM5902,4,Quality Education,Yes,Course provides postgraduate education in leadership and social impact,2024-10-30 12:46:30.676930
+COMM5902,5,Gender Equality,Yes,Course includes study of social impact leaders from BBC 100 Women list,2024-10-30 12:46:30.676932
+COMM5902,8,Decent Work and Economic Growth,Yes,Addresses leadership in social enterprises and corporate responsibility,2024-10-30 12:46:30.676933
+COMM5902,10,Reduced Inequalities,Yes,Focus on creating social value and improving social outcomes,2024-10-30 12:46:30.676935
+COMM5902,11,Sustainable Cities and Communities,Yes,Addresses community groups and social outcomes,2024-10-30 12:46:30.676936
+COMM5902,16,"Peace, Justice and Strong Institutions",Yes,Covers governance systems and institutional leadership,2024-10-30 12:46:30.676937
+COMM5902,17,Partnerships for the Goals,Yes,Emphasizes collaborative practice and stakeholder engagement,2024-10-30 12:46:30.676939
+COMM3999,4,Quality Education,Yes,Course provides structured professional development and portfolio building for business students,2024-10-30 12:46:34.472147
+COMM3999,8,Decent Work and Economic Growth,Yes,Focus on employability skills and career preparation for business graduates,2024-10-30 12:46:34.472152
+COMM3999,9,Industry Innovation and Infrastructure,Yes,Develops business communication and digital portfolio skills for professional work,2024-10-30 12:46:34.472153
+COMM3999,10,Reduced Inequalities,Yes,Includes focus on cultural competence and cross-cultural communication,2024-10-30 12:46:34.472154
+COMM3999,12,Responsible Consumption and Production,Yes,Includes learning outcomes focused on responsible business practices,2024-10-30 12:46:34.472155
+COMM3999,17,Partnerships for the Goals,Yes,Integrates academic learning with professional skill development and industry preparation,2024-10-30 12:46:34.472156
+COMM5704,1,No Poverty,No,Not enough information,2024-10-30 12:46:40.251273
+COMM5704,2,Zero Hunger,No,Not enough information,2024-10-30 12:46:40.251280
+COMM5704,3,Good Health and Well-being,No,Not enough information,2024-10-30 12:46:40.251282
+COMM5704,4,Quality Education,Yes,Course provides postgraduate education in social impact measurement,2024-10-30 12:46:40.251284
+COMM5704,5,Gender Equality,No,Not enough information,2024-10-30 12:46:40.251286
+COMM5704,6,Clean Water and Sanitation,No,Not enough information,2024-10-30 12:46:40.251288
+COMM5704,7,Affordable and Clean Energy,No,Not enough information,2024-10-30 12:46:40.251290
+COMM5704,8,Decent Work and Economic Growth,No,Not enough information,2024-10-30 12:46:40.251291
+COMM5704,9,"Industry, Innovation and Infrastructure",No,Not enough information,2024-10-30 12:46:40.251293
+COMM5704,10,Reduced Inequalities,Yes,Course focuses on measuring and improving social impact for vulnerable groups,2024-10-30 12:46:40.251295
+COMM5704,11,Sustainable Cities and Communities,No,Not enough information,2024-10-30 12:46:40.251297
+COMM5704,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:46:40.251298
+COMM5704,13,Climate Action,No,Not enough information,2024-10-30 12:46:40.251299
+COMM5704,14,Life Below Water,No,Not enough information,2024-10-30 12:46:40.251301
+COMM5704,15,Life on Land,No,Not enough information,2024-10-30 12:46:40.251302
+COMM5704,16,"Peace, Justice and Strong Institutions",Yes,Course covers evaluation of third sector organizations and social programs,2024-10-30 12:46:40.251304
+COMM5704,17,Partnerships for the Goals,Yes,"Course emphasizes collaboration between sectors (government, corporate, third sector) for social impact",2024-10-30 12:46:40.251306
+COMM5201,1,No Poverty,Yes,Course focuses on developing social enterprises to address social gaps and needs,2024-10-30 12:47:02.548816
+COMM5201,4,Quality Education,Yes,Provides postgraduate education in social impact and enterprise development,2024-10-30 12:47:02.548822
+COMM5201,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:47:02.548824
+COMM5201,8,Decent Work and Economic Growth,Yes,Teaches sustainable business models and social entrepreneurship,2024-10-30 12:47:02.548825
+COMM5201,9,Industry Innovation and Infrastructure,Yes,Focuses on innovation processes and developing new business solutions,2024-10-30 12:47:02.548827
+COMM5201,10,Reduced Inequalities,Yes,Addresses social gaps and inequalities through business solutions,2024-10-30 12:47:02.548828
+COMM5201,11,Sustainable Cities and Communities,Yes,Covers environmental and social sustainability in urban contexts,2024-10-30 12:47:02.548830
+COMM5201,12,Responsible Consumption and Production,Yes,Teaches sustainable business practices and models,2024-10-30 12:47:02.548831
+COMM5201,13,Climate Action,Yes,Environmental sustainability is a key focus area for projects,2024-10-30 12:47:02.548832
+COMM5201,16,"Peace, Justice and Strong Institutions",Yes,Addresses governance and ethical considerations in social enterprises,2024-10-30 12:47:02.548834
+COMM5201,17,Partnerships for the Goals,Yes,Emphasizes stakeholder engagement and partnerships for social impact,2024-10-30 12:47:02.548835
+COMM1040,4,Quality Education,Yes,Course provides entrepreneurship education and business skills development,2024-10-30 12:47:06.695628
+COMM1040,8,Decent Work and Economic Growth,Yes,"Focuses on startup ecosystems, innovation and economic development",2024-10-30 12:47:06.695633
+COMM1040,9,Industry Innovation and Infrastructure,Yes,Teaches innovation methodologies and ecosystem development,2024-10-30 12:47:06.695634
+COMM1040,11,Sustainable Cities and Communities,Yes,Examines city-level entrepreneurial ecosystems and urban development,2024-10-30 12:47:06.695635
+COMM1040,12,Responsible Consumption and Production,Yes,Includes focus on sustainable business models and social enterprise,2024-10-30 12:47:06.695636
+COMM1040,17,Partnerships for the Goals,Yes,"Emphasizes collaboration between government, universities and industry",2024-10-30 12:47:06.695637
+COMM5707,1,No Poverty,Yes,Course focuses on social impact projects addressing unmet social needs,2024-10-30 12:47:27.669048
+COMM5707,3,Good Health and Well-being,Yes,Projects can address social challenges related to health and wellbeing,2024-10-30 12:47:27.669051
+COMM5707,4,Quality Education,Yes,Course provides postgraduate education in social impact,2024-10-30 12:47:27.669052
+COMM5707,8,Decent Work and Economic Growth,Yes,Covers social enterprises and shared value creation,2024-10-30 12:47:27.669053
+COMM5707,9,Industry Innovation and Infrastructure,Yes,Addresses social innovation and enterprise development,2024-10-30 12:47:27.669053
+COMM5707,10,Reduced Inequalities,Yes,Focus on addressing social needs and inequalities,2024-10-30 12:47:27.669054
+COMM5707,11,Sustainable Cities and Communities,Yes,Projects can address community-level social challenges,2024-10-30 12:47:27.669055
+COMM5707,12,Responsible Consumption and Production,Yes,Covers corporate responsibility and accountability,2024-10-30 12:47:27.669056
+COMM5707,16,"Peace, Justice and Strong Institutions",Yes,Addresses collaboration and stakeholder engagement,2024-10-30 12:47:27.669056
+COMM5707,17,Partnerships for the Goals,Yes,Emphasizes collaboration for social impact across sectors,2024-10-30 12:47:27.669057
+COMM5000,4,Quality Education,Yes,Course provides postgraduate business education in data literacy and analytics,2024-10-30 12:47:31.874066
+COMM5000,5,Gender Equality,No,Not enough information,2024-10-30 12:47:31.874074
+COMM5000,8,Decent Work and Economic Growth,Yes,Course aims to make students job-ready with in-demand data analysis skills,2024-10-30 12:47:31.874076
+COMM5000,9,Industry Innovation and Infrastructure,Yes,Teaches modern data analysis and business intelligence tools,2024-10-30 12:47:31.874078
+COMM5000,10,Reduced Inequalities,No,Not enough information,2024-10-30 12:47:31.874081
+COMM5000,12,Responsible Consumption and Production,No,Not enough information,2024-10-30 12:47:31.874083
+COMM5000,16,"Peace, Justice and Strong Institutions",Yes,Covers ethical data governance and responsible business practices,2024-10-30 12:47:31.874085
+COMM5000,17,Partnerships for the Goals,No,Not enough information,2024-10-30 12:47:31.874086
+COMM3101,4,Quality Education,Yes,Course provides practical work experience and professional development for business students,2024-10-30 12:47:48.586896
+COMM3101,8,Decent Work and Economic Growth,Yes,Focuses on workplace skills development and business experience through internships,2024-10-30 12:47:48.586903
+COMM3101,9,Industry Innovation and Infrastructure,Yes,Students work directly with industry partners and learn business practices,2024-10-30 12:47:48.586905
+COMM3101,12,Responsible Consumption and Production,Yes,Course includes evaluation of business decisions in light of environmental sustainability,2024-10-30 12:47:48.586907
+COMM3101,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry for student development,2024-10-30 12:47:48.586909
+COMM1000,1,No Poverty,Yes,Course addresses inequality and social problems including disadvantage,2024-10-30 12:47:58.106001
+COMM1000,2,Zero Hunger,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106008
+COMM1000,3,Good Health and Well-being,Yes,Course covers mental health and social wellbeing issues,2024-10-30 12:47:58.106010
+COMM1000,4,Quality Education,Yes,Course provides university education on social change and innovation,2024-10-30 12:47:58.106012
+COMM1000,5,Gender Equality,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106013
+COMM1000,6,Clean Water and Sanitation,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106015
+COMM1000,7,Affordable and Clean Energy,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106016
+COMM1000,8,Decent Work and Economic Growth,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106018
+COMM1000,9,Industry Innovation and Infrastructure,Yes,Course covers social innovation and systems change,2024-10-30 12:47:58.106020
+COMM1000,10,Reduced Inequalities,Yes,Course directly addresses inequality and social disadvantage,2024-10-30 12:47:58.106021
+COMM1000,11,Sustainable Cities and Communities,Yes,Course covers place-based disadvantage and community systems,2024-10-30 12:47:58.106023
+COMM1000,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106024
+COMM1000,13,Climate Action,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106025
+COMM1000,14,Life Below Water,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106027
+COMM1000,15,Life on Land,No,Not explicitly addressed in course content,2024-10-30 12:47:58.106029
+COMM1000,16,"Peace, Justice and Strong Institutions",Yes,Course covers human rights and social systems change,2024-10-30 12:47:58.106030
+COMM1000,17,Partnerships for the Goals,Yes,Course focuses on cross-sectoral collaboration and partnerships,2024-10-30 12:47:58.106032
+PHSL2501,3,Good Health and Well-being,Yes,Course focuses on human physiology and body systems functioning which directly relates to health understanding,2024-10-30 13:01:53.565149
+PHSL2501,4,Quality Education,Yes,"Provides comprehensive education in human physiology through lectures, labs and practical training",2024-10-30 13:01:53.565157
+PHSL2501,5,Gender Equality,No,No specific gender-related content mentioned,2024-10-30 13:01:53.565159
+PHSL2501,8,Decent Work and Economic Growth,No,Not directly addressed in course content,2024-10-30 13:01:53.565160
+PHSL2501,9,Industry Innovation and Infrastructure,No,Not directly addressed in course content,2024-10-30 13:01:53.565162
+PHSL2501,10,Reduced Inequalities,No,Not specifically addressed,2024-10-30 13:01:53.565164
+PHSL2501,12,Responsible Consumption and Production,No,Not directly addressed,2024-10-30 13:01:53.565165
+PHSL2501,13,Climate Action,No,Not addressed in course content,2024-10-30 13:01:53.565166
+PHSL2501,14,Life Below Water,No,Not covered in course material,2024-10-30 13:01:53.565168
+PHSL2501,15,Life on Land,No,Not specifically addressed,2024-10-30 13:01:53.565170
+PHSL2501,16,"Peace, Justice and Strong Institutions",No,Not addressed in course content,2024-10-30 13:01:53.565171
+PHSL2501,17,Partnerships for the Goals,No,Not directly addressed,2024-10-30 13:01:53.565173
+PHSL2221,3,Good Health and Well-being,Yes,Course focuses on human physiology and body systems functioning,2024-10-30 13:01:57.808856
+PHSL2221,4,Quality Education,Yes,Provides comprehensive education in physiology with practical lab experience,2024-10-30 13:01:57.808863
+PHSL2221,5,Gender Equality,Yes,Covers reproductive physiology and endocrine systems for all genders,2024-10-30 13:01:57.808865
+PHSL2221,9,"Industry, Innovation and Infrastructure",Yes,Teaches experimental methods and laboratory techniques,2024-10-30 13:01:57.808867
+PHSL2221,12,Responsible Consumption and Production,Yes,Lab safety and waste management protocols emphasized,2024-10-30 13:01:57.808869
+PHSL2221,15,Life on Land,Yes,Includes study of biological systems and physiological processes,2024-10-30 13:01:57.808871
+PHSL2201,3,Good Health and Well-being,Yes,Course focuses on human physiology and body systems functioning which directly relates to health,2024-10-30 13:02:02.529076
+PHSL2201,4,Quality Education,Yes,Provides comprehensive university education in biomedical sciences with practical laboratory experience,2024-10-30 13:02:02.529083
+PHSL2201,5,Gender Equality,Yes,Course covers reproductive physiology and endocrine systems relevant to all genders,2024-10-30 13:02:02.529085
+PHSL2201,9,"Industry, Innovation and Infrastructure",Yes,Students learn experimental techniques and data analysis skills relevant to biomedical research,2024-10-30 13:02:02.529087
+PHSL2201,12,Responsible Consumption and Production,Yes,Laboratory classes include safety protocols and proper waste management procedures,2024-10-30 13:02:02.529089
+PHSL2201,17,Partnerships for the Goals,Yes,Course involves collaboration between different academic departments and research areas,2024-10-30 13:02:02.529091
+PHSL2121,3,Good Health and Well-being,Yes,Course focuses on human physiology and body systems functioning,2024-10-30 13:02:06.658089
+PHSL2121,4,Quality Education,Yes,Provides comprehensive education in physiology with practical laboratory experience,2024-10-30 13:02:06.658104
+PHSL2121,9,"Industry, Innovation and Infrastructure",Yes,Teaches experimental methods and data analysis in biomedical science,2024-10-30 13:02:06.658108
+PHSL2121,12,Responsible Consumption and Production,Yes,Includes laboratory safety protocols and proper handling of materials,2024-10-30 13:02:06.658112
+PHSL2121,15,Life on Land,Yes,Covers ethical treatment of animals in research through required animal ethics training,2024-10-30 13:02:06.658116
+PHSL2502,3,Good Health and Well-being,Yes,Course focuses on human physiology and body systems functioning,2024-10-30 13:02:10.844041
+PHSL2502,4,Quality Education,Yes,Provides comprehensive education in biomedical sciences with practical laboratory experience,2024-10-30 13:02:10.844050
+PHSL2502,5,Gender Equality,Yes,Course covers reproductive physiology and endocrine systems for all genders,2024-10-30 13:02:10.844052
+PHSL2502,9,"Industry, Innovation and Infrastructure",Yes,Students learn experimental techniques and laboratory skills relevant to biomedical research,2024-10-30 13:02:10.844054
+PHSL2502,12,Responsible Consumption and Production,Yes,Lab safety protocols and waste management procedures are emphasized,2024-10-30 13:02:10.844056
+PHSL3221,3,Good Health and Well-being,Yes,"Course focuses on human endocrine, reproductive and developmental physiology, directly related to health",2024-10-30 13:02:39.867599
+PHSL3221,4,Quality Education,Yes,Provides university-level education in biomedical sciences with clear learning outcomes and assessment structure,2024-10-30 13:02:39.867602
+PHSL3221,5,Gender Equality,Yes,"Course covers reproductive health for both males and females, and includes content on biological sex variation",2024-10-30 13:02:39.867603
+PHSL3221,10,Reduced Inequalities,Yes,Course includes content on biological sex variation and provides equitable learning services,2024-10-30 13:02:39.867603
+PHSL2101,3,Good Health and Well-being,Yes,Course teaches human physiology and body systems functioning which directly relates to health,2024-10-30 13:02:45.894829
+PHSL2101,4,Quality Education,Yes,Provides comprehensive university education in biomedical sciences with practical laboratory experience,2024-10-30 13:02:45.894836
+PHSL2101,5,Gender Equality,No,No explicit content related to gender issues,2024-10-30 13:02:45.894838
+PHSL2101,6,Clean Water and Sanitation,No,Not addressed in course content,2024-10-30 13:02:45.894840
+PHSL2101,7,Affordable and Clean Energy,No,Not addressed in course content,2024-10-30 13:02:45.894841
+PHSL2101,8,Decent Work and Economic Growth,No,Not addressed in course content,2024-10-30 13:02:45.894843
+PHSL2101,9,Industry Innovation and Infrastructure,No,Not addressed in course content,2024-10-30 13:02:45.894845
+PHSL2101,10,Reduced Inequalities,No,Not addressed in course content,2024-10-30 13:02:45.894846
+PHSL2101,11,Sustainable Cities and Communities,No,Not addressed in course content,2024-10-30 13:02:45.894848
+PHSL2101,12,Responsible Consumption and Production,No,Not addressed in course content,2024-10-30 13:02:45.894849
+PHSL2101,13,Climate Action,No,Not addressed in course content,2024-10-30 13:02:45.894851
+PHSL2101,14,Life Below Water,No,Not addressed in course content,2024-10-30 13:02:45.894852
+PHSL2101,15,Life on Land,No,Not addressed in course content,2024-10-30 13:02:45.894853
+PHSL2101,16,"Peace, Justice and Strong Institutions",No,Not addressed in course content,2024-10-30 13:02:45.894855
+PHSL2101,17,Partnerships for the Goals,No,Not addressed in course content,2024-10-30 13:02:45.894856

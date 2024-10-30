@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG Analysis Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        #sidebar {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            width: 250px;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        #main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            transition: margin-left 0.3s ease;
+        }
+
+        #toggle-sidebar {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-group {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            margin: 0 0 15px 0;
+            font-size: 1.1em;
+            color: #333;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .switch-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .switch-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .switch-button:not(.active) {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        #disciplineSelect option {
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #disciplineSelect option:hover:not(:checked) {
+            background-color: #f0f0f0;
+        }
+
+        #disciplineSelect option:checked,
+        #disciplineSelect option[selected] {
+            background: #4CAF50 !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+            -webkit-appearance: none;
+            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
+        }
+
+        /* For webkit browsers like Chrome/Safari */
+        #disciplineSelect::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #disciplineSelect::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        #disciplineSelect::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        #disciplineSelect::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Additional browser-specific styles */
+        #disciplineSelect:focus option:checked {
+            background: #4CAF50 !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+        }
+
+        @-moz-document url-prefix() {
+            #disciplineSelect option:checked,
+            #disciplineSelect option[selected] {
+                background: #4CAF50 !important;
+                color: white !important;
+            }
+        }
+
+        #plot-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            height: calc(100vh - 40px);
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+
+            #main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            #toggle-sidebar {
+                display: block;
+            }
+
+            #sidebar.active {
+                transform: translateX(0);
+            }
+
+            #main-content.sidebar-active {
+                margin-left: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #main-content.sidebar-active {
+                margin-left: 0;
+                opacity: 0.7;
+            }
+
+            #plot-container {
+                height: calc(100vh - 80px);
+            }
+
+            .switch-button {
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+        .disclaimer {
+        background-color: #fff3e0;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .disclaimer h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .disclaimer p {
+            color: #424242;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .disclaimer ul {
+            color: #424242;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer li {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-sidebar">☰</button>
+    
+    <div id="sidebar">
+        <div class="button-group">
+            <h3 class="section-title">SDG Analysis</h3>
+            <button id="radarBtn" class="switch-button active">SDG Coverage</button>
+            <button id="heatmapBtn" class="switch-button">SDG Distribution</button>
+            <button id="cumulativeBtn" class="switch-button">Cumulative SDGs</button>
+        </div>
+        <div class="button-group">
+            <h3 class="section-title">Discipline</h3>
+            <select id="disciplineSelect" class="switch-button" size="8">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div id="plot-container"></div>
+        <div class="disclaimer">
+            <h4>Disclaimer</h4>
+            <p>This visualization represents a high-level, automated mapping of UN Sustainable Development Goals (SDGs) across courses. Please note:</p>
+            <ul>
+                <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+                <li>The mapping is likely incomplete and may contain inaccuracies</li>
+                <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+                <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
+                <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes</li>
+                <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum mapping initiatives</li>
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <script>
+        let currentDiscipline = 'ALL';
+
+        const specializationNames = {
+            'ANAT': 'Anatomy',
+            'BABS': 'Biotechnology and Biomolecular Sciences',
+            'COMM': 'Commerce',
+            'CVEN': 'Civil Engineering',
+            'MICR': 'Microbiology',
+            'PATH': 'Pathology',
+            'PHSL': 'Physiology',
+            'SOLA': 'Photovoltaic and Solar Energy'
+        };
+
+        // Sidebar toggle
+        document.getElementById('toggle-sidebar').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('main-content').classList.toggle('sidebar-active');
+        });
+
+        // Responsive plot handling
+        window.addEventListener('resize', function() {
+            const update = {
+                width: document.getElementById('plot-container').offsetWidth,
+                height: document.getElementById('plot-container').offsetHeight
+            };
+            Plotly.relayout('plot-container', update);
+        });
+
+        function getPlotDimensions() {
+            const container = document.getElementById('plot-container');
+            return {
+                width: container.offsetWidth,
+                height: container.offsetHeight
+            };
+        }
+
+        function getDisciplines(data) {
+            const disciplines = new Set(
+                data.map(row => row.course_code.substring(0, 4))
+            );
+            return Array.from(disciplines).sort();
+        }
+        async function loadData() {
+            try {
+                const response = await fetch('sdg_analysis.csv');
+                const csvText = await response.text();
+                const lines = csvText.split('\n');
+                
+                const data = lines.slice(1).map(line => {
+                    const [course_code, sdg_number, sdg_name, addressed, justification, timestamp] = line.split(',');
+                    return {
+                        course_code: course_code?.trim(),
+                        sdg_number: parseInt(sdg_number?.trim()),
+                        sdg_name: sdg_name?.trim(),
+                        addressed: addressed?.trim().toLowerCase() === 'yes',
+                        justification: justification?.trim(),
+                        timestamp: timestamp?.trim()
+                    };
+                }).filter(row => row.course_code);
+
+                // Modified discipline selector population
+                const disciplines = getDisciplines(data);
+                const select = document.getElementById('disciplineSelect');
+                
+                // Set initial discipline if not set
+                if (!currentDiscipline || currentDiscipline === 'ALL') {
+                    currentDiscipline = disciplines[0];
+                }
+                
+                // Populate select with full names
+                select.innerHTML = disciplines.map(discipline => 
+                    `<option value="${discipline}" ${discipline === currentDiscipline ? 'selected' : ''}>
+                        ${specializationNames[discipline] || discipline}
+                    </option>`
+                ).join('');
+
+                return data;
+            } catch (error) {
+                console.error('Error loading data:', error);
+                return [];
+            }
+        }
+
+        function getCourseYear(courseCode) {
+            const yearNum = parseInt(courseCode.charAt(4));
+            return yearNum >= 5 ? 4 : yearNum;
+        }
+
+
+        function filterDataByDiscipline(data, discipline) {
+            return data.filter(row => row.course_code.startsWith(discipline));
+        }
+
+        function createHeatmap(data, isCumulative) {
+            data = filterDataByDiscipline(data, currentDiscipline);
+            
+            const courseSDGs = {};
+            window.sdgNames = {  // Make sdgNames globally available
+                1: "No Poverty",
+                2: "Zero Hunger",
+                3: "Good Health and Well-being",
+                4: "Quality Education",
+                5: "Gender Equality",
+                6: "Clean Water and Sanitation",
+                7: "Affordable and Clean Energy",
+                8: "Decent Work and Economic Growth",
+                9: "Industry, Innovation and Infrastructure",
+                10: "Reduced Inequalities",
+                11: "Sustainable Cities and Communities",
+                12: "Responsible Consumption and Production",
+                13: "Climate Action",
+                14: "Life Below Water",
+                15: "Life on Land",
+                16: "Peace, Justice and Strong Institutions",
+                17: "Partnerships for the Goals"
+            };
+            
+            // Initialize all SDGs for each course
+            data.forEach(row => {
+                if (!courseSDGs[row.course_code]) {
+                    courseSDGs[row.course_code] = {};
+                    // Initialize all SDGs to 0
+                    for (let i = 1; i <= 17; i++) {
+                        courseSDGs[row.course_code][i] = 0;
+                    }
+                }
+                if (row.addressed) {
+                    courseSDGs[row.course_code][row.sdg_number] = 1;
+                }
+            });
+
+            const courseJustifications = {};
+                data.forEach(row => {
+                    if (!courseJustifications[row.course_code]) {
+                        courseJustifications[row.course_code] = {};
+                    }
+                    if (row.addressed && row.justification) {
+                        courseJustifications[row.course_code][row.sdg_number] = row.justification;
+                    }
+                });
+
+            const courses = Object.keys(courseSDGs).sort((a, b) => {
+                const yearA = getCourseYear(a);
+                const yearB = getCourseYear(b);
+                return yearA - yearB || a.localeCompare(b);
+            });
+            
+            // Use all SDGs 1-17 instead of extracting from data
+            const sdgNumbers = Array.from({length: 17}, (_, i) => i + 1);
+            const matrix = sdgNumbers.map(sdg => {
+                if (isCumulative) {
+                    let sum = 0;
+                    return courses.map(course => {
+                        sum += courseSDGs[course][sdg] || 0;
+                        return sum;
+                    });
+                } else {
+                    return courses.map(course => courseSDGs[course][sdg] || 0);
+                }
+            });
+
+            const dimensions = getPlotDimensions();
+            const layout = {
+                title: isCumulative ? 'Cumulative SDG Coverage' : 'SDG Distribution',
+                xaxis: {
+                    title: 'Courses',
+                    ticktext: courses,
+                    tickvals: courses.map((_, i) => i),
+                    tickangle: 45
+                },
+                yaxis: {
+                    title: 'SDGs',
+                    // Change this line to remove mentions
+                    ticktext: sdgNumbers.map(num => `SDG ${num} - ${window.sdgNames[num]}`),
+                    tickvals: sdgNumbers.map((_, i) => i)
+                },
+                margin: {
+                    l: 250,
+                    r: 50,
+                    b: 100,
+                    t: 50
+                },
+                width: dimensions.width,
+                height: dimensions.height
+            };
+
+            const hoverText = sdgNumbers.map(sdg => {
+                return courses.map(course => {
+                    const value = courseSDGs[course][sdg];
+                    const justification = courseJustifications[course][sdg] || '';
+                    return `Course: ${course}<br>` +
+                        `SDG ${sdg}: ${window.sdgNames[sdg]}<br>` +
+                        `Present: ${value ? 'Yes' : 'No'}<br>` +
+                        `Justification: ${justification}`;
+                });
+            });
+
+            const plotData = [{
+                z: matrix,
+                type: 'heatmap',
+                colorscale: 'YlOrRd',
+                hoverongaps: false,
+                hoverinfo: 'text',
+                text: hoverText
+            }];
+
+            Plotly.newPlot('plot-container', plotData, layout);
+
+            if (isCumulative) {
+                // Store the final values for each SDG
+                window.finalCumulativeValues = sdgNumbers.map(sdg => 
+                    matrix[sdgNumbers.indexOf(sdg)][courses.length - 1] || 0
+                );
+            }
+        }
+
+        function createRadar(data) {
+            data = filterDataByDiscipline(data, currentDiscipline);
+            
+            // First create cumulative heatmap to get final values
+            createHeatmap(data, true);
+            
+            // Use all SDGs 1-17
+            const sdgNumbers = Array.from({length: 17}, (_, i) => i + 1);
+            const values = window.finalCumulativeValues || sdgNumbers.map(() => 0);
+            const maxValue = Math.max(...values, 1); // Use at least 1 to avoid division by zero
+            const percentages = values.map(v => (v / maxValue) * 100);
+
+            const labels = sdgNumbers.map((sdg, i) => 
+                `SDG ${sdg} - ${window.sdgNames[sdg]}`
+            );
+
+            labels.push(labels[0]);
+            percentages.push(percentages[0]);
+
+            const dimensions = getPlotDimensions();
+            const plotData = [{
+                type: 'scatterpolar',
+                r: percentages,
+                theta: labels,
+                fill: 'toself',
+                name: 'SDG Coverage',
+                fillcolor: 'rgba(254, 204, 92, 0.3)',
+                line: {
+                    color: 'rgb(240, 59, 32)',
+                    shape: 'spline',
+                    smoothing: 0.35,
+                    width: 2
+                }
+            }];
+
+            const layout = {
+                polar: {
+                    radialaxis: {
+                        visible: true,
+                        range: [0, 100],
+                        ticksuffix: '%',
+                        tickvals: [0, 25, 50, 75, 100],
+                        ticktext: ['0%', '25%', '50%', '75%', '100%'],
+                        linecolor: 'rgb(253, 141, 60)',
+                        gridcolor: 'rgb(254, 204, 92)',
+                        tickfont: { size: 10 }
+                    },
+                    angularaxis: {
+                        linecolor: 'rgb(253, 141, 60)',
+                        gridcolor: 'rgb(254, 204, 92)',
+                        tickfont: { size: 10 },
+                        rotation: 90,
+                        direction: "clockwise"
+                    }
+                },
+                showlegend: false,
+                margin: {
+                    l: 300,
+                    r: 300,
+                    t: 100,
+                    b: 100
+                },
+                width: dimensions.width,
+                height: dimensions.height,
+                paper_bgcolor: 'white',
+                plot_bgcolor: 'white'
+            };
+
+            Plotly.newPlot('plot-container', plotData, layout);
+        }
+
+        // Event listeners
+        document.getElementById('heatmapBtn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('cumulativeBtn').classList.remove('active');
+            document.getElementById('radarBtn').classList.remove('active');
+            loadData().then(data => createHeatmap(data, false));
+        });
+
+        document.getElementById('cumulativeBtn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('heatmapBtn').classList.remove('active');
+            document.getElementById('radarBtn').classList.remove('active');
+            loadData().then(data => createHeatmap(data, true));
+        });
+
+        document.getElementById('radarBtn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('heatmapBtn').classList.remove('active');
+            document.getElementById('cumulativeBtn').classList.remove('active');
+            loadData().then(data => createRadar(data));
+        });
+
+        document.getElementById('disciplineSelect').addEventListener('change', function() {
+            currentDiscipline = this.value;
+            
+            loadData().then(data => {
+                if (document.getElementById('radarBtn').classList.contains('active')) {
+                    createRadar(data);
+                } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+                    createHeatmap(data, true);
+                } else {
+                    createHeatmap(data, false);
+                }
+            });
+        });
+
+        // Initial load
+        loadData().then(data => createRadar(data));
+    </script>
+</body>
+</html>
