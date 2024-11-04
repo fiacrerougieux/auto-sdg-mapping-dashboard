@@ -6050,3 +6050,535 @@ ZEIT4117,4,Quality Education,Yes,Course provides specialized higher education in
 ZEIT4117,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced computing and cyber security infrastructure development,2024-11-02 20:00:46.019115
 ZEIT4117,16,Peace Justice and Strong Institutions,Yes,Addresses cyber security which helps protect institutions and promote peace through digital security,2024-11-02 20:00:46.019116
 ZEIT4117,17,Partnerships for the Goals,Yes,Involves academic partnerships and knowledge sharing between different educational levels and programs,2024-11-02 20:00:46.019118
+COMP9021,4,Quality Education,Yes,Course provides technical education in computer programming at postgraduate level,2024-11-04 11:24:09.920971
+COMP9021,5,Gender Equality,No,Not enough information,2024-11-04 11:24:09.920983
+COMP9021,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for IT industry employment,2024-11-04 11:24:09.920986
+COMP9021,9,Industry Innovation and Infrastructure,Yes,Teaches modern programming and software development skills,2024-11-04 11:24:09.920989
+COMP9021,10,Reduced Inequalities,No,Not enough information,2024-11-04 11:24:09.920992
+COMP9021,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:24:09.920995
+COMP9021,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:24:09.920997
+COMP9164,4,Quality Education,Yes,Course provides advanced technical education in programming languages at postgraduate level,2024-11-04 11:24:13.211482
+COMP9164,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for employment in technology sector,2024-11-04 11:24:13.211492
+COMP9164,9,Industry Innovation and Infrastructure,Yes,Teaches concepts needed for programming language design and innovation in software development,2024-11-04 11:24:13.211494
+COMP9164,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:24:13.211496
+COMP2521,4,Quality Education,Yes,Course provides technical education in computer science and software engineering,2024-11-04 11:24:17.093482
+COMP2521,5,Gender Equality,No,Not enough information,2024-11-04 11:24:17.093494
+COMP2521,8,Decent Work and Economic Growth,Yes,Develops professional programming and software development skills needed for employment,2024-11-04 11:24:17.093496
+COMP2521,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental data structures and algorithms needed for software development and innovation,2024-11-04 11:24:17.093499
+COMP2521,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:24:17.093501
+COMP2521,13,Climate Action,No,Not enough information,2024-11-04 11:24:17.093504
+COMP2521,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:24:17.093506
+COMP4920,4,Quality Education,Yes,Course provides university-level education in professional ethics and IT,2024-11-04 11:24:21.085058
+COMP4920,5,Gender Equality,Yes,Course addresses bias and fairness in algorithmic design,2024-11-04 11:24:21.085063
+COMP4920,9,Industry Innovation and Infrastructure,Yes,Covers responsible innovation and ethical technology development,2024-11-04 11:24:21.085065
+COMP4920,10,Reduced Inequalities,Yes,"Addresses fairness, bias and equity in AI and algorithmic systems",2024-11-04 11:24:21.085066
+COMP4920,11,Sustainable Cities and Communities,Yes,Includes content on smart cities and human-centered design,2024-11-04 11:24:21.085067
+COMP4920,12,Responsible Consumption and Production,Yes,Focuses on responsible research and innovation practices,2024-11-04 11:24:21.085068
+COMP4920,16,Peace Justice and Strong Institutions,Yes,"Covers accountability, transparency and ethics in technology development",2024-11-04 11:24:21.085069
+COMP4920,17,Partnerships for the Goals,Yes,Includes professional practice and ethical leadership in technology sector,2024-11-04 11:24:21.085070
+COMP3431,4,Quality Education,Yes,Course provides technical education in robotics and AI programming,2024-11-04 11:24:24.059005
+COMP3431,8,Decent Work and Economic Growth,Yes,Develops professional skills in robotics programming and architecture,2024-11-04 11:24:24.059013
+COMP3431,9,Industry Innovation and Infrastructure,Yes,Teaches advanced robotics technology and software development,2024-11-04 11:24:24.059015
+COMP3431,12,Responsible Consumption and Production,Yes,Focuses on efficient programming and system design for robots,2024-11-04 11:24:24.059017
+COMP6845,4,Quality Education,Yes,Course provides postgraduate technical education in digital forensics and cybersecurity,2024-11-04 11:24:27.539715
+COMP6845,8,Decent Work and Economic Growth,Yes,Develops professional skills for digital forensics career paths,2024-11-04 11:24:27.539720
+COMP6845,9,Industry Innovation and Infrastructure,Yes,Teaches advanced digital forensics techniques and infrastructure security,2024-11-04 11:24:27.539722
+COMP6845,16,Peace Justice and Strong Institutions,Yes,Focuses on digital forensics for law enforcement and legal proceedings,2024-11-04 11:24:27.539723
+COMP6845,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-11-04 11:24:27.539725
+COMP3421,4,Quality Education,Yes,Course provides technical education in computer graphics and game development,2024-11-04 11:24:31.096555
+COMP3421,8,Decent Work and Economic Growth,Yes,Prepares students for careers in computer graphics industry,2024-11-04 11:24:31.096569
+COMP3421,9,Industry Innovation and Infrastructure,Yes,Teaches advanced technical skills in graphics and VR technology,2024-11-04 11:24:31.096572
+COMP3421,12,Responsible Consumption and Production,Yes,Teaches digital content creation and rendering optimization,2024-11-04 11:24:31.096574
+COMP3421,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:24:31.096576
+COMP6131,4,Quality Education,Yes,Provides advanced technical education in software security and analysis,2024-11-04 11:24:34.523803
+COMP6131,9,"Industry, Innovation and Infrastructure",Yes,Teaches skills for developing secure software infrastructure and analysis tools,2024-11-04 11:24:34.523806
+COMP6131,16,"Peace, Justice and Strong Institutions",Yes,Focuses on software security and vulnerability detection which strengthens cybersecurity of institutions,2024-11-04 11:24:34.523807
+COMP6131,17,Partnerships for the Goals,No,No clear evidence of partnership development or global collaboration,2024-11-04 11:24:34.523808
+COMP4128,4,Quality Education,Yes,Course provides advanced technical education in computer programming and algorithms,2024-11-04 11:24:37.837719
+COMP4128,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for employment in computing industry,2024-11-04 11:24:37.837722
+COMP4128,9,Industry Innovation and Infrastructure,Yes,Teaches advanced algorithmic problem-solving skills relevant to software development,2024-11-04 11:24:37.837723
+COMP4128,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:24:37.837724
+COMP6445,4,Quality Education,Yes,Course provides postgraduate technical education in digital forensics,2024-11-04 11:24:41.466858
+COMP6445,8,Decent Work and Economic Growth,Yes,Develops professional skills for forensic investigation careers,2024-11-04 11:24:41.466861
+COMP6445,9,Industry Innovation and Infrastructure,Yes,Teaches advanced digital forensics techniques and tools,2024-11-04 11:24:41.466862
+COMP6445,16,Peace Justice and Strong Institutions,Yes,"Focuses on legal procedures, evidence handling, and court testimony for digital forensics",2024-11-04 11:24:41.466862
+COMP6445,17,Partnerships for the Goals,Yes,Includes collaboration between academia and legal system through mock trials,2024-11-04 11:24:41.466863
+COMP9101,4,Quality Education,Yes,Course provides advanced technical education in computer science and algorithms,2024-11-04 11:24:44.748770
+COMP9101,8,Decent Work and Economic Growth,Yes,Develops professional programming and problem-solving skills for employment,2024-11-04 11:24:44.748773
+COMP9101,9,Industry Innovation and Infrastructure,Yes,Teaches advanced algorithmic techniques for software development and innovation,2024-11-04 11:24:44.748774
+COMP9101,12,Responsible Consumption and Production,Yes,Focuses on efficient algorithm design and resource optimization,2024-11-04 11:24:44.748775
+COMP9101,17,Partnerships for the Goals,Yes,Encourages collaborative learning and knowledge sharing through group work and forums,2024-11-04 11:24:44.748775
+COMP3121,4,Quality Education,Yes,Course provides advanced technical education in computer science and algorithm design,2024-11-04 11:24:48.123967
+COMP3121,8,Decent Work and Economic Growth,Yes,Develops professional programming and problem-solving skills for employment,2024-11-04 11:24:48.123970
+COMP3121,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental computer science concepts that enable technological innovation,2024-11-04 11:24:48.123971
+COMP3121,12,Responsible Consumption and Production,Yes,Focuses on efficient algorithm design and resource optimization,2024-11-04 11:24:48.123972
+COMP3121,17,Partnerships for the Goals,Yes,Encourages collaborative learning and knowledge sharing through tutorials and forums,2024-11-04 11:24:48.123972
+COMP9222,4,Quality Education,Yes,Course provides technical education in digital circuits and systems at postgraduate level,2024-11-04 11:24:51.726536
+COMP9222,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills for industry employment,2024-11-04 11:24:51.726540
+COMP9222,9,Industry Innovation and Infrastructure,Yes,Teaches digital circuit design and implementation using modern tools and technologies,2024-11-04 11:24:51.726541
+COMP9222,12,Responsible Consumption and Production,Yes,Uses programmable hardware (FPGAs) which are more sustainable than single-purpose circuits,2024-11-04 11:24:51.726541
+COMP9283,4,Quality Education,Yes,Course provides postgraduate technical education in computer science,2024-11-04 11:24:55.090387
+COMP9283,8,Decent Work and Economic Growth,Yes,Develops professional skills in operating systems needed for IT careers,2024-11-04 11:24:55.090391
+COMP9283,9,Industry Innovation and Infrastructure,Yes,Teaches core infrastructure technology and system development skills,2024-11-04 11:24:55.090391
+COMP9283,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:24:55.090392
+COMP9283,13,Climate Action,No,Not enough information,2024-11-04 11:24:55.090393
+COMP9283,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:24:55.090393
+COMP9517,4,Quality Education,Yes,Course provides advanced technical education in computer vision at university level,2024-11-04 11:24:59.076741
+COMP9517,8,Decent Work and Economic Growth,Yes,Develops professional skills in computer vision which has many industry applications,2024-11-04 11:24:59.076745
+COMP9517,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge computer vision technology and innovation for industrial applications,2024-11-04 11:24:59.076746
+COMP9517,11,Sustainable Cities and Communities,Yes,Computer vision applications in surveillance and autonomous driving support smart cities,2024-11-04 11:24:59.076747
+COMP9517,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-04 11:24:59.076748
+COMP9517,17,Partnerships for the Goals,Yes,Includes group projects and collaboration skills development,2024-11-04 11:24:59.076749
+COMP1521,4,Quality Education,Yes,Course provides technical education in computer systems and programming,2024-11-04 11:25:02.668894
+COMP1521,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for employment,2024-11-04 11:25:02.668897
+COMP1521,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental computer architecture and systems concepts,2024-11-04 11:25:02.668898
+COMP1521,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:25:02.668899
+COMP1521,13,Climate Action,No,Not enough information,2024-11-04 11:25:02.668899
+COMP1521,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:25:02.668900
+COMP9336,4,Quality Education,Yes,Course provides postgraduate technical education in mobile networking,2024-11-04 11:25:06.053215
+COMP9336,8,Decent Work and Economic Growth,Yes,Develops professional skills in wireless networking technologies,2024-11-04 11:25:06.053218
+COMP9336,9,Industry Innovation and Infrastructure,Yes,Focuses on wireless infrastructure and emerging network technologies,2024-11-04 11:25:06.053219
+COMP9336,11,Sustainable Cities and Communities,Yes,Covers technologies essential for smart city infrastructure like IoT and mobile networks,2024-11-04 11:25:06.053220
+COMP9336,17,Partnerships for the Goals,Yes,Involves hands-on experimentation with mobile technologies and networking systems,2024-11-04 11:25:06.053220
+COMP4951,4,Quality Education,Yes,Course provides advanced research and technical education in computer science/engineering,2024-11-04 11:25:09.544230
+COMP4951,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills and research capabilities for industry,2024-11-04 11:25:09.544233
+COMP4951,9,Industry Innovation and Infrastructure,Yes,"Focus on engineering innovation, research and development of new solutions",2024-11-04 11:25:09.544234
+COMP4951,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-04 11:25:09.544234
+COMP4951,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-11-04 11:25:09.544235
+COMP4128,4,Quality Education,Yes,Course provides advanced technical education in computer programming and algorithms,2024-11-04 11:25:12.814784
+COMP4128,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for employment in computing industry,2024-11-04 11:25:12.814787
+COMP4128,9,Industry Innovation and Infrastructure,Yes,Teaches advanced algorithmic problem-solving skills relevant to software development,2024-11-04 11:25:12.814788
+COMP4128,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:25:12.814788
+COMP1531,4,Quality Education,Yes,Course provides technical education in software engineering fundamentals,2024-11-04 11:25:16.307505
+COMP1531,5,Gender Equality,No,Not enough information,2024-11-04 11:25:16.307508
+COMP1531,8,Decent Work and Economic Growth,Yes,Teaches professional teamwork and software development skills needed for industry,2024-11-04 11:25:16.307509
+COMP1531,9,Industry Innovation and Infrastructure,Yes,Focuses on modern software development practices and tools,2024-11-04 11:25:16.307509
+COMP1531,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:25:16.307510
+COMP1531,17,Partnerships for the Goals,Yes,Emphasizes team collaboration and group projects,2024-11-04 11:25:16.307511
+COMP1911,4,Quality Education,Yes,Course provides technical education in computer programming fundamentals,2024-11-04 11:25:19.759721
+COMP1911,5,Gender Equality,No,Not enough information,2024-11-04 11:25:19.759724
+COMP1911,8,Decent Work and Economic Growth,Yes,Develops programming skills needed for employment in technology sector,2024-11-04 11:25:19.759725
+COMP1911,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental computing concepts that enable technological innovation,2024-11-04 11:25:19.759725
+COMP1911,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:25:19.759726
+COMP1911,13,Climate Action,No,Not enough information,2024-11-04 11:25:19.759727
+COMP1911,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:25:19.759727
+COMP6771,4,Quality Education,Yes,Course provides advanced technical education in C++ programming at university level,2024-11-04 11:25:23.050788
+COMP6771,8,Decent Work and Economic Growth,Yes,Course prepares students for workforce with practical programming skills,2024-11-04 11:25:23.050791
+COMP6771,9,Industry Innovation and Infrastructure,Yes,Teaches advanced software development skills needed for technological innovation,2024-11-04 11:25:23.050792
+COMP6771,17,Partnerships for the Goals,Yes,Course involves collaboration with industry expert Christopher Di Bella,2024-11-04 11:25:23.050793
+COMP4141,4,Quality Education,Yes,Course provides advanced computer science education at university level,2024-11-04 11:25:26.111047
+COMP4141,9,"Industry, Innovation and Infrastructure",Yes,Teaches theoretical foundations of computer science and computation that underpin technological innovation,2024-11-04 11:25:26.111050
+COMP4141,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:25:26.111051
+COMP4141,8,Decent Work and Economic Growth,No,Not enough information,2024-11-04 11:25:26.111052
+COMP4141,5,Gender Equality,No,Not enough information,2024-11-04 11:25:26.111052
+COMP4141,10,Reduced Inequalities,No,Not enough information,2024-11-04 11:25:26.111053
+COMP4336,4,Quality Education,Yes,Course provides technical education in computer science and engineering,2024-11-04 11:25:29.298309
+COMP4336,8,Decent Work and Economic Growth,Yes,Develops skills for employment in mobile networking industry,2024-11-04 11:25:29.298314
+COMP4336,9,Industry Innovation and Infrastructure,Yes,Focuses on wireless network technologies and infrastructure development,2024-11-04 11:25:29.298316
+COMP4336,11,Sustainable Cities and Communities,Yes,Covers technologies essential for smart city infrastructure like IoT and wireless networks,2024-11-04 11:25:29.298316
+COMP4336,17,Partnerships for the Goals,Yes,Includes hands-on experimentation and technological collaboration,2024-11-04 11:25:29.298317
+CVEN9820,4,Quality Education,Yes,Course provides advanced technical education in computational structural mechanics at university level,2024-11-04 11:25:33.178953
+CVEN9820,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced computational methods and software for structural analysis used in infrastructure design,2024-11-04 11:25:33.178958
+CVEN9820,11,Sustainable Cities and Communities,Yes,Knowledge gained supports design and analysis of buildings and civil infrastructure for sustainable urban development,2024-11-04 11:25:33.178959
+CVEN9820,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-11-04 11:25:33.178959
+CVEN9820,13,Climate Action,No,Not directly addressed in course content,2024-11-04 11:25:33.178960
+CVEN9820,17,Partnerships for the Goals,No,Not directly addressed in course content,2024-11-04 11:25:33.178961
+COMP9311,4,Quality Education,Yes,Course provides postgraduate technical education in database systems,2024-11-04 11:25:36.761564
+COMP9311,8,Decent Work and Economic Growth,Yes,Develops database management skills critical for modern industry employment,2024-11-04 11:25:36.761567
+COMP9311,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental database infrastructure technology and innovation,2024-11-04 11:25:36.761568
+COMP9311,12,Responsible Consumption and Production,Yes,Focuses on efficient data management and storage systems,2024-11-04 11:25:36.761568
+COMP9311,17,Partnerships for the Goals,Yes,Includes industry collaboration through guest lectures and practical applications,2024-11-04 11:25:36.761569
+COMP4962,4,Quality Education,Yes,Course provides advanced research and technical education in computer science through thesis work,2024-11-04 11:25:40.243387
+COMP4962,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills and industry standards for future employment,2024-11-04 11:25:40.243390
+COMP4962,9,Industry Innovation and Infrastructure,Yes,Students conduct research and develop innovative solutions in computer science/engineering,2024-11-04 11:25:40.243391
+COMP4962,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-04 11:25:40.243391
+COMP4962,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-11-04 11:25:40.243392
+COMP4963,4,Quality Education,Yes,Course provides advanced research and technical education through computer science thesis work,2024-11-04 11:25:43.741601
+COMP4963,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills and industry standards for workforce readiness,2024-11-04 11:25:43.741605
+COMP4963,9,Industry Innovation and Infrastructure,Yes,Students conduct research and develop innovative technical solutions through thesis projects,2024-11-04 11:25:43.741606
+COMP4963,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-04 11:25:43.741606
+COMP4963,17,Partnerships for the Goals,No,No clear evidence of external partnerships or collaboration,2024-11-04 11:25:43.741607
+COMP9334,4,Quality Education,Yes,Course provides technical education in computer systems and networks at university level,2024-11-04 11:25:47.640794
+COMP9334,7,Affordable and Clean Energy,No,Not enough information,2024-11-04 11:25:47.640797
+COMP9334,8,Decent Work and Economic Growth,No,Not enough information,2024-11-04 11:25:47.640798
+COMP9334,9,Industry Innovation and Infrastructure,Yes,Course teaches capacity planning and optimization of computer networks and systems infrastructure,2024-11-04 11:25:47.640799
+COMP9334,11,Sustainable Cities and Communities,No,Not enough information,2024-11-04 11:25:47.640799
+COMP9334,12,Responsible Consumption and Production,Yes,Course teaches efficient resource allocation and capacity planning for computer systems,2024-11-04 11:25:47.640800
+COMP9334,13,Climate Action,No,Not enough information,2024-11-04 11:25:47.640801
+COMP9334,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:25:47.640801
+COMP4953,4,Quality Education,Yes,Course provides research-based higher education through thesis work,2024-11-04 11:25:51.535027
+COMP4953,8,Decent Work and Economic Growth,Yes,Develops professional engineering and research capabilities for industry,2024-11-04 11:25:51.535033
+COMP4953,9,Industry Innovation and Infrastructure,Yes,Students conduct engineering research and develop innovative solutions,2024-11-04 11:25:51.535034
+COMP4953,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-04 11:25:51.535035
+COMP4953,17,Partnerships for the Goals,Yes,Students work with academic supervisors and engage with research community,2024-11-04 11:25:51.535036
+COMP6080,4,Quality Education,Yes,Course provides technical education in web development at university level,2024-11-04 11:25:54.757253
+COMP6080,8,Decent Work and Economic Growth,Yes,Prepares students for industry employment in web development with industry partnerships,2024-11-04 11:25:54.757258
+COMP6080,9,Industry Innovation and Infrastructure,Yes,Teaches modern web technologies and frameworks used in industry,2024-11-04 11:25:54.757259
+COMP6080,10,Reduced Inequalities,Yes,Includes accessibility requirements and equitable learning services,2024-11-04 11:25:54.757260
+COMP6080,17,Partnerships for the Goals,Yes,Features industry partnerships with tech companies like Canva,2024-11-04 11:25:54.757260
+COMP6713,4,Quality Education,Yes,Course provides postgraduate technical education in computer science and artificial intelligence,2024-11-04 11:25:58.238359
+COMP6713,8,Decent Work and Economic Growth,Yes,Develops skills in natural language processing which is in high industry demand,2024-11-04 11:25:58.238368
+COMP6713,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge AI/NLP technologies and innovations including transformers and large language models,2024-11-04 11:25:58.238370
+COMP6713,17,Partnerships for the Goals,Yes,Includes group projects and collaboration between students,2024-11-04 11:25:58.238373
+COMP9315,4,Quality Education,Yes,Course provides technical education in database systems at university level,2024-11-04 11:26:01.543258
+COMP9315,8,Decent Work and Economic Growth,Yes,Develops professional skills in database management systems implementation,2024-11-04 11:26:01.543266
+COMP9315,9,Industry Innovation and Infrastructure,Yes,Teaches advanced database infrastructure and system implementation,2024-11-04 11:26:01.543268
+COMP9315,12,Responsible Consumption and Production,Yes,Focuses on efficient data management and storage systems,2024-11-04 11:26:01.543270
+COMP9315,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-11-04 11:26:01.543272
+COMP3601,4,Quality Education,Yes,Course provides technical engineering education through project-based learning and skill development,2024-11-04 11:26:05.122327
+COMP3601,5,Gender Equality,No,Not enough information,2024-11-04 11:26:05.122330
+COMP3601,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills and teamwork capabilities for industry,2024-11-04 11:26:05.122330
+COMP3601,9,Industry Innovation and Infrastructure,Yes,Students learn hardware/software co-design and FPGA development for digital systems,2024-11-04 11:26:05.122331
+COMP3601,12,Responsible Consumption and Production,Yes,Project includes budget constraints and resource management considerations,2024-11-04 11:26:05.122332
+COMP3601,17,Partnerships for the Goals,Yes,Course involves group work and collaboration to achieve project objectives,2024-11-04 11:26:05.122332
+COMP9511,4,Quality Education,Yes,Course provides postgraduate technical education in computer science and interface design,2024-11-04 11:26:09.026013
+COMP9511,8,Decent Work and Economic Growth,Yes,Teaches professional skills in user interface design and software development for industry,2024-11-04 11:26:09.026016
+COMP9511,9,Industry Innovation and Infrastructure,Yes,Focuses on emerging technologies and digital infrastructure development,2024-11-04 11:26:09.026017
+COMP9511,10,Reduced Inequalities,Yes,Emphasizes inclusive design and accessibility for users with disabilities and different backgrounds,2024-11-04 11:26:09.026018
+COMP9511,12,Responsible Consumption and Production,Yes,Teaches sustainable and user-centered design principles for digital products,2024-11-04 11:26:09.026018
+COMP9511,17,Partnerships for the Goals,Yes,Includes industry guest lecturers and promotes collaboration between students,2024-11-04 11:26:09.026019
+COMP9992,4,Quality Education,Yes,Course provides postgraduate research education and skill development,2024-11-04 11:26:12.662016
+COMP9992,8,Decent Work and Economic Growth,Yes,Develops advanced research and innovation capabilities for knowledge economy,2024-11-04 11:26:12.662025
+COMP9992,9,Industry Innovation and Infrastructure,Yes,Focuses on developing new technological innovations and research contributions,2024-11-04 11:26:12.662028
+COMP9992,17,Partnerships for the Goals,Yes,Promotes academic research collaboration between student and supervisor,2024-11-04 11:26:12.662030
+COMP9801,4,Quality Education,Yes,Course provides advanced technical education in computer science at postgraduate level,2024-11-04 11:26:16.616762
+COMP9801,8,Decent Work and Economic Growth,Yes,Develops professional skills in algorithm design applicable to various industries,2024-11-04 11:26:16.616770
+COMP9801,9,Industry Innovation and Infrastructure,Yes,Teaches advanced computational techniques and problem-solving methods for technological innovation,2024-11-04 11:26:16.616773
+COMP9801,12,Responsible Consumption and Production,Yes,Includes content on sustainable farming applications and efficient resource allocation algorithms,2024-11-04 11:26:16.616775
+COMP9801,17,Partnerships for the Goals,Yes,Promotes collaborative learning through group projects and peer learning activities,2024-11-04 11:26:16.616777
+COMP2041,4,Quality Education,Yes,Course provides technical education in software development and programming,2024-11-04 11:26:20.005022
+COMP2041,8,Decent Work and Economic Growth,Yes,Teaches industry-relevant software development tools and practices,2024-11-04 11:26:20.005031
+COMP2041,9,Industry Innovation and Infrastructure,Yes,Focuses on software construction techniques and tools for building digital infrastructure,2024-11-04 11:26:20.005033
+COMP2041,12,Responsible Consumption and Production,Yes,Teaches efficient software development practices and system configuration,2024-11-04 11:26:20.005034
+COMP2041,17,Partnerships for the Goals,Yes,Emphasizes collaboration through version control systems and shared development tools,2024-11-04 11:26:20.005036
+COMP3901,4,Quality Education,Yes,Course provides research and project-based learning opportunities at university level,2024-11-04 11:26:23.252908
+COMP3901,8,Decent Work and Economic Growth,Yes,Develops advanced research and technical skills needed for knowledge economy jobs,2024-11-04 11:26:23.252919
+COMP3901,9,Industry Innovation and Infrastructure,Yes,Focuses on research and development projects that could advance technical innovation,2024-11-04 11:26:23.252922
+COMP3901,17,Partnerships for the Goals,Yes,Promotes academic research collaboration between students and faculty members,2024-11-04 11:26:23.252924
+COMP9992,4,Quality Education,Yes,Course provides postgraduate research education and skill development,2024-11-04 11:26:26.485096
+COMP9992,8,Decent Work and Economic Growth,Yes,Develops advanced research and innovation capabilities for knowledge economy,2024-11-04 11:26:26.485101
+COMP9992,9,Industry Innovation and Infrastructure,Yes,Focuses on developing new technological innovations and research advances,2024-11-04 11:26:26.485102
+COMP9992,17,Partnerships for the Goals,Yes,Promotes academic research collaboration between supervisor and student,2024-11-04 11:26:26.485103
+COMP9491,4,Quality Education,Yes,Course provides postgraduate technical education in AI,2024-11-04 11:26:29.525165
+COMP9491,8,Decent Work and Economic Growth,Yes,Develops advanced AI skills relevant for industry applications,2024-11-04 11:26:29.525174
+COMP9491,9,Industry Innovation and Infrastructure,Yes,Focuses on developing innovative AI solutions for practical and industry problems,2024-11-04 11:26:29.525176
+COMP9491,17,Partnerships for the Goals,Yes,Involves group projects and industry collaboration,2024-11-04 11:26:29.525177
+COMP6741,4,Quality Education,Yes,Course provides advanced technical education in computer science algorithms,2024-11-04 11:26:32.682915
+COMP6741,8,Decent Work and Economic Growth,Yes,Develops skills for solving complex computational problems relevant to industry,2024-11-04 11:26:32.682920
+COMP6741,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced algorithms and problem-solving techniques for technological innovation,2024-11-04 11:26:32.682922
+COMP6741,17,Partnerships for the Goals,Yes,Includes group assignments promoting collaborative problem-solving skills,2024-11-04 11:26:32.682923
+COMP9991,4,Quality Education,Yes,Course provides advanced research education at postgraduate level,2024-11-04 11:26:35.644311
+COMP9991,8,Decent Work and Economic Growth,Yes,Develops high-level research skills for professional advancement,2024-11-04 11:26:35.644322
+COMP9991,9,Industry Innovation and Infrastructure,Yes,Focuses on improving technical solutions and advancing state of the art,2024-11-04 11:26:35.644326
+COMP9991,17,Partnerships for the Goals,Yes,Encourages collaboration between students and academic supervisors,2024-11-04 11:26:35.644329
+COMP9444,4,Quality Education,Yes,Course provides advanced technical education in neural networks and deep learning,2024-11-04 11:26:39.083789
+COMP9444,8,Decent Work and Economic Growth,Yes,Develops skills in AI and deep learning that are in high demand in industry,2024-11-04 11:26:39.083793
+COMP9444,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge AI technology and innovation in neural networks,2024-11-04 11:26:39.083793
+COMP9444,17,Partnerships for the Goals,Yes,Includes group projects requiring collaboration and partnership,2024-11-04 11:26:39.083794
+COMP6841,4,Quality Education,Yes,Course provides postgraduate technical education in cybersecurity engineering,2024-11-04 11:26:43.013551
+COMP6841,8,Decent Work and Economic Growth,Yes,Develops professional skills and technical competencies for cybersecurity workforce,2024-11-04 11:26:43.013560
+COMP6841,9,Industry Innovation and Infrastructure,Yes,Focuses on cybersecurity infrastructure and technological innovation,2024-11-04 11:26:43.013562
+COMP6841,16,Peace Justice and Strong Institutions,Yes,Addresses cybersecurity threats and institutional security engineering principles,2024-11-04 11:26:43.013564
+COMP6841,17,Partnerships for the Goals,Yes,"Includes cross-disciplinary partnerships between computing, law and other fields",2024-11-04 11:26:43.013566
+COMP9032,4,Quality Education,Yes,Course provides technical education in microprocessor engineering at postgraduate level,2024-11-04 11:26:46.089470
+COMP9032,8,Decent Work and Economic Growth,Yes,Develops professional skills for careers in embedded systems and hardware design,2024-11-04 11:26:46.089477
+COMP9032,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills for microprocessor development and industrial applications,2024-11-04 11:26:46.089479
+COMP9032,17,Partnerships for the Goals,Yes,Includes team-based projects and peer learning components,2024-11-04 11:26:46.089481
+COMP9024,4,Quality Education,Yes,Course provides advanced technical education in computer science at postgraduate level,2024-11-04 11:26:50.404704
+COMP9024,5,Gender Equality,No,Not enough information,2024-11-04 11:26:50.404711
+COMP9024,8,Decent Work and Economic Growth,Yes,Develops professional software development skills needed for employment,2024-11-04 11:26:50.404713
+COMP9024,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental algorithms and data structures that enable technological innovation,2024-11-04 11:26:50.404714
+COMP9024,10,Reduced Inequalities,Yes,Course includes equity and disability support services,2024-11-04 11:26:50.404716
+COMP9024,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:26:50.404718
+COMP9024,13,Climate Action,No,Not enough information,2024-11-04 11:26:50.404719
+COMP9024,16,"Peace, Justice and Strong Institutions",Yes,Course emphasizes academic integrity and ethical practices,2024-11-04 11:26:50.404720
+COMP9024,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:26:50.404722
+COMP9415,4,Quality Education,Yes,Course provides advanced technical education in computer graphics at postgraduate level,2024-11-04 11:26:53.841801
+COMP9415,8,Decent Work and Economic Growth,Yes,Develops professional skills for industry employment in computer graphics and game development,2024-11-04 11:26:53.841806
+COMP9415,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge graphics technology and software development skills,2024-11-04 11:26:53.841807
+COMP9415,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:26:53.841808
+COMP9415,13,Climate Action,No,Not enough information,2024-11-04 11:26:53.841809
+COMP9415,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:26:53.841810
+COMP2511,4,Quality Education,Yes,Course provides technical education in computer science and software engineering,2024-11-04 11:26:57.209896
+COMP2511,8,Decent Work and Economic Growth,Yes,Teaches professional software development skills needed for employment,2024-11-04 11:26:57.209902
+COMP2511,9,Industry Innovation and Infrastructure,Yes,Focuses on software design principles and innovation in programming,2024-11-04 11:26:57.209904
+COMP2511,12,Responsible Consumption and Production,Yes,Teaches sustainable software development practices and system maintainability,2024-11-04 11:26:57.209905
+COMP2511,17,Partnerships for the Goals,Yes,Includes group work and collaborative software development projects,2024-11-04 11:26:57.209907
+COMP9331,4,Quality Education,Yes,Course provides postgraduate technical education in computer networks,2024-11-04 11:27:00.535556
+COMP9331,8,Decent Work and Economic Growth,Yes,Develops professional skills in network programming and protocols needed for IT industry,2024-11-04 11:27:00.535566
+COMP9331,9,Industry Innovation and Infrastructure,Yes,"Focuses on internet infrastructure, protocols and network architecture",2024-11-04 11:27:00.535568
+COMP9331,17,Partnerships for the Goals,Yes,Teaches networking fundamentals essential for global digital connectivity,2024-11-04 11:27:00.535570
+COMP9319,4,Quality Education,Yes,Course provides advanced technical education in computer science at university level,2024-11-04 11:27:03.875502
+COMP9319,9,Industry Innovation and Infrastructure,Yes,Teaches data compression and search technologies that improve digital infrastructure,2024-11-04 11:27:03.875510
+COMP9319,12,Responsible Consumption and Production,Yes,Focuses on efficient data storage and compression techniques to reduce digital resource consumption,2024-11-04 11:27:03.875513
+COMP9319,13,Climate Action,Yes,Data compression techniques help reduce energy consumption in digital storage and transmission,2024-11-04 11:27:03.875515
+COMP6441,4,Quality Education,Yes,Course provides postgraduate/undergraduate technical education in cybersecurity engineering,2024-11-04 11:27:07.405356
+COMP6441,8,Decent Work and Economic Growth,Yes,Develops professional skills and technical competencies for cybersecurity workforce,2024-11-04 11:27:07.405364
+COMP6441,9,"Industry, Innovation and Infrastructure",Yes,Focuses on security engineering principles and infrastructure protection,2024-11-04 11:27:07.405366
+COMP6441,16,"Peace, Justice and Strong Institutions",Yes,Addresses cybersecurity and protection of digital systems/infrastructure,2024-11-04 11:27:07.405368
+COMP6441,17,Partnerships for the Goals,Yes,Course involves collaboration between Engineering and Law students/departments,2024-11-04 11:27:07.405370
+COMP9417,4,Quality Education,Yes,Course provides advanced technical education in machine learning and data mining,2024-11-04 11:27:11.123354
+COMP9417,8,Decent Work and Economic Growth,Yes,Develops skills in AI and data mining that are valuable for employment in tech sector,2024-11-04 11:27:11.123363
+COMP9417,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge machine learning techniques that drive technological innovation,2024-11-04 11:27:11.123366
+COMP9417,17,Partnerships for the Goals,No,Not enough information about partnerships or collaboration,2024-11-04 11:27:11.123368
+COMP9313,4,Quality Education,Yes,Course provides advanced technical education in big data management and analytics,2024-11-04 11:27:14.101805
+COMP9313,8,Decent Work and Economic Growth,Yes,Develops professional skills in managing big data systems which are crucial for modern industry,2024-11-04 11:27:14.101816
+COMP9313,9,Industry Innovation and Infrastructure,Yes,Teaches modern data infrastructure technologies like Hadoop and Spark,2024-11-04 11:27:14.101818
+COMP9313,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:27:14.101820
+COMP9211,4,Quality Education,Yes,Course provides postgraduate technical education in computer architecture,2024-11-04 11:27:17.348179
+COMP9211,7,Affordable and Clean Energy,Yes,Course teaches processor design principles considering power consumption,2024-11-04 11:27:17.348182
+COMP9211,9,Industry Innovation and Infrastructure,Yes,Focuses on computer hardware infrastructure and system design innovation,2024-11-04 11:27:17.348183
+COMP9211,12,Responsible Consumption and Production,Yes,Addresses efficiency and resource optimization in processor design,2024-11-04 11:27:17.348184
+COMP9211,17,Partnerships for the Goals,Yes,Includes team-based projects and peer learning components,2024-11-04 11:27:17.348184
+COMP6733,4,Quality Education,Yes,Course provides postgraduate technical education in computer engineering and IoT,2024-11-04 11:27:21.353040
+COMP6733,7,Affordable and Clean Energy,Yes,Covers smart grid IoT systems and energy efficiency through low power communications,2024-11-04 11:27:21.353049
+COMP6733,9,Industry Innovation and Infrastructure,Yes,Teaches IoT infrastructure development and industrial applications,2024-11-04 11:27:21.353051
+COMP6733,11,Sustainable Cities and Communities,Yes,Addresses environmental IoT systems and smart infrastructure monitoring,2024-11-04 11:27:21.353053
+COMP6733,12,Responsible Consumption and Production,Yes,Focuses on low-power and energy-efficient IoT solutions,2024-11-04 11:27:21.353055
+COMP6733,13,Climate Action,Yes,Includes environmental monitoring systems and smart grid applications,2024-11-04 11:27:21.353057
+COMP6733,17,Partnerships for the Goals,Yes,Involves teamwork and collaborative project development,2024-11-04 11:27:21.353059
+COMP3821,4,Quality Education,Yes,Course provides advanced technical education in computer science and algorithms,2024-11-04 11:27:25.372069
+COMP3821,8,Decent Work and Economic Growth,Yes,Develops professional skills in software development and problem solving,2024-11-04 11:27:25.372079
+COMP3821,9,Industry Innovation and Infrastructure,Yes,Teaches advanced algorithms and computational techniques for solving complex problems,2024-11-04 11:27:25.372081
+COMP3821,12,Responsible Consumption and Production,Yes,Includes content on optimizing resource usage through efficient algorithms,2024-11-04 11:27:25.372083
+COMP3821,2,Zero Hunger,Yes,Course mentions applications to sustainable farming and small-scale producers,2024-11-04 11:27:25.372085
+COMP3821,17,Partnerships for the Goals,Yes,Promotes collaborative learning through group projects and peer learning,2024-11-04 11:27:25.372088
+COMP2111,4,Quality Education,Yes,Course provides university-level technical education in computer science and system modeling,2024-11-04 11:27:28.955867
+COMP2111,5,Gender Equality,No,Not enough information,2024-11-04 11:27:28.955872
+COMP2111,8,Decent Work and Economic Growth,No,Not enough information,2024-11-04 11:27:28.955873
+COMP2111,9,"Industry, Innovation and Infrastructure",Yes,Course teaches formal methods and system modeling used in industrial contexts,2024-11-04 11:27:28.955874
+COMP2111,10,Reduced Inequalities,Yes,Course includes equity and disability support services,2024-11-04 11:27:28.955874
+COMP2111,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:27:28.955875
+COMP2111,13,Climate Action,No,Not enough information,2024-11-04 11:27:28.955876
+COMP2111,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-11-04 11:27:28.955877
+COMP2111,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:27:28.955877
+COMP3891,4,Quality Education,Yes,Course provides technical education in computer science and engineering,2024-11-04 11:27:32.295722
+COMP3891,8,Decent Work and Economic Growth,Yes,Develops professional skills in operating systems needed for tech industry jobs,2024-11-04 11:27:32.295732
+COMP3891,9,Industry Innovation and Infrastructure,Yes,Teaches core infrastructure technology and system development skills,2024-11-04 11:27:32.295735
+COMP3891,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:27:32.295736
+COMP3891,13,Climate Action,No,Not enough information,2024-11-04 11:27:32.295738
+COMP3891,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:27:32.295740
+COMP1511,4,Quality Education,Yes,Course provides fundamental computer programming education at university level,2024-11-04 11:27:36.476681
+COMP1511,5,Gender Equality,No,Not enough information,2024-11-04 11:27:36.476690
+COMP1511,8,Decent Work and Economic Growth,Yes,Develops technical skills needed for employment in computing industry,2024-11-04 11:27:36.476692
+COMP1511,9,Industry Innovation and Infrastructure,Yes,Teaches foundational programming skills needed for technological innovation,2024-11-04 11:27:36.476694
+COMP1511,10,Reduced Inequalities,Yes,Course includes equitable learning services and support for students with disabilities,2024-11-04 11:27:36.476696
+COMP1511,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:27:36.476698
+COMP1511,13,Climate Action,No,Not enough information,2024-11-04 11:27:36.476700
+COMP1511,16,Peace Justice and Strong Institutions,No,Not enough information,2024-11-04 11:27:36.476701
+COMP1511,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:27:36.476702
+COMP9993,4,Quality Education,Yes,Course provides advanced research education at postgraduate level,2024-11-04 11:27:39.639802
+COMP9993,8,Decent Work and Economic Growth,Yes,Develops high-level research and innovation skills for professional development,2024-11-04 11:27:39.639811
+COMP9993,9,Industry Innovation and Infrastructure,Yes,Focuses on creating new technical concepts and improving state of the art,2024-11-04 11:27:39.639813
+COMP9993,17,Partnerships for the Goals,Yes,Encourages collaboration between students and supervisors for research advancement,2024-11-04 11:27:39.639815
+COMP9020,4,Quality Education,Yes,Course provides postgraduate computer science education with clear learning outcomes and assessment structure,2024-11-04 11:27:43.950625
+COMP9020,5,Gender Equality,No,No specific gender-related content or initiatives mentioned,2024-11-04 11:27:43.950635
+COMP9020,8,Decent Work and Economic Growth,Yes,Develops technical skills in computer science foundations needed for professional work,2024-11-04 11:27:43.950638
+COMP9020,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental computer science concepts that enable technological innovation,2024-11-04 11:27:43.950641
+COMP9020,10,Reduced Inequalities,No,No specific content addressing inequality,2024-11-04 11:27:43.950643
+COMP9020,12,Responsible Consumption and Production,No,Not addressed in course content,2024-11-04 11:27:43.950646
+COMP9020,17,Partnerships for the Goals,No,No partnerships or collaboration mentioned,2024-11-04 11:27:43.950648
+COMP9020,4,Quality Education,Yes,Provides postgraduate computer science education with focus on mathematical foundations,2024-11-04 11:27:46.993517
+COMP9020,5,Gender Equality,No,No specific gender-related content or initiatives mentioned,2024-11-04 11:27:46.993520
+COMP9020,8,Decent Work and Economic Growth,Yes,Develops technical skills needed for computing industry jobs,2024-11-04 11:27:46.993521
+COMP9020,9,Industry Innovation and Infrastructure,Yes,Teaches foundational computer science concepts that enable technological innovation,2024-11-04 11:27:46.993522
+COMP9020,17,Partnerships for the Goals,No,No explicit partnerships or collaboration mentioned,2024-11-04 11:27:46.993522
+COMP9311,4,Quality Education,Yes,Course provides postgraduate technical education in database systems,2024-11-04 11:27:49.788984
+COMP9311,8,Decent Work and Economic Growth,Yes,Develops database management skills critical for modern industry applications,2024-11-04 11:27:49.788992
+COMP9311,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental database infrastructure and technologies used in modern computing systems,2024-11-04 11:27:49.788995
+COMP9311,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:27:49.788997
+COMP9517,4,Quality Education,Yes,Course provides advanced technical education in computer vision and engineering,2024-11-04 11:27:53.057869
+COMP9517,8,Decent Work and Economic Growth,Yes,Develops professional skills in computer vision technology used across industries,2024-11-04 11:27:53.057876
+COMP9517,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge computer vision technology and innovation for industrial applications,2024-11-04 11:27:53.057878
+COMP9517,11,Sustainable Cities and Communities,Yes,Covers technologies used in smart cities like surveillance and autonomous driving,2024-11-04 11:27:53.057879
+COMP9517,17,Partnerships for the Goals,Yes,Includes group projects and collaboration skills development,2024-11-04 11:27:53.057881
+COMP4418,4,Quality Education,Yes,Course provides advanced technical education in computer science and artificial intelligence,2024-11-04 11:27:56.954679
+COMP4418,9,Industry Innovation and Infrastructure,Yes,Teaches advanced AI and computational techniques that support technological innovation,2024-11-04 11:27:56.954684
+COMP4418,10,Reduced Inequalities,Yes,Covers fair allocation and social choice theory focused on equitable decision making,2024-11-04 11:27:56.954685
+COMP4418,16,Peace Justice and Strong Institutions,Yes,"Addresses fair decision making, voting systems and institutional mechanisms for cooperation",2024-11-04 11:27:56.954686
+COMP4418,17,Partnerships for the Goals,Yes,Focuses on multi-agent systems and cooperative game theory for collective problem solving,2024-11-04 11:27:56.954687
+COMP3900,4,Quality Education,Yes,Course provides technical education in computer science through project-based learning,2024-11-04 11:28:01.211162
+COMP3900,5,Gender Equality,No,Not enough information,2024-11-04 11:28:01.211169
+COMP3900,8,Decent Work and Economic Growth,Yes,Develops professional software development and project management skills for industry,2024-11-04 11:28:01.211171
+COMP3900,9,Industry Innovation and Infrastructure,Yes,Students work on real-world software projects and learn industry practices,2024-11-04 11:28:01.211173
+COMP3900,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:28:01.211174
+COMP3900,17,Partnerships for the Goals,Yes,Course involves partnerships between academia and industry for student projects,2024-11-04 11:28:01.211176
+COMP9201,4,Quality Education,Yes,Course provides advanced technical education in computer operating systems at postgraduate level,2024-11-04 11:28:04.838451
+COMP9201,8,Decent Work and Economic Growth,Yes,Develops professional skills in computer systems that enhance employability,2024-11-04 11:28:04.838456
+COMP9201,9,Industry Innovation and Infrastructure,Yes,Teaches core infrastructure technology and operating system innovation,2024-11-04 11:28:04.838457
+COMP9201,12,Responsible Consumption and Production,No,Not directly addressed in course content,2024-11-04 11:28:04.838458
+COMP9201,13,Climate Action,No,Not directly addressed in course content,2024-11-04 11:28:04.838459
+COMP9201,17,Partnerships for the Goals,No,Not directly addressed in course content,2024-11-04 11:28:04.838460
+COMP3511,4,Quality Education,Yes,Course provides technical education in computer science and interface design,2024-11-04 11:28:08.897036
+COMP3511,8,Decent Work and Economic Growth,Yes,Teaches professional skills in user interface design relevant to industry needs,2024-11-04 11:28:08.897045
+COMP3511,9,Industry Innovation and Infrastructure,Yes,Focuses on designing new technologies and interfaces for digital infrastructure,2024-11-04 11:28:08.897047
+COMP3511,10,Reduced Inequalities,Yes,Emphasizes inclusive design and accessibility for users with disabilities and different backgrounds,2024-11-04 11:28:08.897049
+COMP3511,12,Responsible Consumption and Production,Yes,Teaches sustainable and user-centered design principles,2024-11-04 11:28:08.897051
+COMP3511,17,Partnerships for the Goals,Yes,Includes industry guest lecturers and real-world applications,2024-11-04 11:28:08.897053
+COMP6447,4,Quality Education,Yes,Course provides advanced technical education in cybersecurity at university level,2024-11-04 11:28:12.728690
+COMP6447,8,Decent Work and Economic Growth,Yes,Develops professional skills in cybersecurity which is crucial for economic security,2024-11-04 11:28:12.728698
+COMP6447,9,Industry Innovation and Infrastructure,Yes,Teaches technical skills for protecting digital infrastructure and systems,2024-11-04 11:28:12.728700
+COMP6447,16,Peace Justice and Strong Institutions,Yes,Focuses on cybersecurity which helps protect institutions and maintain digital peace,2024-11-04 11:28:12.728702
+COMP6447,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-11-04 11:28:12.728704
+COMP3231,4,Quality Education,Yes,Course provides technical education in computer science and engineering,2024-11-04 11:28:16.107720
+COMP3231,8,Decent Work and Economic Growth,Yes,Develops professional skills in operating systems needed for IT careers,2024-11-04 11:28:16.107729
+COMP3231,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental infrastructure technology and system innovation,2024-11-04 11:28:16.107731
+COMP3231,12,Responsible Consumption and Production,Yes,Focuses on efficient resource management and system optimization,2024-11-04 11:28:16.107734
+COMP3231,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-11-04 11:28:16.107736
+COMP9242,4,Quality Education,Yes,Course provides advanced technical education in computer operating systems at university level,2024-11-04 11:28:19.648203
+COMP9242,8,Decent Work and Economic Growth,Yes,Aims to produce technical leaders for industry and develops professional systems skills,2024-11-04 11:28:19.648212
+COMP9242,9,Industry Innovation and Infrastructure,Yes,Focuses on advanced operating systems technology and implementation techniques,2024-11-04 11:28:19.648214
+COMP9242,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:28:19.648216
+COMP9242,13,Climate Action,No,Not enough information,2024-11-04 11:28:19.648217
+COMP9242,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:28:19.648220
+COMP9024,4,Quality Education,Yes,Course provides advanced technical education in computer science at postgraduate level,2024-11-04 11:28:22.971196
+COMP9024,8,Decent Work and Economic Growth,Yes,Develops professional programming and algorithmic skills needed for tech industry jobs,2024-11-04 11:28:22.971206
+COMP9024,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental computer science concepts that enable technological innovation,2024-11-04 11:28:22.971209
+COMP9024,12,Responsible Consumption and Production,Yes,Focuses on efficient algorithms and software optimization,2024-11-04 11:28:22.971211
+COMP9024,17,Partnerships for the Goals,No,Not enough evidence of collaboration or global partnerships,2024-11-04 11:28:22.971213
+COMP1010,4,Quality Education,Yes,Course provides foundational computer programming education with focus on Python and computational thinking,2024-11-04 11:28:27.154724
+COMP1010,5,Gender Equality,No,Not enough information,2024-11-04 11:28:27.154733
+COMP1010,8,Decent Work and Economic Growth,Yes,Develops technical skills in programming and web development that enhance employability,2024-11-04 11:28:27.154735
+COMP1010,9,Industry Innovation and Infrastructure,Yes,Teaches modern programming and web application development skills,2024-11-04 11:28:27.154737
+COMP1010,10,Reduced Inequalities,Yes,Course designed to be accessible to students with no prior programming experience,2024-11-04 11:28:27.154739
+COMP1010,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:28:27.154741
+COMP1010,13,Climate Action,No,Not enough information,2024-11-04 11:28:27.154742
+COMP1010,16,"Peace, Justice and Strong Institutions",No,Not enough information,2024-11-04 11:28:27.154744
+COMP1010,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:28:27.154745
+COMP6452,4,Quality Education,Yes,Provides postgraduate technical education in blockchain technology and software architecture,2024-11-04 11:28:30.952259
+COMP6452,8,Decent Work and Economic Growth,Yes,Teaches skills for blockchain development which is an emerging economic sector,2024-11-04 11:28:30.952268
+COMP6452,9,Industry Innovation and Infrastructure,Yes,Focuses on blockchain technology innovation and infrastructure development,2024-11-04 11:28:30.952271
+COMP6452,12,Responsible Consumption and Production,Yes,Teaches design of efficient blockchain systems and consideration of resource tradeoffs,2024-11-04 11:28:30.952273
+COMP6452,17,Partnerships for the Goals,Yes,Course involves collaborative group projects and industry-relevant applications,2024-11-04 11:28:30.952275
+COMP3142,4,Quality Education,Yes,Course provides technical education in software testing and quality assurance,2024-11-04 11:28:34.128524
+COMP3142,8,Decent Work and Economic Growth,Yes,Develops professional skills in software quality assurance needed for industry,2024-11-04 11:28:34.128530
+COMP3142,9,"Industry, Innovation and Infrastructure",Yes,Focuses on improving software reliability and infrastructure through testing,2024-11-04 11:28:34.128531
+COMP3142,12,Responsible Consumption and Production,Yes,Teaches efficient software testing methods to reduce resource waste,2024-11-04 11:28:34.128532
+COMP3142,17,Partnerships for the Goals,Yes,Includes group work and collaborative learning components,2024-11-04 11:28:34.128533
+COMP4121,4,Quality Education,Yes,Course provides advanced technical education in computer science algorithms,2024-11-04 11:28:36.607031
+COMP4121,9,Industry Innovation and Infrastructure,Yes,Teaches advanced algorithms used in modern industry and data science,2024-11-04 11:28:36.607037
+COMP4121,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:28:36.607038
+COMP9418,4,Quality Education,Yes,Course provides advanced technical education in machine learning and AI,2024-11-04 11:28:40.021288
+COMP9418,8,Decent Work and Economic Growth,Yes,Develops high-level technical skills needed for employment in AI/tech sector,2024-11-04 11:28:40.021295
+COMP9418,9,Industry Innovation and Infrastructure,Yes,Teaches advanced AI and statistical methods that drive technological innovation,2024-11-04 11:28:40.021296
+COMP9418,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:28:40.021297
+COMP4601,4,Quality Education,Yes,Course provides technical education in computer engineering and hardware design,2024-11-04 11:28:43.261688
+COMP4601,8,Decent Work and Economic Growth,Yes,Develops skills for employment in embedded systems and hardware accelerator industry,2024-11-04 11:28:43.261698
+COMP4601,9,Industry Innovation and Infrastructure,Yes,Focuses on hardware design and systems prototyping using modern technologies,2024-11-04 11:28:43.261701
+COMP4601,12,Responsible Consumption and Production,Yes,Teaches efficient hardware acceleration and optimization of computational systems,2024-11-04 11:28:43.261703
+COMP4601,17,Partnerships for the Goals,Yes,Includes team-based projects and collaborative learning approaches,2024-11-04 11:28:43.261705
+COMP1511,4,Quality Education,Yes,Course provides fundamental computer programming education at university level,2024-11-04 11:28:47.436974
+COMP1511,5,Gender Equality,No,Not enough information,2024-11-04 11:28:47.436979
+COMP1511,8,Decent Work and Economic Growth,Yes,Provides technical skills for employment in computing/technology sector,2024-11-04 11:28:47.436981
+COMP1511,9,Industry Innovation and Infrastructure,Yes,Teaches programming fundamentals needed for technological innovation,2024-11-04 11:28:47.436983
+COMP1511,10,Reduced Inequalities,Yes,Course includes equity and disability support services,2024-11-04 11:28:47.436984
+COMP1511,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:28:47.436986
+COMP1511,13,Climate Action,No,Not enough information,2024-11-04 11:28:47.436987
+COMP1511,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:28:47.436988
+COMP1511,4,Quality Education,Yes,Course provides fundamental programming education and technical skills development,2024-11-04 11:28:51.132794
+COMP1511,5,Gender Equality,No,Not enough information,2024-11-04 11:28:51.132804
+COMP1511,8,Decent Work and Economic Growth,Yes,Develops technical skills needed for employment in computing industry,2024-11-04 11:28:51.132807
+COMP1511,9,Industry Innovation and Infrastructure,Yes,Teaches foundational programming concepts that enable technological innovation,2024-11-04 11:28:51.132809
+COMP1511,10,Reduced Inequalities,No,Not enough information,2024-11-04 11:28:51.132811
+COMP1511,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:28:51.132814
+COMP1511,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:28:51.132816
+COMP9414,4,Quality Education,Yes,Provides postgraduate technical education in artificial intelligence,2024-11-04 11:28:54.732672
+COMP9414,8,Decent Work and Economic Growth,Yes,Prepares students for AI careers and industry applications,2024-11-04 11:28:54.732680
+COMP9414,9,Industry Innovation and Infrastructure,Yes,Teaches advanced AI techniques and practical applications,2024-11-04 11:28:54.732682
+COMP9414,12,Responsible Consumption and Production,Yes,Covers ethics and responsible AI implementation,2024-11-04 11:28:54.732684
+COMP9414,16,Peace Justice and Strong Institutions,Yes,Addresses AI ethics and safe implementation in society,2024-11-04 11:28:54.732686
+COMP9414,17,Partnerships for the Goals,Yes,Includes human-AI interaction and collaborative learning approaches,2024-11-04 11:28:54.732688
+COMP3211,4,Quality Education,Yes,Course provides technical education in computer architecture at university level,2024-11-04 11:28:58.584335
+COMP3211,5,Gender Equality,No,Not enough information,2024-11-04 11:28:58.584342
+COMP3211,7,Affordable and Clean Energy,Yes,Course covers processor design with focus on power consumption optimization,2024-11-04 11:28:58.584345
+COMP3211,8,Decent Work and Economic Growth,Yes,Prepares students for careers in computer engineering and system design,2024-11-04 11:28:58.584346
+COMP3211,9,Industry Innovation and Infrastructure,Yes,Teaches computer architecture fundamentals critical for technological infrastructure,2024-11-04 11:28:58.584348
+COMP3211,12,Responsible Consumption and Production,Yes,Addresses energy efficiency and resource optimization in processor design,2024-11-04 11:28:58.584350
+COMP3211,17,Partnerships for the Goals,Yes,Includes team-based projects and peer learning components,2024-11-04 11:28:58.584352
+COMP4161,4,Quality Education,Yes,Course provides advanced technical education in software verification at undergraduate/postgraduate level,2024-11-04 11:29:01.576519
+COMP4161,9,"Industry, Innovation and Infrastructure",Yes,Teaches advanced software verification techniques used in industrial applications,2024-11-04 11:29:01.576526
+COMP4161,12,Responsible Consumption and Production,Yes,Focuses on developing reliable and safe software systems through formal verification,2024-11-04 11:29:01.576528
+COMP4161,16,"Peace, Justice and Strong Institutions",Yes,Promotes development of secure and reliable software systems through formal verification methods,2024-11-04 11:29:01.576529
+COMP9993,4,Quality Education,Yes,Course provides postgraduate research education and skill development,2024-11-04 11:29:05.100131
+COMP9993,8,Decent Work and Economic Growth,Yes,Develops advanced research capabilities for professional growth,2024-11-04 11:29:05.100140
+COMP9993,9,Industry Innovation and Infrastructure,Yes,Focuses on creating new concepts and improving state of the art in computer science,2024-11-04 11:29:05.100142
+COMP9993,17,Partnerships for the Goals,Yes,Encourages collaboration between students and supervisors for research advancement,2024-11-04 11:29:05.100144
+COMP9321,4,Quality Education,Yes,Course provides technical education in data services engineering at university level,2024-11-04 11:29:08.436213
+COMP9321,8,Decent Work and Economic Growth,Yes,Develops skills for digital economy and data-driven applications,2024-11-04 11:29:08.436221
+COMP9321,9,Industry Innovation and Infrastructure,Yes,Teaches modern data infrastructure and service development,2024-11-04 11:29:08.436223
+COMP9321,12,Responsible Consumption and Production,Yes,Focuses on data curation and efficient processing of information resources,2024-11-04 11:29:08.436225
+COMP9321,17,Partnerships for the Goals,Yes,Teaches skills for handling and sharing data across platforms and organizations,2024-11-04 11:29:08.436227
+COMP6714,4,Quality Education,Yes,Course provides technical education in computer science at university level,2024-11-04 11:29:11.507124
+COMP6714,8,Decent Work and Economic Growth,Yes,Teaches skills in information retrieval and search technologies relevant to digital economy jobs,2024-11-04 11:29:11.507133
+COMP6714,9,Industry Innovation and Infrastructure,Yes,Focuses on digital infrastructure and search engine technologies,2024-11-04 11:29:11.507136
+COMP6714,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:29:11.507138
+COMP4961,4,Quality Education,Yes,Course provides undergraduate thesis research experience and technical education in computer science,2024-11-04 11:29:14.898668
+COMP4961,8,Decent Work and Economic Growth,Yes,Develops professional engineering skills and industry standards,2024-11-04 11:29:14.898675
+COMP4961,9,Industry Innovation and Infrastructure,Yes,"Focuses on engineering innovation, research and development of technical solutions",2024-11-04 11:29:14.898676
+COMP4961,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-04 11:29:14.898678
+COMP4961,17,Partnerships for the Goals,No,No clear focus on global partnerships or sustainable development goals,2024-11-04 11:29:14.898679
+COMP3902,4,Quality Education,Yes,Course provides research and project-based learning opportunities at university level,2024-11-04 11:29:17.600998
+COMP3902,8,Decent Work and Economic Growth,Yes,Develops advanced technical and research skills needed for knowledge economy jobs,2024-11-04 11:29:17.601006
+COMP3902,9,Industry Innovation and Infrastructure,Yes,Students conduct research projects that could contribute to technological innovation,2024-11-04 11:29:17.601009
+COMP3902,17,Partnerships for the Goals,Yes,Academic supervision and mentoring promotes knowledge sharing and collaboration,2024-11-04 11:29:17.601010
+COMP4511,4,Quality Education,Yes,Course provides technical education in computer science and interface design,2024-11-04 11:29:21.427322
+COMP4511,5,Gender Equality,No,Not enough information,2024-11-04 11:29:21.427325
+COMP4511,8,Decent Work and Economic Growth,Yes,Prepares students for industry work in UI/UX design,2024-11-04 11:29:21.427326
+COMP4511,9,Industry Innovation and Infrastructure,Yes,Teaches modern software development and interface design techniques,2024-11-04 11:29:21.427327
+COMP4511,10,Reduced Inequalities,Yes,Includes focus on accessible design and equitable learning services,2024-11-04 11:29:21.427328
+COMP4511,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:29:21.427328
+COMP4511,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:29:21.427329
+COMP3222,4,Quality Education,Yes,Course provides technical education in engineering and computer systems design,2024-11-04 11:29:25.211546
+COMP3222,8,Decent Work and Economic Growth,Yes,Develops professional skills in digital circuit design and implementation,2024-11-04 11:29:25.211555
+COMP3222,9,Industry Innovation and Infrastructure,Yes,Teaches digital systems design and FPGA implementation skills essential for technological infrastructure,2024-11-04 11:29:25.211558
+COMP3222,12,Responsible Consumption and Production,Yes,Teaches efficient digital circuit design and reusable FPGA technology,2024-11-04 11:29:25.211561
+COMP3161,4,Quality Education,Yes,Course provides advanced computer science education at university level,2024-11-04 11:29:28.760928
+COMP3161,5,Gender Equality,No,Not enough information,2024-11-04 11:29:28.760934
+COMP3161,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for employment,2024-11-04 11:29:28.760936
+COMP3161,9,Industry Innovation and Infrastructure,Yes,Teaches programming language design and implementation concepts that enable technological innovation,2024-11-04 11:29:28.760937
+COMP3161,10,Reduced Inequalities,No,Not enough information,2024-11-04 11:29:28.760938
+COMP3161,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:29:28.760939
+COMP3161,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:29:28.760941
+COMP9727,4,Quality Education,Yes,Provides postgraduate technical education in computer science and engineering,2024-11-04 11:29:31.565189
+COMP9727,8,Decent Work and Economic Growth,Yes,Teaches skills for e-commerce and digital economy applications,2024-11-04 11:29:31.565196
+COMP9727,9,Industry Innovation and Infrastructure,Yes,Focuses on developing technological solutions for information filtering and personalization,2024-11-04 11:29:31.565198
+COMP9727,12,Responsible Consumption and Production,Yes,Addresses information overload and helps users make better consumption decisions,2024-11-04 11:29:31.565199
+COMP2521,4,Quality Education,Yes,Course provides technical education in computer science and software engineering,2024-11-04 11:29:35.151780
+COMP2521,8,Decent Work and Economic Growth,Yes,Develops professional programming skills needed for employment in technology sector,2024-11-04 11:29:35.151789
+COMP2521,9,Industry Innovation and Infrastructure,Yes,Teaches fundamental data structures and algorithms needed for software development,2024-11-04 11:29:35.151792
+COMP2521,12,Responsible Consumption and Production,Yes,Focuses on efficient algorithm design and analysis for optimal resource usage,2024-11-04 11:29:35.151794
+COMP2521,17,Partnerships for the Goals,No,Not enough information,2024-11-04 11:29:35.151796
+COMP3411,4,Quality Education,Yes,Course provides university-level technical education in artificial intelligence,2024-11-04 11:29:38.418449
+COMP3411,8,Decent Work and Economic Growth,Yes,Develops professional skills in AI programming and implementation,2024-11-04 11:29:38.418459
+COMP3411,9,Industry Innovation and Infrastructure,Yes,Teaches advanced technological innovation through AI systems development,2024-11-04 11:29:38.418462
+COMP3411,17,Partnerships for the Goals,No,Not enough evidence of collaboration or partnerships beyond standard coursework,2024-11-04 11:29:38.418464
+COMP6443,4,Quality Education,Yes,Course provides postgraduate technical education in web security,2024-11-04 11:29:41.097365
+COMP6443,9,"Industry, Innovation and Infrastructure",Yes,Teaches skills for securing digital infrastructure and web applications,2024-11-04 11:29:41.097372
+COMP6443,16,"Peace, Justice and Strong Institutions",Yes,Focuses on cybersecurity and protecting systems from malicious attacks,2024-11-04 11:29:41.097373
+COMP6443,17,Partnerships for the Goals,Yes,Promotes collaboration between web developers and security teams,2024-11-04 11:29:41.097375
+COMP6451,4,Quality Education,Yes,Course provides postgraduate technical education in computer science and cryptocurrency,2024-11-04 11:29:45.014027
+COMP6451,8,Decent Work and Economic Growth,Yes,Covers financial technologies and economic systems through cryptocurrency,2024-11-04 11:29:45.014034
+COMP6451,9,Industry Innovation and Infrastructure,Yes,Teaches innovative blockchain technology and digital infrastructure development,2024-11-04 11:29:45.014036
+COMP6451,10,Reduced Inequalities,Yes,Addresses decentralized financial systems that can promote financial inclusion,2024-11-04 11:29:45.014038
+COMP6451,16,Peace Justice and Strong Institutions,Yes,"Covers governance structures, regulatory frameworks and legal dimensions of cryptocurrency",2024-11-04 11:29:45.014039
+COMP6451,17,Partnerships for the Goals,Yes,Examines technological infrastructure for global financial cooperation and transactions,2024-11-04 11:29:45.014041
+COMP9814,4,Quality Education,Yes,Provides postgraduate technical education in artificial intelligence,2024-11-04 11:29:47.443410
+COMP9814,8,Decent Work and Economic Growth,Yes,Develops advanced AI skills relevant for modern workforce,2024-11-04 11:29:47.443417
+COMP9814,9,Industry Innovation and Infrastructure,Yes,Teaches cutting-edge AI technology and innovation,2024-11-04 11:29:47.443419
+COMP9814,17,Partnerships for the Goals,Yes,Course materials include international textbooks and resources,2024-11-04 11:29:47.443421
+COMP9900,4,Quality Education,Yes,Course provides postgraduate technical education in IT/computer science with hands-on project experience,2024-11-04 11:29:50.929876
+COMP9900,5,Gender Equality,No,Not enough information,2024-11-04 11:29:50.929889
+COMP9900,8,Decent Work and Economic Growth,Yes,Develops professional software development and project management skills for industry,2024-11-04 11:29:50.929893
+COMP9900,9,Industry Innovation and Infrastructure,Yes,Students work on real-world IT projects and learn software development practices,2024-11-04 11:29:50.929896
+COMP9900,12,Responsible Consumption and Production,No,Not enough information,2024-11-04 11:29:50.929899
+COMP9900,17,Partnerships for the Goals,Yes,Course involves collaboration with industry professionals and academic mentors,2024-11-04 11:29:50.929902
+COMP9434,4,Quality Education,Yes,Course provides postgraduate technical education in robotics and software architecture,2024-11-04 11:29:54.709293
+COMP9434,8,Decent Work and Economic Growth,Yes,Develops advanced technical skills for employment in robotics and automation,2024-11-04 11:29:54.709302
+COMP9434,9,Industry Innovation and Infrastructure,Yes,Focuses on robotic systems and software architecture innovation,2024-11-04 11:29:54.709305
+COMP9434,12,Responsible Consumption and Production,Yes,Teaches efficient programming and system design for robotics applications,2024-11-04 11:29:54.709307
+COMP9434,17,Partnerships for the Goals,Yes,Includes group work and collaborative learning approaches,2024-11-04 11:29:54.709309
+COMP3311,4,Quality Education,Yes,Course provides technical education in computer science and database systems,2024-11-04 11:29:58.238095
+COMP3311,8,Decent Work and Economic Growth,Yes,Develops professional database skills needed for IT industry employment,2024-11-04 11:29:58.238101
+COMP3311,9,Industry Innovation and Infrastructure,Yes,Teaches database technologies critical for modern digital infrastructure,2024-11-04 11:29:58.238102
+COMP3311,12,Responsible Consumption and Production,Yes,Focuses on efficient data management and storage systems,2024-11-04 11:29:58.238104
+COMP3311,17,Partnerships for the Goals,No,Not enough evidence of partnership or collaboration focus,2024-11-04 11:29:58.238105
