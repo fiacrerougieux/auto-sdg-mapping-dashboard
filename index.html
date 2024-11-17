@@ -336,6 +336,11 @@
     <button id="toggle-sidebar">☰</button>
     
     <div id="sidebar">
+        <div id="button-group">
+            <h3 class="section-title">Analysis Statistics</h3>
+            <p id="course-count" style="font-size: 1.1em; color: #666;"></p>
+            <br>
+        </div>        
         <div class="button-group">
             <h3 class="section-title">SDG Analysis</h3>
             <button id="radarBtn" class="switch-button active">SDG Coverage</button>
@@ -378,6 +383,14 @@
                     <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
                     <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes</li>
                     <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum mapping initiatives</li>
+                    <li>Based on comparative analysis with manual mapping, our automated method tends to underestimate certain SDGs in particular:</li>
+                    <ul>
+                        <li>SDG 4 (Quality Education)</li>
+                        <li>SDG 9 (Industry, Innovation and Infrastructure)</li>
+                        <li>SDG 10 (Reduced Inequalities)</li>
+                        <li>SDG 12 (Responsible Consumption and Production)</li>
+                    </ul>
+                    <li>These SDGs may be more prevalent in courses than indicated in this analysis.</li>
                 </ul>
             </div>
         </div>
@@ -390,28 +403,152 @@
         let currentDiscipline = 'ALL';
         let currentFaculty = 'ALL';
 
-        const specializationNames = {
+        const specializationNames = 
+        specialisations = {
+            'ACCT': 'Accounting',
+            'ACTL': 'Actuarial Studies',
+            'ADAD': 'Art and Design',
+            'AERO': 'Aerospace Engineering',
+            'AGSM': 'AGSM',
             'ANAT': 'Anatomy',
-            'BABS': 'Biotechnology and Biomolecular Sciences',
-            'COMM': 'Commerce',
-            'CVEN': 'Civil Engineering',
-            'MICR': 'Microbiology',
-            'PATH': 'Pathology',
-            'PHSL': 'Physiology',
-            'SOLA': 'Photovoltaic and Solar Energy',
-            'MECH': 'Mechanical Engineering',
-            'MINE': 'Mining Engineering',
-            'MTRN': 'Mechatronic Engineering',
-            'GMAT': 'Surveying & Spatial Information Systems',
-            'ELEC': 'Electrical Engineering',
-            'JURD': 'Juris Doctor',
+            'ARCH': 'Architecture',
+            'ARTS': 'Disciplinary and Interdisciplinary Humanities',
+            'ATSI': 'Nura Gili (Indigenous Programs)',
+            'AVIA': 'Aviation',
+            'AVIG': 'Aviation',
+            'BABS': 'Biotechnology & Biomolecular Sciences',
+            'BEES': 'Biological, Earth & Environmental Science',
+            'BEIL': 'BE Interdisciplinary Learning',
+            'BENV': 'Built Environment',
+            'BINF': 'Bioinformatics',
+            'BIOC': 'Biochemistry',
+            'BIOM': 'Biomedical Engineering',
+            'BIOS': 'Biological Science',
+            'BLDG': 'Building',
+            'CDEV': 'Career Development',
+            'CEIC': 'Chemical Engineering and Industrial Chemistry',
             'CHEM': 'Chemistry',
-            'DDES': 'Design Domain',
-            'FADA': 'Arts Design and Architecture',
-            'ARTS': 'Arts',
+            'CHEN': 'Chemical Engineering',
+            'CLIM': 'Climate Science',
+            'CODE': 'Computational Design',
+            'COMD': 'Development Studies',
+            'COMM': 'Commerce',
+            'COMP': 'Computer Science',
+            'CONS': 'Construction Management',
+            'CRIM': 'Criminology',
+            'CRTV': 'Creative practice',
+            'CVEN': 'Civil and Environmental Engineering',
+            'DART': 'Domain Art',
+            'DATA': 'Data Science',
+            'DDES': 'Domain Design',
+            'DESN': 'Design Next',
+            'DIET': 'Nutrition & Dietetics',
+            'DPBS': 'Global Diploma - Business',
+            'DPDE': 'Global Diploma- Design',
+            'DPGE': 'Global Diploma - General Education',
+            'DPHU': 'Global Diploma - Humanities',
+            'DPST': 'Global Diploma - STEM',
+            'ECON': 'Economics',
+            'EDST': 'Education Studies',
+            'ELEC': 'Electrical Engineering',
+            'ENGG': 'Engineering interdisciplinary',
+            'ENTR': 'Entrepreneurship',
+            'EXCH': 'Exchange',
+            'EXPT': 'Exercise Science, Exercise Physiology and Physiotherapy',
+            'FADA': 'Arts, Design & Architecture',
+            'FINS': 'Finance',
+            'FOOD': 'Food Technology',
+            'GENC': 'UNSW Business School',
+            'GENE': 'General Education - Faculty of Engineering',
+            'GENL': 'General Education - Faculty of Law',
+            'GENM': 'General Education - Faculty of Medicine',
+            'GENS': 'General Education - Faculty of Science',
+            'GENY': 'General Education - The Learning Centre',
+            'GEOL': 'Geology',
+            'GEOS': 'Geoscience',
+            'GMAT': 'Surveying & Spatial Information Systems',
+            'GSBE': 'Architecture',
+            'GSOE': 'Engineering',
+            'HDAT': 'Health Data Science',
+            'HESC': 'Health and Exercise Science',
+            'HLTH': 'Health',
+            'HUML': 'Humanities and Languages',
+            'HUMS': 'Humanities',
+            'IDES': 'Industrial Design',
+            'IEST': 'Institute of Environmental Studies',
+            'INFS': 'Information Systems',
+            'INST': 'International Studies',
+            'INTA': 'Interior Architecture',
+            'JURD': 'Juris Doctor',
+            'LAND': 'Landscape Architecture',
+            'LAWS': 'Law',
+            'LING': 'Linguistics',
+            'MANF': 'Manufacturing Engineering',
+            'MARK': 'Marketing',
+            'MATH': 'Mathematics',
+            'MATS': 'Materials Science and Engineering',
+            'MBAE': 'Management',
+            'MBAX': 'Management',
+            'MDCN': 'Medicine',
+            'MDIA': 'Media',
+            'MECH': 'Mechanical Engineering',
+            'MERE': 'Minerals and Energy Resources Engineering',
+            'MFAC': 'Medicine',
+            'MFIN': 'Finance',
+            'MGMT': 'Management',
+            'MICR': 'Microbiology',
+            'MINE': 'Mining Engineering',
+            'MMAN': 'Mechanical & Manufacturing Engineering',
+            'MNGT': 'Management',
+            'MNNG': 'Mining',
+            'MODL': 'Modern Language Studies',
+            'MSCI': 'Marine Science',
+            'MTRN': 'Mechatronic Engineering',
+            'MUPS': 'Urban Policy and Strategy',
+            'MUSC': 'Music',
+            'NANO': 'Nanotechnology',
+            'NAVL': 'Naval Architecture',
+            'NCHR': 'HIV Social Research',
+            'NEUR': 'Neuroscience',
+            'OPTM': 'Optometry',
+            'PATH': 'Pathology',
+            'PHAR': 'Pharmacology',
+            'PHCM': 'Public Health and Community Medicine',
+            'PHRM': 'Pharmacy',
+            'PHSL': 'Physiology',
+            'PHTN': 'Photonics',
+            'PHYS': 'Physics',
+            'PLAN': 'Planning and Urban Development',
+            'PLTX': 'Practical Legal Training Program',
+            'POLS': 'Political Science',
+            'PSCY': 'Psychiatry',
+            'PSYC': 'Psychology',
+            'PTRL': 'Petroleum Engineering',
+            'REGZ': 'Registrar\'s Division',
+            'REST': 'Real Estate',
+            'RISK': 'Risk Management',
+            'SAHT': 'Art History',
+            'SART': 'Art',
+            'SCIF': 'Faculty of Science',
+            'SDES': 'Design Studies',
+            'SENG': 'Software Engineering',
+            'SLSP': 'Social Science and Policy',
+            'SOCF': 'Social Work',
+            'SOCW': 'Social Work',
+            'SOLA': 'Photovoltaics and Solar Energy',
+            'SOMS': 'Medical Science',
+            'SOSS': 'Social Sciences',
+            'SPRC': 'Social Policy',
+            'SRAP': 'Social Research and Policy',
+            'STAM': 'Arts and Media',
+            'SUSD': 'Sustainable Development',
+            'SWCH': 'Women & Children\'s Health',
+            'TABL': 'Taxation and Business Law',
+            'TELE': 'Telecommunications',
+            'UDES': 'Urban Development Studies',
+            'VISN': 'Vision Science',
             'ZEIT': 'Engineering and Technology',
-            'COMP': 'Computer Science'
-        };
+        }
 
         const facultyMapping = {
             'ANAT': 'MED',
@@ -425,6 +562,8 @@
             'MECH': 'ENG',
             'MINE': 'ENG',
             'MTRN': 'ENG',
+            'MGMT': 'BUSINESS',
+            'AGSM': 'BUSINESS',
             'GMAT': 'ENG',
             'ELEC': 'ENG',
             'JURD': 'LAW',
@@ -432,8 +571,15 @@
             'FADA': 'ADA',
             'DDES': 'ADA',
             'ARTS': 'ADA',
-            'ZEIT': 'CANBERRA',
-            'COMP': 'ENG'
+            'COMP': 'ENG',
+            'MDIA': 'ADA',
+            'PHAR': 'MED',
+            'SWCH': 'MED',
+            'TABL': 'BUSINESS',
+            'TELE': 'ENG',
+            'UDES': 'ADA',
+            'VISN': 'MED',
+            'ZEIT': 'CANBERRA'
         };
         
         // Sidebar toggle
@@ -748,6 +894,13 @@
             Plotly.newPlot('plot-container', plotData, layout);
         }
 
+        function updateCourseCount(data) {
+            const filteredData = filterDataByDiscipline(data, currentDiscipline);
+            const uniqueCourses = new Set(filteredData.map(row => row.course_code));
+            const countElement = document.getElementById('course-count');
+            countElement.innerHTML = `Total Courses Evaluated: <strong>${uniqueCourses.size}</strong>`;
+        }
+
         // Event listeners
         document.getElementById('heatmapBtn').addEventListener('click', function() {
             this.classList.add('active');
@@ -800,7 +953,15 @@
         });
 
         // Initial load
-        loadData().then(data => createRadar(data));
+        loadData().then(data => {
+            // Calculate and display total unique courses across all data
+            const uniqueCourses = new Set(data.map(row => row.course_code));
+            document.getElementById('course-count').innerHTML = 
+                `Total Courses Evaluated: <strong>${uniqueCourses.size}</strong>`;
+            
+            // Initial visualization
+            createRadar(data);
+        });
         toggleDisclaimer(); 
     </script>
 </body>
