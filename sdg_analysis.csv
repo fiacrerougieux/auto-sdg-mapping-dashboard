@@ -8097,3 +8097,607 @@ TABL5551,8,Decent Work and Economic Growth,Yes,Teaches tax law knowledge essenti
 TABL5551,10,Reduced Inequalities,Yes,Covers tax policy and regulatory frameworks that affect wealth distribution,2024-11-17 13:29:07.828240
 TABL5551,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on tax law compliance, administration and anti-avoidance rules",2024-11-17 13:29:07.828241
 TABL5551,17,Partnerships for the Goals,Yes,Addresses international tax rules and cross-border transactions,2024-11-17 13:29:07.828241
+SENG3011,4,Quality Education,Yes,Course provides advanced software engineering education with industry-relevant skills and practical experience,2024-11-18 07:50:08.199253
+SENG3011,8,Decent Work and Economic Growth,Yes,Develops professional skills for industry employment and includes partnerships with major tech companies,2024-11-18 07:50:08.199263
+SENG3011,9,Industry Innovation and Infrastructure,Yes,"Focuses on modern software infrastructure, DevOps practices, and scalable systems development",2024-11-18 07:50:08.199265
+SENG3011,17,Partnerships for the Goals,Yes,"Course involves industry partnerships with Atlassian, GitHub, AWS, Optiver and New Relic",2024-11-18 07:50:08.199267
+SOSS3008,4,Quality Education,Yes,Course provides undergraduate education in policy and governance,2024-11-18 07:50:12.697822
+SOSS3008,8,Decent Work and Economic Growth,Yes,Covers globalization's impact on governance and policy making,2024-11-18 07:50:12.697827
+SOSS3008,10,Reduced Inequalities,Yes,Examines international policy coordination and transfer between countries,2024-11-18 07:50:12.697829
+SOSS3008,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on governance, institutions and policy making processes",2024-11-18 07:50:12.697830
+SOSS3008,17,Partnerships for the Goals,Yes,"Addresses international cooperation, treaty obligations and policy coordination",2024-11-18 07:50:12.697831
+SCIF1004,4,Quality Education,Yes,Course provides accessible science education through film analysis and critical thinking,2024-11-18 07:50:16.339605
+SCIF1004,13,Climate Action,Yes,Course covers climate change topics through films like The Day After Tomorrow,2024-11-18 07:50:16.339614
+SCIF1004,15,Life on Land,Yes,Course examines topics related to genetic modification and biological sciences through films like Jurassic Park,2024-11-18 07:50:16.339616
+SCIF1004,9,Industry Innovation and Infrastructure,Yes,Course explores space exploration and technological innovation through cinema,2024-11-18 07:50:16.339618
+SCIF1004,3,Good Health and Well-being,Yes,Course covers topics related to viruses and genetic modification affecting human health,2024-11-18 07:50:16.339620
+SCIF1000,3,Good Health and Well-Being,Yes,Course includes projects on public health challenges,2024-11-18 07:50:20.178088
+SCIF1000,4,Quality Education,Yes,Course provides interdisciplinary scientific education and professional development,2024-11-18 07:50:20.178098
+SCIF1000,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:50:20.178101
+SCIF1000,8,Decent Work and Economic Growth,Yes,Focuses on professional development and career preparation,2024-11-18 07:50:20.178103
+SCIF1000,9,Industry Innovation and Infrastructure,Yes,Students learn project management and innovation approaches,2024-11-18 07:50:20.178105
+SCIF1000,13,Climate Action,Yes,Course includes projects addressing climate change challenges,2024-11-18 07:50:20.178107
+SCIF1000,17,Partnerships for the Goals,Yes,Emphasizes interdisciplinary collaboration and teamwork,2024-11-18 07:50:20.178109
+SCIF3900,8,Decent Work and Economic Growth,Yes,Course addresses sustainable tourism management and economic considerations in regional development,2024-11-18 07:50:24.579710
+SCIF3900,11,Sustainable Cities and Communities,Yes,Focuses on sustainable tourism development in regional areas and protected sites,2024-11-18 07:50:24.579720
+SCIF3900,12,Responsible Consumption and Production,Yes,Examines sustainable tourism practices and eco-resort management,2024-11-18 07:50:24.579722
+SCIF3900,13,Climate Action,Yes,Addresses aviation impacts on climate and environmental sustainability,2024-11-18 07:50:24.579724
+SCIF3900,14,Life Below Water,Yes,Studies Great Barrier Reef marine park conservation and eco-tourism impacts,2024-11-18 07:50:24.579727
+SCIF3900,15,Life on Land,Yes,Covers protected area governance and environmental sustainability,2024-11-18 07:50:24.579729
+SCIF3900,17,Partnerships for the Goals,Yes,"Involves collaboration between tourism industry, environmental protection, and local communities",2024-11-18 07:50:24.579731
+SOMS3232,3,Good Health and Well-being,Yes,"Course focuses on cellular mechanisms of disease, immune system function, and medical research",2024-11-18 07:50:30.102831
+SOMS3232,4,Quality Education,Yes,Provides advanced biomedical education with research skills development,2024-11-18 07:50:30.102842
+SOMS3232,9,"Industry, Innovation and Infrastructure",Yes,Covers cutting-edge research techniques and technological innovations in biomedical science,2024-11-18 07:50:30.102845
+SOMS3232,10,Reduced Inequalities,No,Not enough information,2024-11-18 07:50:30.102848
+SOMS3232,17,Partnerships for the Goals,Yes,Involves collaboration between academia and industry for research translation,2024-11-18 07:50:30.102850
+SOCF5103,3,Good Health and Well-being,Yes,Course focuses on counselling social work research and evidence-based practice to improve health outcomes,2024-11-18 07:50:35.434425
+SOCF5103,4,Quality Education,Yes,Provides postgraduate education in research methods and evidence-based social work practice,2024-11-18 07:50:35.434432
+SOCF5103,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:50:35.434434
+SOCF5103,8,Decent Work and Economic Growth,No,Not explicitly addressed in course content,2024-11-18 07:50:35.434436
+SOCF5103,10,Reduced Inequalities,Yes,Social work practice and research aims to address social inequalities and improve access to services,2024-11-18 07:50:35.434437
+SOCF5103,16,"Peace, Justice and Strong Institutions",Yes,Course develops evidence-based approaches to strengthen social work institutions and service delivery,2024-11-18 07:50:35.434439
+SOCF5103,17,Partnerships for the Goals,Yes,Emphasizes stakeholder engagement and knowledge exchange between practitioners and researchers,2024-11-18 07:50:35.434440
+SOCW7852,1,No Poverty,Yes,Course examines aid and poverty reduction strategies,2024-11-18 07:50:39.731044
+SOCW7852,2,Zero Hunger,No,Not explicitly addressed in outline,2024-11-18 07:50:39.731051
+SOCW7852,3,Good Health and Well-being,No,Not explicitly addressed in outline,2024-11-18 07:50:39.731053
+SOCW7852,4,Quality Education,No,Not explicitly addressed in outline,2024-11-18 07:50:39.731054
+SOCW7852,5,Gender Equality,Yes,Includes module on feminist funds and gender in aid,2024-11-18 07:50:39.731056
+SOCW7852,8,Decent Work and Economic Growth,Yes,Covers international trade architecture and development,2024-11-18 07:50:39.731057
+SOCW7852,10,Reduced Inequalities,Yes,Examines power dynamics between donors and recipients,2024-11-18 07:50:39.731059
+SOCW7852,16,"Peace, Justice and Strong Institutions",Yes,Addresses international aid agencies and governance,2024-11-18 07:50:39.731060
+SOCW7852,17,Partnerships for the Goals,Yes,Focuses on international aid cooperation and partnerships,2024-11-18 07:50:39.731061
+SOCW2100,1,No Poverty,No,Not directly addressed in course content,2024-11-18 07:50:45.462500
+SOCW2100,3,Good Health and Well-being,Yes,Covers Aboriginal people's experiences with health systems and trauma-informed care,2024-11-18 07:50:45.462509
+SOCW2100,4,Quality Education,Yes,Provides education on cultural awareness and working with First Nations peoples,2024-11-18 07:50:45.462511
+SOCW2100,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:50:45.462513
+SOCW2100,10,Reduced Inequalities,Yes,Focuses on addressing systemic racism and power imbalances affecting First Nations peoples,2024-11-18 07:50:45.462515
+SOCW2100,11,Sustainable Cities and Communities,Yes,Addresses community issues and social justice for First Nations communities,2024-11-18 07:50:45.462517
+SOCW2100,16,"Peace, Justice and Strong Institutions",Yes,"Covers youth justice, child protection, and institutional reforms for First Nations peoples",2024-11-18 07:50:45.462519
+SOCW2100,17,Partnerships for the Goals,Yes,Emphasizes partnerships between Indigenous and non-Indigenous social workers and communities,2024-11-18 07:50:45.462521
+SAHT9310,4,Quality Education,Yes,Course provides postgraduate education in museum studies and cultural leadership,2024-11-18 07:50:50.683949
+SAHT9310,10,Reduced Inequalities,Yes,"Course addresses inclusion, diversity and cultural representation in museums",2024-11-18 07:50:50.683959
+SAHT9310,11,Sustainable Cities and Communities,Yes,Focuses on cultural institutions and their role in preserving and sharing cultural heritage,2024-11-18 07:50:50.683962
+SAHT9310,16,"Peace, Justice and Strong Institutions",Yes,Examines role of museums as public institutions and sites of meaning-making and power,2024-11-18 07:50:50.683964
+SAHT9310,17,Partnerships for the Goals,Yes,Explores global museum networks and cross-cultural institutional partnerships,2024-11-18 07:50:50.683966
+SOCF5110,3,Good Health and Well-being,Yes,Course focuses on counseling and social work practice which directly relates to mental health and wellbeing,2024-11-18 07:50:55.496077
+SOCF5110,4,Quality Education,Yes,Provides postgraduate research education in social work and counseling,2024-11-18 07:50:55.496086
+SOCF5110,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:50:55.496088
+SOCF5110,8,Decent Work and Economic Growth,No,Not explicitly addressed in course content,2024-11-18 07:50:55.496090
+SOCF5110,10,Reduced Inequalities,Yes,Social work and social development focus implies addressing inequalities and social justice,2024-11-18 07:50:55.496092
+SOCF5110,16,"Peace, Justice and Strong Institutions",Yes,Social work practice and research contributes to social justice and institutional effectiveness,2024-11-18 07:50:55.496095
+SOCF5110,17,Partnerships for the Goals,Yes,Course involves partnerships between academia and professional practice in social services,2024-11-18 07:50:55.496096
+SOSS3003,4,Quality Education,Yes,Course provides university education in policy analysis and critical thinking skills,2024-11-18 07:51:00.719878
+SOSS3003,8,Decent Work and Economic Growth,Yes,Develops professional policy work skills and analysis capabilities,2024-11-18 07:51:00.719887
+SOSS3003,10,Reduced Inequalities,Yes,Focuses on policy analysis for social change and includes Indigenous perspectives,2024-11-18 07:51:00.719890
+SOSS3003,11,Sustainable Cities and Communities,Yes,Examines policy development for community issues and participatory approaches,2024-11-18 07:51:00.719892
+SOSS3003,16,"Peace, Justice and Strong Institutions",Yes,Teaches policy analysis and institutional frameworks for effective governance,2024-11-18 07:51:00.719894
+SOSS3003,17,Partnerships for the Goals,Yes,Emphasizes creating impact through partnership and collaborative approaches,2024-11-18 07:51:00.719896
+SOSS2822,4,Quality Education,Yes,Course provides higher education training in research methods,2024-11-18 07:51:03.993099
+SOSS2822,5,Gender Equality,Yes,Course addresses power dynamics and inclusivity in research methods,2024-11-18 07:51:03.993108
+SOSS2822,10,Reduced Inequalities,Yes,Focus on decolonizing research and addressing power imbalances,2024-11-18 07:51:03.993110
+SOSS2822,16,"Peace, Justice and Strong Institutions",Yes,Addresses ethical research practices and colonial power structures,2024-11-18 07:51:03.993113
+SOSS2822,17,Partnerships for the Goals,Yes,Promotes knowledge sharing and collaborative research approaches,2024-11-18 07:51:03.993115
+SCIF0000,4,Quality Education,Yes,Course focuses on university transition skills and academic development,2024-11-18 07:51:07.656455
+SCIF0000,5,Gender Equality,No,Not explicitly addressed in content,2024-11-18 07:51:07.656464
+SCIF0000,8,Decent Work and Economic Growth,Yes,Helps students identify career values and develop professional identity,2024-11-18 07:51:07.656466
+SCIF0000,10,Reduced Inequalities,Yes,Includes equitable learning services and support for student wellbeing,2024-11-18 07:51:07.656468
+SCIF0000,16,"Peace, Justice and Strong Institutions",Yes,Emphasizes academic integrity and institutional values,2024-11-18 07:51:07.656470
+SCIF0000,17,Partnerships for the Goals,No,Not explicitly addressed in content,2024-11-18 07:51:07.656472
+SAHT9117,4,Quality Education,Yes,Course provides postgraduate education in curatorial practices and theory,2024-11-18 07:51:12.342278
+SAHT9117,5,Gender Equality,Yes,Course includes specific focus on women in curating and gender perspectives,2024-11-18 07:51:12.342283
+SAHT9117,10,Reduced Inequalities,Yes,Course addresses decolonizing curating and diverse cultural perspectives,2024-11-18 07:51:12.342285
+SAHT9117,11,Sustainable Cities and Communities,Yes,Course examines cultural institutions and their role in communities through curatorial practices,2024-11-18 07:51:12.342286
+SAHT9117,16,"Peace, Justice and Strong Institutions",Yes,Course explores institutional critique and reform through curatorial theory and practice,2024-11-18 07:51:12.342287
+SAHT9117,17,Partnerships for the Goals,Yes,Course involves collaboration with galleries and industry partners,2024-11-18 07:51:12.342288
+SOSS1001,4,Quality Education,Yes,Course teaches research methods and critical analysis skills at university level,2024-11-18 07:51:17.916477
+SOSS1001,5,Gender Equality,No,Not enough information,2024-11-18 07:51:17.916490
+SOSS1001,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:51:17.916493
+SOSS1001,9,Industry Innovation and Infrastructure,No,Not enough information,2024-11-18 07:51:17.916495
+SOSS1001,10,Reduced Inequalities,Yes,Course includes focus on inclusive research methods and decolonizing research,2024-11-18 07:51:17.916498
+SOSS1001,16,Peace Justice and Strong Institutions,Yes,Course teaches ethical research practices and social research methods,2024-11-18 07:51:17.916501
+SOSS1001,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:51:17.916503
+SAHT9118,4,Quality Education,Yes,Course provides postgraduate education in curating and cultural leadership with focus on professional skills development,2024-11-18 07:51:22.241260
+SAHT9118,8,Decent Work and Economic Growth,Yes,Prepares students for professional careers in cultural sector through practical projects and industry engagement,2024-11-18 07:51:22.241269
+SAHT9118,11,Sustainable Cities and Communities,Yes,Focuses on cultural leadership and curating which contributes to sustainable cultural development in communities,2024-11-18 07:51:22.241272
+SAHT9118,17,Partnerships for the Goals,Yes,Encourages collaborative projects and building professional networks in cultural sector,2024-11-18 07:51:22.241274
+SAHT9122,4,Quality Education,Yes,Course focuses on museum education and audience engagement strategies,2024-11-18 07:51:27.092138
+SAHT9122,5,Gender Equality,No,Not enough information,2024-11-18 07:51:27.092149
+SAHT9122,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:51:27.092152
+SAHT9122,10,Reduced Inequalities,Yes,Course addresses inclusive audience engagement and accessibility in cultural institutions,2024-11-18 07:51:27.092155
+SAHT9122,11,Sustainable Cities and Communities,Yes,Course promotes cultural participation and preservation through museum/gallery programs,2024-11-18 07:51:27.092158
+SAHT9122,16,"Peace, Justice and Strong Institutions",Yes,Course supports building inclusive cultural institutions and public access to culture,2024-11-18 07:51:27.092160
+SAHT9122,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:51:27.092163
+SOCW7851,1,No Poverty,Yes,Course addresses community development and social development from a rights-based framework,2024-11-18 07:51:33.070745
+SOCW7851,3,Good Health and Well-being,Yes,Covers post-disaster recovery and community engagement in health outcomes,2024-11-18 07:51:33.070755
+SOCW7851,4,Quality Education,Yes,Provides postgraduate education in community development and social work,2024-11-18 07:51:33.070758
+SOCW7851,5,Gender Equality,Yes,Explicitly covers gender and intersectionality in community development,2024-11-18 07:51:33.070760
+SOCW7851,10,Reduced Inequalities,Yes,Focuses on rights-based approaches and addressing power relations in communities,2024-11-18 07:51:33.070763
+SOCW7851,11,Sustainable Cities and Communities,Yes,Examines sustainable service delivery and community development,2024-11-18 07:51:33.070765
+SOCW7851,16,"Peace, Justice and Strong Institutions",Yes,"Addresses advocacy, human rights documentation, and institutional frameworks",2024-11-18 07:51:33.070768
+SOCW7851,17,Partnerships for the Goals,Yes,Emphasizes participatory development and stakeholder collaboration,2024-11-18 07:51:33.070770
+SOCF5108,3,Good Health and Well-being,Yes,Course focuses on therapeutic counseling and mental health support,2024-11-18 07:51:37.168175
+SOCF5108,4,Quality Education,Yes,Provides postgraduate education in counseling social work,2024-11-18 07:51:37.168184
+SOCF5108,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:51:37.168186
+SOCF5108,10,Reduced Inequalities,Yes,Emphasizes cultural and social diversity awareness in counseling practice,2024-11-18 07:51:37.168188
+SOCF5108,16,"Peace, Justice and Strong Institutions",Yes,Addresses therapeutic relationships and social work practice to support individuals,2024-11-18 07:51:37.168190
+SOCF5109,3,Good Health and Well-being,Yes,Course focuses on family therapy and counseling to improve mental health outcomes,2024-11-18 07:51:41.264311
+SOCF5109,4,Quality Education,Yes,Provides postgraduate level education in family therapy and counseling,2024-11-18 07:51:41.264319
+SOCF5109,5,Gender Equality,Yes,Course addresses gender and power dynamics in family relationships,2024-11-18 07:51:41.264321
+SOCF5109,10,Reduced Inequalities,Yes,Addresses diversity issues and social contexts in family therapy,2024-11-18 07:51:41.264324
+SOCF5109,16,"Peace, Justice and Strong Institutions",Yes,Focuses on healing from interpersonal trauma and improving family relationships,2024-11-18 07:51:41.264325
+SOCW2003,3,Good Health and Well-being,Yes,"Course teaches counseling and assessment skills for social work, directly contributing to mental health care",2024-11-18 07:51:45.770022
+SOCW2003,4,Quality Education,Yes,Provides higher education training in social work counseling skills,2024-11-18 07:51:45.770030
+SOCW2003,5,Gender Equality,Yes,Course includes inclusive approaches to family assessment and gender considerations,2024-11-18 07:51:45.770032
+SOCW2003,10,Reduced Inequalities,Yes,Focuses on helping vulnerable populations through social work practice,2024-11-18 07:51:45.770034
+SOCW2003,16,"Peace, Justice and Strong Institutions",Yes,Develops skills for social workers to support individuals and strengthen social services,2024-11-18 07:51:45.770035
+SOCW2003,17,Partnerships for the Goals,No,No explicit focus on cross-sector partnerships,2024-11-18 07:51:45.770037
+SOMS3199,3,Good Health and Well-being,Yes,Course provides practical experience in biomedical sciences and healthcare settings,2024-11-18 07:51:50.563147
+SOMS3199,4,Quality Education,Yes,Provides tertiary education and professional skills development through work placement,2024-11-18 07:51:50.563152
+SOMS3199,8,Decent Work and Economic Growth,Yes,Facilitates transition to employment through workplace experience and professional development,2024-11-18 07:51:50.563153
+SOMS3199,9,"Industry, Innovation and Infrastructure",Yes,Students work in scientific/medical organizations applying technical knowledge,2024-11-18 07:51:50.563154
+SOMS3199,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry/healthcare organizations for student training,2024-11-18 07:51:50.563155
+SOCW4013,1,No Poverty,Yes,Course addresses child welfare and family support services for vulnerable populations,2024-11-18 07:51:55.490291
+SOCW4013,3,Good Health and Well-being,Yes,"Covers child protection, abuse prevention, and promoting child wellbeing",2024-11-18 07:51:55.490310
+SOCW4013,4,Quality Education,Yes,Provides professional education in social work and child welfare practice,2024-11-18 07:51:55.490312
+SOCW4013,5,Gender Equality,Yes,Addresses discrimination and empowerment principles in family welfare,2024-11-18 07:51:55.490313
+SOCW4013,10,Reduced Inequalities,Yes,Focuses on consequences of oppression and discrimination on children and families,2024-11-18 07:51:55.490315
+SOCW4013,16,"Peace, Justice and Strong Institutions",Yes,"Covers child protection laws, justice system, and institutional frameworks for child welfare",2024-11-18 07:51:55.490316
+SAHT9311,4,Quality Education,Yes,Course provides postgraduate education in curatorial practice and cultural leadership,2024-11-18 07:52:00.204538
+SAHT9311,10,Reduced Inequalities,Yes,Course focuses on engaging diverse communities and public spaces through art,2024-11-18 07:52:00.204542
+SAHT9311,11,Sustainable Cities and Communities,Yes,Addresses cultural sustainability and public engagement in urban spaces through art curation,2024-11-18 07:52:00.204543
+SAHT9311,16,"Peace, Justice and Strong Institutions",Yes,Promotes cultural institutions and inclusive public spaces through curatorial practice,2024-11-18 07:52:00.204544
+SAHT9311,17,Partnerships for the Goals,Yes,Emphasizes collaboration between cultural organizations and communities,2024-11-18 07:52:00.204544
+SAHT9204,4,Quality Education,Yes,Course provides postgraduate education in art history and critical analysis,2024-11-18 07:52:04.684704
+SAHT9204,5,Gender Equality,Yes,Course covers feminist themes and post-gender topics in contemporary art,2024-11-18 07:52:04.684715
+SAHT9204,10,Reduced Inequalities,Yes,Course addresses decolonisation and anti-colonial perspectives in art,2024-11-18 07:52:04.684718
+SAHT9204,11,Sustainable Cities and Communities,Yes,Course examines cultural heritage and artistic practices in social contexts,2024-11-18 07:52:04.684721
+SAHT9204,16,"Peace, Justice and Strong Institutions",Yes,Course explores themes of social justice through art criticism and cultural analysis,2024-11-18 07:52:04.684724
+SRAP5101,4,Quality Education,Yes,Course teaches advanced research methods and project design at postgraduate level,2024-11-18 07:52:09.318734
+SRAP5101,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:52:09.318744
+SRAP5101,8,Decent Work and Economic Growth,No,Not explicitly addressed in course content,2024-11-18 07:52:09.318746
+SRAP5101,9,Industry Innovation and Infrastructure,No,Not explicitly addressed in course content,2024-11-18 07:52:09.318748
+SRAP5101,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-11-18 07:52:09.318751
+SRAP5101,16,Peace Justice and Strong Institutions,Yes,Course develops skills in social science research methods relevant for policy and international relations,2024-11-18 07:52:09.318753
+SRAP5101,17,Partnerships for the Goals,Yes,Course teaches research methods applicable to studying development and international cooperation,2024-11-18 07:52:09.318755
+SOMS3001,3,Good Health and Well-being,Yes,Course focuses on biomedical sciences research and health-related topics,2024-11-18 07:52:13.929420
+SOMS3001,4,Quality Education,Yes,Provides research training and practical skills in biomedical sciences,2024-11-18 07:52:13.929429
+SOMS3001,9,"Industry, Innovation and Infrastructure",Yes,Students engage in research projects and learn experimental techniques,2024-11-18 07:52:13.929432
+SOMS3001,17,Partnerships for the Goals,Yes,Course involves partnerships between university and research institutes for student placements,2024-11-18 07:52:13.929434
+SRAP5021,4,Quality Education,Yes,Course provides postgraduate education in digital advocacy and policy,2024-11-18 07:52:18.852805
+SRAP5021,5,Gender Equality,Yes,Course covers advocacy for gender inequality issues as potential campaign topics,2024-11-18 07:52:18.852813
+SRAP5021,10,Reduced Inequalities,Yes,Course addresses social issues including racial discrimination and inequality,2024-11-18 07:52:18.852815
+SRAP5021,11,Sustainable Cities and Communities,Yes,Course includes housing crisis as a potential advocacy topic,2024-11-18 07:52:18.852816
+SRAP5021,13,Climate Action,Yes,Course includes climate change as a key advocacy topic area,2024-11-18 07:52:18.852817
+SRAP5021,16,"Peace, Justice and Strong Institutions",Yes,"Course teaches policy-making, advocacy and institutional change",2024-11-18 07:52:18.852819
+SRAP5021,17,Partnerships for the Goals,Yes,Course covers transnational advocacy and cross-border collaboration,2024-11-18 07:52:18.852821
+SOCW3009,1,No Poverty,No,Not enough information,2024-11-18 07:52:24.546433
+SOCW3009,2,Zero Hunger,No,Not enough information,2024-11-18 07:52:24.546442
+SOCW3009,3,Good Health and Well-being,Yes,Course addresses ethics in social work practice and mental health,2024-11-18 07:52:24.546445
+SOCW3009,4,Quality Education,Yes,Provides professional education in social work ethics and practice,2024-11-18 07:52:24.546447
+SOCW3009,5,Gender Equality,Yes,Includes feminist ethics and perspectives on social justice,2024-11-18 07:52:24.546449
+SOCW3009,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:52:24.546451
+SOCW3009,10,Reduced Inequalities,Yes,"Focuses on social justice, human rights, and addressing structural oppression",2024-11-18 07:52:24.546453
+SOCW3009,16,"Peace, Justice and Strong Institutions",Yes,"Addresses professional ethics, human rights, and social justice in institutions",2024-11-18 07:52:24.546455
+SOCW3009,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:52:24.546457
+SCIF1111,3,Good Health and Well-being,Yes,Course focuses on medical science education and healthcare research,2024-11-18 07:52:29.287818
+SCIF1111,4,Quality Education,Yes,Provides university education in medical science with emphasis on professional skills,2024-11-18 07:52:29.287830
+SCIF1111,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:52:29.287833
+SCIF1111,8,Decent Work and Economic Growth,Yes,Includes career development and internship preparation,2024-11-18 07:52:29.287835
+SCIF1111,9,Industry Innovation and Infrastructure,Yes,Covers medical research and scientific methodology,2024-11-18 07:52:29.287837
+SCIF1111,10,Reduced Inequalities,No,Not explicitly addressed in course content,2024-11-18 07:52:29.287840
+SCIF1111,16,"Peace, Justice and Strong Institutions",Yes,Includes ethics training and professional standards,2024-11-18 07:52:29.287842
+SCIF1111,17,Partnerships for the Goals,Yes,Emphasizes collaborative teamwork and multidisciplinary approaches,2024-11-18 07:52:29.287845
+SOSS3006,4,Quality Education,Yes,Course provides workplace-integrated learning and professional skills development for social science students,2024-11-18 07:52:33.485483
+SOSS3006,8,Decent Work and Economic Growth,Yes,Focuses on workplace experience and organizational dynamics through internships,2024-11-18 07:52:33.485487
+SOSS3006,16,"Peace, Justice and Strong Institutions",Yes,Students work with NGOs and government organizations on policy research and implementation,2024-11-18 07:52:33.485490
+SOSS3006,17,Partnerships for the Goals,Yes,"Facilitates partnerships between university, NGOs, and government organizations for student learning",2024-11-18 07:52:33.485491
+SOCW4016,1,No Poverty,Yes,Course focuses on social work practice addressing disadvantaged populations,2024-11-18 07:52:39.628904
+SOCW4016,3,Good Health and Well-being,Yes,Social work practice includes health and wellbeing support,2024-11-18 07:52:39.628912
+SOCW4016,4,Quality Education,Yes,Provides higher education in social work practice and theory,2024-11-18 07:52:39.628915
+SOCW4016,5,Gender Equality,Yes,Social work practice addresses issues of equity and social justice,2024-11-18 07:52:39.628917
+SOCW4016,10,Reduced Inequalities,Yes,"Course emphasizes critical analysis of power, privilege and social inequalities",2024-11-18 07:52:39.628919
+SOCW4016,16,"Peace, Justice and Strong Institutions",Yes,"Focus on social justice, ethics and professional social work institutions",2024-11-18 07:52:39.628921
+SOCW4016,17,Partnerships for the Goals,Yes,Emphasizes collaboration and partnerships in social work practice,2024-11-18 07:52:39.628923
+SENG2991,4,Quality Education,Yes,Course provides practical software engineering education through industry placement and workplace learning,2024-11-18 07:52:44.442037
+SENG2991,5,Gender Equality,No,Not enough information,2024-11-18 07:52:44.442047
+SENG2991,8,Decent Work and Economic Growth,Yes,Prepares students for professional work through industry placement and development of workplace skills,2024-11-18 07:52:44.442050
+SENG2991,9,Industry Innovation and Infrastructure,Yes,Focuses on software engineering and complex system development in industry settings,2024-11-18 07:52:44.442052
+SENG2991,17,Partnerships for the Goals,Yes,Involves partnerships between university and industry for student workplace learning,2024-11-18 07:52:44.442055
+SENG3994,4,Quality Education,Yes,Course provides advanced software engineering education and industry placement experience,2024-11-18 07:52:48.742704
+SENG3994,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:52:48.742715
+SENG3994,8,Decent Work and Economic Growth,Yes,Prepares students for professional software engineering careers through industry placement,2024-11-18 07:52:48.742718
+SENG3994,9,Industry Innovation and Infrastructure,Yes,Focuses on software development and engineering innovation in industry context,2024-11-18 07:52:48.742720
+SENG3994,17,Partnerships for the Goals,Yes,Involves partnership between university and industry for student placements,2024-11-18 07:52:48.742722
+SAHT9310,4,Quality Education,Yes,Course provides postgraduate education in museum curation and cultural leadership,2024-11-18 07:52:53.968119
+SAHT9310,10,Reduced Inequalities,Yes,"Course addresses diversity, inclusion and cultural representation in museums",2024-11-18 07:52:53.968127
+SAHT9310,11,Sustainable Cities and Communities,Yes,Focuses on cultural institutions and their role in preserving and sharing cultural heritage,2024-11-18 07:52:53.968129
+SAHT9310,16,"Peace, Justice and Strong Institutions",Yes,Examines role of museums as public institutions and sites of meaning-making and power contestation,2024-11-18 07:52:53.968131
+SAHT9310,17,Partnerships for the Goals,Yes,Explores global cultural networks and international institutional collaboration through exhibitions,2024-11-18 07:52:53.968133
+SAHT9312,4,Quality Education,Yes,Course provides postgraduate education in curatorial practices and professional skills development,2024-11-18 07:53:00.210466
+SAHT9312,8,Decent Work and Economic Growth,Yes,Develops professional curatorial skills and project management capabilities for employment,2024-11-18 07:53:00.210471
+SAHT9312,11,Sustainable Cities and Communities,Yes,Focuses on public art and cultural engagement in urban spaces and communities,2024-11-18 07:53:00.210471
+SAHT9312,12,Responsible Consumption and Production,Yes,Emphasizes sustainable professional practice strategies and responsible project planning,2024-11-18 07:53:00.210472
+SAHT9312,17,Partnerships for the Goals,Yes,Involves collaboration with external organizations and experts in public art curation,2024-11-18 07:53:00.210473
+SOCW2009,3,Good Health and Well-being,Yes,Course teaches counseling skills to support mental health and wellbeing,2024-11-18 07:53:04.716924
+SOCW2009,4,Quality Education,Yes,Provides higher education in social work and counseling techniques,2024-11-18 07:53:04.716934
+SOCW2009,5,Gender Equality,Yes,Social work practice addresses gender-based issues and inequalities,2024-11-18 07:53:04.716936
+SOCW2009,10,Reduced Inequalities,Yes,Course aims to help vulnerable populations through social work,2024-11-18 07:53:04.716938
+SOCW2009,16,"Peace, Justice and Strong Institutions",Yes,Develops skills for social workers to support individuals and strengthen communities,2024-11-18 07:53:04.716940
+SOCW2009,17,Partnerships for the Goals,Yes,Promotes collaboration between social workers and community groups,2024-11-18 07:53:04.716943
+SOSS2005,4,Quality Education,Yes,Course provides university education in politics and policy analysis,2024-11-18 07:53:09.332209
+SOSS2005,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:53:09.332221
+SOSS2005,10,Reduced Inequalities,Yes,"Examines power, inequality and marginalization in policy-making processes",2024-11-18 07:53:09.332224
+SOSS2005,11,Sustainable Cities and Communities,Yes,Includes case study on housing affordability policy,2024-11-18 07:53:09.332226
+SOSS2005,13,Climate Action,Yes,Includes case study on climate policy,2024-11-18 07:53:09.332228
+SOSS2005,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on democratic institutions, governance and accountability",2024-11-18 07:53:09.332231
+SOSS2005,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-11-18 07:53:09.332232
+SOCW7857,1,No Poverty,Yes,Course examines root causes of displacement which often includes poverty,2024-11-18 07:53:14.341677
+SOCW7857,3,Good Health and Well-being,Yes,Addresses refugee health and protection needs,2024-11-18 07:53:14.341689
+SOCW7857,4,Quality Education,Yes,Provides postgraduate education on refugee rights and policy,2024-11-18 07:53:14.341692
+SOCW7857,5,Gender Equality,Yes,Examines gendered nature of displacement and protection needs,2024-11-18 07:53:14.341695
+SOCW7857,10,Reduced Inequalities,Yes,Focuses on rights and protection of displaced populations,2024-11-18 07:53:14.341699
+SOCW7857,11,Sustainable Cities and Communities,Yes,Addresses urban displacement and integration,2024-11-18 07:53:14.341702
+SOCW7857,13,Climate Action,Yes,Covers climate-related displacement and migration,2024-11-18 07:53:14.341705
+SOCW7857,16,"Peace, Justice and Strong Institutions",Yes,Examines international law and policy frameworks for refugee protection,2024-11-18 07:53:14.341708
+SOCW7857,17,Partnerships for the Goals,Yes,Studies global cooperation frameworks like the Global Compact on Refugees,2024-11-18 07:53:14.341711
+SOCW3012,1,No Poverty,Yes,Course involves social work placements in community organizations serving vulnerable populations,2024-11-18 07:53:20.894137
+SOCW3012,2,Good Health and Well-being,Yes,Placements include healthcare settings like hospitals and focus on client wellbeing,2024-11-18 07:53:20.894145
+SOCW3012,3,Quality Education,Yes,Course provides professional education and training in social work practice,2024-11-18 07:53:20.894147
+SOCW3012,4,Gender Equality,Yes,Social work practice addresses gender-based inequalities and discrimination,2024-11-18 07:53:20.894148
+SOCW3012,5,Decent Work and Economic Growth,Yes,Course prepares students for professional employment and addresses economic justice,2024-11-18 07:53:20.894150
+SOCW3012,8,Decent Work and Economic Growth,Yes,Focus on professional development and ethical workplace practices,2024-11-18 07:53:20.894151
+SOCW3012,10,Reduced Inequalities,Yes,Social work practice aims to reduce social inequalities and promote social justice,2024-11-18 07:53:20.894153
+SOCW3012,11,Sustainable Cities and Communities,Yes,Work in community organizations to support sustainable community development,2024-11-18 07:53:20.894155
+SOCW3012,16,"Peace, Justice and Strong Institutions",Yes,Focus on social justice and strengthening social service institutions,2024-11-18 07:53:20.894156
+SOCW3012,17,Partnerships for the Goals,Yes,"Involves partnerships between university, social service agencies and communities",2024-11-18 07:53:20.894158
+SRAP5001,4,Quality Education,Yes,Course provides postgraduate education in policy analysis and research skills,2024-11-18 07:53:24.884055
+SRAP5001,5,Gender Equality,No,Not enough information,2024-11-18 07:53:24.884064
+SRAP5001,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:53:24.884066
+SRAP5001,10,Reduced Inequalities,No,Not enough information,2024-11-18 07:53:24.884068
+SRAP5001,11,Sustainable Cities and Communities,No,Not enough information,2024-11-18 07:53:24.884070
+SRAP5001,16,"Peace, Justice and Strong Institutions",Yes,"Course focuses on policy analysis, institutional frameworks, and governance processes",2024-11-18 07:53:24.884073
+SRAP5001,17,Partnerships for the Goals,Yes,Course emphasizes collaboration and analysis of different stakeholders in policy making,2024-11-18 07:53:24.884075
+SUSD0001,11,Sustainable Cities and Communities,Yes,"Course focuses on sustainable urban development, city planning, and urban ecology",2024-11-18 07:53:30.439066
+SUSD0001,13,Climate Action,Yes,"Covers heat island effects, renewable energy, and embodied carbon in built environment",2024-11-18 07:53:30.439076
+SUSD0001,6,Clean Water and Sanitation,Yes,Includes sustainability of water supplies and water cycle management,2024-11-18 07:53:30.439079
+SUSD0001,7,Affordable and Clean Energy,Yes,Addresses energy issues and renewable energy directions,2024-11-18 07:53:30.439080
+SUSD0001,15,Life on Land,Yes,"Covers urban ecology, biodiversity, and urban forestry",2024-11-18 07:53:30.439082
+SUSD0001,4,Quality Education,Yes,Provides postgraduate education in sustainable development,2024-11-18 07:53:30.439084
+SUSD0001,9,Industry Innovation and Infrastructure,Yes,Explores innovative approaches to urban planning and infrastructure,2024-11-18 07:53:30.439086
+SUSD0001,12,Responsible Consumption and Production,Yes,Addresses circular economy and waste management principles,2024-11-18 07:53:30.439088
+SUSD0001,3,Good Health and Well-being,Yes,Focuses on improving air quality and creating livable urban environments,2024-11-18 07:53:30.439090
+SUSD0001,17,Partnerships for the Goals,Yes,Includes group work and collaborative approaches to sustainability challenges,2024-11-18 07:53:30.439092
+SCIF1131,4,Quality Education,Yes,Course provides foundational scientific skills and professional development for undergraduate students,2024-11-18 07:53:35.025710
+SCIF1131,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:53:35.025722
+SCIF1131,8,Decent Work and Economic Growth,Yes,Focuses on career development and professional skills for science careers,2024-11-18 07:53:35.025727
+SCIF1131,9,Industry Innovation and Infrastructure,Yes,Explores technological evolution and scientific innovation through assessments,2024-11-18 07:53:35.025730
+SCIF1131,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-18 07:53:35.025733
+SCIF1131,13,Climate Action,No,Not explicitly addressed in course content,2024-11-18 07:53:35.025736
+SCIF1131,16,"Peace, Justice and Strong Institutions",Yes,Includes ethics training and professional standards development,2024-11-18 07:53:35.025739
+SCIF1131,17,Partnerships for the Goals,Yes,Emphasizes interdisciplinary collaboration and teamwork on real-world challenges,2024-11-18 07:53:35.025742
+SOCW1004,3,Good Health and Well-being,Yes,"Course focuses on health, wellbeing and development across lifespan using biopsychosocial framework",2024-11-18 07:53:39.226276
+SOCW1004,4,Quality Education,Yes,Provides higher education in social work and human development,2024-11-18 07:53:39.226280
+SOCW1004,5,Gender Equality,Yes,Examines how gender interacts with development and health outcomes,2024-11-18 07:53:39.226281
+SOCW1004,10,Reduced Inequalities,Yes,"Addresses effects of diversities, disparities and oppressions on human development and health",2024-11-18 07:53:39.226282
+SOCW1004,16,"Peace, Justice and Strong Institutions",Yes,"Covers topics like family violence, child maltreatment and social justice issues",2024-11-18 07:53:39.226282
+SOSS3822,4,Quality Education,Yes,Course provides higher education in criminal justice research methods and critical thinking,2024-11-18 07:53:44.438369
+SOSS3822,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:53:44.438377
+SOSS3822,10,Reduced Inequalities,Yes,Focuses on decolonizing research methods and addressing power imbalances in criminal justice,2024-11-18 07:53:44.438379
+SOSS3822,16,"Peace, Justice and Strong Institutions",Yes,Addresses criminal justice systems and research methods to improve justice outcomes,2024-11-18 07:53:44.438381
+SOSS3822,17,Partnerships for the Goals,Yes,Promotes knowledge sharing and collaboration between different communities and contexts,2024-11-18 07:53:44.438383
+SENG3993,4,Quality Education,Yes,Course provides industry-focused software engineering education and professional skill development,2024-11-18 07:53:49.866958
+SENG3993,5,Gender Equality,No,Not enough information,2024-11-18 07:53:49.866969
+SENG3993,8,Decent Work and Economic Growth,Yes,Provides industry work placement and professional development for future employment,2024-11-18 07:53:49.866973
+SENG3993,9,Industry Innovation and Infrastructure,Yes,"Teaches software engineering, development practices and industry innovation skills",2024-11-18 07:53:49.866975
+SENG3993,12,Responsible Consumption and Production,No,Not enough information,2024-11-18 07:53:49.866978
+SENG3993,17,Partnerships for the Goals,Yes,Involves partnership between university and industry for student placements,2024-11-18 07:53:49.866980
+SOCW4011,3,Good Health and Well-being,Yes,Course focuses on social work research and evidence-based practice related to health and social interventions,2024-11-18 07:53:54.372702
+SOCW4011,4,Quality Education,Yes,Course provides higher education training in research methods and evidence-based practice,2024-11-18 07:53:54.372712
+SOCW4011,10,Reduced Inequalities,Yes,Social work research focus includes working with marginalized populations and addressing inequalities,2024-11-18 07:53:54.372715
+SOCW4011,16,"Peace, Justice and Strong Institutions",Yes,Course addresses ethical research practices and evidence-based interventions in social institutions,2024-11-18 07:53:54.372718
+SOCW4011,17,Partnerships for the Goals,Yes,"Course emphasizes collaboration between practitioners, researchers and institutions",2024-11-18 07:53:54.372720
+SRAP5107,4,Quality Education,Yes,Course provides postgraduate research education and skill development,2024-11-18 07:53:58.978781
+SRAP5107,8,Decent Work and Economic Growth,Yes,Aims to enhance career opportunities and professional development,2024-11-18 07:53:58.978790
+SRAP5107,9,Industry Innovation and Infrastructure,Yes,Focuses on developing research capabilities and contributing new knowledge,2024-11-18 07:53:58.978792
+SRAP5107,17,Partnerships for the Goals,Yes,Involves academic supervision and institutional collaboration for research,2024-11-18 07:53:58.978793
+SUSD0004,3,Good Health and Well-being,Yes,"Course covers health aspects of built environments, indoor air quality, and healthy building standards",2024-11-18 07:54:04.917486
+SUSD0004,4,Quality Education,Yes,Course provides postgraduate education in sustainability and built environment,2024-11-18 07:54:04.917489
+SUSD0004,11,Sustainable Cities and Communities,Yes,"Focus on urban habitability, sustainable development, and community engagement",2024-11-18 07:54:04.917490
+SUSD0004,12,Responsible Consumption and Production,Yes,Examines sustainable building practices and post-occupancy evaluation,2024-11-18 07:54:04.917491
+SUSD0004,13,Climate Action,Yes,Addresses urban heat and environmental impacts of buildings,2024-11-18 07:54:04.917492
+SUSD0004,15,Life on Land,Yes,Covers biophilia and biomimicry principles in design,2024-11-18 07:54:04.917493
+SUSD0004,16,"Peace, Justice and Strong Institutions",Yes,"Includes safety, security and crime prevention through environmental design",2024-11-18 07:54:04.917494
+SUSD0004,17,Partnerships for the Goals,Yes,Promotes collaboration through group work and engagement with building owners/managers,2024-11-18 07:54:04.917495
+SOSS2008,4,Quality Education,Yes,Course develops leadership skills and provides work-based learning opportunities,2024-11-18 07:54:08.834456
+SOSS2008,8,Decent Work and Economic Growth,Yes,Focuses on organizational dynamics and workplace learning,2024-11-18 07:54:08.834465
+SOSS2008,16,"Peace, Justice and Strong Institutions",Yes,Develops understanding of organizational policy contexts and governance,2024-11-18 07:54:08.834467
+SOSS2008,17,Partnerships for the Goals,Yes,Encourages collaboration between educational institutions and community organizations,2024-11-18 07:54:08.834469
+SAHT9113,4,Quality Education,Yes,Course provides postgraduate education in cultural heritage management and law,2024-11-18 07:54:13.581132
+SAHT9113,11,Sustainable Cities and Communities,Yes,Addresses preservation and management of cultural heritage in communities,2024-11-18 07:54:13.581136
+SAHT9113,16,"Peace, Justice and Strong Institutions",Yes,Focuses on legal frameworks and ethical principles for protecting cultural property,2024-11-18 07:54:13.581137
+SAHT9113,17,Partnerships for the Goals,Yes,Examines international cooperation and frameworks for cultural heritage protection,2024-11-18 07:54:13.581138
+SUSD0002,4,Quality Education,Yes,Course provides postgraduate education in sustainable building design and assessment,2024-11-18 07:54:20.892746
+SUSD0002,7,Affordable and Clean Energy,Yes,"Covers energy efficiency, carbon neutrality and sustainable building operations",2024-11-18 07:54:20.892754
+SUSD0002,9,Industry Innovation and Infrastructure,Yes,Teaches innovative building design and assessment methods for sustainable construction,2024-11-18 07:54:20.892757
+SUSD0002,11,Sustainable Cities and Communities,Yes,Focuses on sustainable building practices and ecological design for urban environments,2024-11-18 07:54:20.892758
+SUSD0002,12,Responsible Consumption and Production,Yes,"Addresses lifecycle assessment, material selection, waste reduction and recycling",2024-11-18 07:54:20.892760
+SUSD0002,13,Climate Action,Yes,Directly addresses carbon emissions reduction and climate-responsive building design,2024-11-18 07:54:20.892762
+SUSD0002,15,Life on Land,Yes,Covers ecological impacts of construction and sustainable resource use,2024-11-18 07:54:20.892764
+SOCW4018,1,No Poverty,Yes,Course focuses on social work practice in human services agencies serving vulnerable populations,2024-11-18 07:54:28.287049
+SOCW4018,3,Good Health and Well-Being,Yes,"Placements occur in hospitals and health settings, addressing client wellbeing",2024-11-18 07:54:28.287053
+SOCW4018,4,Quality Education,Yes,Provides supervised professional education and skill development in social work,2024-11-18 07:54:28.287053
+SOCW4018,5,Gender Equality,Yes,Social work practice addresses issues of equity and social justice,2024-11-18 07:54:28.287054
+SOCW4018,8,Decent Work and Economic Growth,Yes,Develops professional workforce capabilities in human services sector,2024-11-18 07:54:28.287055
+SOCW4018,10,Reduced Inequalities,Yes,Social work practice aims to reduce social inequalities and promote social justice,2024-11-18 07:54:28.287056
+SOCW4018,11,Sustainable Cities and Communities,Yes,Work in community-based organizations promotes sustainable community development,2024-11-18 07:54:28.287057
+SOCW4018,16,"Peace, Justice and Strong Institutions",Yes,Focus on developing effective human service institutions and promoting social justice,2024-11-18 07:54:28.287057
+SOCW4018,17,Partnerships for the Goals,Yes,"Involves partnerships between university, agencies and communities for social impact",2024-11-18 07:54:28.287058
+SOCF5102,3,Good Health and Well-being,Yes,Course teaches counseling frameworks and therapy approaches to support mental health and wellbeing,2024-11-18 07:54:33.118448
+SOCF5102,4,Quality Education,Yes,Provides postgraduate level education in social work counseling practices,2024-11-18 07:54:33.118457
+SOCF5102,5,Gender Equality,No,Not enough information,2024-11-18 07:54:33.118459
+SOCF5102,10,Reduced Inequalities,Yes,Course focuses on developing inclusive counseling practices and supporting diverse client populations,2024-11-18 07:54:33.118461
+SOCF5102,16,"Peace, Justice and Strong Institutions",Yes,Teaches ethical practice and frameworks for supporting individuals and families through counseling services,2024-11-18 07:54:33.118463
+SOCF5102,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:54:33.118465
+SCIF3000,4,Quality Education,Yes,Course provides experiential learning and professional skill development through industry projects,2024-11-18 07:54:37.356629
+SCIF3000,8,Decent Work and Economic Growth,Yes,Focuses on workplace skills and industry engagement to enhance student employability,2024-11-18 07:54:37.356644
+SCIF3000,9,Industry Innovation and Infrastructure,Yes,Students work on real industry projects and develop solutions for external clients,2024-11-18 07:54:37.356646
+SCIF3000,17,Partnerships for the Goals,Yes,"Course involves partnerships between university, industry, government and non-profit sectors for student learning",2024-11-18 07:54:37.356648
+SOSS1000,4,Quality Education,Yes,Course provides undergraduate education in policy and social sciences,2024-11-18 07:54:41.063876
+SOSS1000,5,Gender Equality,Yes,Includes case study on gender-based violence policy,2024-11-18 07:54:41.063880
+SOSS1000,10,Reduced Inequalities,Yes,Examines social policy and power dynamics in policy-making,2024-11-18 07:54:41.063881
+SOSS1000,11,Sustainable Cities and Communities,Yes,Studies public policy formulation and implementation affecting communities,2024-11-18 07:54:41.063882
+SOSS1000,16,"Peace, Justice and Strong Institutions",Yes,"Covers policy processes, governance, and institutional frameworks",2024-11-18 07:54:41.063882
+SOSS1000,17,Partnerships for the Goals,Yes,Examines stakeholder engagement and policy-making across different sectors,2024-11-18 07:54:41.063883
+SOMS4884,3,Good Health and Well-being,Yes,Course focuses on biomedical science research and health-related topics,2024-11-18 07:54:49.257404
+SOMS4884,4,Quality Education,Yes,Provides advanced research training in medical science with emphasis on specialized knowledge and techniques,2024-11-18 07:54:49.257412
+SOMS4884,9,"Industry, Innovation and Infrastructure",Yes,Students conduct research projects using specialized techniques and methodologies,2024-11-18 07:54:49.257415
+SOMS4884,17,Partnerships for the Goals,Yes,"Course involves collaboration between students, supervisors, and research institutions",2024-11-18 07:54:49.257417
+SCIF3199,4,Quality Education,Yes,Course provides practical work experience and professional skills development for science students,2024-11-18 07:54:55.400451
+SCIF3199,8,Decent Work and Economic Growth,Yes,Focuses on workplace integration and professional development through supervised work placements,2024-11-18 07:54:55.400460
+SCIF3199,9,"Industry, Innovation and Infrastructure",Yes,Connects students with industry through work placements in scientific fields,2024-11-18 07:54:55.400461
+SCIF3199,17,Partnerships for the Goals,Yes,Creates partnerships between university and external organizations for student placements,2024-11-18 07:54:55.400462
+SOMS3299,3,Good Health and Well-being,Yes,Course provides work placement in biomedical sciences and healthcare settings,2024-11-18 07:54:59.702463
+SOMS3299,4,Quality Education,Yes,Provides professional workplace experience and skills development in scientific field,2024-11-18 07:54:59.702474
+SOMS3299,8,Decent Work and Economic Growth,Yes,Focuses on professional workplace skills and employability development,2024-11-18 07:54:59.702477
+SOMS3299,9,"Industry, Innovation and Infrastructure",Yes,Students work in scientific/biomedical industry settings applying disciplinary knowledge,2024-11-18 07:54:59.702480
+SOMS3299,17,Partnerships for the Goals,Yes,Creates partnerships between university and industry through work placements,2024-11-18 07:54:59.702483
+SENG4920,4,Quality Education,Yes,Course provides university-level education in ethics and management for computer science students,2024-11-18 07:55:05.825241
+SENG4920,5,Gender Equality,Yes,Course addresses bias and fairness in algorithmic design and datasets,2024-11-18 07:55:05.825246
+SENG4920,9,"Industry, Innovation and Infrastructure",Yes,Covers responsible innovation and ethical technology development,2024-11-18 07:55:05.825247
+SENG4920,10,Reduced Inequalities,Yes,"Addresses fairness, bias and equity issues in AI and algorithmic systems",2024-11-18 07:55:05.825260
+SENG4920,11,Sustainable Cities and Communities,Yes,Includes content on smart cities and human-centered design,2024-11-18 07:55:05.825261
+SENG4920,12,Responsible Consumption and Production,Yes,Focuses on responsible research and innovation practices,2024-11-18 07:55:05.825262
+SENG4920,16,"Peace, Justice and Strong Institutions",Yes,"Covers accountability, transparency and ethical governance of technology",2024-11-18 07:55:05.825263
+SENG4920,17,Partnerships for the Goals,Yes,Addresses professional ethics and responsible innovation in global context,2024-11-18 07:55:05.825264
+SOCW3010,1,No Poverty,No,Not enough information,2024-11-18 07:55:13.935931
+SOCW3010,2,Zero Hunger,No,Not enough information,2024-11-18 07:55:13.935941
+SOCW3010,3,Good Health and Well-being,No,Not enough information,2024-11-18 07:55:13.935944
+SOCW3010,4,Quality Education,Yes,Course provides higher education in social work practice and management,2024-11-18 07:55:13.935946
+SOCW3010,5,Gender Equality,No,Not enough information,2024-11-18 07:55:13.935949
+SOCW3010,6,Clean Water and Sanitation,No,Not enough information,2024-11-18 07:55:13.935952
+SOCW3010,7,Affordable and Clean Energy,No,Not enough information,2024-11-18 07:55:13.935954
+SOCW3010,8,Decent Work and Economic Growth,Yes,Focuses on organizational management and professional development,2024-11-18 07:55:13.935956
+SOCW3010,9,"Industry, Innovation and Infrastructure",No,Not enough information,2024-11-18 07:55:13.935958
+SOCW3010,10,Reduced Inequalities,Yes,Social work practice aims to address social inequalities,2024-11-18 07:55:13.935960
+SOCW3010,11,Sustainable Cities and Communities,No,Not enough information,2024-11-18 07:55:13.935962
+SOCW3010,12,Responsible Consumption and Production,No,Not enough information,2024-11-18 07:55:13.935964
+SOCW3010,13,Climate Action,No,Not enough information,2024-11-18 07:55:13.935966
+SOCW3010,14,Life Below Water,No,Not enough information,2024-11-18 07:55:13.935968
+SOCW3010,15,Life on Land,No,Not enough information,2024-11-18 07:55:13.935969
+SOCW3010,16,"Peace, Justice and Strong Institutions",Yes,Addresses organizational change and institutional effectiveness,2024-11-18 07:55:13.935971
+SOCW3010,17,Partnerships for the Goals,Yes,Emphasizes teamwork and organizational collaboration,2024-11-18 07:55:13.935973
+SOMS4884,3,Good Health and Well-being,Yes,Course focuses on biomedical science research and health-related topics,2024-11-18 07:55:19.158969
+SOMS4884,4,Quality Education,Yes,Provides advanced research training in medical science with emphasis on critical thinking and scientific communication,2024-11-18 07:55:19.158980
+SOMS4884,9,"Industry, Innovation and Infrastructure",Yes,Students conduct research projects using specialized techniques and methodologies,2024-11-18 07:55:19.158982
+SOMS4884,17,Partnerships for the Goals,Yes,"Course involves collaboration between students, supervisors, and research institutions",2024-11-18 07:55:19.158984
+SOCW4012,3,Good Health and Well-being,Yes,Course focuses on mental health care and trauma treatment,2024-11-18 07:55:24.483291
+SOCW4012,4,Quality Education,Yes,Provides higher education in social work practice and mental health,2024-11-18 07:55:24.483315
+SOCW4012,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:55:24.483318
+SOCW4012,10,Reduced Inequalities,Yes,"Examines social deprivation, marginalization and discrimination impacts on mental health",2024-11-18 07:55:24.483320
+SOCW4012,16,"Peace, Justice and Strong Institutions",Yes,Addresses trauma response and social justice principles in mental health care,2024-11-18 07:55:24.483323
+SOCW4012,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-11-18 07:55:24.483325
+SOCW4003,1,No Poverty,Yes,Course addresses humanitarian emergencies and disasters which often involve poverty-related issues,2024-11-18 07:55:31.706997
+SOCW4003,3,Good Health and Well-being,Yes,"Covers counseling, trauma response, and mental health support in complex emergencies",2024-11-18 07:55:31.707003
+SOCW4003,4,Quality Education,Yes,Provides advanced social work education and practice methods,2024-11-18 07:55:31.707005
+SOCW4003,5,Gender Equality,Yes,Uses intersectional and anti-oppressive frameworks addressing gender issues,2024-11-18 07:55:31.707006
+SOCW4003,10,Reduced Inequalities,Yes,Focuses on anti-oppressive practice and addressing social inequalities,2024-11-18 07:55:31.707008
+SOCW4003,11,Sustainable Cities and Communities,Yes,Addresses disaster response and community resilience,2024-11-18 07:55:31.707010
+SOCW4003,13,Climate Action,Yes,Includes environmental connections and disaster response,2024-11-18 07:55:31.707011
+SOCW4003,16,"Peace, Justice and Strong Institutions",Yes,Covers humanitarian emergencies and rights-based approaches,2024-11-18 07:55:31.707012
+SOCW4003,17,Partnerships for the Goals,Yes,Emphasizes collaboration and integrated social work responses,2024-11-18 07:55:31.707013
+SOCW4015,1,No Poverty,Yes,Research focuses on welfare issues and social problems,2024-11-18 07:55:36.258656
+SOCW4015,3,Good Health and Well-being,Yes,Course involves research in health/welfare areas,2024-11-18 07:55:36.258662
+SOCW4015,4,Quality Education,Yes,Provides advanced research training and thesis development,2024-11-18 07:55:36.258663
+SOCW4015,5,Gender Equality,No,Not explicitly addressed in outline,2024-11-18 07:55:36.258663
+SOCW4015,8,Decent Work and Economic Growth,No,Not explicitly addressed in outline,2024-11-18 07:55:36.258664
+SOCW4015,9,Industry Innovation and Infrastructure,No,Not explicitly addressed in outline,2024-11-18 07:55:36.258666
+SOCW4015,10,Reduced Inequalities,Yes,Addresses complex welfare issues and social problems,2024-11-18 07:55:36.258666
+SOCW4015,16,"Peace, Justice and Strong Institutions",Yes,Research focuses on social wellbeing and welfare systems,2024-11-18 07:55:36.258667
+SOCW4015,17,Partnerships for the Goals,No,Not explicitly addressed in outline,2024-11-18 07:55:36.258668
+SOSS2002,4,Quality Education,Yes,Course provides university-level training in quantitative research methods and data analysis,2024-11-18 07:55:42.507851
+SOSS2002,5,Gender Equality,No,Not enough information,2024-11-18 07:55:42.507860
+SOSS2002,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:55:42.507862
+SOSS2002,9,Industry Innovation and Infrastructure,No,Not enough information,2024-11-18 07:55:42.507864
+SOSS2002,10,Reduced Inequalities,Yes,Course includes decolonial perspectives and critical analysis of research methods,2024-11-18 07:55:42.507866
+SOSS2002,16,"Peace, Justice and Strong Institutions",Yes,Teaches research methods for understanding social phenomena and institutions,2024-11-18 07:55:42.507868
+SOSS2002,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:55:42.507870
+SUSD0003,7,Affordable and Clean Energy,Yes,"Course focuses on sustainable energy generation, consumption and transition strategies",2024-11-18 07:55:47.728211
+SUSD0003,11,Sustainable Cities and Communities,Yes,"Covers energy efficient cities, precincts and buildings, including zero carbon developments",2024-11-18 07:55:47.728218
+SUSD0003,13,Climate Action,Yes,Addresses greenhouse gas emissions reduction and carbon positive developments in built environment,2024-11-18 07:55:47.728220
+SUSD0003,4,Quality Education,Yes,Provides postgraduate education in sustainable development and energy efficiency,2024-11-18 07:55:47.728221
+SUSD0003,9,Industry Innovation and Infrastructure,Yes,"Explores energy technologies, infrastructure and innovative solutions for built environment",2024-11-18 07:55:47.728223
+SUSD0003,12,Responsible Consumption and Production,Yes,Teaches energy demand management and efficient consumption patterns in buildings,2024-11-18 07:55:47.728225
+SUSD0010,4,Quality Education,Yes,Course provides postgraduate education in sustainable built environment management,2024-11-18 07:55:52.643781
+SUSD0010,7,Affordable and Clean Energy,Yes,"Covers energy management, auditing and building systems",2024-11-18 07:55:52.643792
+SUSD0010,9,Industry Innovation and Infrastructure,Yes,Focuses on sustainable infrastructure and facility management,2024-11-18 07:55:52.643795
+SUSD0010,11,Sustainable Cities and Communities,Yes,Addresses sustainable building operations and urban infrastructure,2024-11-18 07:55:52.643797
+SUSD0010,12,Responsible Consumption and Production,Yes,"Covers sustainable procurement, waste management and resource recovery",2024-11-18 07:55:52.643799
+SUSD0010,13,Climate Action,Yes,Addresses greenhouse compliance requirements and net zero targets,2024-11-18 07:55:52.643801
+SUSD0010,15,Life on Land,Yes,Includes ecosystem services and nature positive infrastructure management,2024-11-18 07:55:52.643804
+SUSD0010,17,Partnerships for the Goals,Yes,Explicitly incorporates UN SDGs into sustainability management plans,2024-11-18 07:55:52.643806
+SOCF5112,3,Good Health and Well-being,Yes,Course focuses on counselling and mental health support,2024-11-18 07:55:57.503977
+SOCF5112,4,Quality Education,Yes,Provides postgraduate level education in social work counseling,2024-11-18 07:55:57.503985
+SOCF5112,5,Gender Equality,Yes,Covers topics on gendered violence and family violence,2024-11-18 07:55:57.503987
+SOCF5112,10,Reduced Inequalities,Yes,Addresses complex social issues and counseling for vulnerable populations,2024-11-18 07:55:57.503989
+SOCF5112,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on addressing violence, trauma, and promoting therapeutic justice",2024-11-18 07:55:57.503990
+SOCW3006,4,Quality Education,Yes,Course provides tertiary education in social work practice and legal knowledge,2024-11-18 07:56:01.654292
+SOCW3006,10,Reduced Inequalities,Yes,Focuses on social justice principles and working with vulnerable populations like refugees and asylum seekers,2024-11-18 07:56:01.654315
+SOCW3006,16,"Peace, Justice and Strong Institutions",Yes,"Covers legal systems, conflict resolution, and socio-legal interventions to promote justice",2024-11-18 07:56:01.654318
+SOCW3006,17,Partnerships for the Goals,Yes,Examines collaboration between social workers and legal professionals to achieve social outcomes,2024-11-18 07:56:01.654321
+SOMS1913,3,Good Health and Well-being,Yes,"Course focuses on human anatomy, physiology and health maintenance",2024-11-18 07:56:05.955218
+SOMS1913,4,Quality Education,Yes,Provides university education in biomedical sciences with practical and theoretical components,2024-11-18 07:56:05.955227
+SOMS1913,5,Gender Equality,Yes,Course covers both male and female reproductive systems equally,2024-11-18 07:56:05.955229
+SOMS1913,10,Reduced Inequalities,Yes,Course includes content on ethical principles and working with diverse teams,2024-11-18 07:56:05.955231
+SOMS1913,17,Partnerships for the Goals,Yes,Includes collaborative group work and team-based learning activities,2024-11-18 07:56:05.955233
+SENG2011,4,Quality Education,Yes,Course provides technical education in software engineering and formal program verification,2024-11-18 07:56:10.562764
+SENG2011,8,Decent Work and Economic Growth,Yes,Teaches professional software engineering skills needed for employment,2024-11-18 07:56:10.562771
+SENG2011,9,Industry Innovation and Infrastructure,Yes,Focuses on innovative software verification techniques and reliable infrastructure development,2024-11-18 07:56:10.562773
+SENG2011,12,Responsible Consumption and Production,Yes,"Teaches methods for creating reliable, error-free software systems that reduce waste and inefficiency",2024-11-18 07:56:10.562775
+SENG2011,17,Partnerships for the Goals,No,No explicit focus on partnerships or global collaboration,2024-11-18 07:56:10.562776
+SOCW1001,1,No Poverty,Yes,"Course addresses social issues and vulnerabilities, works with disadvantaged populations",2024-11-18 07:56:18.448029
+SOCW1001,2,Zero Hunger,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448036
+SOCW1001,3,Good Health and Well-being,Yes,Covers mental health and aged care contexts,2024-11-18 07:56:18.448038
+SOCW1001,4,Quality Education,Yes,Course provides higher education in social work profession,2024-11-18 07:56:18.448039
+SOCW1001,5,Gender Equality,Yes,"Addresses diversity, power, and social justice issues",2024-11-18 07:56:18.448041
+SOCW1001,6,Clean Water and Sanitation,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448042
+SOCW1001,7,Affordable and Clean Energy,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448044
+SOCW1001,8,Decent Work and Economic Growth,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448046
+SOCW1001,9,"Industry, Innovation and Infrastructure",No,Not explicitly addressed in course content,2024-11-18 07:56:18.448047
+SOCW1001,10,Reduced Inequalities,Yes,"Strong focus on addressing inequalities, privilege, and social justice",2024-11-18 07:56:18.448049
+SOCW1001,11,Sustainable Cities and Communities,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448050
+SOCW1001,12,Responsible Consumption and Production,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448052
+SOCW1001,13,Climate Action,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448053
+SOCW1001,14,Life Below Water,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448054
+SOCW1001,15,Life on Land,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448055
+SOCW1001,16,"Peace, Justice and Strong Institutions",Yes,"Covers ethics, legislation, and social justice frameworks",2024-11-18 07:56:18.448057
+SOCW1001,17,Partnerships for the Goals,No,Not explicitly addressed in course content,2024-11-18 07:56:18.448058
+SRAP5018,4,Quality Education,Yes,Course provides postgraduate education in policy analysis and research skills,2024-11-18 07:56:23.500601
+SRAP5018,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:56:23.500606
+SRAP5018,10,Reduced Inequalities,Yes,Examines power dynamics and policy impacts on different social groups,2024-11-18 07:56:23.500612
+SRAP5018,11,Sustainable Cities and Communities,Yes,Includes study of local government policy-making and community engagement,2024-11-18 07:56:23.500613
+SRAP5018,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on governance, policy-making processes and institutional effectiveness",2024-11-18 07:56:23.500614
+SRAP5018,17,Partnerships for the Goals,Yes,"Examines relationships between government, private sector and civil society in policy-making",2024-11-18 07:56:23.500615
+SOCW2008,1,No Poverty,No,Not directly addressed in course content,2024-11-18 07:56:27.869799
+SOCW2008,4,Quality Education,Yes,Course provides higher education in social work practice,2024-11-18 07:56:27.869807
+SOCW2008,5,Gender Equality,Yes,"Covers diversity, identity and anti-oppressive frameworks",2024-11-18 07:56:27.869809
+SOCW2008,10,Reduced Inequalities,Yes,"Focuses on social justice, anti-oppressive practice and addressing power/privilege",2024-11-18 07:56:27.869811
+SOCW2008,11,Sustainable Cities and Communities,Yes,Addresses cultural diversity and social inclusion in communities,2024-11-18 07:56:27.869812
+SOCW2008,16,"Peace, Justice and Strong Institutions",Yes,"Emphasizes human rights, social justice frameworks and anti-oppressive practice",2024-11-18 07:56:27.869814
+SOSS2001,4,Quality Education,Yes,Course teaches research methodology and develops critical analysis skills,2024-11-18 07:56:32.130151
+SOSS2001,5,Gender Equality,No,Not explicitly addressed in content,2024-11-18 07:56:32.130155
+SOSS2001,10,Reduced Inequalities,Yes,Includes decolonial research principles and ethics,2024-11-18 07:56:32.130156
+SOSS2001,16,"Peace, Justice and Strong Institutions",Yes,Teaches ethical research practices and social research methods,2024-11-18 07:56:32.130157
+SOSS2001,17,Partnerships for the Goals,Yes,Develops skills for conducting social research that can inform policy and partnerships,2024-11-18 07:56:32.130157
+SAHT9201,4,Quality Education,Yes,Course provides postgraduate education in cultural heritage preservation and management,2024-11-18 07:56:37.854874
+SAHT9201,11,Sustainable Cities and Communities,Yes,Focuses on preservation of cultural heritage and artifacts which contributes to sustainable communities,2024-11-18 07:56:37.854882
+SAHT9201,16,"Peace, Justice and Strong Institutions",Yes,Addresses institutional frameworks for preserving cultural heritage and managing cultural collections,2024-11-18 07:56:37.854885
+SAHT9201,17,Partnerships for the Goals,Yes,Engages with leading arts organizations to provide real-world learning experiences,2024-11-18 07:56:37.854888
+SRAP5004,16,"Peace, Justice and Strong Institutions",Yes,"Course focuses on accountability, governance, democratic institutions, and anti-corruption mechanisms",2024-11-18 07:56:45.379145
+SRAP5004,4,Quality Education,Yes,Provides postgraduate education in policy and governance,2024-11-18 07:56:45.379154
+SRAP5004,17,Partnerships for the Goals,Yes,Examines multi-level governance and public-private partnerships,2024-11-18 07:56:45.379157
+SRAP5004,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:56:45.379159
+SRAP5004,10,Reduced Inequalities,No,Not directly addressed in course materials,2024-11-18 07:56:45.379161
+SRAP5004,11,Sustainable Cities and Communities,No,Not covered in course content,2024-11-18 07:56:45.379163
+SRAP5004,8,Decent Work and Economic Growth,No,Not specifically addressed,2024-11-18 07:56:45.379164
+SRAP5004,9,Industry Innovation and Infrastructure,No,Not covered in outline,2024-11-18 07:56:45.379166
+SRAP5004,1,No Poverty,No,Not addressed in course content,2024-11-18 07:56:45.379167
+SRAP5004,2,Zero Hunger,No,Not addressed in course content,2024-11-18 07:56:45.379169
+SRAP5004,3,Good Health and Well-being,No,Not covered in outline,2024-11-18 07:56:45.379171
+SRAP5004,6,Clean Water and Sanitation,No,Not addressed,2024-11-18 07:56:45.379172
+SRAP5004,7,Affordable and Clean Energy,No,Not covered,2024-11-18 07:56:45.379173
+SRAP5004,12,Responsible Consumption and Production,No,Not addressed,2024-11-18 07:56:45.379175
+SRAP5004,13,Climate Action,No,Not covered,2024-11-18 07:56:45.379177
+SRAP5004,14,Life Below Water,No,Not addressed,2024-11-18 07:56:45.379178
+SRAP5004,15,Life on Land,No,Not covered,2024-11-18 07:56:45.379179
+SAHT9112,4,Quality Education,Yes,Course provides postgraduate education in art writing and publishing with professional skill development,2024-11-18 07:56:50.191163
+SAHT9112,8,Decent Work and Economic Growth,Yes,Prepares students for professional careers in creative and cultural industries,2024-11-18 07:56:50.191171
+SAHT9112,9,Industry Innovation and Infrastructure,Yes,Develops skills for digital publishing and cultural sector innovation,2024-11-18 07:56:50.191173
+SAHT9112,17,Partnerships for the Goals,Yes,Involves collaboration with industry partners and professional publications,2024-11-18 07:56:50.191174
+SAHT6700,4,Quality Education,Yes,Course provides postgraduate education in art curation and exhibition analysis,2024-11-18 07:56:54.185147
+SAHT6700,8,Decent Work and Economic Growth,Yes,Develops professional skills in art curation and exhibition management,2024-11-18 07:56:54.185153
+SAHT6700,10,Reduced Inequalities,Yes,"Examines art from different geographical and cultural contexts, promoting cross-cultural understanding",2024-11-18 07:56:54.185155
+SAHT6700,11,Sustainable Cities and Communities,Yes,Studies cultural institutions and their role in urban development through biennales,2024-11-18 07:56:54.185157
+SAHT6700,17,Partnerships for the Goals,Yes,Involves international collaboration between cultural institutions and promotes global cultural exchange,2024-11-18 07:56:54.185158
+SRAP5025,4,Quality Education,Yes,Course provides work-integrated learning and professional development through internships,2024-11-18 07:56:57.539773
+SRAP5025,8,Decent Work and Economic Growth,Yes,Focuses on workplace experience and career development through professional placements,2024-11-18 07:56:57.539781
+SRAP5025,16,"Peace, Justice and Strong Institutions",Yes,"Students work with research institutes, NGOs and government agencies on policy and organizational processes",2024-11-18 07:56:57.539784
+SRAP5025,17,Partnerships for the Goals,Yes,Course facilitates partnerships between academic institution and various organizations for student development,2024-11-18 07:56:57.539785
+SAHT9110,4,Quality Education,Yes,Course provides postgraduate education in arts and cultural management,2024-11-18 07:57:02.303186
+SAHT9110,8,Decent Work and Economic Growth,Yes,Focuses on understanding arts sector economics and professional development,2024-11-18 07:57:02.303191
+SAHT9110,10,Reduced Inequalities,Yes,Addresses First Nations practices and cultural inclusion in arts sector,2024-11-18 07:57:02.303192
+SAHT9110,11,Sustainable Cities and Communities,Yes,Examines role of arts in local and regional community development,2024-11-18 07:57:02.303193
+SAHT9110,17,Partnerships for the Goals,Yes,Studies international cultural partnerships and Asia-Pacific relationships,2024-11-18 07:57:02.303199
+SAHT9131,4,Quality Education,Yes,Course provides postgraduate education in museum and visual arts culture,2024-11-18 07:57:08.009038
+SAHT9131,5,Gender Equality,Yes,Course includes focus on women artists and collectives in Asia Pacific,2024-11-18 07:57:08.009050
+SAHT9131,10,Reduced Inequalities,Yes,Examines cultural frameworks that challenge Western dominance and promotes ethical cross-cultural engagement,2024-11-18 07:57:08.009054
+SAHT9131,11,Sustainable Cities and Communities,Yes,Addresses cultural heritage preservation and sustainable museum practices,2024-11-18 07:57:08.009056
+SAHT9131,16,"Peace, Justice and Strong Institutions",Yes,Explores cultural diplomacy and regional relations between institutions,2024-11-18 07:57:08.009058
+SAHT9131,17,Partnerships for the Goals,Yes,Focuses on developing professional relationships and partnerships across the Asia Pacific region,2024-11-18 07:57:08.009061
+SENG2021,4,Quality Education,Yes,Course provides technical education in software engineering with industry-relevant skills and practical experience,2024-11-18 07:57:13.128671
+SENG2021,8,Decent Work and Economic Growth,Yes,Teaches professional software development skills and industry collaboration for employment readiness,2024-11-18 07:57:13.128681
+SENG2021,9,Industry Innovation and Infrastructure,Yes,"Focuses on software architecture, APIs and modern development practices that support digital infrastructure",2024-11-18 07:57:13.128684
+SENG2021,12,Responsible Consumption and Production,Yes,Teaches efficient software design and development practices for sustainable digital solutions,2024-11-18 07:57:13.128686
+SENG2021,17,Partnerships for the Goals,Yes,Course involves industry partnerships with companies like Nine and Macquarie Bank,2024-11-18 07:57:13.128688
+SOCF5104,3,Good Health and Well-being,Yes,Course focuses on counselling practice and therapeutic relationships which support mental health,2024-11-18 07:57:17.122876
+SOCF5104,4,Quality Education,Yes,Provides postgraduate level education in counselling social work,2024-11-18 07:57:17.122885
+SOCF5104,5,Gender Equality,No,Not enough information,2024-11-18 07:57:17.122887
+SOCF5104,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:57:17.122889
+SOCF5104,10,Reduced Inequalities,Yes,Social work counselling aims to support vulnerable populations and reduce social inequities,2024-11-18 07:57:17.122891
+SOCF5104,16,"Peace, Justice and Strong Institutions",Yes,Develops professionals who will work in social services and support social justice,2024-11-18 07:57:17.122894
+SOCF5104,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:57:17.122895
+SOCW2006,1,No Poverty,Yes,Course addresses social problems and economic conditions through community development work,2024-11-18 07:57:23.265669
+SOCW2006,2,Zero Hunger,No,Not explicitly addressed,2024-11-18 07:57:23.265677
+SOCW2006,3,Good Health and Well-being,Yes,Covers work with at-risk populations and disaster response,2024-11-18 07:57:23.265678
+SOCW2006,4,Quality Education,No,Not explicitly addressed,2024-11-18 07:57:23.265680
+SOCW2006,5,Gender Equality,Yes,Course examines impacts of gender and diversity in community work,2024-11-18 07:57:23.265682
+SOCW2006,8,Decent Work and Economic Growth,Yes,Addresses economic conditions and social change,2024-11-18 07:57:23.265684
+SOCW2006,10,Reduced Inequalities,Yes,Focus on marginalized populations and social justice,2024-11-18 07:57:23.265685
+SOCW2006,11,Sustainable Cities and Communities,Yes,Covers social housing and community development,2024-11-18 07:57:23.265687
+SOCW2006,13,Climate Action,No,Not explicitly addressed,2024-11-18 07:57:23.265688
+SOCW2006,16,"Peace, Justice and Strong Institutions",Yes,Emphasizes human rights and ethical community work practice,2024-11-18 07:57:23.265690
+SOCW2006,17,Partnerships for the Goals,Yes,Focuses on community partnerships and collaborative development work,2024-11-18 07:57:23.265692
+SAHT9138,4,Quality Education,Yes,Course provides postgraduate education in art history and theory,2024-11-18 07:57:28.446482
+SAHT9138,10,Reduced Inequalities,Yes,"Course addresses globalization, border politics and decolonization themes",2024-11-18 07:57:28.446500
+SAHT9138,11,Sustainable Cities and Communities,Yes,Examines cultural and artistic responses to contemporary social issues,2024-11-18 07:57:28.446501
+SAHT9138,13,Climate Action,Yes,Course includes examination of ecological issues in contemporary art,2024-11-18 07:57:28.446502
+SAHT9138,16,"Peace, Justice and Strong Institutions",Yes,Explores political contexts and social justice through art analysis,2024-11-18 07:57:28.446503
+SOMS1912,3,Good Health and Well-being,Yes,"Course focuses on human anatomy, physiology and health maintenance",2024-11-18 07:57:36.065749
+SOMS1912,4,Quality Education,Yes,Provides comprehensive medical/health education with practical labs and assessments,2024-11-18 07:57:36.065755
+SOMS1912,5,Gender Equality,No,Not enough information,2024-11-18 07:57:36.065756
+SOMS1912,8,Decent Work and Economic Growth,No,Not enough information,2024-11-18 07:57:36.065757
+SOMS1912,10,Reduced Inequalities,Yes,Course emphasizes working in diverse teams and inclusive learning environment,2024-11-18 07:57:36.065759
+SOMS1912,17,Partnerships for the Goals,Yes,"Involves collaboration between university, medical facilities, and donor programs for education",2024-11-18 07:57:36.065760
+SOCW3013,1,No Poverty,Yes,Course involves social work practice in community organizations that serve vulnerable populations,2024-11-18 07:57:42.314183
+SOCW3013,3,Good Health and Well-being,Yes,Placements occur in hospitals and health services contexts,2024-11-18 07:57:42.314193
+SOCW3013,4,Quality Education,Yes,Provides supervised professional education and skill development,2024-11-18 07:57:42.314194
+SOCW3013,5,Gender Equality,Yes,Social work practice addresses issues of equity and social justice,2024-11-18 07:57:42.314196
+SOCW3013,8,Decent Work and Economic Growth,Yes,Develops professional workforce capabilities and employment skills,2024-11-18 07:57:42.314198
+SOCW3013,10,Reduced Inequalities,Yes,Focus on social justice and working with marginalized communities,2024-11-18 07:57:42.314200
+SOCW3013,11,Sustainable Cities and Communities,Yes,Community work and social services delivery in urban contexts,2024-11-18 07:57:42.314201
+SOCW3013,16,"Peace, Justice and Strong Institutions",Yes,Work with government departments and institutions to deliver social services,2024-11-18 07:57:42.314203
+SOCW3013,17,Partnerships for the Goals,Yes,"Collaboration between educational institution, government agencies and community organizations",2024-11-18 07:57:42.314205
+SAHT9212,4,Quality Education,Yes,Course provides postgraduate education in Aboriginal and Torres Strait Islander art and culture,2024-11-18 07:57:46.305254
+SAHT9212,5,Gender Equality,No,Not enough information,2024-11-18 07:57:46.305263
+SAHT9212,10,Reduced Inequalities,Yes,Course promotes understanding and appreciation of Indigenous cultures and perspectives,2024-11-18 07:57:46.305265
+SAHT9212,11,Sustainable Cities and Communities,Yes,Course addresses cultural heritage preservation and Indigenous artistic practices,2024-11-18 07:57:46.305267
+SAHT9212,16,"Peace, Justice and Strong Institutions",Yes,Course promotes cultural understanding and inclusion of Indigenous voices and perspectives,2024-11-18 07:57:46.305269
+SAHT9212,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:57:46.305271
+SAHT9124,4,Quality Education,Yes,Course provides postgraduate education in cultural management and policy,2024-11-18 07:57:51.220204
+SAHT9124,8,Decent Work and Economic Growth,Yes,"Focuses on business planning, organizational management and cultural sector employment",2024-11-18 07:57:51.220213
+SAHT9124,9,Industry Innovation and Infrastructure,Yes,Addresses cultural infrastructure development and organizational governance,2024-11-18 07:57:51.220215
+SAHT9124,11,Sustainable Cities and Communities,Yes,Covers creative cities and cultural policy development for communities,2024-11-18 07:57:51.220217
+SAHT9124,16,Peace Justice and Strong Institutions,Yes,Examines governance structures and policy frameworks for cultural institutions,2024-11-18 07:57:51.220219
+SAHT9124,17,Partnerships for the Goals,Yes,Emphasizes stakeholder engagement and international policy comparisons,2024-11-18 07:57:51.220221
+SOMS1501,3,Good Health and Well-being,Yes,Course covers mental health issues and treatment of offenders,2024-11-18 07:57:55.111990
+SOMS1501,4,Quality Education,Yes,Provides higher education in forensic mental health and criminal psychology,2024-11-18 07:57:55.112001
+SOMS1501,5,Gender Equality,No,Not enough information,2024-11-18 07:57:55.112004
+SOMS1501,10,Reduced Inequalities,No,Not enough information,2024-11-18 07:57:55.112006
+SOMS1501,11,Sustainable Cities and Communities,No,Not enough information,2024-11-18 07:57:55.112008
+SOMS1501,16,"Peace, Justice and Strong Institutions",Yes,"Focuses on criminal justice system, law enforcement, and rehabilitation of offenders",2024-11-18 07:57:55.112011
+SOMS1501,17,Partnerships for the Goals,No,Not enough information,2024-11-18 07:57:55.112013
+SCIF1001,4,Quality Education,Yes,Course provides research skills and interdisciplinary scientific education at undergraduate level,2024-11-18 07:57:59.926341
+SCIF1001,5,Gender Equality,No,Not explicitly addressed in course content,2024-11-18 07:57:59.926362
+SCIF1001,9,Industry Innovation and Infrastructure,Yes,Focuses on technological evolution and scientific innovation,2024-11-18 07:57:59.926364
+SCIF1001,13,Climate Action,Yes,Climate change is mentioned as one of the project areas students will tackle,2024-11-18 07:57:59.926366
+SCIF1001,15,Life on Land,Yes,Environmental impacts of technology and scientific advancement are critically analyzed,2024-11-18 07:57:59.926367
+SCIF1001,17,Partnerships for the Goals,Yes,Emphasizes interdisciplinary collaboration and teamwork to solve global challenges,2024-11-18 07:57:59.926369
