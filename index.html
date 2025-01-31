@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,7 @@
         #sidebar {
             background-color: white;
             padding: 20px;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             width: 250px;
             position: fixed;
             height: 100vh;
@@ -113,13 +114,14 @@
         }
 
         @-moz-document url-prefix() {
+
             #sdgSelect option:checked,
             #sdgSelect option[selected] {
                 background: #4CAF50 !important;
                 color: white !important;
             }
         }
-        
+
         .disclaimer-container {
             width: 100%;
             margin-bottom: 20px;
@@ -142,7 +144,8 @@
         }
 
         .disclaimer-content {
-            display: none;  /* Starts collapsed */
+            display: none;
+            /* Starts collapsed */
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -169,6 +172,7 @@
         .disclaimer-button.active {
             background-color: #e9ecef;
         }
+
         .button-group {
             margin-bottom: 30px;
         }
@@ -232,6 +236,7 @@
             -webkit-appearance: none;
             box-shadow: 0 0 10px 100px #4CAF50 inset !important;
         }
+
         #facultySelect::-webkit-scrollbar {
             width: 8px;
         }
@@ -249,6 +254,7 @@
         #facultySelect::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
         #facultySelect:focus option:checked {
             background: #4CAF50 !important;
             background-color: #4CAF50 !important;
@@ -256,16 +262,20 @@
         }
 
         @-moz-document url-prefix() {
+
             #facultySelect option:checked,
             #facultySelect option[selected] {
                 background: #4CAF50 !important;
                 color: white !important;
             }
         }
-        #facultySelect, #disciplineSelect {
+
+        #facultySelect,
+        #disciplineSelect {
             max-height: 200px;
             overflow-y: auto;
         }
+
         #disciplineSelect option {
             padding: 8px 12px;
             cursor: pointer;
@@ -312,6 +322,7 @@
         }
 
         @-moz-document url-prefix() {
+
             #disciplineSelect option:checked,
             #disciplineSelect option[selected] {
                 background: #4CAF50 !important;
@@ -322,7 +333,7 @@
         #plot-container {
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             height: calc(100vh - 40px);
             width: 100%;
         }
@@ -350,6 +361,7 @@
                 margin-left: 250px;
             }
         }
+
         #analysisType {
             width: 100%;
             padding: 12px;
@@ -407,6 +419,7 @@
         }
 
         @-moz-document url-prefix() {
+
             #analysisType option:checked,
             #analysisType option[selected] {
                 background: #4CAF50 !important;
@@ -431,11 +444,11 @@
         }
 
         .disclaimer {
-        background-color: #fff3e0;
-        padding: 20px;
-        margin-top: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #fff3e0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .disclaimer h4 {
@@ -462,15 +475,16 @@
         }
     </style>
 </head>
+
 <body>
     <button id="toggle-sidebar">☰</button>
-    
+
     <div id="sidebar">
         <div id="button-group">
             <h3 class="section-title">Analysis Statistics</h3>
             <p id="course-count" style="font-size: 1.1em; color: #666;"></p>
             <br>
-        </div>        
+        </div>
         <div id="button-group">
             <h3 class="section-title">By SDG</h3>
             <button id="bubbleBtn" class="switch-button">SDG Distribution</button>
@@ -498,7 +512,7 @@
                 <button id="exportPNG" class="switch-button">Export</button>
             </div>
             <br>
-        </div>    
+        </div>
         <div class="button-group">
             <h3 class="section-title">By speciality</h3>
             <button id="radarBtn" class="switch-button active">SDG Coverage</button>
@@ -537,15 +551,21 @@
                 ▼ Disclaimer
             </button>
             <div class="disclaimer-content" id="disclaimerContent" style="display: none;">
-                <p>This visualization represents a high-level, automated mapping of UN Sustainable Development Goals (SDGs) across courses. Please note:</p>
+                <p>This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
+                    (SDGs) across courses. Please note:</p>
                 <ul>
-                    <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+                    <li>This is an automated, preliminary analysis based solely on publicly available course information
+                    </li>
                     <li>The mapping is likely incomplete and may contain inaccuracies</li>
-                    <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+                    <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured
+                    </li>
                     <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
-                    <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes</li>
-                    <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum mapping initiatives</li>
-                    <li>Based on comparative analysis with manual mapping, our automated method tends to underestimate certain SDGs in particular:</li>
+                    <li>This visualization serves as a broad overview to complement more comprehensive manual assessment
+                        processes</li>
+                    <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed
+                        curriculum mapping initiatives</li>
+                    <li>Based on comparative analysis with manual mapping, our automated method tends to underestimate
+                        certain SDGs in particular:</li>
                     <ul>
                         <li>SDG 4 (Quality Education)</li>
                         <li>SDG 9 (Industry, Innovation and Infrastructure)</li>
@@ -560,7 +580,7 @@
     </div>
 
 
-    
+
     <script>
         let currentDiscipline = 'ALL';
         let currentFaculty = 'ALL';
@@ -575,158 +595,158 @@
             'CANBERRA': 'UNSW Canberra'
         };
 
-        const specializationNames = 
-        specialisations = {
-            'ACCT': 'Accounting',
-            'ACTL': 'Actuarial Studies',
-            'ADAD': 'Art and Design',
-            'AERO': 'Aerospace Engineering',
-            'AGSM': 'AGSM',
-            'ANAT': 'Anatomy',
-            'ARCH': 'Architecture',
-            'ARTS': 'Disciplinary and Interdisciplinary Humanities',
-            'ATSI': 'Nura Gili (Indigenous Programs)',
-            'AVIA': 'Aviation',
-            'AVIG': 'Aviation',
-            'BABS': 'Biotechnology & Biomolecular Sciences',
-            'BEES': 'Biological, Earth & Environmental Science',
-            'BEIL': 'BE Interdisciplinary Learning',
-            'BENV': 'Built Environment',
-            'BINF': 'Bioinformatics',
-            'BIOC': 'Biochemistry',
-            'BIOM': 'Biomedical Engineering',
-            'BIOS': 'Biological Science',
-            'BLDG': 'Building',
-            'CDEV': 'Career Development',
-            'CEIC': 'Chemical Engineering and Industrial Chemistry',
-            'CHEM': 'Chemistry',
-            'CHEN': 'Chemical Engineering',
-            'CLIM': 'Climate Science',
-            'CODE': 'Computational Design',
-            'COMD': 'Development Studies',
-            'COMM': 'Commerce',
-            'COMP': 'Computer Science',
-            'CONS': 'Construction Management',
-            'CRIM': 'Criminology',
-            'CRTV': 'Creative practice',
-            'CVEN': 'Civil and Environmental Engineering',
-            'DART': 'Domain Art',
-            'DATA': 'Data Science',
-            'DDES': 'Domain Design',
-            'DESN': 'Design Next',
-            'DIET': 'Nutrition & Dietetics',
-            'DPBS': 'Global Diploma - Business',
-            'DPDE': 'Global Diploma- Design',
-            'DPGE': 'Global Diploma - General Education',
-            'DPHU': 'Global Diploma - Humanities',
-            'DPST': 'Global Diploma - STEM',
-            'ECON': 'Economics',
-            'EDST': 'Education Studies',
-            'ELEC': 'Electrical Engineering',
-            'ENGG': 'Engineering interdisciplinary',
-            'ENTR': 'Entrepreneurship',
-            'EXCH': 'Exchange',
-            'EXPT': 'Exercise Science, Exercise Physiology and Physiotherapy',
-            'FADA': 'Arts, Design & Architecture',
-            'FINS': 'Finance',
-            'FOOD': 'Food Technology',
-            'GENC': 'UNSW Business School',
-            'GENE': 'General Education - Faculty of Engineering',
-            'GENL': 'General Education - Faculty of Law',
-            'GENM': 'General Education - Faculty of Medicine',
-            'GENS': 'General Education - Faculty of Science',
-            'GENY': 'General Education - The Learning Centre',
-            'GEOL': 'Geology',
-            'GEOS': 'Geoscience',
-            'GMAT': 'Surveying & Spatial Information Systems',
-            'GSBE': 'Architecture',
-            'GSOE': 'Engineering',
-            'HDAT': 'Health Data Science',
-            'HESC': 'Health and Exercise Science',
-            'HLTH': 'Health',
-            'HUML': 'Humanities and Languages',
-            'HUMS': 'Humanities',
-            'IDES': 'Industrial Design',
-            'IEST': 'Institute of Environmental Studies',
-            'INFS': 'Information Systems',
-            'INST': 'International Studies',
-            'INTA': 'Interior Architecture',
-            'JURD': 'Juris Doctor',
-            'LAND': 'Landscape Architecture',
-            'LAWS': 'Law',
-            'LING': 'Linguistics',
-            'MANF': 'Manufacturing Engineering',
-            'MARK': 'Marketing',
-            'MATH': 'Mathematics',
-            'MATS': 'Materials Science and Engineering',
-            'MBAE': 'Management',
-            'MBAX': 'Management',
-            'MDCN': 'Medicine',
-            'MDIA': 'Media',
-            'MECH': 'Mechanical Engineering',
-            'MERE': 'Minerals and Energy Resources Engineering',
-            'MFAC': 'Medicine',
-            'MFIN': 'Finance',
-            'MGMT': 'Management',
-            'MICR': 'Microbiology',
-            'MINE': 'Mining Engineering',
-            'MMAN': 'Mechanical & Manufacturing Engineering',
-            'MNGT': 'Management',
-            'MNNG': 'Mining',
-            'MODL': 'Modern Language Studies',
-            'MSCI': 'Marine Science',
-            'MTRN': 'Mechatronic Engineering',
-            'MUPS': 'Urban Policy and Strategy',
-            'MUSC': 'Music',
-            'NANO': 'Nanotechnology',
-            'NAVL': 'Naval Architecture',
-            'NCHR': 'HIV Social Research',
-            'NEUR': 'Neuroscience',
-            'OPTM': 'Optometry',
-            'PATH': 'Pathology',
-            'PHAR': 'Pharmacology',
-            'PHCM': 'Public Health and Community Medicine',
-            'PHRM': 'Pharmacy',
-            'PHSL': 'Physiology',
-            'PHTN': 'Photonics',
-            'PHYS': 'Physics',
-            'PLAN': 'Planning and Urban Development',
-            'PLTX': 'Practical Legal Training Program',
-            'POLS': 'Political Science',
-            'PSCY': 'Psychiatry',
-            'PSYC': 'Psychology',
-            'PTRL': 'Petroleum Engineering',
-            'REGZ': 'Registrar\'s Division',
-            'REST': 'Real Estate',
-            'RISK': 'Risk Management',
-            'SAHT': 'Art History',
-            'SART': 'Art',
-            'SCIF': 'Faculty of Science',
-            'SDES': 'Design Studies',
-            'SENG': 'Software Engineering',
-            'SLSP': 'Social Science and Policy',
-            'SOCF': 'Social Work',
-            'SOCW': 'Social Work',
-            'SOLA': 'Photovoltaics and Solar Energy',
-            'SOMS': 'Medical Science',
-            'SOSS': 'Social Sciences',
-            'SPRC': 'Social Policy',
-            'SRAP': 'Social Research and Policy',
-            'STAM': 'Arts and Media',
-            'SUSD': 'Sustainable Development',
-            'SWCH': 'Women & Children\'s Health',
-            'TABL': 'Taxation and Business Law',
-            'TELE': 'Telecommunications',
-            'UDES': 'Urban Development Studies',
-            'VISN': 'Vision Science',
-            'ZBUS': 'Business',
-            'ZEIT': 'Engineering and Technology',
-            'ZGEN': 'University College General Education',
-            'ZINT': 'University College (Interdisciplinary)',
-            'ZPEM': 'Physical, Environmental & Mathematical Sciences',
-            'ZSPS': 'Professional Studies Canberra',
-            'ZZCA': 'Canberra Accelerated'
-        }
+        const specializationNames =
+            specialisations = {
+                'ACCT': 'Accounting',
+                'ACTL': 'Actuarial Studies',
+                'ADAD': 'Art and Design',
+                'AERO': 'Aerospace Engineering',
+                'AGSM': 'AGSM',
+                'ANAT': 'Anatomy',
+                'ARCH': 'Architecture',
+                'ARTS': 'Disciplinary and Interdisciplinary Humanities',
+                'ATSI': 'Nura Gili (Indigenous Programs)',
+                'AVIA': 'Aviation',
+                'AVIG': 'Aviation',
+                'BABS': 'Biotechnology & Biomolecular Sciences',
+                'BEES': 'Biological, Earth & Environmental Science',
+                'BEIL': 'BE Interdisciplinary Learning',
+                'BENV': 'Built Environment',
+                'BINF': 'Bioinformatics',
+                'BIOC': 'Biochemistry',
+                'BIOM': 'Biomedical Engineering',
+                'BIOS': 'Biological Science',
+                'BLDG': 'Building',
+                'CDEV': 'Career Development',
+                'CEIC': 'Chemical Engineering and Industrial Chemistry',
+                'CHEM': 'Chemistry',
+                'CHEN': 'Chemical Engineering',
+                'CLIM': 'Climate Science',
+                'CODE': 'Computational Design',
+                'COMD': 'Development Studies',
+                'COMM': 'Commerce',
+                'COMP': 'Computer Science',
+                'CONS': 'Construction Management',
+                'CRIM': 'Criminology',
+                'CRTV': 'Creative practice',
+                'CVEN': 'Civil and Environmental Engineering',
+                'DART': 'Domain Art',
+                'DATA': 'Data Science',
+                'DDES': 'Domain Design',
+                'DESN': 'Design Next',
+                'DIET': 'Nutrition & Dietetics',
+                'DPBS': 'Global Diploma - Business',
+                'DPDE': 'Global Diploma- Design',
+                'DPGE': 'Global Diploma - General Education',
+                'DPHU': 'Global Diploma - Humanities',
+                'DPST': 'Global Diploma - STEM',
+                'ECON': 'Economics',
+                'EDST': 'Education Studies',
+                'ELEC': 'Electrical Engineering',
+                'ENGG': 'Engineering interdisciplinary',
+                'ENTR': 'Entrepreneurship',
+                'EXCH': 'Exchange',
+                'EXPT': 'Exercise Science, Exercise Physiology and Physiotherapy',
+                'FADA': 'Arts, Design & Architecture',
+                'FINS': 'Finance',
+                'FOOD': 'Food Technology',
+                'GENC': 'UNSW Business School',
+                'GENE': 'General Education - Faculty of Engineering',
+                'GENL': 'General Education - Faculty of Law',
+                'GENM': 'General Education - Faculty of Medicine',
+                'GENS': 'General Education - Faculty of Science',
+                'GENY': 'General Education - The Learning Centre',
+                'GEOL': 'Geology',
+                'GEOS': 'Geoscience',
+                'GMAT': 'Surveying & Spatial Information Systems',
+                'GSBE': 'Architecture',
+                'GSOE': 'Engineering',
+                'HDAT': 'Health Data Science',
+                'HESC': 'Health and Exercise Science',
+                'HLTH': 'Health',
+                'HUML': 'Humanities and Languages',
+                'HUMS': 'Humanities',
+                'IDES': 'Industrial Design',
+                'IEST': 'Institute of Environmental Studies',
+                'INFS': 'Information Systems',
+                'INST': 'International Studies',
+                'INTA': 'Interior Architecture',
+                'JURD': 'Juris Doctor',
+                'LAND': 'Landscape Architecture',
+                'LAWS': 'Law',
+                'LING': 'Linguistics',
+                'MANF': 'Manufacturing Engineering',
+                'MARK': 'Marketing',
+                'MATH': 'Mathematics',
+                'MATS': 'Materials Science and Engineering',
+                'MBAE': 'Management',
+                'MBAX': 'Management',
+                'MDCN': 'Medicine',
+                'MDIA': 'Media',
+                'MECH': 'Mechanical Engineering',
+                'MERE': 'Minerals and Energy Resources Engineering',
+                'MFAC': 'Medicine',
+                'MFIN': 'Finance',
+                'MGMT': 'Management',
+                'MICR': 'Microbiology',
+                'MINE': 'Mining Engineering',
+                'MMAN': 'Mechanical & Manufacturing Engineering',
+                'MNGT': 'Management',
+                'MNNG': 'Mining',
+                'MODL': 'Modern Language Studies',
+                'MSCI': 'Marine Science',
+                'MTRN': 'Mechatronic Engineering',
+                'MUPS': 'Urban Policy and Strategy',
+                'MUSC': 'Music',
+                'NANO': 'Nanotechnology',
+                'NAVL': 'Naval Architecture',
+                'NCHR': 'HIV Social Research',
+                'NEUR': 'Neuroscience',
+                'OPTM': 'Optometry',
+                'PATH': 'Pathology',
+                'PHAR': 'Pharmacology',
+                'PHCM': 'Public Health and Community Medicine',
+                'PHRM': 'Pharmacy',
+                'PHSL': 'Physiology',
+                'PHTN': 'Photonics',
+                'PHYS': 'Physics',
+                'PLAN': 'Planning and Urban Development',
+                'PLTX': 'Practical Legal Training Program',
+                'POLS': 'Political Science',
+                'PSCY': 'Psychiatry',
+                'PSYC': 'Psychology',
+                'PTRL': 'Petroleum Engineering',
+                'REGZ': 'Registrar\'s Division',
+                'REST': 'Real Estate',
+                'RISK': 'Risk Management',
+                'SAHT': 'Art History',
+                'SART': 'Art',
+                'SCIF': 'Faculty of Science',
+                'SDES': 'Design Studies',
+                'SENG': 'Software Engineering',
+                'SLSP': 'Social Science and Policy',
+                'SOCF': 'Social Work',
+                'SOCW': 'Social Work',
+                'SOLA': 'Photovoltaics and Solar Energy',
+                'SOMS': 'Medical Science',
+                'SOSS': 'Social Sciences',
+                'SPRC': 'Social Policy',
+                'SRAP': 'Social Research and Policy',
+                'STAM': 'Arts and Media',
+                'SUSD': 'Sustainable Development',
+                'SWCH': 'Women & Children\'s Health',
+                'TABL': 'Taxation and Business Law',
+                'TELE': 'Telecommunications',
+                'UDES': 'Urban Development Studies',
+                'VISN': 'Vision Science',
+                'ZBUS': 'Business',
+                'ZEIT': 'Engineering and Technology',
+                'ZGEN': 'University College General Education',
+                'ZINT': 'University College (Interdisciplinary)',
+                'ZPEM': 'Physical, Environmental & Mathematical Sciences',
+                'ZSPS': 'Professional Studies Canberra',
+                'ZZCA': 'Canberra Accelerated'
+            }
 
         const facultyMapping = {
             'ACCT': 'BUSINESS',
@@ -853,35 +873,35 @@
             'ZSPS': 'CANBERRA',
             'ZZCA': 'CANBERRA'
         };
-        
+
         window.sdgNames = {  // Make sdgNames globally available
-                1: "No Poverty",
-                2: "Zero Hunger",
-                3: "Good Health and Well-being",
-                4: "Quality Education",
-                5: "Gender Equality",
-                6: "Clean Water and Sanitation",
-                7: "Affordable and Clean Energy",
-                8: "Decent Work and Economic Growth",
-                9: "Industry, Innovation and Infrastructure",
-                10: "Reduced Inequalities",
-                11: "Sustainable Cities and Communities",
-                12: "Responsible Consumption and Production",
-                13: "Climate Action",
-                14: "Life Below Water",
-                15: "Life on Land",
-                16: "Peace, Justice and Strong Institutions",
-                17: "Partnerships for the Goals"
-            };
+            1: "No Poverty",
+            2: "Zero Hunger",
+            3: "Good Health and Well-being",
+            4: "Quality Education",
+            5: "Gender Equality",
+            6: "Clean Water and Sanitation",
+            7: "Affordable and Clean Energy",
+            8: "Decent Work and Economic Growth",
+            9: "Industry, Innovation and Infrastructure",
+            10: "Reduced Inequalities",
+            11: "Sustainable Cities and Communities",
+            12: "Responsible Consumption and Production",
+            13: "Climate Action",
+            14: "Life Below Water",
+            15: "Life on Land",
+            16: "Peace, Justice and Strong Institutions",
+            17: "Partnerships for the Goals"
+        };
 
         // Sidebar toggle
-        document.getElementById('toggle-sidebar').addEventListener('click', function() {
+        document.getElementById('toggle-sidebar').addEventListener('click', function () {
             document.getElementById('sidebar').classList.toggle('active');
             document.getElementById('main-content').classList.toggle('sidebar-active');
         });
 
         // Responsive plot handling
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             const update = {
                 width: document.getElementById('plot-container').offsetWidth,
                 height: document.getElementById('plot-container').offsetHeight
@@ -900,7 +920,7 @@
         function toggleDisclaimer() {
             const content = document.getElementById('disclaimerContent');
             const button = document.querySelector('.disclaimer-button');
-            
+
             if (content.style.display === '' || content.style.display === 'block') {
                 content.style.display = 'none';
                 button.innerHTML = '▼ Disclaimer';
@@ -913,7 +933,7 @@
         }
 
         // Optional: Show disclaimer by default when page loads
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             toggleDisclaimer();
         });
 
@@ -934,17 +954,17 @@
                 const response = await fetch(currentDataFile);
                 const csvText = await response.text();
                 const lines = csvText.split('\n');
-                
+
                 const data = lines.slice(1).map(line => {
                     const [course_code, sdg_number, sdg_name, addressed, justification, timestamp] = line.split(',');
-                    
+
                     return {
                         course_code: course_code?.trim(),
                         sdg_number: parseInt(sdg_number?.trim()) || 0, // Convert "0" or invalid numbers to 0
                         sdg_name: sdg_name?.trim(),
-                        addressed: addressed?.trim().toLowerCase() === 'yes' || 
-                                addressed?.trim().toLowerCase() === 'supported' || 
-                                addressed?.trim().toLowerCase() === 'focus',
+                        addressed: addressed?.trim().toLowerCase() === 'yes' ||
+                            addressed?.trim().toLowerCase() === 'supported' ||
+                            addressed?.trim().toLowerCase() === 'focus',
                         justification: justification?.trim(),
                         timestamp: timestamp?.trim()
                     };
@@ -953,14 +973,14 @@
                 // Get disciplines filtered by current faculty
                 const disciplines = getDisciplines(data, currentFaculty);
                 const select = document.getElementById('disciplineSelect');
-                
+
                 // Set initial discipline if not set
                 if (!currentDiscipline || !disciplines.includes(currentDiscipline)) {
                     currentDiscipline = disciplines[0];
                 }
-                
+
                 // Populate select with full names
-                select.innerHTML = disciplines.map(discipline => 
+                select.innerHTML = disciplines.map(discipline =>
                     `<option value="${discipline}" ${discipline === currentDiscipline ? 'selected' : ''}>
                         ${specializationNames[discipline] || discipline}
                     </option>`
@@ -983,12 +1003,12 @@
             return data.filter(row => {
                 const rowDiscipline = row.course_code.substring(0, 4);
                 const rowFaculty = facultyMapping[rowDiscipline];
-                
+
                 // First filter by faculty if selected
                 if (currentFaculty !== 'ALL' && rowFaculty !== currentFaculty) {
                     return false;
                 }
-                
+
                 // Then filter by discipline
                 return rowDiscipline === discipline;
             });
@@ -996,10 +1016,10 @@
 
         function createHeatmap(data, isCumulative) {
             data = filterDataByDiscipline(data, currentDiscipline);
-            
+
             const courseSDGs = {};
 
-            
+
             // Initialize all SDGs for each course
             data.forEach(row => {
                 if (!courseSDGs[row.course_code]) {
@@ -1015,23 +1035,23 @@
             });
 
             const courseJustifications = {};
-                data.forEach(row => {
-                    if (!courseJustifications[row.course_code]) {
-                        courseJustifications[row.course_code] = {};
-                    }
-                    if (row.addressed && row.justification) {
-                        courseJustifications[row.course_code][row.sdg_number] = row.justification;
-                    }
-                });
+            data.forEach(row => {
+                if (!courseJustifications[row.course_code]) {
+                    courseJustifications[row.course_code] = {};
+                }
+                if (row.addressed && row.justification) {
+                    courseJustifications[row.course_code][row.sdg_number] = row.justification;
+                }
+            });
 
             const courses = Object.keys(courseSDGs).sort((a, b) => {
                 const yearA = getCourseYear(a);
                 const yearB = getCourseYear(b);
                 return yearA - yearB || a.localeCompare(b);
             });
-            
+
             // Use all SDGs 1-17 instead of extracting from data
-            const sdgNumbers = Array.from({length: 17}, (_, i) => i + 1);
+            const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
             const matrix = sdgNumbers.map(sdg => {
                 if (isCumulative) {
                     let sum = 0;
@@ -1046,28 +1066,32 @@
 
             const dimensions = getPlotDimensions();
             const layout = {
-                title: isCumulative ? 'Cumulative SDG Coverage' : 'SDG Distribution',
+                title: '',
                 xaxis: {
-                    title: 'Courses',
+                    showtitle: false,
                     ticktext: courses,
                     tickvals: courses.map((_, i) => i),
-                    tickangle: 45
+                    tickangle: 45,
+                    tickfont: { size: 16 },
+                    automargin: true
                 },
                 yaxis: {
-                    title: 'SDGs',
-                    // Change this line to remove mentions
+                    showtitle: false,
                     ticktext: sdgNumbers.map(num => `SDG ${num} - ${window.sdgNames[num]}`),
-                    tickvals: sdgNumbers.map((_, i) => i)
+                    tickvals: sdgNumbers.map((_, i) => i),
+                    tickfont: { size: 16 },
+                    automargin: true
                 },
                 margin: {
-                    l: 350,
+                    l: 250,
                     r: 50,
-                    b: 100,
-                    t: 50
+                    b: 150,
+                    t: 20
                 },
                 width: dimensions.width,
                 height: dimensions.height
             };
+
 
             const hoverText = sdgNumbers.map(sdg => {
                 return courses.map(course => {
@@ -1094,7 +1118,7 @@
 
             if (isCumulative) {
                 // Store the final values for each SDG
-                window.finalCumulativeValues = sdgNumbers.map(sdg => 
+                window.finalCumulativeValues = sdgNumbers.map(sdg =>
                     matrix[sdgNumbers.indexOf(sdg)][courses.length - 1] || 0
                 );
             }
@@ -1102,17 +1126,17 @@
 
         function createRadar(data) {
             data = filterDataByDiscipline(data, currentDiscipline);
-            
+
             // First create cumulative heatmap to get final values
             createHeatmap(data, true);
-            
+
             // Use all SDGs 1-17
-            const sdgNumbers = Array.from({length: 17}, (_, i) => i + 1);
+            const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
             const values = window.finalCumulativeValues || sdgNumbers.map(() => 0);
             const maxValue = Math.max(...values, 1); // Use at least 1 to avoid division by zero
             const percentages = values.map(v => (v / maxValue) * 100);
 
-            const labels = sdgNumbers.map((sdg, i) => 
+            const labels = sdgNumbers.map((sdg, i) =>
                 `SDG ${sdg} - ${window.sdgNames[sdg]}`
             );
 
@@ -1145,12 +1169,12 @@
                         ticktext: ['0%', '25%', '50%', '75%', '100%'],
                         linecolor: 'rgb(253, 141, 60)',
                         gridcolor: 'rgb(254, 204, 92)',
-                        tickfont: { size: 10 }
+                        tickfont: { size: 16 }
                     },
                     angularaxis: {
                         linecolor: 'rgb(253, 141, 60)',
                         gridcolor: 'rgb(254, 204, 92)',
-                        tickfont: { size: 10 },
+                        tickfont: { size: 16 },
                         rotation: 90,
                         direction: "clockwise"
                     }
@@ -1183,8 +1207,8 @@
         function createBubbleChart(data, selectedSDG = 1) {  // Add default parameter
             // Clear existing plot
             d3.select('#plot-container').html('');
-            
-            const margin = {top: 50, right: 50, bottom: 50, left: 50};
+
+            const margin = { top: 50, right: 50, bottom: 50, left: 50 };
             const width = document.getElementById('plot-container').offsetWidth - margin.left - margin.right;
             const height = document.getElementById('plot-container').offsetHeight - margin.top - margin.bottom;
 
@@ -1265,13 +1289,13 @@
                 .attr('transform', `translate(${margin.left},${margin.top})`);
 
             // Add title
-        svg.append('text')
-            .attr('x', width / 2)
-            .attr('y', -20)
-            .attr('text-anchor', 'middle')
-            .style('font-size', '16px')
-            .style('font-weight', 'bold')
-            .text(`SDG ${selectedSDG} - ${window.sdgNames[selectedSDG]}`);
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', -20)
+                .attr('text-anchor', 'middle')
+                .style('font-size', '20px')
+                .style('font-weight', 'bold')
+                .text(`SDG ${selectedSDG} - ${window.sdgNames[selectedSDG]}`);
 
             // Add vertical grid lines
             const gridLines = svg.append('g')
@@ -1293,7 +1317,7 @@
                     .attr('x', xScale(percent))
                     .attr('y', height + 20)
                     .attr('text-anchor', 'middle')
-                    .style('font-size', '12px')
+                    .style('font-size', '16px')
                     .style('fill', '#666')
                     .text(percent + '%');
             });
@@ -1326,86 +1350,86 @@
                 .text(d => d.name);
             */
 
-    // Add labels group
-    const labelsGroup = svg.append('g')
-        .attr('class', 'labels-group');
+            // Add labels group
+            const labelsGroup = svg.append('g')
+                .attr('class', 'labels-group');
 
-    // Create labels
-    const labels = labelsGroup.selectAll('text')
-        .data(bubbleData)
-        .join('text')
-        .attr('class', 'bubble-label')
-        .attr('x', d => d.x)
-        .attr('y', d => d.y)
-        .attr('text-anchor', 'middle')
-        .attr('dominant-baseline', 'middle')
-        .style('pointer-events', 'none')
-        .style('opacity', 1)
-        .style('font-weight', 'bold')
-        .style('fill', '#fff')
-        .text(d => d.id)
-        .style('font-size', d => {
-            const fontSize = radiusScale(d.value) * 0.5;
-            return `${Math.min(fontSize, 14)}px`;
-        })
-        .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block'); // Hide text for very small bubbles
+            // Create labels
+            const labels = labelsGroup.selectAll('text')
+                .data(bubbleData)
+                .join('text')
+                .attr('class', 'bubble-label')
+                .attr('x', d => d.x)
+                .attr('y', d => d.y)
+                .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'middle')
+                .style('pointer-events', 'none')
+                .style('opacity', 1)
+                .style('font-weight', 'bold')
+                .style('fill', '#fff')
+                .text(d => d.id)
+                .style('font-size', d => {
+                    const fontSize = radiusScale(d.value) * 0.5;
+                    return `${Math.min(fontSize, 14)}px`;
+                })
+                .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block'); // Hide text for very small bubbles
 
-        // Add toggle labels functionality
-        let labelsVisible = true;
-        document.getElementById('toggleLabels').addEventListener('click', function() {
-            labelsVisible = !labelsVisible;
-            this.classList.toggle('active');
-            
-            labelsGroup.selectAll('.bubble-label')
-                .transition()
-                .duration(300)
-                .style('opacity', labelsVisible ? 1 : 0);
-        });
+            // Add toggle labels functionality
+            let labelsVisible = true;
+            document.getElementById('toggleLabels').addEventListener('click', function () {
+                labelsVisible = !labelsVisible;
+                this.classList.toggle('active');
 
-        // Modify bubble interactions to handle label visibility
-        bubbles.on('mouseover', function(event, d) {
-            d3.select(this)
-                .attr('opacity', 1)
-                .attr('stroke-width', 3);
-
-            // Hide label if showing during hover
-            if (labelsVisible) {
                 labelsGroup.selectAll('.bubble-label')
-                    .filter(td => td.id === d.id)
-                    .style('opacity', 0);
-            }
+                    .transition()
+                    .duration(300)
+                    .style('opacity', labelsVisible ? 1 : 0);
+            });
 
-            // Show tooltip
-            tooltipGroup.selectAll('.tooltip-overlay')
-                .filter(td => td.id === d.id)
-                .transition()
-                .duration(200)
-                .style('opacity', 1);
-        })
-        .on('mouseout', function(event, d) {
-            d3.select(this)
-                .attr('opacity', 0.7)
-                .attr('stroke-width', 2);
+            // Modify bubble interactions to handle label visibility
+            bubbles.on('mouseover', function (event, d) {
+                d3.select(this)
+                    .attr('opacity', 1)
+                    .attr('stroke-width', 3);
 
-            // Restore label if labels are showing
-            if (labelsVisible) {
-                labelsGroup.selectAll('.bubble-label')
+                // Hide label if showing during hover
+                if (labelsVisible) {
+                    labelsGroup.selectAll('.bubble-label')
+                        .filter(td => td.id === d.id)
+                        .style('opacity', 0);
+                }
+
+                // Show tooltip
+                tooltipGroup.selectAll('.tooltip-overlay')
                     .filter(td => td.id === d.id)
+                    .transition()
+                    .duration(200)
                     .style('opacity', 1);
-            }
+            })
+                .on('mouseout', function (event, d) {
+                    d3.select(this)
+                        .attr('opacity', 0.7)
+                        .attr('stroke-width', 2);
 
-            // Hide tooltip
-            tooltipGroup.selectAll('.tooltip-overlay')
-                .transition()
-                .duration(200)
-                .style('opacity', 0);
-        });
+                    // Restore label if labels are showing
+                    if (labelsVisible) {
+                        labelsGroup.selectAll('.bubble-label')
+                            .filter(td => td.id === d.id)
+                            .style('opacity', 1);
+                    }
+
+                    // Hide tooltip
+                    tooltipGroup.selectAll('.tooltip-overlay')
+                        .transition()
+                        .duration(200)
+                        .style('opacity', 0);
+                });
 
 
             // Add legend inside the plot
             const legendGroup = svg.append('g')
                 .attr('class', 'legend')
-                .attr('transform', `translate(${width - 160}, 20)`);
+                .attr('transform', `translate(${width - 220}, 20)`);
 
             // Add white background for legend
             legendGroup.append('rect')
@@ -1436,7 +1460,7 @@
             legendItems.append('text')
                 .attr('x', 15)
                 .attr('y', 5)
-                .style('font-size', '12px')
+                .style('font-size', '16px')
                 .text(d => facultyNames[d[0]] || d[0]);
         }
 
@@ -1444,18 +1468,18 @@
         function downloadPNG() {
             const svg = document.querySelector('#plot-container svg');
             const svgData = new XMLSerializer().serializeToString(svg);
-            
+
             // Create canvas
             const canvas = document.createElement('canvas');
             const box = svg.getBoundingClientRect();
             canvas.width = box.width;
             canvas.height = box.height;
-            
+
             // Create image
             const img = new Image();
             const blob = new Blob([svgData], { type: 'image/svg+xml' });
             const url = URL.createObjectURL(blob);
-            
+
             img.onload = () => {
                 const context = canvas.getContext('2d');
                 // Set white background
@@ -1463,7 +1487,7 @@
                 context.fillRect(0, 0, canvas.width, canvas.height);
                 // Draw SVG
                 context.drawImage(img, 0, 0);
-                
+
                 // Download PNG
                 const a = document.createElement('a');
                 a.href = canvas.toDataURL('image/png');
@@ -1472,18 +1496,18 @@
                 a.click();
                 document.body.removeChild(a);
             };
-            
+
             img.src = url;
         }
 
         let currentDataFile = 'sdg_analysis_llm_match.csv';
 
-        document.getElementById('analysisType').addEventListener('change', function() {
+        document.getElementById('analysisType').addEventListener('change', function () {
             currentDataFile = this.value;
-            
+
             loadData().then(data => {
                 updateCourseCount(data);
-                
+
                 // Determine which visualization is currently active
                 if (document.getElementById('bubbleBtn').classList.contains('active')) {
                     createBubbleChart(data, currentSDG);
@@ -1501,7 +1525,7 @@
         document.getElementById('exportPNG').addEventListener('click', downloadPNG);
 
         // Update the event listeners
-        document.getElementById('sdgSelect').addEventListener('change', function() {
+        document.getElementById('sdgSelect').addEventListener('change', function () {
             currentSDG = parseInt(this.value);
             // Activate bubble button
             document.getElementById('bubbleBtn').classList.add('active');
@@ -1512,7 +1536,7 @@
             loadData().then(data => createBubbleChart(data, currentSDG));
         });
 
-        document.getElementById('bubbleBtn').addEventListener('click', function() {
+        document.getElementById('bubbleBtn').addEventListener('click', function () {
             this.classList.add('active');
             document.getElementById('heatmapBtn').classList.remove('active');
             document.getElementById('cumulativeBtn').classList.remove('active');
@@ -1522,7 +1546,7 @@
         });
 
         // Event listeners
-        document.getElementById('heatmapBtn').addEventListener('click', function() {
+        document.getElementById('heatmapBtn').addEventListener('click', function () {
             this.classList.add('active');
             document.getElementById('cumulativeBtn').classList.remove('active');
             document.getElementById('radarBtn').classList.remove('active');
@@ -1530,7 +1554,7 @@
             loadData().then(data => createHeatmap(data, false));
         });
 
-        document.getElementById('cumulativeBtn').addEventListener('click', function() {
+        document.getElementById('cumulativeBtn').addEventListener('click', function () {
             this.classList.add('active');
             document.getElementById('heatmapBtn').classList.remove('active');
             document.getElementById('radarBtn').classList.remove('active');
@@ -1538,7 +1562,7 @@
             loadData().then(data => createHeatmap(data, true));
         });
 
-        document.getElementById('radarBtn').addEventListener('click', function() {
+        document.getElementById('radarBtn').addEventListener('click', function () {
             this.classList.add('active');
             document.getElementById('heatmapBtn').classList.remove('active');
             document.getElementById('cumulativeBtn').classList.remove('active');
@@ -1546,9 +1570,9 @@
             loadData().then(data => createRadar(data));
         });
 
-        document.getElementById('disciplineSelect').addEventListener('change', function() {
+        document.getElementById('disciplineSelect').addEventListener('change', function () {
             currentDiscipline = this.value;
-            
+
             loadData().then(data => {
                 if (document.getElementById('radarBtn').classList.contains('active')) {
                     createRadar(data);
@@ -1560,9 +1584,9 @@
             });
         });
 
-        document.getElementById('facultySelect').addEventListener('change', function() {
+        document.getElementById('facultySelect').addEventListener('change', function () {
             currentFaculty = this.value;
-            
+
             loadData().then(data => {
                 // Update visualization
                 if (document.getElementById('radarBtn').classList.contains('active')) {
@@ -1579,13 +1603,14 @@
         loadData().then(data => {
             // Calculate and display total unique courses across all data
             const uniqueCourses = new Set(data.map(row => row.course_code));
-            document.getElementById('course-count').innerHTML = 
+            document.getElementById('course-count').innerHTML =
                 `Total Courses: <strong>${uniqueCourses.size}</strong>`;
-            
+
             // Initial visualization
             createBubbleChart(data, selectedSDG = 10)
         });
         toggleDisclaimer(); 
     </script>
 </body>
+
 </html>
