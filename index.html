@@ -350,6 +350,69 @@
                 margin-left: 250px;
             }
         }
+        #analysisType {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            transition: all 0.3s;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        #analysisType option {
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #analysisType option:hover:not(:checked) {
+            background-color: #f0f0f0;
+        }
+
+        #analysisType option:checked,
+        #analysisType option[selected] {
+            background: #4CAF50 !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+            -webkit-appearance: none;
+            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
+        }
+
+        #analysisType::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #analysisType::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        #analysisType::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        #analysisType::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        #analysisType:focus option:checked {
+            background: #4CAF50 !important;
+            background-color: #4CAF50 !important;
+            color: white !important;
+        }
+
+        @-moz-document url-prefix() {
+            #analysisType option:checked,
+            #analysisType option[selected] {
+                background: #4CAF50 !important;
+                color: white !important;
+            }
+        }
 
         @media (max-width: 768px) {
             #main-content.sidebar-active {
@@ -366,6 +429,7 @@
                 font-size: 16px;
             }
         }
+
         .disclaimer {
         background-color: #fff3e0;
         padding: 20px;
@@ -407,10 +471,6 @@
             <p id="course-count" style="font-size: 1.1em; color: #666;"></p>
             <br>
         </div>        
-        <div class="button-group">
-            <h3 class="section-title">Analysis Type</h3>
-            <button id="analysisType" class="switch-button">Advanced Analysis</button>
-        </div>
         <div id="button-group">
             <h3 class="section-title">By SDG</h3>
             <button id="bubbleBtn" class="switch-button">SDG Distribution</button>
@@ -456,6 +516,16 @@
             </select>
             <select id="disciplineSelect" class="switch-button" size="8">
                 <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+        <div class="button-group">
+            <h3 class="section-title">Analysis Type</h3>
+            <select id="analysisType" class="switch-button" size="8">
+                <option value="sdg_analysis_llm_match.csv">Advanced Match (recomended)</option>
+                <option value="sdg_analysis_fasttext_match_0_1.csv">Word Embeddings (Not recomended)</option>
+                <option value="sdg_analysis_queryaugmentation_match.csv">Query Augmentation (Not recomended)</option>
+                <option value="sdg_analysis_fuzzy_match.csv">Fuzzy Match (Not recomended)</option>
+                <option value="sdg_analysis_exact_match.csv">Exact Match (Not recomended)</option>
             </select>
         </div>
     </div>
@@ -1406,31 +1476,24 @@
             img.src = url;
         }
 
-        let isAdvancedAnalysis = true; // Start with advanced analysis
-        let currentDataFile = 'sdg_analysis.csv';
+        let currentDataFile = 'sdg_analysis_llm_match.csv';
 
-        document.getElementById('analysisType').addEventListener('click', function() {
-            isAdvancedAnalysis = !isAdvancedAnalysis;
-            this.textContent = isAdvancedAnalysis ? 'Advanced Analysis' : 'Keyword Analysis';
-            currentDataFile = isAdvancedAnalysis ? 'sdg_analysis.csv' : 'sdg_analysis_keywords.csv';
+        document.getElementById('analysisType').addEventListener('change', function() {
+            currentDataFile = this.value;
             
-            // Reset faculty and discipline to ALL
-            currentFaculty = 'ALL';
-            currentDiscipline = 'ALL';
-            
-            // Reset faculty select to ALL
-            document.getElementById('facultySelect').value = 'ALL';
-            
-            // Activate bubble button and deactivate others
-            document.getElementById('bubbleBtn').classList.add('active');
-            document.getElementById('radarBtn').classList.remove('active');
-            document.getElementById('heatmapBtn').classList.remove('active');
-            document.getElementById('cumulativeBtn').classList.remove('active');
-            
-            // Load data and create bubble chart
             loadData().then(data => {
-                createBubbleChart(data, currentSDG);
                 updateCourseCount(data);
+                
+                // Determine which visualization is currently active
+                if (document.getElementById('bubbleBtn').classList.contains('active')) {
+                    createBubbleChart(data, currentSDG);
+                } else if (document.getElementById('radarBtn').classList.contains('active')) {
+                    createRadar(data);
+                } else if (document.getElementById('heatmapBtn').classList.contains('active')) {
+                    createHeatmap(data, false);
+                } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+                    createHeatmap(data, true);
+                }
             });
         });
 
