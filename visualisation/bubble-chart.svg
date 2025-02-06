@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="200" height="200" fill="white"/>
+    
+    <!-- Bubbles -->
+    <circle cx="70" cy="90" r="40" fill="#6bb0e7" opacity="0.7"/>
+    <circle cx="120" cy="60" r="25" fill="#4a90d6" opacity="0.7"/>
+    <circle cx="130" cy="110" r="30" fill="#2c70b7" opacity="0.7"/>
+    
+    <!-- Title -->
+    <text x="100" y="180" text-anchor="middle" font-family="Arial" font-size="16">
+        Bubble Chart
+    </text>
+</svg>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="200" height="200" fill="white"/>
+    
+    <!-- Radar Web -->
+    <path d="M100,40 L160,80 L140,140 L60,140 L40,80 Z" 
+          fill="none" stroke="#ddd" stroke-width="1"/>
+    <path d="M100,60 L140,90 L125,130 L75,130 L60,90 Z" 
+          fill="none" stroke="#ddd" stroke-width="1"/>
+    <path d="M100,80 L120,100 L110,120 L90,120 L80,100 Z" 
+          fill="none" stroke="#ddd" stroke-width="1"/>
+          
+    <!-- Spokes -->
+    <line x1="100" y1="40" x2="100" y2="140" stroke="#ddd" stroke-width="1"/>
+    <line x1="40" y1="80" x2="160" y2="80" stroke="#ddd" stroke-width="1"/>
+    
+    <!-- Data Points -->
+    <path d="M100,50 L130,85 L120,125 L80,125 L70,85 Z" 
+          fill="#4a90d6" fill-opacity="0.5" stroke="#2c70b7" stroke-width="2"/>
+    
+    <!-- Title -->
+    <text x="100" y="180" text-anchor="middle" font-family="Arial" font-size="16">
+        Radar Plot
+    </text>
+</svg>

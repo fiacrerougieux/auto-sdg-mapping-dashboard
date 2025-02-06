@@ -2,1615 +2,1380 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDG Analysis Dashboard</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            display: flex;
-            min-height: 100vh;
-        }
-
-        #sidebar {
-            background-color: white;
-            padding: 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            position: fixed;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            overflow-y: auto;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        #main-content {
-            flex: 1;
-            margin-left: 250px;
-            padding: 20px;
-            width: calc(100% - 250px);
-            transition: margin-left 0.3s ease;
-        }
-
-        #toggle-sidebar {
-            display: none;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1001;
-            padding: 10px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #sdgSelect {
-            width: 100%;
-            padding: 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            margin: 5px 0;
-            transition: all 0.3s;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        #sdgSelect option {
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        #sdgSelect option:hover:not(:checked) {
-            background-color: #f0f0f0;
-        }
-
-        #sdgSelect option:checked,
-        #sdgSelect option[selected] {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-            -webkit-appearance: none;
-            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
-        }
-
-        #sdgSelect::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        #sdgSelect::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        #sdgSelect::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-
-        #sdgSelect::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        #sdgSelect:focus option:checked {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-        }
-
-        @-moz-document url-prefix() {
-
-            #sdgSelect option:checked,
-            #sdgSelect option[selected] {
-                background: #4CAF50 !important;
-                color: white !important;
-            }
-        }
-
-        .disclaimer-container {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .disclaimer-button {
-            width: 100%;
-            padding: 12px 15px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            text-align: left;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
-        }
-
-        .disclaimer-button:hover {
-            background-color: #e9ecef;
-        }
-
-        .disclaimer-content {
-            display: none;
-            /* Starts collapsed */
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-top: none;
-        }
-
-        .disclaimer-content p {
-            margin: 0 0 15px 0;
-            line-height: 1.5;
-            color: #333;
-        }
-
-        .disclaimer-content ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .disclaimer-content li {
-            margin-bottom: 8px;
-            line-height: 1.4;
-            color: #333;
-        }
-
-        .disclaimer-button.active {
-            background-color: #e9ecef;
-        }
-
-        .button-group {
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            margin: 0 0 15px 0;
-            font-size: 1.1em;
-            color: #333;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #4CAF50;
-        }
-
-        .switch-button {
-            width: 100%;
-            padding: 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            margin: 5px 0;
-            transition: all 0.3s;
-            text-align: left;
-        }
-
-        .switch-button.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .switch-button:not(.active) {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        #facultySelect {
-            width: 100%;
-            padding: 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            margin: 5px 0;
-            transition: all 0.3s;
-        }
-
-        #facultySelect option {
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        #facultySelect option:hover:not(:checked) {
-            background-color: #f0f0f0;
-        }
-
-        #facultySelect option:checked,
-        #facultySelect option[selected] {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-            -webkit-appearance: none;
-            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
-        }
-
-        #facultySelect::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        #facultySelect::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        #facultySelect::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-
-        #facultySelect::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        #facultySelect:focus option:checked {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-        }
-
-        @-moz-document url-prefix() {
-
-            #facultySelect option:checked,
-            #facultySelect option[selected] {
-                background: #4CAF50 !important;
-                color: white !important;
-            }
-        }
-
-        #facultySelect,
-        #disciplineSelect {
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        #disciplineSelect option {
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        #disciplineSelect option:hover:not(:checked) {
-            background-color: #f0f0f0;
-        }
-
-        #disciplineSelect option:checked,
-        #disciplineSelect option[selected] {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-            -webkit-appearance: none;
-            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
-        }
-
-        /* For webkit browsers like Chrome/Safari */
-        #disciplineSelect::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        #disciplineSelect::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        #disciplineSelect::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-
-        #disciplineSelect::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        /* Additional browser-specific styles */
-        #disciplineSelect:focus option:checked {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-        }
-
-        @-moz-document url-prefix() {
-
-            #disciplineSelect option:checked,
-            #disciplineSelect option[selected] {
-                background: #4CAF50 !important;
-                color: white !important;
-            }
-        }
-
-        #plot-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: calc(100vh - 40px);
-            width: 100%;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            #sidebar {
-                transform: translateX(-100%);
-            }
-
-            #main-content {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            #toggle-sidebar {
-                display: block;
-            }
-
-            #sidebar.active {
-                transform: translateX(0);
-            }
-
-            #main-content.sidebar-active {
-                margin-left: 250px;
-            }
-        }
-
-        #analysisType {
-            width: 100%;
-            padding: 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            margin: 5px 0;
-            transition: all 0.3s;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        #analysisType option {
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        #analysisType option:hover:not(:checked) {
-            background-color: #f0f0f0;
-        }
-
-        #analysisType option:checked,
-        #analysisType option[selected] {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-            -webkit-appearance: none;
-            box-shadow: 0 0 10px 100px #4CAF50 inset !important;
-        }
-
-        #analysisType::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        #analysisType::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        #analysisType::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-
-        #analysisType::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        #analysisType:focus option:checked {
-            background: #4CAF50 !important;
-            background-color: #4CAF50 !important;
-            color: white !important;
-        }
-
-        @-moz-document url-prefix() {
-
-            #analysisType option:checked,
-            #analysisType option[selected] {
-                background: #4CAF50 !important;
-                color: white !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            #main-content.sidebar-active {
-                margin-left: 0;
-                opacity: 0.7;
-            }
-
-            #plot-container {
-                height: calc(100vh - 80px);
-            }
-
-            .switch-button {
-                padding: 15px;
-                font-size: 16px;
-            }
-        }
-
-        .disclaimer {
-            background-color: #fff3e0;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .disclaimer h4 {
-            color: #e65100;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .disclaimer p {
-            color: #424242;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .disclaimer ul {
-            color: #424242;
-            padding-left: 20px;
-            margin-bottom: 10px;
-        }
-
-        .disclaimer li {
-            margin-bottom: 5px;
-            line-height: 1.4;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDG Analysis Dashboard</title>
+
+  <!-- D3 and Plotly -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <style>
+    /* Basic Resets */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      width: 270px;
+      position: fixed;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    #main-content {
+      flex: 1;
+      margin-left: 270px;
+      padding: 20px;
+      width: calc(100% - 270px);
+      transition: margin-left 0.3s ease;
+    }
+
+    #toggle-sidebar {
+      display: none;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1001;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Buttons & Selections */
+    .switch-button {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      transition: all 0.3s;
+      text-align: left;
+    }
+
+    .switch-button.active {
+      background-color: #4CAF50 !important;
+      color: white !important;
+    }
+
+    .switch-button:not(.active) {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      transition: all 0.3s;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    select option:hover:not(:checked) {
+      background-color: #f0f0f0;
+    }
+
+    select option:checked {
+      background: #4CAF50 !important;
+      color: white !important;
+      -webkit-appearance: none;
+    }
+
+    /* Scrolling inside selects */
+    select::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    select::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    select::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    select::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Section Titles */
+    .section-title {
+      margin: 0 0 15px 0;
+      font-size: 1.1em;
+      color: #333;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #4CAF50;
+    }
+
+    .button-group {
+      margin-bottom: 30px;
+    }
+
+    /* Plot Container */
+    #plot-container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: calc(100vh - 40px);
+      width: 100%;
+    }
+
+    /* Disclaimer Collapsible */
+    .disclaimer-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .disclaimer-button {
+      width: 100%;
+      padding: 12px 15px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      text-align: left;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background-color 0.3s;
+    }
+
+    .disclaimer-button:hover {
+      background-color: #e9ecef;
+    }
+
+    .disclaimer-content {
+      display: none;
+      /* Starts collapsed */
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-top: none;
+    }
+
+    .disclaimer-content p {
+      margin: 0 0 15px 0;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .disclaimer-content ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .disclaimer-content li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+      color: #333;
+    }
+
+    .disclaimer-button.active {
+      background-color: #e9ecef;
+    }
+
+    .disclaimer {
+      background-color: #fff3e0;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .disclaimer h4 {
+      color: #e65100;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .disclaimer p {
+      color: #424242;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .disclaimer ul {
+      color: #424242;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .disclaimer li {
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+
+    /* SDG Icon Grid in Sidebar */
+    .sdg-icons-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    .sdg-icon-item {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sdg-icon-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.2s;
+    }
+
+    .sdg-icon-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .sdg-icon-item.active {
+      border: 2px solid #4CAF50;
+    }
+
+    /* Faculty Icons Grid */
+    .faculty-icons-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    .faculty-icon-item {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .faculty-icon-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.2s;
+    }
+
+    .faculty-icon-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .faculty-icon-item.active {
+      border: 2px solid #4CAF50;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      #sidebar {
+        transform: translateX(-100%);
+      }
+
+      #main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      #toggle-sidebar {
+        display: block;
+      }
+
+      #sidebar.active {
+        transform: translateX(0);
+      }
+
+      #main-content.sidebar-active {
+        margin-left: 270px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #main-content.sidebar-active {
+        margin-left: 0;
+        opacity: 0.7;
+      }
+
+      #plot-container {
+        height: calc(100vh - 80px);
+      }
+
+      .switch-button {
+        padding: 15px;
+        font-size: 16px;
+      }
+    }
+
+    /* Intro Modal (on page load) */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      /* hidden by default */
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .modal-content p {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .modal-content button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .modal-content button:hover {
+      background: #45a049;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      color: #999;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Second Sidebar */
+    #sidebar2 {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      width: 140px;
+      position: fixed;
+      height: 100vh;
+      left: 270px;
+      /* Position next to the first sidebar */
+      top: 0;
+      overflow-y: auto;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+
+    /* Style for visualization buttons with icons */
+    #sidebar2 .switch-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 140px;
+      /* Make the button height equal to the sidebar width for a square shape */
+      padding: 0;
+      font-size: 0;
+      /* Hide any text if present */
+      cursor: pointer;
+      border: none;
+      background: none;
+      margin: 5px 0;
+      transition: background-color 0.3s;
+    }
+
+    #sidebar2 .switch-button img {
+      width: 100%;
+      /* Adjust icon size to fit within the button */
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #sidebar2 .switch-button.active {
+      background-color: #4CAF50 !important;
+      border-radius: 4px;
+    }
+
+    #sidebar2 .switch-button:not(.active):hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Optional: Remove padding from export-buttons */
+    #sidebar2 .export-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+
+    /* Adjust main content to account for two sidebars */
+    #main-content {
+      flex: 1;
+      margin-left: 400px;
+      /* 270px (first sidebar) + 270px (second sidebar) */
+      padding: 20px;
+      width: calc(100% - 540px);
+      transition: margin-left 0.3s ease;
+    }
+
+    /* Responsive Adjustments for Two Sidebars */
+    @media (max-width: 1024px) {
+
+      #sidebar,
+      #sidebar2 {
+        transform: translateX(-100%);
+      }
+
+      #main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      #toggle-sidebar {
+        display: block;
+      }
+
+      #sidebar.active,
+      #sidebar2.active {
+        transform: translateX(0);
+      }
+
+      #main-content.sidebar-active {
+        margin-left: 270px;
+        /* Adjust if needed for one sidebar */
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <button id="toggle-sidebar">☰</button>
+  <!-- Toggle Button for Sidebar on small screens -->
+  <button id="toggle-sidebar">☰</button>
 
-    <div id="sidebar">
-        <div id="button-group">
-            <h3 class="section-title">Analysis Statistics</h3>
-            <p id="course-count" style="font-size: 1.1em; color: #666;"></p>
-            <br>
+  <!-- INTRO MODAL (Explainer) -->
+  <div class="modal-overlay" id="welcomeModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="hideWelcomeModal()">&times;</button>
+      <h2>Welcome to the SDG Analysis Dashboard</h2>
+      <p>
+        This tool allows you to explore how university courses map to the UN Sustainable Development Goals (SDGs).
+        <strong>Select an SDG</strong> on the left to view coverage across all specialisations (the “bubble chart”).
+      </p>
+      <p>
+        <strong>Or</strong>, pick a faculty and specialisation to see which courses in that area address each SDG (via
+        a heatmap or cumulative chart). You can toggle between different visualizations (radar, heatmap, cumulative)
+        under “Visualization”.
+      </p>
+      <p>
+        Use the sidebar to switch between SDGs, faculties, and visualization types. The disclaimer section below
+        provides
+        important info about how this data is generated.
+      </p>
+      <button onclick="hideWelcomeModal()">Get Started</button>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="button-group">
+      <h3 class="section-title">Analysis Statistics</h3>
+      <p id="course-count" style="font-size: 1.1em; color: #666;"></p>
+    </div>
+
+    <!-- SDG Icon Grid -->
+    <div class="button-group">
+      <h3 class="section-title">Percentage of SDG in specialisations</h3>
+      <div class="sdg-icons-list" id="sdgIconsList">
+        <div class="sdg-icon-item" data-sdg="1">
+          <img src="logo/E Inverted Icons_WEB-01.png" alt="SDG 1 - No Poverty" />
         </div>
-        <div id="button-group">
-            <h3 class="section-title">By SDG</h3>
-            <button id="bubbleBtn" class="switch-button">SDG Distribution</button>
-            <br>
-            <select id="sdgSelect" class="switch-button" size="8">
-                <option value="1">SDG 1 - No Poverty</option>
-                <option value="2">SDG 2 - Zero Hunger</option>
-                <option value="3">SDG 3 - Good Health and Well-being</option>
-                <option value="5">SDG 5 - Gender Equality</option>
-                <option value="6">SDG 6 - Clean Water and Sanitation</option>
-                <option value="7">SDG 7 - Affordable and Clean Energy</option>
-                <option value="8">SDG 8 - Decent Work and Economic Growth</option>
-                <option value="9">SDG 9 - Industry, Innovation and Infrastructure</option>
-                <option value="10">SDG 10 - Reduced Inequalities</option>
-                <option value="11">SDG 11 - Sustainable Cities and Communities</option>
-                <option value="12">SDG 12 - Responsible Consumption and Production</option>
-                <option value="13">SDG 13 - Climate Action</option>
-                <option value="14">SDG 14 - Life Below Water</option>
-                <option value="15">SDG 15 - Life on Land</option>
-                <option value="16">SDG 16 - Peace, Justice and Strong Institutions</option>
-                <option value="17">SDG 17 - Partnerships for the Goals</option>
-            </select>
-            <div class="export-buttons">
-                <button id="toggleLabels" class="switch-button">Show/Hide Labels</button>
-                <button id="exportPNG" class="switch-button">Export</button>
-            </div>
-            <br>
+        <div class="sdg-icon-item" data-sdg="2">
+          <img src="logo/E Inverted Icons_WEB-02.png" alt="SDG 2 - Zero Hunger" />
         </div>
-        <div class="button-group">
-            <h3 class="section-title">By speciality</h3>
-            <button id="radarBtn" class="switch-button active">SDG Coverage</button>
-            <button id="heatmapBtn" class="switch-button">SDG Distribution</button>
-            <button id="cumulativeBtn" class="switch-button">Cumulative SDGs</button>
-            <select id="facultySelect" class="switch-button" size="8">
-                <option value="ALL">All Faculties</option>
-                <option value="ADA">Arts, Design & Architecture</option>
-                <option value="BUSINESS">Business School</option>
-                <option value="ENG">Engineering</option>
-                <option value="LAW">Law & Justice</option>
-                <option value="MED">Medicine & Health</option>
-                <option value="SCIENCE">Science</option>
-                <option value="CANBERRA">UNSW Canberra</option>
-            </select>
-            <select id="disciplineSelect" class="switch-button" size="8">
-                <!-- Options will be populated by JavaScript -->
-            </select>
+        <div class="sdg-icon-item" data-sdg="3">
+          <img src="logo/E Inverted Icons_WEB-03.png" alt="SDG 3 - Good Health" />
         </div>
-        <div class="button-group">
-            <h3 class="section-title">Analysis Type</h3>
-            <select id="analysisType" class="switch-button" size="8">
-                <option value="sdg_analysis_llm_match.csv">Advanced Match (recomended)</option>
-                <option value="sdg_analysis_fasttext_match_0_1.csv">Word Embeddings (Not recomended)</option>
-                <option value="sdg_analysis_queryaugmentation_match.csv">Query Augmentation (Not recomended)</option>
-                <option value="sdg_analysis_fuzzy_match.csv">Fuzzy Match (Not recomended)</option>
-                <option value="sdg_analysis_exact_match.csv">Exact Match (Not recomended)</option>
-            </select>
+        <div class="sdg-icon-item" data-sdg="4">
+          <img src="logo/E Inverted Icons_WEB-04.png" alt="SDG 4 - Quality Education" />
         </div>
+        <div class="sdg-icon-item" data-sdg="5">
+          <img src="logo/E Inverted Icons_WEB-05.png" alt="SDG 5 - Gender Equality" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="6">
+          <img src="logo/E Inverted Icons_WEB-06.png" alt="SDG 6 - Clean Water" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="7">
+          <img src="logo/E Inverted Icons_WEB-07.png" alt="SDG 7 - Clean Energy" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="8">
+          <img src="logo/E Inverted Icons_WEB-08.png" alt="SDG 8 - Decent Work" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="9">
+          <img src="logo/E Inverted Icons_WEB-09.png" alt="SDG 9 - Industry & Innovation" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="10">
+          <img src="logo/E Inverted Icons_WEB-10.png" alt="SDG 10 - Reduced Inequalities" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="11">
+          <img src="logo/E Inverted Icons_WEB-11.png" alt="SDG 11 - Sustainable Cities" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="12">
+          <img src="logo/E Inverted Icons_WEB-12.png" alt="SDG 12 - Responsible Production" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="13">
+          <img src="logo/E Inverted Icons_WEB-13.png" alt="SDG 13 - Climate Action" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="14">
+          <img src="logo/E Inverted Icons_WEB-14.png" alt="SDG 14 - Life Below Water" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="15">
+          <img src="logo/E Inverted Icons_WEB-15.png" alt="SDG 15 - Life on Land" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="16">
+          <img src="logo/E Inverted Icons_WEB-16.png" alt="SDG 16 - Peace and Justice" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="17">
+          <img src="logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
+        </div>
+      </div>
     </div>
 
 
-    <div id="main-content">
-        <div class="disclaimer-container">
-            <button class="disclaimer-button" onclick="toggleDisclaimer()">
-                ▼ Disclaimer
-            </button>
-            <div class="disclaimer-content" id="disclaimerContent" style="display: none;">
-                <p>This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
-                    (SDGs) across courses. Please note:</p>
-                <ul>
-                    <li>This is an automated, preliminary analysis based solely on publicly available course information
-                    </li>
-                    <li>The mapping is likely incomplete and may contain inaccuracies</li>
-                    <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured
-                    </li>
-                    <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
-                    <li>This visualization serves as a broad overview to complement more comprehensive manual assessment
-                        processes</li>
-                    <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed
-                        curriculum mapping initiatives</li>
-                    <li>Based on comparative analysis with manual mapping, our automated method tends to underestimate
-                        certain SDGs in particular:</li>
-                    <ul>
-                        <li>SDG 4 (Quality Education)</li>
-                        <li>SDG 9 (Industry, Innovation and Infrastructure)</li>
-                        <li>SDG 10 (Reduced Inequalities)</li>
-                        <li>SDG 12 (Responsible Consumption and Production)</li>
-                    </ul>
-                    <li>These SDGs may be more prevalent in courses than indicated in this analysis.</li>
-                </ul>
-            </div>
+    <!-- By Faculty & Specialisation -->
+    <div class="button-group">
+      <h3 class="section-title">SDGs present in each course of specialisations</h3>
+      <div class="faculty-icons-list" id="facultyIconsList">
+        <div class="faculty-icon-item" data-faculty="ALL">
+          <img src="faculty/all.svg" alt="All faculties" />
         </div>
-        <div id="plot-container"></div>
+        <div class="faculty-icon-item" data-faculty="ADA">
+          <img src="faculty/ada.svg" alt="Arts, Design & Architecture" />
+        </div>
+        <div class="faculty-icon-item" data-faculty="BUSINESS">
+          <img src="faculty/business.svg" alt="Business School" />
+        </div>
+        <div class="faculty-icon-item" data-faculty="ENG">
+          <img src="faculty/engineering.svg" alt="Engineering" />
+        </div>
+        <div class="faculty-icon-item" data-faculty="LAW">
+          <img src="faculty/law.svg" alt="Law & Justice" />
+        </div>
+        <div class="faculty-icon-item" data-faculty="MED">
+          <img src="faculty/medicine.svg" alt="Medicine & Health" />
+        </div>
+        <div class="faculty-icon-item" data-faculty="SCIENCE">
+          <img src="faculty/science.svg" alt="Science" />
+        </div>
+        <div class="faculty-icon-item" data-faculty="CANBERRA">
+          <img src="faculty/canberra.svg" alt="UNSW Canberra" />
+        </div>
+      </div>
+      <select id="disciplineSelect" class="switch-button" size="8">
+        <!-- Populated by JS -->
+      </select>
+    </div>
+<!--
+    <div class="button-group">
+      <h3 class="section-title">Analysis Type</h3>
+      <select id="analysisType" class="switch-button" size="8">
+        <option value="sdg_analysis_llm_match.csv">Advanced Match (recommended)</option>
+        <option value="sdg_analysis_fasttext_match_0_1.csv">Word Embeddings (not recommended)</option>
+        <option value="sdg_analysis_queryaugmentation_match.csv">Query Augmentation (not recommended)</option>
+        <option value="sdg_analysis_fuzzy_match.csv">Fuzzy Match (not recommended)</option>
+        <option value="sdg_analysis_exact_match.csv">Exact Match (not recommended)</option>
+      </select>
+    </div>
+    -->
+  </div>
+
+
+  <!-- Second Sidebar for Visualizations -->
+  <div id="sidebar2">
+    <div class="button-group">
+      <h3 class="section-title">Visualization</h3>
+      <button id="bubbleBtn" class="switch-button">
+        <img src="visualisation/bubble-chart.svg" alt="Bubble Chart" />
+      </button>
+      <button id="radarBtn" class="switch-button active">
+        <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
+      </button>
+      <button id="heatmapBtn" class="switch-button">
+        <img src="visualisation/heatmap.svg" alt="Heatmap" />
+      </button>
+      <button id="cumulativeBtn" class="switch-button">
+        <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
+      </button>
+      <div class="export-buttons">
+        <button id="exportPNG" class="switch-button">
+          <img src="visualisation/export-visualization.svg" alt="Export" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Main Content Area -->
+  <div id="main-content">
+    <!-- Disclaimer Collapsible Section -->
+    <div class="disclaimer-container">
+      <button class="disclaimer-button" onclick="toggleDisclaimer()">
+        ▼ Disclaimer
+      </button>
+      <div class="disclaimer-content" id="disclaimerContent" style="display: none;">
+        <p>
+          This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
+          (SDGs) across courses. Please note:
+        </p>
+        <ul>
+          <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+          <li>The mapping is likely incomplete and may contain inaccuracies</li>
+          <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+          <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
+          <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes
+          </li>
+          <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum
+            mapping initiatives</li>
+          <li>Based on comparative analysis with manual mapping, our automated method tends to underestimate certain
+            SDGs in particular:
+            <ul>
+              <li>SDG 4 (Quality Education)</li>
+              <li>SDG 9 (Industry, Innovation and Infrastructure)</li>
+              <li>SDG 10 (Reduced Inequalities)</li>
+              <li>SDG 12 (Responsible Consumption and Production)</li>
+            </ul>
+          </li>
+          <li>These SDGs may be more prevalent in courses than indicated in this analysis.</li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Plot Area -->
+    <div id="plot-container"></div>
+  </div>
 
+  <!-- Main Script -->
+  <script>
+    // On-load Modal
+    function showWelcomeModal() {
+      document.getElementById('welcomeModal').style.display = 'flex';
+    }
+    function hideWelcomeModal() {
+      document.getElementById('welcomeModal').style.display = 'none';
+    }
 
-    <script>
-        let currentDiscipline = 'ALL';
-        let currentFaculty = 'ALL';
+    // Show the modal once DOM content has loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      showWelcomeModal();
+      // Optionally auto-open the disclaimer
+      // toggleDisclaimer();
+    });
 
-        const facultyNames = {
-            'ADA': 'Arts, Design & Architecture',
-            'ENG': 'Engineering',
-            'MED': 'Medicine & Health',
-            'LAW': 'Law & Justice',
-            'SCIENCE': 'Science',
-            'BUSINESS': 'Business School',
-            'CANBERRA': 'UNSW Canberra'
+    function toggleDisclaimer() {
+      const content = document.getElementById('disclaimerContent');
+      const button = document.querySelector('.disclaimer-button');
+      if (content.style.display === '' || content.style.display === 'block') {
+        content.style.display = 'none';
+        button.innerHTML = '▼ Disclaimer';
+        button.classList.remove('active');
+      } else {
+        content.style.display = 'block';
+        button.innerHTML = '▲ Disclaimer';
+        button.classList.add('active');
+      }
+    }
+
+    // Toggle sidebar
+    document.getElementById('toggle-sidebar').addEventListener('click', function () {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('main-content').classList.toggle('sidebar-active');
+    });
+
+    // ---------- Data & Visualization Logic -----------
+    let currentDiscipline = 'ALL';
+    let currentFaculty = 'ALL';
+    let currentDataFile = 'sdg_analysis_llm_match.csv';
+    let currentSDG = 1; // default SDG (updated when user clicks an SDG icon)
+
+    const facultyNames = {
+      'ADA': 'Arts, Design & Architecture',
+      'ENG': 'Engineering',
+      'MED': 'Medicine & Health',
+      'LAW': 'Law & Justice',
+      'SCIENCE': 'Science',
+      'BUSINESS': 'Business School',
+      'CANBERRA': 'UNSW Canberra'
+    };
+
+    // Specialisation dictionary
+    const specializationNames = {
+      'ACCT': 'Accounting', 'ACTL': 'Actuarial Studies', 'ADAD': 'Art and Design', 'AERO': 'Aerospace Engineering',
+      'AGSM': 'AGSM', 'ANAT': 'Anatomy', 'ARCH': 'Architecture', 'ARTS': 'Disciplinary and Interdisciplinary Humanities',
+      'ATSI': 'Nura Gili (Indigenous Programs)', 'AVIA': 'Aviation', 'AVIG': 'Aviation', 'BABS': 'Biotech & Biomolecular Sci',
+      'BEES': 'Biological, Earth & Environmental Sci', 'BEIL': 'BE Interdisciplinary Learning', 'BENV': 'Built Environment',
+      'BINF': 'Bioinformatics', 'BIOC': 'Biochemistry', 'BIOM': 'Biomedical Engineering', 'BIOS': 'Biological Science',
+      'BLDG': 'Building', 'CDEV': 'Career Development', 'CEIC': 'Chemical Eng & Industrial Chemistry', 'CHEM': 'Chemistry',
+      'CHEN': 'Chemical Engineering', 'CLIM': 'Climate Science', 'CODE': 'Computational Design', 'COMM': 'Commerce',
+      'COMP': 'Computer Science', 'CONS': 'Construction Management', 'CRIM': 'Criminology', 'CVEN': 'Civil & Environ. Eng',
+      'DART': 'Domain Art', 'DATA': 'Data Science', 'DDES': 'Domain Design', 'DESN': 'Design Next', 'DIET': 'Nutrition & Dietetics',
+      'ECON': 'Economics', 'EDST': 'Education Studies', 'ELEC': 'Electrical Engineering', 'ENGG': 'Engineering interdisciplinary',
+      'ENTR': 'Entrepreneurship', 'EXCH': 'Exchange', 'EXPT': 'Exercise Sci, Physiology, Physiotherapy', 'FADA': 'Arts, Design & Architecture',
+      'FINS': 'Finance', 'FOOD': 'Food Technology', 'GENC': 'UNSW Business School', 'GENE': 'General Education - Engineering',
+      'GENL': 'General Education - Law', 'GENM': 'General Education - Medicine', 'GENS': 'General Education - Science',
+      'GENY': 'General Education - The Learning Centre', 'GEOS': 'Geoscience', 'GMAT': 'Surveying & Spatial Info Systems',
+      'GSOE': 'Engineering', 'HDAT': 'Health Data Science', 'HESC': 'Health & Exercise Science', 'HLTH': 'Health',
+      'HUML': 'Humanities and Languages', 'HUMS': 'Humanities', 'IDES': 'Industrial Design', 'IEST': 'Environmental Studies',
+      'INFS': 'Information Systems', 'INST': 'International Studies', 'INTA': 'Interior Architecture', 'JURD': 'Juris Doctor',
+      'LAND': 'Landscape Architecture', 'LAWS': 'Law', 'LING': 'Linguistics', 'MANF': 'Manufacturing Engineering',
+      'MARK': 'Marketing', 'MATH': 'Mathematics', 'MATS': 'Materials Sci & Eng', 'MBAE': 'Management', 'MBAX': 'Management',
+      'MDCN': 'Medicine', 'MDIA': 'Media', 'MECH': 'Mechanical Engineering', 'MERE': 'Minerals/Energy Resources Eng',
+      'MFAC': 'Medicine', 'MFIN': 'Finance', 'MGMT': 'Management', 'MICR': 'Microbiology', 'MINE': 'Mining Engineering',
+      'MMAN': 'Mechanical & Manufacturing Engineering', 'MNGT': 'Management', 'MODL': 'Modern Language', 'MSCI': 'Marine Science',
+      'MTRN': 'Mechatronic Engineering', 'MUPS': 'Urban Policy and Strategy', 'MUSC': 'Music', 'NANO': 'Nanotechnology',
+      'NAVL': 'Naval Architecture', 'NCHR': 'HIV Social Research', 'NEUR': 'Neuroscience', 'OPTM': 'Optometry',
+      'PATH': 'Pathology', 'PHAR': 'Pharmacology', 'PHCM': 'Public Health and Community Med', 'PHRM': 'Pharmacy',
+      'PHSL': 'Physiology', 'PHTN': 'Photonics', 'PHYS': 'Physics', 'PLAN': 'Planning & Urban Development',
+      'PLTX': 'Practical Legal Training', 'POLS': 'Political Science', 'PSCY': 'Psychiatry', 'PSYC': 'Psychology',
+      'PTRL': 'Petroleum Eng', 'REST': 'Real Estate', 'RISK': 'Risk Management', 'SAHT': 'Art History', 'SART': 'Art',
+      'SCIF': 'Faculty of Science', 'SDES': 'Design Studies', 'SENG': 'Software Engineering', 'SLSP': 'Social Sci & Policy',
+      'SOCF': 'Social Work', 'SOCW': 'Social Work', 'SOLA': 'Photovoltaics & Solar Energy', 'SOMS': 'Medical Science',
+      'SOSS': 'Social Sciences', 'SPRC': 'Social Policy', 'SRAP': 'Social Research & Policy', 'STAM': 'Arts and Media',
+      'SUSD': 'Sustainable Development', 'SWCH': 'Women & Childrens Health', 'TABL': 'Tax & Business Law',
+      'TELE': 'Telecommunications', 'UDES': 'Urban Development Studies', 'VISN': 'Vision Science', 'ZBUS': 'Business',
+      'ZEIT': 'Engineering & Technology', 'ZGEN': 'Canberra General Ed', 'ZINT': 'Canberra (Interdisciplinary)',
+      'ZPEM': 'Physical/Env/Math Sci Canberra', 'ZSPS': 'Professional Studies Canberra', 'ZZCA': 'Canberra Accelerated'
+    };
+
+    // Mapping discipline code => faculty
+    const facultyMapping = {
+      'ACCT': 'BUSINESS', 'ACTL': 'BUSINESS', 'ADAD': 'ADA', 'AERO': 'ENG', 'AGSM': 'BUSINESS', 'ANAT': 'MED', 'ARCH': 'ADA',
+      'ARTS': 'ADA', 'ATSI': 'DVC', 'AVIA': 'SCIENCE', 'AVIG': 'SCIENCE', 'BABS': 'SCIENCE', 'BEES': 'SCIENCE', 'BEIL': 'ADA',
+      'BENV': 'ADA', 'BINF': 'ENG', 'BIOC': 'SCIENCE', 'BIOM': 'ENG', 'BIOS': 'SCIENCE', 'BLDG': 'ADA', 'CDEV': 'DVC', 'CEIC': 'ENG',
+      'CHEM': 'SCIENCE', 'CHEN': 'ENG', 'CLIM': 'SCIENCE', 'CODE': 'ADA', 'COMD': 'ADA', 'COMM': 'BUSINESS', 'COMP': 'ENG',
+      'CONS': 'ENG', 'CRIM': 'LAW', 'CVEN': 'ENG', 'DART': 'ADA', 'DATA': 'ENG', 'DDES': 'ADA', 'DESN': 'ENG', 'DIET': 'MED',
+      'ECON': 'BUSINESS', 'EDST': 'ADA', 'ELEC': 'ENG', 'ENGG': 'ENG', 'ENTR': 'BUSINESS', 'EXCH': 'DVC', 'EXPT': 'MED', 'FADA': 'ADA',
+      'FINS': 'BUSINESS', 'FOOD': 'ENG', 'GENC': 'BUSINESS', 'GENE': 'ENG', 'GENL': 'LAW', 'GENM': 'MED', 'GENS': 'SCIENCE',
+      'GEOS': 'SCIENCE', 'GMAT': 'ENG', 'GSOE': 'ENG', 'HDAT': 'MED', 'HLTH': 'MED', 'HUMS': 'ADA', 'IDES': 'ADA', 'IEST': 'ADA',
+      'INFS': 'BUSINESS', 'INST': 'ADA', 'INTA': 'ADA', 'JURD': 'LAW', 'LAND': 'ADA', 'LAWS': 'LAW', 'LING': 'ADA', 'MANF': 'ENG',
+      'MARK': 'BUSINESS', 'MATH': 'SCIENCE', 'MATS': 'ENG', 'MBAE': 'BUSINESS', 'MDIA': 'ADA', 'MECH': 'ENG', 'MERE': 'ENG',
+      'MFIN': 'BUSINESS', 'MGMT': 'BUSINESS', 'MICR': 'SCIENCE', 'MINE': 'ENG', 'MMAN': 'ENG', 'MNGT': 'BUSINESS', 'MODL': 'ADA',
+      'MSCI': 'SCIENCE', 'MTRN': 'ENG', 'MUSC': 'ADA', 'NEUR': 'MED', 'OPTM': 'MED', 'PATH': 'MED', 'PHAR': 'MED', 'PHCM': 'MED',
+      'PHRM': 'MED', 'PHSL': 'MED', 'PHTN': 'ENG', 'PHYS': 'SCIENCE', 'PLAN': 'ADA', 'PLTX': 'LAW', 'POLS': 'ADA', 'PSCY': 'MED',
+      'PSYC': 'SCIENCE', 'PTRL': 'ENG', 'REST': 'ADA', 'RISK': 'BUSINESS', 'SAHT': 'ADA', 'SCIF': 'SCIENCE', 'SENG': 'ENG',
+      'SOCF': 'ADA', 'SOCW': 'ADA', 'SOLA': 'ENG', 'SOMS': 'MED', 'SOSS': 'ADA', 'SRAP': 'ADA', 'SUSD': 'ADA', 'SWCH': 'MED',
+      'TABL': 'BUSINESS', 'TELE': 'ENG', 'UDES': 'ADA', 'VISN': 'MED', 'ZBUS': 'CANBERRA', 'ZEIT': 'CANBERRA', 'ZGEN': 'CANBERRA',
+      'ZINT': 'CANBERRA', 'ZPEM': 'CANBERRA', 'ZSPS': 'CANBERRA', 'ZZCA': 'CANBERRA'
+    };
+
+    // SDG names for display
+    window.sdgNames = {
+      1: "No Poverty", 2: "Zero Hunger", 3: "Good Health and Well-being", 4: "Quality Education", 5: "Gender Equality",
+      6: "Clean Water and Sanitation", 7: "Affordable and Clean Energy", 8: "Decent Work and Economic Growth",
+      9: "Industry, Innovation and Infrastructure", 10: "Reduced Inequalities", 11: "Sustainable Cities and Communities",
+      12: "Responsible Consumption and Production", 13: "Climate Action", 14: "Life Below Water", 15: "Life on Land",
+      16: "Peace, Justice and Strong Institutions", 17: "Partnerships for the Goals"
+    };
+
+    function getPlotDimensions() {
+      const container = document.getElementById('plot-container');
+      return {
+        width: container.offsetWidth,
+        height: container.offsetHeight
+      };
+    }
+
+    window.addEventListener('resize', function () {
+      const update = {
+        width: document.getElementById('plot-container').offsetWidth,
+        height: document.getElementById('plot-container').offsetHeight
+      };
+      Plotly.relayout('plot-container', update);
+    });
+
+    // Load CSV data
+    async function loadData() {
+      try {
+        const response = await fetch(currentDataFile);
+        const csvText = await response.text();
+        const lines = csvText.split('\n');
+
+        // columns: course_code, sdg_number, sdg_name, addressed, justification, timestamp
+        const data = lines.slice(1).map(line => {
+          const [course_code, sdg_number, sdg_name, addressed, justification, timestamp] = line.split(',');
+          return {
+            course_code: course_code?.trim(),
+            sdg_number: parseInt(sdg_number?.trim()) || 0,
+            sdg_name: sdg_name?.trim(),
+            addressed: addressed?.trim().toLowerCase() === 'yes' ||
+              addressed?.trim().toLowerCase() === 'supported' ||
+              addressed?.trim().toLowerCase() === 'focus',
+            justification: justification?.trim(),
+            timestamp: timestamp?.trim()
+          };
+        }).filter(row => row.course_code);
+
+        // Rebuild discipline select
+        const disc = getDisciplines(data, currentFaculty);
+        const select = document.getElementById('disciplineSelect');
+        // If current discipline is not in the new list, reset it
+        if (!currentDiscipline || !disc.includes(currentDiscipline)) {
+          currentDiscipline = disc[0] || 'ALL';
+        }
+        select.innerHTML = disc.map(d =>
+          `<option value="${d}" ${d === currentDiscipline ? 'selected' : ''}>
+             ${specializationNames[d] || d}
+           </option>`
+        ).join('');
+
+        return data;
+      } catch (error) {
+        console.error('Error loading data:', error);
+        return [];
+      }
+    }
+
+    function updateCourseCount(data) {
+      // Count all unique courses
+      const uniqueCourses = new Set(data.map(row => row.course_code));
+      document.getElementById('course-count').innerHTML =
+        `Total Courses: <strong>${uniqueCourses.size}</strong>`;
+    }
+
+    function getDisciplines(data, selectedFaculty = 'ALL') {
+      const disciplines = new Set(
+        data.filter(row => {
+          const d = row.course_code.substring(0, 4);
+          return (selectedFaculty === 'ALL' || facultyMapping[d] === selectedFaculty);
+        }).map(row => row.course_code.substring(0, 4))
+      );
+      return Array.from(disciplines).sort();
+    }
+
+    function getCourseYear(courseCode) {
+      const yearNum = parseInt(courseCode.charAt(4));
+      return yearNum >= 5 ? 4 : yearNum;
+    }
+
+    // Heatmap & Radar code
+    let finalCumulativeValues = [];
+    function createHeatmap(data, isCumulative) {
+      data = filterDataByDiscipline(data, currentDiscipline);
+
+      const courseSDGs = {};
+      data.forEach(row => {
+        if (!courseSDGs[row.course_code]) {
+          courseSDGs[row.course_code] = {};
+          for (let i = 1; i <= 17; i++) {
+            courseSDGs[row.course_code][i] = 0;
+          }
+        }
+        if (row.addressed) {
+          courseSDGs[row.course_code][row.sdg_number] = 1;
+        }
+      });
+
+      const courseJustifications = {};
+      data.forEach(row => {
+        if (!courseJustifications[row.course_code]) {
+          courseJustifications[row.course_code] = {};
+        }
+        if (row.addressed && row.justification) {
+          courseJustifications[row.course_code][row.sdg_number] = row.justification;
+        }
+      });
+
+      const courses = Object.keys(courseSDGs).sort((a, b) => {
+        const yearA = getCourseYear(a);
+        const yearB = getCourseYear(b);
+        return yearA - yearB || a.localeCompare(b);
+      });
+
+      const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
+      const matrix = sdgNumbers.map(sdg => {
+        if (isCumulative) {
+          let sum = 0;
+          return courses.map(course => {
+            sum += courseSDGs[course][sdg];
+            return sum;
+          });
+        } else {
+          return courses.map(course => courseSDGs[course][sdg]);
+        }
+      });
+
+      const dimensions = getPlotDimensions();
+      const layout = {
+        xaxis: {
+          ticktext: courses,
+          tickvals: courses.map((_, i) => i),
+          tickangle: 45,
+          tickfont: { size: 16 },
+          automargin: true
+        },
+        yaxis: {
+          ticktext: sdgNumbers.map(num => `SDG ${num} - ${sdgNames[num]}`),
+          tickvals: sdgNumbers.map((_, i) => i),
+          tickfont: { size: 16 },
+          automargin: true
+        },
+        margin: { l: 250, r: 50, b: 150, t: 20 },
+        width: dimensions.width,
+        height: dimensions.height
+      };
+
+      const hoverText = sdgNumbers.map(sdg => {
+        return courses.map(course => {
+          const value = courseSDGs[course][sdg];
+          const justification = courseJustifications[course]?.[sdg] || '';
+          return `Course: ${course}<br>SDG ${sdg}: ${sdgNames[sdg]}<br>Present: ${value ? 'Yes' : 'No'}<br>Justification: ${justification}`;
+        });
+      });
+
+      const plotData = [{
+        z: matrix,
+        type: 'heatmap',
+        colorscale: 'YlOrRd',
+        reversescale: true,
+        hoverongaps: false,
+        hoverinfo: 'text',
+        text: hoverText
+      }];
+
+      Plotly.newPlot('plot-container', plotData, layout);
+
+      if (isCumulative) {
+        finalCumulativeValues = sdgNumbers.map(sdg =>
+          matrix[sdgNumbers.indexOf(sdg)][courses.length - 1] || 0
+        );
+      }
+    }
+
+    function createRadar(data) {
+      // Build hidden cumulative heatmap first
+      createHeatmap(data, true);
+
+      const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
+      const values = finalCumulativeValues || sdgNumbers.map(() => 0);
+      const maxValue = Math.max(...values, 1);
+      const percentages = values.map(v => (v / maxValue) * 100);
+
+      // Close the shape for radar
+      const labels = sdgNumbers.map(sdg => `SDG ${sdg} - ${sdgNames[sdg]}`);
+      labels.push(labels[0]);
+      percentages.push(percentages[0]);
+
+      const dimensions = getPlotDimensions();
+      const plotData = [{
+        type: 'scatterpolar',
+        r: percentages,
+        theta: labels,
+        fill: 'toself',
+        fillcolor: 'rgba(254, 204, 92, 0.3)',
+        line: {
+          color: 'rgb(240, 59, 32)',
+          shape: 'spline',
+          smoothing: 0.35,
+          width: 2
+        }
+      }];
+
+      const layout = {
+        polar: {
+          radialaxis: {
+            visible: true,
+            range: [0, 100],
+            ticksuffix: '%',
+            tickvals: [0, 25, 50, 75, 100],
+            ticktext: ['0%', '25%', '50%', '75%', '100%'],
+            tickfont: { size: 16 }
+          },
+          angularaxis: {
+            tickfont: { size: 16 },
+            rotation: 90,
+            direction: "clockwise"
+          }
+        },
+        showlegend: false,
+        margin: { l: 300, r: 300, t: 100, b: 100 },
+        width: dimensions.width,
+        height: dimensions.height,
+        paper_bgcolor: 'white',
+        plot_bgcolor: 'white'
+      };
+
+      Plotly.newPlot('plot-container', plotData, layout);
+    }
+
+    // Filter data by discipline & faculty
+    function filterDataByDiscipline(data, discipline) {
+      return data.filter(row => {
+        const rowDiscipline = row.course_code.substring(0, 4);
+        const rowFaculty = facultyMapping[rowDiscipline];
+        if (currentFaculty !== 'ALL' && rowFaculty !== currentFaculty) {
+          return false;
+        }
+        return (discipline === 'ALL') ? true : (rowDiscipline === discipline);
+      });
+    }
+
+    // Bubble Chart
+    function createBubbleChart(data, selectedSDG = 1) {
+      d3.select('#plot-container').html('');
+      const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+      const width = document.getElementById('plot-container').offsetWidth - margin.left - margin.right;
+      const height = document.getElementById('plot-container').offsetHeight - margin.top - margin.bottom;
+
+      const facultyColors = {
+        'ADA': '#2C3E50',
+        'BUSINESS': '#E74C3C',
+        'ENG': '#3498DB',
+        'LAW': '#8E44AD',
+        'MED': '#16A085',
+        'SCIENCE': '#27AE60',
+        'CANBERRA': '#F39C12'
+      };
+
+      // Build spec -> set of courses, and spec -> set of courses that address selected SDG
+      const specCounts = {};
+      const sdgCounts = {};
+      data.forEach(row => {
+        const spec = row.course_code.substring(0, 4);
+        if (!specCounts[spec]) {
+          specCounts[spec] = new Set();
+          sdgCounts[spec] = new Set();
+        }
+        specCounts[spec].add(row.course_code);
+        if (row.sdg_number === selectedSDG && row.addressed) {
+          sdgCounts[spec].add(row.course_code);
+        }
+      });
+
+      // Filter out data not in currentFaculty if not ALL
+      data = (currentFaculty === 'ALL') ? data : data.filter(row => {
+        return facultyMapping[row.course_code.substring(0, 4)] === currentFaculty;
+      });
+
+      const bubbleData = Object.keys(specCounts).map(spec => {
+        const total = specCounts[spec].size;
+        const hits = sdgCounts[spec].size;
+        return {
+          id: spec,
+          name: specializationNames[spec] || spec,
+          value: total,
+          sdgCount: hits,
+          percentage: (hits / total) * 100,
+          faculty: facultyMapping[spec] || 'OTHER'
         };
-
-        const specializationNames =
-            specialisations = {
-                'ACCT': 'Accounting',
-                'ACTL': 'Actuarial Studies',
-                'ADAD': 'Art and Design',
-                'AERO': 'Aerospace Engineering',
-                'AGSM': 'AGSM',
-                'ANAT': 'Anatomy',
-                'ARCH': 'Architecture',
-                'ARTS': 'Disciplinary and Interdisciplinary Humanities',
-                'ATSI': 'Nura Gili (Indigenous Programs)',
-                'AVIA': 'Aviation',
-                'AVIG': 'Aviation',
-                'BABS': 'Biotechnology & Biomolecular Sciences',
-                'BEES': 'Biological, Earth & Environmental Science',
-                'BEIL': 'BE Interdisciplinary Learning',
-                'BENV': 'Built Environment',
-                'BINF': 'Bioinformatics',
-                'BIOC': 'Biochemistry',
-                'BIOM': 'Biomedical Engineering',
-                'BIOS': 'Biological Science',
-                'BLDG': 'Building',
-                'CDEV': 'Career Development',
-                'CEIC': 'Chemical Engineering and Industrial Chemistry',
-                'CHEM': 'Chemistry',
-                'CHEN': 'Chemical Engineering',
-                'CLIM': 'Climate Science',
-                'CODE': 'Computational Design',
-                'COMD': 'Development Studies',
-                'COMM': 'Commerce',
-                'COMP': 'Computer Science',
-                'CONS': 'Construction Management',
-                'CRIM': 'Criminology',
-                'CRTV': 'Creative practice',
-                'CVEN': 'Civil and Environmental Engineering',
-                'DART': 'Domain Art',
-                'DATA': 'Data Science',
-                'DDES': 'Domain Design',
-                'DESN': 'Design Next',
-                'DIET': 'Nutrition & Dietetics',
-                'DPBS': 'Global Diploma - Business',
-                'DPDE': 'Global Diploma- Design',
-                'DPGE': 'Global Diploma - General Education',
-                'DPHU': 'Global Diploma - Humanities',
-                'DPST': 'Global Diploma - STEM',
-                'ECON': 'Economics',
-                'EDST': 'Education Studies',
-                'ELEC': 'Electrical Engineering',
-                'ENGG': 'Engineering interdisciplinary',
-                'ENTR': 'Entrepreneurship',
-                'EXCH': 'Exchange',
-                'EXPT': 'Exercise Science, Exercise Physiology and Physiotherapy',
-                'FADA': 'Arts, Design & Architecture',
-                'FINS': 'Finance',
-                'FOOD': 'Food Technology',
-                'GENC': 'UNSW Business School',
-                'GENE': 'General Education - Faculty of Engineering',
-                'GENL': 'General Education - Faculty of Law',
-                'GENM': 'General Education - Faculty of Medicine',
-                'GENS': 'General Education - Faculty of Science',
-                'GENY': 'General Education - The Learning Centre',
-                'GEOL': 'Geology',
-                'GEOS': 'Geoscience',
-                'GMAT': 'Surveying & Spatial Information Systems',
-                'GSBE': 'Architecture',
-                'GSOE': 'Engineering',
-                'HDAT': 'Health Data Science',
-                'HESC': 'Health and Exercise Science',
-                'HLTH': 'Health',
-                'HUML': 'Humanities and Languages',
-                'HUMS': 'Humanities',
-                'IDES': 'Industrial Design',
-                'IEST': 'Institute of Environmental Studies',
-                'INFS': 'Information Systems',
-                'INST': 'International Studies',
-                'INTA': 'Interior Architecture',
-                'JURD': 'Juris Doctor',
-                'LAND': 'Landscape Architecture',
-                'LAWS': 'Law',
-                'LING': 'Linguistics',
-                'MANF': 'Manufacturing Engineering',
-                'MARK': 'Marketing',
-                'MATH': 'Mathematics',
-                'MATS': 'Materials Science and Engineering',
-                'MBAE': 'Management',
-                'MBAX': 'Management',
-                'MDCN': 'Medicine',
-                'MDIA': 'Media',
-                'MECH': 'Mechanical Engineering',
-                'MERE': 'Minerals and Energy Resources Engineering',
-                'MFAC': 'Medicine',
-                'MFIN': 'Finance',
-                'MGMT': 'Management',
-                'MICR': 'Microbiology',
-                'MINE': 'Mining Engineering',
-                'MMAN': 'Mechanical & Manufacturing Engineering',
-                'MNGT': 'Management',
-                'MNNG': 'Mining',
-                'MODL': 'Modern Language Studies',
-                'MSCI': 'Marine Science',
-                'MTRN': 'Mechatronic Engineering',
-                'MUPS': 'Urban Policy and Strategy',
-                'MUSC': 'Music',
-                'NANO': 'Nanotechnology',
-                'NAVL': 'Naval Architecture',
-                'NCHR': 'HIV Social Research',
-                'NEUR': 'Neuroscience',
-                'OPTM': 'Optometry',
-                'PATH': 'Pathology',
-                'PHAR': 'Pharmacology',
-                'PHCM': 'Public Health and Community Medicine',
-                'PHRM': 'Pharmacy',
-                'PHSL': 'Physiology',
-                'PHTN': 'Photonics',
-                'PHYS': 'Physics',
-                'PLAN': 'Planning and Urban Development',
-                'PLTX': 'Practical Legal Training Program',
-                'POLS': 'Political Science',
-                'PSCY': 'Psychiatry',
-                'PSYC': 'Psychology',
-                'PTRL': 'Petroleum Engineering',
-                'REGZ': 'Registrar\'s Division',
-                'REST': 'Real Estate',
-                'RISK': 'Risk Management',
-                'SAHT': 'Art History',
-                'SART': 'Art',
-                'SCIF': 'Faculty of Science',
-                'SDES': 'Design Studies',
-                'SENG': 'Software Engineering',
-                'SLSP': 'Social Science and Policy',
-                'SOCF': 'Social Work',
-                'SOCW': 'Social Work',
-                'SOLA': 'Photovoltaics and Solar Energy',
-                'SOMS': 'Medical Science',
-                'SOSS': 'Social Sciences',
-                'SPRC': 'Social Policy',
-                'SRAP': 'Social Research and Policy',
-                'STAM': 'Arts and Media',
-                'SUSD': 'Sustainable Development',
-                'SWCH': 'Women & Children\'s Health',
-                'TABL': 'Taxation and Business Law',
-                'TELE': 'Telecommunications',
-                'UDES': 'Urban Development Studies',
-                'VISN': 'Vision Science',
-                'ZBUS': 'Business',
-                'ZEIT': 'Engineering and Technology',
-                'ZGEN': 'University College General Education',
-                'ZINT': 'University College (Interdisciplinary)',
-                'ZPEM': 'Physical, Environmental & Mathematical Sciences',
-                'ZSPS': 'Professional Studies Canberra',
-                'ZZCA': 'Canberra Accelerated'
-            }
-
-        const facultyMapping = {
-            'ACCT': 'BUSINESS',
-            'ACTL': 'BUSINESS',
-            'ADAD': 'ADA',
-            'AERO': 'ENG',
-            'AGSM': 'BUSINESS',
-            'ANAT': 'MED',
-            'ARCH': 'ADA',
-            'ATSI': 'DVC',
-            'AVIA': 'SCIENCE',
-            'AVIG': 'SCIENCE',
-            'ARTS': 'ADA',
-            'BABS': 'SCIENCE',
-            'BEES': 'SCIENCE',
-            'BEIL': 'ADA',
-            'BENV': 'ADA',
-            'BINF': 'ENG',
-            'BIOC': 'SCIENCE',
-            'BIOM': 'ENG',
-            'BIOS': 'SCIENCE',
-            'BLDG': 'ADA',
-            'CDEV': 'DVC',
-            'CEIC': 'ENG',
-            'CHEM': 'SCIENCE',
-            'CHEN': 'ENG',
-            'CLIM': 'SCIENCE',
-            'CODE': 'ADA',
-            'COMD': 'ADA',
-            'COMM': 'BUSINESS',
-            'COMP': 'ENG',
-            'CONS': 'ENG',
-            'CRIM': 'LAW',
-            'CVEN': 'ENG',
-            'DART': 'ADA',
-            'DATA': 'ENG',
-            'DDES': 'ADA',
-            'DESN': 'ENG',
-            'DIET': 'MED',
-            'ECON': 'BUSINESS',
-            'EDST': 'ADA',
-            'ELEC': 'ENG',
-            'ENGG': 'ENG',
-            'ENTR': 'BUSINESS',
-            'EXPT': 'MED',
-            'FADA': 'ADA',
-            'FINS': 'Finance',
-            'FOOD': 'ENG',
-            'GENC': 'BUSINESS',
-            'GENE': 'ENG',
-            'GENL': 'LAW',
-            'GENM': 'MED',
-            'GENS': 'SCIENCE',
-            'GEOS': 'SCIENCE',
-            'GMAT': 'ENG',
-            'GSOE': 'ENG',
-            'HDAT': 'MED',
-            'HLTH': 'MED',
-            'HUMS': 'ADA',
-            'IDES': 'ADA',
-            'IEST': 'ADA',
-            'INFS': 'BUSINESS',
-            'INST': 'ADA',
-            'INTA': 'ADA',
-            'JURD': 'LAW',
-            'LAND': 'ADA',
-            'LAWS': 'LAW',
-            'LING': 'ADA',
-            'MANF': 'ENG',
-            'MARK': 'BUSINESS',
-            'MATH': 'SCIENCE',
-            'MATS': 'ENG',
-            'MBAE': 'BUSINESS',
-            'MDIA': 'ADA',
-            'MECH': 'ENG',
-            'MERE': 'ENG',
-            'MFIN': 'Finance',
-            'MGMT': 'BUSINESS',
-            'MICR': 'SCIENCE',
-            'MINE': 'ENG',
-            'MMAN': 'ENG',
-            'MNGT': 'BUSINESS',
-            'MODL': 'ADA',
-            'MSCI': 'SCIENCE',
-            'MTRN': 'ENG',
-            'MUSC': 'ADA',
-            'NEUR': 'MED',
-            'OPTM': 'MED',
-            'PATH': 'MED',
-            'PHAR': 'Pharmacology',
-            'PHCM': 'MED',
-            'PHRM': 'MED',
-            'PHSL': 'MED',
-            'PHTN': 'ENG',
-            'PHYS': 'SCIENCE',
-            'PLAN': 'ADA',
-            'PLTX': 'LAW',
-            'POLS': 'ADA',
-            'PSCY': 'MED',
-            'PSYC': 'SCIENCE',
-            'PTRL': 'ENG',
-            'REST': 'ADA',
-            'RISK': 'BUSINESS',
-            'SAHT': 'ADA',
-            'SCIF': 'SCIENCE',
-            'SENG': 'ENG',
-            'SOCF': 'ADA',
-            'SOCW': 'ADA',
-            'SOLA': 'ENG',
-            'SOMS': 'MED',
-            'SOSS': 'ADA',
-            'SRAP': 'ADA',
-            'SUSD': 'ADA',
-            'SWCH': 'MED',
-            'TABL': 'BUSINESS',
-            'TELE': 'ENG',
-            'UDES': 'ADA',
-            'VISN': 'MED',
-            'ZBUS': 'CANBERRA',
-            'ZEIT': 'CANBERRA',
-            'ZGEN': 'CANBERRA',
-            'ZINT': 'CANBERRA',
-            'ZPEM': 'CANBERRA',
-            'ZSPS': 'CANBERRA',
-            'ZZCA': 'CANBERRA'
-        };
-
-        window.sdgNames = {  // Make sdgNames globally available
-            1: "No Poverty",
-            2: "Zero Hunger",
-            3: "Good Health and Well-being",
-            4: "Quality Education",
-            5: "Gender Equality",
-            6: "Clean Water and Sanitation",
-            7: "Affordable and Clean Energy",
-            8: "Decent Work and Economic Growth",
-            9: "Industry, Innovation and Infrastructure",
-            10: "Reduced Inequalities",
-            11: "Sustainable Cities and Communities",
-            12: "Responsible Consumption and Production",
-            13: "Climate Action",
-            14: "Life Below Water",
-            15: "Life on Land",
-            16: "Peace, Justice and Strong Institutions",
-            17: "Partnerships for the Goals"
-        };
-
-        // Sidebar toggle
-        document.getElementById('toggle-sidebar').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.toggle('active');
-            document.getElementById('main-content').classList.toggle('sidebar-active');
-        });
-
-        // Responsive plot handling
-        window.addEventListener('resize', function () {
-            const update = {
-                width: document.getElementById('plot-container').offsetWidth,
-                height: document.getElementById('plot-container').offsetHeight
-            };
-            Plotly.relayout('plot-container', update);
-        });
-
-        function getPlotDimensions() {
-            const container = document.getElementById('plot-container');
-            return {
-                width: container.offsetWidth,
-                height: container.offsetHeight
-            };
-        }
-
-        function toggleDisclaimer() {
-            const content = document.getElementById('disclaimerContent');
-            const button = document.querySelector('.disclaimer-button');
-
-            if (content.style.display === '' || content.style.display === 'block') {
-                content.style.display = 'none';
-                button.innerHTML = '▼ Disclaimer';
-                button.classList.remove('active');
-            } else {
-                content.style.display = 'block';
-                button.innerHTML = '▲ Disclaimer';
-                button.classList.add('active');
-            }
-        }
-
-        // Optional: Show disclaimer by default when page loads
-        document.addEventListener('DOMContentLoaded', function () {
-            toggleDisclaimer();
-        });
-
-        function getDisciplines(data, selectedFaculty = 'ALL') {
-            const disciplines = new Set(
-                data
-                    .filter(row => {
-                        const discipline = row.course_code.substring(0, 4);
-                        return selectedFaculty === 'ALL' || facultyMapping[discipline] === selectedFaculty;
-                    })
-                    .map(row => row.course_code.substring(0, 4))
-            );
-            return Array.from(disciplines).sort();
-        }
-
-        async function loadData() {
-            try {
-                const response = await fetch(currentDataFile);
-                const csvText = await response.text();
-                const lines = csvText.split('\n');
-
-                const data = lines.slice(1).map(line => {
-                    const [course_code, sdg_number, sdg_name, addressed, justification, timestamp] = line.split(',');
-
-                    return {
-                        course_code: course_code?.trim(),
-                        sdg_number: parseInt(sdg_number?.trim()) || 0, // Convert "0" or invalid numbers to 0
-                        sdg_name: sdg_name?.trim(),
-                        addressed: addressed?.trim().toLowerCase() === 'yes' ||
-                            addressed?.trim().toLowerCase() === 'supported' ||
-                            addressed?.trim().toLowerCase() === 'focus',
-                        justification: justification?.trim(),
-                        timestamp: timestamp?.trim()
-                    };
-                }).filter(row => row.course_code);
-
-                // Get disciplines filtered by current faculty
-                const disciplines = getDisciplines(data, currentFaculty);
-                const select = document.getElementById('disciplineSelect');
-
-                // Set initial discipline if not set
-                if (!currentDiscipline || !disciplines.includes(currentDiscipline)) {
-                    currentDiscipline = disciplines[0];
-                }
-
-                // Populate select with full names
-                select.innerHTML = disciplines.map(discipline =>
-                    `<option value="${discipline}" ${discipline === currentDiscipline ? 'selected' : ''}>
-                        ${specializationNames[discipline] || discipline}
-                    </option>`
-                ).join('');
-
-                return data;
-            } catch (error) {
-                console.error('Error loading data:', error);
-                return [];
-            }
-        }
-
-        function getCourseYear(courseCode) {
-            const yearNum = parseInt(courseCode.charAt(4));
-            return yearNum >= 5 ? 4 : yearNum;
-        }
-
-
-        function filterDataByDiscipline(data, discipline) {
-            return data.filter(row => {
-                const rowDiscipline = row.course_code.substring(0, 4);
-                const rowFaculty = facultyMapping[rowDiscipline];
-
-                // First filter by faculty if selected
-                if (currentFaculty !== 'ALL' && rowFaculty !== currentFaculty) {
-                    return false;
-                }
-
-                // Then filter by discipline
-                return rowDiscipline === discipline;
-            });
-        }
-
-        function createHeatmap(data, isCumulative) {
-            data = filterDataByDiscipline(data, currentDiscipline);
-
-            const courseSDGs = {};
-
-
-            // Initialize all SDGs for each course
-            data.forEach(row => {
-                if (!courseSDGs[row.course_code]) {
-                    courseSDGs[row.course_code] = {};
-                    // Initialize all SDGs to 0
-                    for (let i = 1; i <= 17; i++) {
-                        courseSDGs[row.course_code][i] = 0;
-                    }
-                }
-                if (row.addressed) {
-                    courseSDGs[row.course_code][row.sdg_number] = 1;
-                }
-            });
-
-            const courseJustifications = {};
-            data.forEach(row => {
-                if (!courseJustifications[row.course_code]) {
-                    courseJustifications[row.course_code] = {};
-                }
-                if (row.addressed && row.justification) {
-                    courseJustifications[row.course_code][row.sdg_number] = row.justification;
-                }
-            });
-
-            const courses = Object.keys(courseSDGs).sort((a, b) => {
-                const yearA = getCourseYear(a);
-                const yearB = getCourseYear(b);
-                return yearA - yearB || a.localeCompare(b);
-            });
-
-            // Use all SDGs 1-17 instead of extracting from data
-            const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
-            const matrix = sdgNumbers.map(sdg => {
-                if (isCumulative) {
-                    let sum = 0;
-                    return courses.map(course => {
-                        sum += courseSDGs[course][sdg] || 0;
-                        return sum;
-                    });
-                } else {
-                    return courses.map(course => courseSDGs[course][sdg] || 0);
-                }
-            });
-
-            const dimensions = getPlotDimensions();
-            const layout = {
-                title: '',
-                xaxis: {
-                    showtitle: false,
-                    ticktext: courses,
-                    tickvals: courses.map((_, i) => i),
-                    tickangle: 45,
-                    tickfont: { size: 16 },
-                    automargin: true
-                },
-                yaxis: {
-                    showtitle: false,
-                    ticktext: sdgNumbers.map(num => `SDG ${num} - ${window.sdgNames[num]}`),
-                    tickvals: sdgNumbers.map((_, i) => i),
-                    tickfont: { size: 16 },
-                    automargin: true
-                },
-                margin: {
-                    l: 250,
-                    r: 50,
-                    b: 150,
-                    t: 20
-                },
-                width: dimensions.width,
-                height: dimensions.height
-            };
-
-
-            const hoverText = sdgNumbers.map(sdg => {
-                return courses.map(course => {
-                    const value = courseSDGs[course][sdg];
-                    const justification = courseJustifications[course][sdg] || '';
-                    return `Course: ${course}<br>` +
-                        `SDG ${sdg}: ${window.sdgNames[sdg]}<br>` +
-                        `Present: ${value ? 'Yes' : 'No'}<br>` +
-                        `Justification: ${justification}`;
-                });
-            });
-
-            const plotData = [{
-                z: matrix,
-                type: 'heatmap',
-                colorscale: 'YlOrRd',
-                reversescale: true,
-                hoverongaps: false,
-                hoverinfo: 'text',
-                text: hoverText
-            }];
-
-            Plotly.newPlot('plot-container', plotData, layout);
-
-            if (isCumulative) {
-                // Store the final values for each SDG
-                window.finalCumulativeValues = sdgNumbers.map(sdg =>
-                    matrix[sdgNumbers.indexOf(sdg)][courses.length - 1] || 0
-                );
-            }
-        }
-
-        function createRadar(data) {
-            data = filterDataByDiscipline(data, currentDiscipline);
-
-            // First create cumulative heatmap to get final values
-            createHeatmap(data, true);
-
-            // Use all SDGs 1-17
-            const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
-            const values = window.finalCumulativeValues || sdgNumbers.map(() => 0);
-            const maxValue = Math.max(...values, 1); // Use at least 1 to avoid division by zero
-            const percentages = values.map(v => (v / maxValue) * 100);
-
-            const labels = sdgNumbers.map((sdg, i) =>
-                `SDG ${sdg} - ${window.sdgNames[sdg]}`
-            );
-
-            labels.push(labels[0]);
-            percentages.push(percentages[0]);
-
-            const dimensions = getPlotDimensions();
-            const plotData = [{
-                type: 'scatterpolar',
-                r: percentages,
-                theta: labels,
-                fill: 'toself',
-                name: 'SDG Coverage',
-                fillcolor: 'rgba(254, 204, 92, 0.3)',
-                line: {
-                    color: 'rgb(240, 59, 32)',
-                    shape: 'spline',
-                    smoothing: 0.35,
-                    width: 2
-                }
-            }];
-
-            const layout = {
-                polar: {
-                    radialaxis: {
-                        visible: true,
-                        range: [0, 100],
-                        ticksuffix: '%',
-                        tickvals: [0, 25, 50, 75, 100],
-                        ticktext: ['0%', '25%', '50%', '75%', '100%'],
-                        linecolor: 'rgb(253, 141, 60)',
-                        gridcolor: 'rgb(254, 204, 92)',
-                        tickfont: { size: 16 }
-                    },
-                    angularaxis: {
-                        linecolor: 'rgb(253, 141, 60)',
-                        gridcolor: 'rgb(254, 204, 92)',
-                        tickfont: { size: 16 },
-                        rotation: 90,
-                        direction: "clockwise"
-                    }
-                },
-                showlegend: false,
-                margin: {
-                    l: 300,
-                    r: 300,
-                    t: 100,
-                    b: 100
-                },
-                width: dimensions.width,
-                height: dimensions.height,
-                paper_bgcolor: 'white',
-                plot_bgcolor: 'white'
-            };
-
-            Plotly.newPlot('plot-container', plotData, layout);
-        }
-
-        function updateCourseCount(data) {
-            // Count all unique courses without any filtering
-            const uniqueCourses = new Set(data.map(row => row.course_code));
-            const countElement = document.getElementById('course-count');
-            countElement.innerHTML = `Total Courses: <strong>${uniqueCourses.size}</strong>`;
-        }
-
-        let currentSDG = 1;
-
-        function createBubbleChart(data, selectedSDG = 1) {  // Add default parameter
-            // Clear existing plot
-            d3.select('#plot-container').html('');
-
-            const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-            const width = document.getElementById('plot-container').offsetWidth - margin.left - margin.right;
-            const height = document.getElementById('plot-container').offsetHeight - margin.top - margin.bottom;
-
-            // Define faculty colors
-            const facultyColors = {
-                'ADA': '#2C3E50',     // Dark blue-gray
-                'BUSINESS': '#E74C3C', // Deep red
-                'ENG': '#3498DB',     // Medium blue
-                'LAW': '#8E44AD',     // Deep purple
-                'MED': '#16A085',     // Teal
-                'SCIENCE': '#27AE60', // Forest green
-                'CANBERRA': '#F39C12' // Deep orange
-            };
-
-            // Process data
-            const specCounts = {};
-            const sdgCounts = {};
-
-            data.forEach(row => {
-                const spec = row.course_code.substring(0, 4);
-                if (!specCounts[spec]) {
-                    specCounts[spec] = new Set();
-                    sdgCounts[spec] = new Set();
-                }
-                specCounts[spec].add(row.course_code);
-                // Only count SDGs that match selected SDG and are addressed
-                if (row.sdg_number === selectedSDG && row.addressed) {
-                    sdgCounts[spec].add(row.course_code);
-                }
-            });
-
-            data = currentFaculty === 'ALL' ? data : data.filter(row => {
-                const discipline = row.course_code.substring(0, 4);
-                return facultyMapping[discipline] === currentFaculty;
-            });
-
-
-            const bubbleData = Object.keys(specCounts)
-                .map(spec => ({
-                    id: spec,
-                    name: specializationNames[spec] || spec,
-                    value: specCounts[spec].size,
-                    sdgCount: sdgCounts[spec].size,  // Renamed from sdg1Count
-                    percentage: (sdgCounts[spec].size / specCounts[spec].size) * 100,
-                    faculty: facultyMapping[spec] || 'OTHER'
-                }))
-                .filter(item => item.value > 0)
-                .sort((a, b) => a.percentage - b.percentage);
-
-            // Find maximum percentage for dynamic scaling
-            const maxPercentage = Math.ceil(d3.max(bubbleData, d => d.percentage) / 10) * 10;
-
-            // Create scales
-            const xScale = d3.scaleLinear()
-                .domain([0, maxPercentage])
-                .range([0, width]);
-
-            const radiusScale = d3.scaleSqrt()
-                .domain([0, d3.max(bubbleData, d => d.value)])
-                .range([5, 40]);
-
-            // Create simulation for collision detection
-            const simulation = d3.forceSimulation(bubbleData)
-                .force('x', d3.forceX(d => xScale(d.percentage)).strength(1))
-                .force('y', d3.forceY(height / 2).strength(0.1))
-                .force('collision', d3.forceCollide().radius(d => radiusScale(d.value) + 1))
-                .stop();
-
-            // Run the simulation
-            for (let i = 0; i < 120; i++) simulation.tick();
-
-            // Create SVG
-            const svg = d3.select('#plot-container')
-                .append('svg')
-                .attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.top + margin.bottom)
-                .append('g')
-                .attr('transform', `translate(${margin.left},${margin.top})`);
-
-            // Add title
-            svg.append('text')
-                .attr('x', width / 2)
-                .attr('y', -20)
-                .attr('text-anchor', 'middle')
-                .style('font-size', '20px')
-                .style('font-weight', 'bold')
-                .text(`SDG ${selectedSDG} - ${window.sdgNames[selectedSDG]}`);
-
-            // Add vertical grid lines
-            const gridLines = svg.append('g')
-                .attr('class', 'grid-lines');
-
-            // Create vertical lines at 10% intervals
-            const percentages = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-            percentages.forEach(percent => {
-                gridLines.append('line')
-                    .attr('x1', xScale(percent))
-                    .attr('x2', xScale(percent))
-                    .attr('y1', 0)
-                    .attr('y2', height)
-                    .attr('stroke', '#dde')
-                    .attr('stroke-width', 2);
-
-                // Add percentage labels at bottom
-                gridLines.append('text')
-                    .attr('x', xScale(percent))
-                    .attr('y', height + 20)
-                    .attr('text-anchor', 'middle')
-                    .style('font-size', '16px')
-                    .style('fill', '#666')
-                    .text(percent + '%');
-            });
-
-            // Add bubbles using simulation positions
-            const bubbles = svg.selectAll('circle')
-                .data(bubbleData)
-                .join('circle')
-                .attr('cx', d => d.x)
-                .attr('cy', d => d.y)
-                .attr('r', d => radiusScale(d.value))
-                .attr('fill', d => facultyColors[d.faculty] || '#999999')
-                .attr('opacity', 0.7)
-                .attr('stroke', '#fff')
-                .attr('stroke-width', 2);
-
-            // Add labels for larger bubbles
-            /*
-            const labels = svg.selectAll('text.bubble-label')
-                .data(bubbleData.filter(d => radiusScale(d.value) > 15))
-                .join('text')
-                .attr('class', 'bubble-label')
-                .attr('x', d => d.x)
-                .attr('y', d => d.y)
-                .attr('text-anchor', 'middle')
-                .attr('dominant-baseline', 'middle')
-                .style('font-size', d => Math.min(radiusScale(d.value) / 2, 12) + 'px')
-                .style('fill', '#333')
-                .style('pointer-events', 'none')
-                .text(d => d.name);
-            */
-
-            // Add labels group
-            const labelsGroup = svg.append('g')
-                .attr('class', 'labels-group');
-
-            // Create labels
-            const labels = labelsGroup.selectAll('text')
-                .data(bubbleData)
-                .join('text')
-                .attr('class', 'bubble-label')
-                .attr('x', d => d.x)
-                .attr('y', d => d.y)
-                .attr('text-anchor', 'middle')
-                .attr('dominant-baseline', 'middle')
-                .style('pointer-events', 'none')
-                .style('opacity', 1)
-                .style('font-weight', 'bold')
-                .style('fill', '#fff')
-                .text(d => d.id)
-                .style('font-size', d => {
-                    const fontSize = radiusScale(d.value) * 0.5;
-                    return `${Math.min(fontSize, 14)}px`;
-                })
-                .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block'); // Hide text for very small bubbles
-
-            // Add toggle labels functionality
-            let labelsVisible = true;
-            document.getElementById('toggleLabels').addEventListener('click', function () {
-                labelsVisible = !labelsVisible;
-                this.classList.toggle('active');
-
-                labelsGroup.selectAll('.bubble-label')
-                    .transition()
-                    .duration(300)
-                    .style('opacity', labelsVisible ? 1 : 0);
-            });
-
-            // Modify bubble interactions to handle label visibility
-            bubbles.on('mouseover', function (event, d) {
-                d3.select(this)
-                    .attr('opacity', 1)
-                    .attr('stroke-width', 3);
-
-                // Hide label if showing during hover
-                if (labelsVisible) {
-                    labelsGroup.selectAll('.bubble-label')
-                        .filter(td => td.id === d.id)
-                        .style('opacity', 0);
-                }
-
-                // Show tooltip
-                tooltipGroup.selectAll('.tooltip-overlay')
-                    .filter(td => td.id === d.id)
-                    .transition()
-                    .duration(200)
-                    .style('opacity', 1);
-            })
-                .on('mouseout', function (event, d) {
-                    d3.select(this)
-                        .attr('opacity', 0.7)
-                        .attr('stroke-width', 2);
-
-                    // Restore label if labels are showing
-                    if (labelsVisible) {
-                        labelsGroup.selectAll('.bubble-label')
-                            .filter(td => td.id === d.id)
-                            .style('opacity', 1);
-                    }
-
-                    // Hide tooltip
-                    tooltipGroup.selectAll('.tooltip-overlay')
-                        .transition()
-                        .duration(200)
-                        .style('opacity', 0);
-                });
-
-
-            // Add legend inside the plot
-            const legendGroup = svg.append('g')
-                .attr('class', 'legend')
-                .attr('transform', `translate(${width - 220}, 20)`);
-
-            // Add white background for legend
-            legendGroup.append('rect')
-                .attr('width', 180)
-                .attr('height', Object.keys(facultyColors).length * 25 + 10)
-                .attr('fill', 'white')
-                .attr('stroke', '#fff')
-                .attr('rx', 5)
-                .attr('ry', 5)
-                .style('opacity', 0.9);
-
-            // Add legend items
-            const legendItems = legendGroup.selectAll('.legend-item')
-                .data(Object.entries(facultyColors))
-                .join('g')
-                .attr('class', 'legend-item')
-                .attr('transform', (d, i) => `translate(10, ${i * 25 + 15})`);
-
-            // Add colored circles for legend
-            legendItems.append('circle')
-                .attr('r', 6)
-                .attr('fill', d => d[1])
-                .attr('opacity', 0.7)
-                .attr('stroke', '#fff')
-                .attr('stroke-width', 1);
-
-            // Add faculty labels
-            legendItems.append('text')
-                .attr('x', 15)
-                .attr('y', 5)
-                .style('font-size', '16px')
-                .text(d => facultyNames[d[0]] || d[0]);
-        }
-
-
-        function downloadPNG() {
-            const svg = document.querySelector('#plot-container svg');
-            const svgData = new XMLSerializer().serializeToString(svg);
-
-            // Create canvas
-            const canvas = document.createElement('canvas');
-            const box = svg.getBoundingClientRect();
-            canvas.width = box.width;
-            canvas.height = box.height;
-
-            // Create image
-            const img = new Image();
-            const blob = new Blob([svgData], { type: 'image/svg+xml' });
-            const url = URL.createObjectURL(blob);
-
-            img.onload = () => {
-                const context = canvas.getContext('2d');
-                // Set white background
-                context.fillStyle = 'white';
-                context.fillRect(0, 0, canvas.width, canvas.height);
-                // Draw SVG
-                context.drawImage(img, 0, 0);
-
-                // Download PNG
-                const a = document.createElement('a');
-                a.href = canvas.toDataURL('image/png');
-                a.download = `sdg_distribution_${currentSDG}.png`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            };
-
-            img.src = url;
-        }
-
-        let currentDataFile = 'sdg_analysis_llm_match.csv';
-
-        document.getElementById('analysisType').addEventListener('change', function () {
-            currentDataFile = this.value;
-
-            loadData().then(data => {
-                updateCourseCount(data);
-
-                // Determine which visualization is currently active
-                if (document.getElementById('bubbleBtn').classList.contains('active')) {
-                    createBubbleChart(data, currentSDG);
-                } else if (document.getElementById('radarBtn').classList.contains('active')) {
-                    createRadar(data);
-                } else if (document.getElementById('heatmapBtn').classList.contains('active')) {
-                    createHeatmap(data, false);
-                } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
-                    createHeatmap(data, true);
-                }
-            });
-        });
-
-        // Add event listeners
-        document.getElementById('exportPNG').addEventListener('click', downloadPNG);
-
-        // Update the event listeners
-        document.getElementById('sdgSelect').addEventListener('change', function () {
-            currentSDG = parseInt(this.value);
-            // Activate bubble button
-            document.getElementById('bubbleBtn').classList.add('active');
-            document.getElementById('heatmapBtn').classList.remove('active');
-            document.getElementById('cumulativeBtn').classList.remove('active');
-            document.getElementById('radarBtn').classList.remove('active');
-            // Create the plot
-            loadData().then(data => createBubbleChart(data, currentSDG));
-        });
-
-        document.getElementById('bubbleBtn').addEventListener('click', function () {
-            this.classList.add('active');
-            document.getElementById('heatmapBtn').classList.remove('active');
-            document.getElementById('cumulativeBtn').classList.remove('active');
-            document.getElementById('radarBtn').classList.remove('active');
-            const selectedSDG = parseInt(document.getElementById('sdgSelect').value);
-            loadData().then(data => createBubbleChart(data, selectedSDG));
-        });
-
-        // Event listeners
-        document.getElementById('heatmapBtn').addEventListener('click', function () {
-            this.classList.add('active');
-            document.getElementById('cumulativeBtn').classList.remove('active');
-            document.getElementById('radarBtn').classList.remove('active');
-            document.getElementById('bubbleBtn').classList.remove('active');
-            loadData().then(data => createHeatmap(data, false));
-        });
-
-        document.getElementById('cumulativeBtn').addEventListener('click', function () {
-            this.classList.add('active');
-            document.getElementById('heatmapBtn').classList.remove('active');
-            document.getElementById('radarBtn').classList.remove('active');
-            document.getElementById('bubbleBtn').classList.remove('active');
-            loadData().then(data => createHeatmap(data, true));
-        });
-
-        document.getElementById('radarBtn').addEventListener('click', function () {
-            this.classList.add('active');
-            document.getElementById('heatmapBtn').classList.remove('active');
-            document.getElementById('cumulativeBtn').classList.remove('active');
-            document.getElementById('bubbleBtn').classList.remove('active');
-            loadData().then(data => createRadar(data));
-        });
-
-        document.getElementById('disciplineSelect').addEventListener('change', function () {
-            currentDiscipline = this.value;
-
-            loadData().then(data => {
-                if (document.getElementById('radarBtn').classList.contains('active')) {
-                    createRadar(data);
-                } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
-                    createHeatmap(data, true);
-                } else {
-                    createHeatmap(data, false);
-                }
-            });
-        });
-
-        document.getElementById('facultySelect').addEventListener('change', function () {
-            currentFaculty = this.value;
-
-            loadData().then(data => {
-                // Update visualization
-                if (document.getElementById('radarBtn').classList.contains('active')) {
-                    createRadar(data);
-                } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
-                    createHeatmap(data, true);
-                } else {
-                    createHeatmap(data, false);
-                }
-            });
-        });
-
-        // Initial load
+      }).filter(d => d.value > 0)
+        .sort((a, b) => a.percentage - b.percentage);
+
+      const maxPercentage = Math.ceil(d3.max(bubbleData, d => d.percentage) / 10) * 10 || 10;
+      const xScale = d3.scaleLinear()
+        .domain([0, maxPercentage])
+        .range([0, width]);
+      const radiusScale = d3.scaleSqrt()
+        .domain([0, d3.max(bubbleData, d => d.value)])
+        .range([5, 40]);
+
+      const simulation = d3.forceSimulation(bubbleData)
+        .force('x', d3.forceX(d => xScale(d.percentage)).strength(1))
+        .force('y', d3.forceY(height / 2).strength(0.1))
+        .force('collision', d3.forceCollide().radius(d => radiusScale(d.value) + 1))
+        .stop();
+
+      for (let i = 0; i < 120; i++) simulation.tick();
+
+      const svg = d3.select('#plot-container')
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      // Title
+      svg.append('text')
+        .attr('x', width / 2)
+        .attr('y', -20)
+        .attr('text-anchor', 'middle')
+        .style('font-size', '20px')
+        .style('font-weight', 'bold')
+        .text(`SDG ${selectedSDG} - ${sdgNames[selectedSDG]}`);
+
+      // Grid lines
+      const gridLines = svg.append('g');
+      for (let p = 0; p <= 100; p += 10) {
+        gridLines.append('line')
+          .attr('x1', xScale(p))
+          .attr('x2', xScale(p))
+          .attr('y1', 0)
+          .attr('y2', height)
+          .attr('stroke', '#dde')
+          .attr('stroke-width', 2);
+
+        gridLines.append('text')
+          .attr('x', xScale(p))
+          .attr('y', height + 20)
+          .attr('text-anchor', 'middle')
+          .style('font-size', '16px')
+          .style('fill', '#666')
+          .text(p + '%');
+      }
+
+      const bubbles = svg.selectAll('circle')
+        .data(bubbleData)
+        .join('circle')
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y)
+        .attr('r', d => radiusScale(d.value))
+        .attr('fill', d => facultyColors[d.faculty] || '#999999')
+        .attr('opacity', 0.7)
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 2);
+
+      // Bubble labels
+      const labelsGroup = svg.append('g').attr('class', 'labels-group');
+      const labels = labelsGroup.selectAll('.bubble-label')
+        .data(bubbleData)
+        .join('text')
+        .attr('x', d => d.x)
+        .attr('y', d => d.y)
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'middle')
+        .style('font-weight', 'bold')
+        .style('fill', '#fff')
+        .text(d => d.id)
+        .style('font-size', d => {
+          const fs = radiusScale(d.value) * 0.5;
+          return `${Math.min(fs, 14)}px`;
+        })
+        .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block');
+
+      // Toggle labels
+      let labelsVisible = true;
+
+
+      // Legend
+      const legendGroup = svg.append('g')
+        .attr('class', 'legend')
+        .attr('transform', `translate(${width - 220},20)`);
+
+      legendGroup.append('rect')
+        .attr('width', 180)
+        .attr('height', Object.keys(facultyColors).length * 25 + 10)
+        .attr('fill', 'white')
+        .attr('stroke', '#fff')
+        .attr('rx', 5).attr('ry', 5)
+        .style('opacity', 0.9);
+
+      const legendItems = legendGroup.selectAll('.legend-item')
+        .data(Object.entries(facultyColors))
+        .join('g')
+        .attr('class', 'legend-item')
+        .attr('transform', (d, i) => `translate(10,${i * 25 + 15})`);
+
+      legendItems.append('circle')
+        .attr('r', 6)
+        .attr('fill', d => d[1])
+        .attr('opacity', 0.7)
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 1);
+
+      legendItems.append('text')
+        .attr('x', 15)
+        .attr('y', 5)
+        .style('font-size', '16px')
+        .text(d => facultyNames[d[0]] || d[0]);
+    }
+
+    // PNG Export
+    function downloadPNG() {
+      const svg = document.querySelector('#plot-container svg');
+      if (!svg) return;
+      const svgData = new XMLSerializer().serializeToString(svg);
+
+      const canvas = document.createElement('canvas');
+      const box = svg.getBoundingClientRect();
+      canvas.width = box.width;
+      canvas.height = box.height;
+
+      const img = new Image();
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+
+      img.onload = () => {
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = `sdg_distribution_${currentSDG}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      };
+      img.src = url;
+    }
+    document.getElementById('exportPNG').addEventListener('click', downloadPNG);
+
+    // Event Listeners for Buttons
+ //   document.getElementById('analysisType').addEventListener('change', function () {
+ //     currentDataFile = this.value;
+ //     loadData().then(data => {
+ //       updateCourseCount(data);
+ //       redrawVisualization(data);
+ //     });
+ //   });
+
+    function redrawVisualization(data) {
+      // Which button is active?
+      if (document.getElementById('bubbleBtn').classList.contains('active')) {
+        createBubbleChart(data, currentSDG);
+      } else if (document.getElementById('radarBtn').classList.contains('active')) {
+        createRadar(data);
+      } else if (document.getElementById('heatmapBtn').classList.contains('active')) {
+        createHeatmap(data, false);
+      } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+        createHeatmap(data, true);
+      }
+    }
+
+    document.getElementById('bubbleBtn').addEventListener('click', function () {
+      setActiveVizButton(this);
+      loadData().then(data => createBubbleChart(data, currentSDG));
+    });
+    document.getElementById('radarBtn').addEventListener('click', function () {
+      setActiveVizButton(this);
+      loadData().then(data => createRadar(data));
+    });
+    document.getElementById('heatmapBtn').addEventListener('click', function () {
+      setActiveVizButton(this);
+      loadData().then(data => createHeatmap(data, false));
+    });
+    document.getElementById('cumulativeBtn').addEventListener('click', function () {
+      setActiveVizButton(this);
+      loadData().then(data => createHeatmap(data, true));
+    });
+
+    function setActiveVizButton(btn) {
+      document.getElementById('bubbleBtn').classList.remove('active');
+      document.getElementById('radarBtn').classList.remove('active');
+      document.getElementById('heatmapBtn').classList.remove('active');
+      document.getElementById('cumulativeBtn').classList.remove('active');
+      btn.classList.add('active');
+    }
+
+    // Faculty icon clicks
+    const facultyIconsList = document.getElementById('facultyIconsList');
+    facultyIconsList.querySelectorAll('.faculty-icon-item').forEach(item => {
+      item.addEventListener('click', function () {
+        facultyIconsList.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+        currentFaculty = this.getAttribute('data-faculty');
         loadData().then(data => {
-            // Calculate and display total unique courses across all data
-            const uniqueCourses = new Set(data.map(row => row.course_code));
-            document.getElementById('course-count').innerHTML =
-                `Total Courses: <strong>${uniqueCourses.size}</strong>`;
-
-            // Initial visualization
-            createBubbleChart(data, selectedSDG = 10)
+          if (document.getElementById('radarBtn').classList.contains('active')) {
+            createRadar(data);
+          } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+            createHeatmap(data, true);
+          } else if (document.getElementById('bubbleBtn').classList.contains('active')) {
+            createBubbleChart(data, currentSDG);
+          } else {
+            createHeatmap(data, false);
+          }
         });
-        toggleDisclaimer(); 
-    </script>
+      });
+    });
+
+    // Discipline selection
+    document.getElementById('disciplineSelect').addEventListener('change', function () {
+      currentDiscipline = this.value;
+      loadData().then(data => {
+        if (document.getElementById('radarBtn').classList.contains('active')) {
+          createRadar(data);
+        } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+          createHeatmap(data, true);
+        } else if (document.getElementById('bubbleBtn').classList.contains('active')) {
+          createBubbleChart(data, currentSDG);
+        } else {
+          createHeatmap(data, false);
+        }
+      });
+    });
+
+    // SDG icon clicks
+    const sdgIconsList = document.getElementById('sdgIconsList');
+    sdgIconsList.querySelectorAll('.sdg-icon-item').forEach(item => {
+      item.addEventListener('click', function () {
+        sdgIconsList.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+        currentSDG = parseInt(this.getAttribute('data-sdg')) || 1;
+        // Switch to Bubble by default
+        setActiveVizButton(document.getElementById('bubbleBtn'));
+        loadData().then(data => createBubbleChart(data, currentSDG));
+      });
+    });
+
+    // Initial load
+    loadData().then(data => {
+      updateCourseCount(data);
+      // Default: radar is marked active, but let's show bubble chart for SDG 10 if you want:
+      // For consistency with the "radar" default in code, let's do radar:
+      createRadar(data);
+    });
+  </script>
 </body>
 
 </html>
