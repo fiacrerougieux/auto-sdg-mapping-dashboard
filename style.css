@@ -1,0 +1,623 @@
+/* Basic Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+#sidebar {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  width: 270px;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+#main-content {
+  flex: 1;
+  margin-left: 270px;
+  padding: 20px;
+  width: calc(100% - 270px);
+  transition: margin-left 0.3s ease;
+}
+
+#toggle-sidebar {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  padding: 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Buttons & Selections */
+.switch-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  transition: all 0.3s;
+  text-align: left;
+}
+
+.switch-button.active {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+.switch-button:not(.active) {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  transition: all 0.3s;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+select option:hover:not(:checked) {
+  background-color: #f0f0f0;
+}
+
+select option:checked {
+  background: #4CAF50 !important;
+  color: white !important;
+  -webkit-appearance: none;
+}
+
+/* Scrolling inside selects */
+select::-webkit-scrollbar {
+  width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Section Titles */
+.section-title {
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4CAF50;
+}
+
+.button-group {
+  margin-bottom: 30px;
+}
+
+/* Plot Container */
+#plot-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 40px);
+  width: 100%;
+}
+
+/* Disclaimer Collapsible */
+.disclaimer-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.disclaimer-button {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  text-align: left;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.disclaimer-button:hover {
+  background-color: #e9ecef;
+}
+
+.disclaimer-content {
+  display: none;
+  /* Starts collapsed */
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+.disclaimer-content p {
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+.disclaimer-content ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.disclaimer-content li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.disclaimer-button.active {
+  background-color: #e9ecef;
+}
+
+.disclaimer {
+  background-color: #fff3e0;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.disclaimer h4 {
+  color: #e65100;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.disclaimer p {
+  color: #424242;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.disclaimer ul {
+  color: #424242;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.disclaimer li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+/* SDG Icon Grid in Sidebar */
+.sdg-icons-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.sdg-icon-item {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sdg-icon-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.sdg-icon-item:hover img {
+  transform: scale(1.08);
+}
+
+.sdg-icon-item.active {
+  border: 2px solid #4CAF50;
+}
+
+/* Faculty Icons Grid */
+.faculty-icons-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.faculty-icon-item {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faculty-icon-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.faculty-icon-item:hover img {
+  transform: scale(1.08);
+}
+
+.faculty-icon-item.active {
+  border: 2px solid #4CAF50;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  #sidebar {
+    transform: translateX(-100%);
+  }
+
+  #main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #toggle-sidebar {
+    display: block;
+  }
+
+  #sidebar.active {
+    transform: translateX(0);
+  }
+
+  #main-content.sidebar-active {
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  #main-content.sidebar-active {
+    margin-left: 0;
+    opacity: 0.7;
+  }
+
+  #plot-container {
+    height: calc(100vh - 80px);
+  }
+
+  .switch-button {
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Intro Modal (on page load) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.modal-content p {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.modal-content button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-content button:hover {
+  background: #45a049;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  color: #999;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Second Sidebar */
+#sidebar2 {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  width: 140px;
+  position: fixed;
+  height: 100vh;
+  left: 270px;
+  /* Position next to the first sidebar */
+  top: 0;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+
+/* Style for visualization buttons with icons */
+#sidebar2 .switch-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  padding: 0;
+  font-size: 0;
+  /* Hide any text if present */
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+}
+
+#sidebar2 .switch-button img {
+  width: 100%;
+  /* Adjust icon size to fit within the button */
+  height: 100%;
+  object-fit: contain;
+}
+
+#sidebar2 .switch-button.active {
+  background-color: #4CAF50 !important;
+  border-radius: 4px;
+}
+
+#sidebar2 .switch-button:not(.active):hover {
+  background-color: #f0f0f0;
+}
+
+/* Optional: Remove padding from export-buttons */
+#sidebar2 .export-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+/* Adjust main content to account for two sidebars */
+#main-content {
+  flex: 1;
+  margin-left: 400px;
+  /* 270px (first sidebar) + 270px (second sidebar) */
+  padding: 20px;
+  width: calc(100% - 540px);
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive Adjustments for Two Sidebars */
+@media (max-width: 1024px) {
+
+  #sidebar,
+  #sidebar2 {
+    transform: translateX(-100%);
+  }
+
+  #main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #toggle-sidebar {
+    display: block;
+  }
+
+  #sidebar.active,
+  #sidebar2.active {
+    transform: translateX(0);
+  }
+
+  #main-content.sidebar-active {
+    margin-left: 270px;
+    /* Adjust if needed for one sidebar */
+  }
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 10px; /* Space between switch and label */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4CAF50;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-label {
+  vertical-align: middle;
+  font-size: 1em;
+  color: #333;
+}
+
+/* Ternary Toggle Switch Styles */
+.ternary-toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px; /* Add some space below */
+}
+
+.ternary-toggle {
+  position: relative;
+  width: 90px; /* Adjust width to comfortably fit 3 states */
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.toggle-knob {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px; /* Initial position for state 0 */
+  transition: transform 0.4s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* State 0 (v1 - Left) */
+.ternary-toggle.state-0 {
+  background-color: #ccc; /* Default off color */
+}
+.ternary-toggle.state-0 .toggle-knob {
+  transform: translateX(0px);
+}
+
+/* State 1 (v2 - Middle) */
+.ternary-toggle.state-1 {
+  background-color: #4CAF50; /* Active color */
+}
+.ternary-toggle.state-1 .toggle-knob {
+  transform: translateX(28px); /* Position for middle state */
+}
+
+/* State 2 (v3 - Right) */
+.ternary-toggle.state-2 {
+  background-color: #4CAF50; /* Active color */
+}
+.ternary-toggle.state-2 .toggle-knob {
+  transform: translateX(56px); /* Position for right state */
+}
+
+.toggle-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 90px; /* Match the toggle width */
+  margin-top: 5px;
+  font-size: 0.8em;
+  color: #555;
+}
+
+.toggle-labels span {
+  flex: 1;
+  text-align: center;
+}
