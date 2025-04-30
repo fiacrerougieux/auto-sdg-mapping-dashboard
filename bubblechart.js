@@ -71,15 +71,6 @@ function createBubbleChart(data, selectedSDG = 1) {
     .append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-  // Title
-  svg.append('text')
-    .attr('x', width / 2)
-    .attr('y', -20)
-    .attr('text-anchor', 'middle')
-    .style('font-size', '20px')
-    .style('font-weight', 'bold')
-    .text(`SDG ${selectedSDG} - ${constants.sdgNames[selectedSDG]}`);
-
   // Grid lines
   const gridLines = svg.append('g');
   for (let p = 0; p <= 100; p += 10) {
@@ -164,4 +155,29 @@ function createBubbleChart(data, selectedSDG = 1) {
     .attr('y', 5)
     .style('font-size', '16px')
     .text(d => constants.facultyNames[d[0]] || d[0]);
+
+  // Tooltip
+  const tooltip = d3.select('body').append('div')
+    .attr('class', 'tooltip')
+    .style('position', 'absolute')
+    .style('visibility', 'hidden')
+    .style('background-color', 'rgba(var(--surface-color-rgb), 0.8)') /* Add alpha for transparency */
+    .style('border', '1px solid var(--border-color)')
+    .style('border-radius', '8px') // Increased border-radius for rounder corners
+    .style('padding', '10px')
+    .style('font-size', '14px')
+    .style('color', 'var(--text-color)')
+    .style('pointer-events', 'none'); // Important for tooltip not to interfere with mouse events
+
+  bubbles.on('mouseover', function(event, d) {
+    tooltip.html(`<b>${d.name}</b><br>Total Courses: ${d.value}<br>Courses Addressing SDG ${selectedSDG}: ${d.sdgCount}<br>Percentage: ${d.percentage.toFixed(2)}%`)
+      .style('visibility', 'visible');
+  })
+  .on('mousemove', function(event) {
+    tooltip.style('top', (event.pageY - 10) + 'px')
+           .style('left', (event.pageX + 10) + 'px');
+  })
+  .on('mouseout', function() {
+    tooltip.style('visibility', 'hidden');
+  });
 }

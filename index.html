@@ -44,10 +44,48 @@
   </div>
 
   <!-- Sidebar -->
-  <div id="sidebar">
+    <div id="sidebar">
     <div class="button-group">
-      <h3 class="section-title">Analysis Statistics</h3>
-      <p id="course-count" style="font-size: 1.1em; color: #666;"></p>
+      <h3 class="section-title">Analysis Data Source</h3>
+      <div class="data-source-row">
+        <div class="data-source-toggle">
+          <div id="ternaryToggleContainer" class="ternary-toggle-container">
+            <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
+              <div class="toggle-knob"></div>
+            </div>
+            <div class="toggle-labels">
+              <span>v1</span>
+              <span>v2</span>
+              <span>v3</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-count-container">
+          <p id="course-count" style="font-size: 1.1em; color: #666; margin: 0;"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visualisation Icons -->
+    <div class="button-group">
+      <h3 class="section-title">Visualisation</h3>
+      <div class="visualisation-icons">
+        <button id="bubbleBtn" class="viz-button">
+          <img src="visualisation/bubble-chart.svg" alt="Bubble Chart" />
+        </button>
+        <button id="heatmapBtn" class="viz-button active">
+          <img src="visualisation/heatmap.svg" alt="Heatmap" />
+        </button>
+        <button id="cumulativeBtn" class="viz-button">
+          <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
+        </button>
+        <button id="radarBtn" class="viz-button">
+          <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
+        </button>
+        <button id="exportPNG" class="viz-button">
+          <img src="visualisation/export-visualization.svg" alt="Export" />
+        </button>
+      </div>
     </div>
 
     <!-- SDG Icon Grid -->
@@ -63,9 +101,11 @@
         <div class="sdg-icon-item" data-sdg="3">
           <img src="logo/E Inverted Icons_WEB-03.png" alt="SDG 3 - Good Health" />
         </div>
+        <!-- Quality Education icon hidden as requested
         <div class="sdg-icon-item" data-sdg="4">
           <img src="logo/E Inverted Icons_WEB-04.png" alt="SDG 4 - Quality Education" />
         </div>
+        -->
         <div class="sdg-icon-item" data-sdg="5">
           <img src="logo/E Inverted Icons_WEB-05.png" alt="SDG 5 - Gender Equality" />
         </div>
@@ -143,13 +183,6 @@
       </select>
     </div>
 
-    <div class="button-group">
-      <h3 class="section-title">Analysis Data Source</h3>
-      <select id="analysisType" class="switch-button" size="2">
-        <option value="sdg_analysis_llm_with_targets.csv" selected>With Targets (Default)</option>
-        <option value="sdg_analysis_llm.csv">Without Targets</option>
-      </select>
-    </div>
 
     <!-- SDG Knowledge Graph Link -->
     <div class="button-group">
@@ -160,44 +193,6 @@
     </div>
   </div>
 
-
-  <!-- Second Sidebar for Analysis and Visualizations -->
-  <div id="sidebar2">
-    <div class="button-group">
-      <h3 class="section-title">Analysis Data Source</h3>
-      <div id="ternaryToggleContainer" class="ternary-toggle-container">
-          <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
-              <div class="toggle-knob"></div>
-          </div>
-          <div class="toggle-labels">
-              <span>v1</span>
-              <span>v2</span>
-              <span>v3</span>
-          </div>
-      </div>
-    </div>
-
-    <div class="button-group">
-      <h3 class="section-title">Visualisation</h3>
-      <button id="bubbleBtn" class="switch-button">
-        <img src="visualisation/bubble-chart.svg" alt="Bubble Chart" />
-      </button>
-      <button id="radarBtn" class="switch-button active">
-        <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
-      </button>
-      <button id="heatmapBtn" class="switch-button">
-        <img src="visualisation/heatmap.svg" alt="Heatmap" />
-      </button>
-      <button id="cumulativeBtn" class="switch-button">
-        <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
-      </button>
-      <div class="export-buttons">
-        <button id="exportPNG" class="switch-button">
-          <img src="visualisation/export-visualization.svg" alt="Export" />
-        </button>
-      </div>
-    </div>
-  </div>
 
 
   <!-- Main Content Area -->
@@ -243,10 +238,20 @@
   <script>
     // On-load Modal
     function showWelcomeModal() {
-      document.getElementById('welcomeModal').style.display = 'flex';
+      const modal = document.getElementById('welcomeModal');
+      modal.style.display = 'flex';
+      // Add a small delay before adding the active class to trigger the animation
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 10);
     }
     function hideWelcomeModal() {
-      document.getElementById('welcomeModal').style.display = 'none';
+      const modal = document.getElementById('welcomeModal');
+      modal.classList.remove('active');
+      // Wait for the animation to complete before hiding the modal
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
     }
 
     // Show the modal once DOM content has loaded
@@ -548,39 +553,42 @@
 
     function redrawVisualization(data) {
       // Which button is active?
-      if (document.getElementById('bubbleBtn').classList.contains('active')) {
+      if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
         createBubbleChart(data, currentSDG);
-      } else if (document.getElementById('radarBtn').classList.contains('active')) {
+      } else if (document.querySelector('#sidebar .visualisation-icons #radarBtn').classList.contains('active')) {
         createRadar(data);
-      } else if (document.getElementById('heatmapBtn').classList.contains('active')) {
+      } else if (document.querySelector('#sidebar .visualisation-icons #heatmapBtn').classList.contains('active')) {
         createHeatmap(data, false);
-      } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+      } else if (document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').classList.contains('active')) {
         createHeatmap(data, true);
       }
     }
 
-    document.getElementById('bubbleBtn').addEventListener('click', function () {
+    // Add event listeners to the visualization buttons in the left sidebar
+    document.querySelector('#sidebar .visualisation-icons #bubbleBtn').addEventListener('click', function () {
       setActiveVizButton(this);
       loadData().then(data => createBubbleChart(data, currentSDG));
     });
-    document.getElementById('radarBtn').addEventListener('click', function () {
+    document.querySelector('#sidebar .visualisation-icons #radarBtn').addEventListener('click', function () {
       setActiveVizButton(this);
       loadData().then(data => createRadar(data));
     });
-    document.getElementById('heatmapBtn').addEventListener('click', function () {
+    document.querySelector('#sidebar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
       setActiveVizButton(this);
       loadData().then(data => createHeatmap(data, false));
     });
-    document.getElementById('cumulativeBtn').addEventListener('click', function () {
+    document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
       setActiveVizButton(this);
       loadData().then(data => createHeatmap(data, true));
     });
+    document.querySelector('#sidebar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG);
 
     function setActiveVizButton(btn) {
-      document.getElementById('bubbleBtn').classList.remove('active');
-      document.getElementById('radarBtn').classList.remove('active');
-      document.getElementById('heatmapBtn').classList.remove('active');
-      document.getElementById('cumulativeBtn').classList.remove('active');
+      // Remove active class from all visualization buttons
+      document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
+        button.classList.remove('active');
+      });
+      // Add active class to the clicked button
       btn.classList.add('active');
     }
 
@@ -592,16 +600,16 @@
         this.classList.add('active');
         currentFaculty = this.getAttribute('data-faculty');
 
-        // If currently on bubble chart, switch to radar
-        if (document.getElementById('bubbleBtn').classList.contains('active')) {
-          document.getElementById('radarBtn').click();
+        // If currently on bubble chart, switch to heatmap
+        if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
+          document.querySelector('#sidebar .visualisation-icons #heatmapBtn').click();
         } else {
           loadData().then(data => {
-            if (document.getElementById('radarBtn').classList.contains('active')) {
+            if (document.querySelector('#sidebar .visualisation-icons #radarBtn').classList.contains('active')) {
               createRadar(data);
-            } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+            } else if (document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').classList.contains('active')) {
               createHeatmap(data, true);
-            } else if (document.getElementById('bubbleBtn').classList.contains('active')) {
+            } else if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
               createBubbleChart(data, currentSDG);
             } else {
               createHeatmap(data, false);
@@ -615,16 +623,16 @@
     document.getElementById('disciplineSelect').addEventListener('change', function () {
       currentDiscipline = this.value;
 
-      // If currently on bubble chart, switch to radar
-      if (document.getElementById('bubbleBtn').classList.contains('active')) {
-        document.getElementById('radarBtn').click();
+      // If currently on bubble chart, switch to heatmap
+      if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
+        document.querySelector('#sidebar .visualisation-icons #heatmapBtn').click();
       } else {
         loadData().then(data => {
-          if (document.getElementById('radarBtn').classList.contains('active')) {
+          if (document.querySelector('#sidebar .visualisation-icons #radarBtn').classList.contains('active')) {
               createRadar(data);
-            } else if (document.getElementById('cumulativeBtn').classList.contains('active')) {
+            } else if (document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').classList.contains('active')) {
               createHeatmap(data, true);
-            } else if (document.getElementById('bubbleBtn').classList.contains('active')) {
+            } else if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
               createBubbleChart(data, currentSDG);
             } else {
               createHeatmap(data, false);
@@ -641,7 +649,7 @@
         this.classList.add('active');
         currentSDG = parseInt(this.getAttribute('data-sdg')) || 1;
         // Switch to Bubble by default
-        setActiveVizButton(document.getElementById('bubbleBtn'));
+        setActiveVizButton(document.querySelector('#sidebar .visualisation-icons #bubbleBtn'));
         loadData().then(data => createBubbleChart(data, currentSDG));
       });
     });
@@ -650,9 +658,8 @@
     loadConstants().then(() => {
       loadData().then(data => {
         updateCourseCount(data);
-        // Default: radar is marked active, but let's show bubble chart for SDG 10 if you want:
-        // For consistency with the "radar" default in code, let's do radar:
-        createRadar(data);
+        // Default: binary heatmap is marked active
+        createHeatmap(data, false);
       });
     });
   </script>
