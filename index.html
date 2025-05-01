@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=1.1"></script>
-  <script src="heatmap.js?v=1.1"></script>
-  <script src="bubblechart.js?v=1.1"></script>
+  <script src="radar.js?v=1.2"></script>
+  <script src="heatmap.js?v=1.2"></script>
+  <script src="bubblechart.js?v=1.2"></script>
 
-  <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 
 <body>
@@ -27,12 +27,12 @@
       <h2>Welcome to the SDG Analysis Dashboard</h2>
       <p>
         This tool allows you to explore how university courses map to the UN Sustainable Development Goals (SDGs).
-        <strong>Select an SDG</strong> on the left to view coverage across all specialisations (the “bubble chart”).
+        <strong>Select an SDG</strong> on the left to view coverage across all specialisations (the "bubble chart").
       </p>
       <p>
         <strong>Or</strong>, pick a faculty and specialisation to see which courses in that area address each SDG (via
         a heatmap or cumulative chart). You can toggle between different visualisations (radar, heatmap, cumulative)
-        under “Visualisation”.
+        under "Visualisation".
       </p>
       <p>
         Use the sidebar to switch between SDGs, faculties, and visualisation types. The disclaimer section below
@@ -44,7 +44,31 @@
   </div>
 
   <!-- Sidebar -->
-    <div id="sidebar">
+  <div id="sidebar">
+    <!-- Disclaimer Section (moved to top of sidebar) -->
+    <div class="button-group">
+      <button class="disclaimer-button" onclick="toggleSidebarDisclaimer()" style="padding: 2px 8px; margin: 0; line-height: 1; font-size: 0.85em;">
+        ▼ Disclaimer
+      </button>
+      <div class="disclaimer-content" id="sidebarDisclaimerContent" style="display: none; padding: 10px; font-size: 0.9em;">
+        <p>
+          This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
+          (SDGs) across courses. Please note:
+        </p>
+        <ul>
+          <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+          <li>The mapping is likely incomplete and may contain inaccuracies</li>
+          <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+          <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
+          <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes
+          </li>
+          <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum
+            mapping initiatives</li>
+          <li>This dashboard is provided as is with no guarantee of accuracy or completeness.</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="button-group">
       <h3 class="section-title">Analysis Data Source</h3>
       <div class="data-source-row">
@@ -197,39 +221,6 @@
 
   <!-- Main Content Area -->
   <div id="main-content">
-    <!-- Disclaimer Collapsible Section -->
-    <div class="disclaimer-container">
-      <button class="disclaimer-button" onclick="toggleDisclaimer()">
-        ▼ Disclaimer
-      </button>
-      <div class="disclaimer-content" id="disclaimerContent" style="display: none;">
-        <p>
-          This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
-          (SDGs) across courses. Please note:
-        </p>
-        <ul>
-          <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
-          <li>The mapping is likely incomplete and may contain inaccuracies</li>
-          <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
-          <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
-          <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes
-          </li>
-          <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum
-            mapping initiatives</li>
-          <li>Based on comparative analysis with manual mapping, our automated method tends to underestimate certain
-            SDGs in particular:
-            <ul>
-              <li>SDG 4 (Quality Education)</li>
-              <li>SDG 9 (Industry, Innovation and Infrastructure)</li>
-              <li>SDG 10 (Reduced Inequalities)</li>
-              <li>SDG 12 (Responsible Consumption and Production)</li>
-            </ul>
-          </li>
-          <li>These SDGs may be more prevalent in courses than indicated in this analysis.</li>
-        </ul>
-      </div>
-    </div>
-
     <!-- Plot Area -->
     <div id="plot-container"></div>
   </div>
@@ -257,12 +248,23 @@
     // Show the modal once DOM content has loaded
     document.addEventListener('DOMContentLoaded', function () {
       showWelcomeModal();
+      
+      // Close modal when clicking outside the modal content
+      const modal = document.getElementById('welcomeModal');
+      modal.addEventListener('click', function(event) {
+        // Check if the click was on the modal overlay (not on the modal content)
+        if (event.target === modal) {
+          hideWelcomeModal();
+        }
+      });
+      
       // Optionally auto-open the disclaimer
       // toggleDisclaimer();
     });
 
-    function toggleDisclaimer() {
-      const content = document.getElementById('disclaimerContent');
+    // Toggle sidebar disclaimer
+    function toggleSidebarDisclaimer() {
+      const content = document.getElementById('sidebarDisclaimerContent');
       const button = document.querySelector('.disclaimer-button');
       if (content.style.display === '' || content.style.display === 'block') {
         content.style.display = 'none';
