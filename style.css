@@ -75,9 +75,8 @@ body {
 #main-content {
   flex: 1;
   margin-left: 270px;
-  padding: 20px;
+  padding: 90px 20px 20px 20px; /* Added 70px top padding (top-bar height) + original 20px */
   width: calc(100% - 270px);
-  /* No top margin/padding needed here as body has padding-top */
   transition: margin-left 0.3s ease;
 }
 
@@ -178,8 +177,9 @@ select::-webkit-scrollbar-thumb:hover {
   background-color: var(--surface-color);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  height: calc(100vh - 40px);
+  height: calc(100vh - 100px); /* Adjusted for top bar (70px) + main content padding (20px top + 20px bottom) */
   width: 100%;
+  margin-top: 50px;
 }
 
 /* Disclaimer Collapsible */
@@ -397,7 +397,7 @@ select::-webkit-scrollbar-thumb:hover {
   #main-content {
     margin-left: 0;
     width: 100%;
-    padding: 15px; /* Adjust padding */
+    padding: 75px 15px 15px 15px; /* Adjusted top padding: 60px (top-bar) + 15px */
   }
 
   #toggle-sidebar {
@@ -416,7 +416,9 @@ select::-webkit-scrollbar-thumb:hover {
      /* Sidebar overlays */
   }
    /* #sidebar.active remains z-index 1003 */
-
+   #plot-container {
+     height: calc(100vh - 90px); /* Adjusted for smaller top bar (60px) + main content padding (15px top + 15px bottom) */
+   }
 }
 
 @media (max-width: 768px) {
@@ -437,10 +439,10 @@ select::-webkit-scrollbar-thumb:hover {
     top: 10px; /* Adjust as needed */
    }
   #main-content {
-    padding: 10px;
+    padding: 60px 10px 10px 10px; /* Adjusted top padding: 50px (top-bar) + 10px */
   }
   #plot-container {
-    height: calc(100vh - 70px); /* Adjust plot height considering smaller top bar */
+    height: calc(100vh - 70px); /* Adjusted for smallest top bar (50px) + main content padding (10px top + 10px bottom) */
   }
 
   .switch-button {
