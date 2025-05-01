@@ -203,6 +203,10 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   // --- Labels Update/Creation ---
   const labelsGroup = g.select('.labels-group'); // Select existing group
 
+  // Clear existing labels first to avoid stacking issues
+  labelsGroup.selectAll('.bubble-label').remove();
+  
+  // Create labels with improved visibility
   labelsGroup.selectAll('.bubble-label')
     .data(bubbleData, d => d.id)
     .join(
@@ -211,21 +215,27 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'middle')
         .style('font-weight', 'bold')
-        .style('fill', '#fff')
+        .style('fill', '#000')
+        .style('stroke', '#000')  // Add black outline back
+        .style('stroke-width', '1px')  // Make it slightly thicker
         .style('pointer-events', 'none') // Prevent labels interfering with bubble clicks
         .attr('x', d => d.x) // Initial position
         .attr('y', d => d.y)
         .text(d => d.id)
-        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.5, 14)}px`)
-        .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block')
+        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.6, 16)}px`) // Slightly larger font
+        .style('display', d => radiusScale(d.value) < 8 ? 'none' : 'block') // Show more labels
         .style('opacity', 0) // Start transparent
-        .call(enter => enter.transition().duration(transitionDuration)
+        .call(enter => enter.transition().duration(transitionDuration*4)
           .style('opacity', 1)), // Fade in
       update => update
         // Apply non-transitioning styles first
         .style('pointer-events', 'none') // Ensure pointer-events are set on update too
-        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.5, 14)}px`)
-        .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block')
+        .style('fill', '#fff')
+        .style('stroke', '#000')  // Add black outline back for updates too
+        .style('stroke-width', '1px')  // Make it slightly thicker
+        .text(d => d.id) // Update text content during updates too
+        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.6, 16)}px`)
+        .style('display', d => radiusScale(d.value) < 8 ? 'none' : 'block')
         .style('opacity', 1) // Ensure final opacity is 1
         // Then apply transitions
         .call(update => update.transition().duration(transitionDuration)

@@ -13,7 +13,7 @@
   --surface-color-rgb: 255, 255, 255; /* RGB values for --surface-color */
   --text-color: #343a40; /* Dark gray for text */
   --border-color: #dee2e6; /* Light gray for borders */
-  --success-color: #28a745; /* Green for success/active */
+  --success-color: #007bff; /* Blue for success/active */
   --font-family: 'Roboto', sans-serif; /* Modern font */
 }
 
