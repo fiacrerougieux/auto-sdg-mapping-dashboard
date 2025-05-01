@@ -545,6 +545,15 @@ select::-webkit-scrollbar-thumb:hover {
   transition: margin-left 0.3s ease;
 }
 
+/* Heatmap SDG Label Hover Effects */
+.sdg-label, .sdg-label-second-line {
+  transition: fill 0.3s ease;
+}
+
+.tick:hover .sdg-label, .tick:hover .sdg-label-second-line {
+  fill: attr(data-color); /* Will be overridden by JavaScript */
+}
+
 /* Responsive Adjustments for Two Sidebars */
 @media (max-width: 1024px) {
 

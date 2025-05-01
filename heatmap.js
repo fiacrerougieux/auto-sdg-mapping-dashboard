@@ -149,7 +149,23 @@ function createHeatmap(data, isCumulative) {
         .attr('stroke-width', 1)
         .attr('data-sdg', cell.sdg)
         .attr('data-course', cell.course)
-        .attr('data-value', cell.value);
+        .attr('data-value', cell.value)
+        .attr('class', `sdg-cell sdg-${cell.sdg}`)
+        .on('mouseover', function() {
+          const sdgNumber = d3.select(this).attr('data-sdg');
+          const sdgColor = sdgColors[sdgNumber];
+          
+          // Change text color for this SDG row
+          d3.selectAll(`.sdg-label[data-sdg="${sdgNumber}"], .sdg-label-second-line[data-sdg="${sdgNumber}"]`)
+            .attr('fill', sdgColor);
+        })
+        .on('mouseout', function() {
+          const sdgNumber = d3.select(this).attr('data-sdg');
+          
+          // Reset text color
+          d3.selectAll(`.sdg-label[data-sdg="${sdgNumber}"], .sdg-label-second-line[data-sdg="${sdgNumber}"]`)
+            .attr('fill', 'black');
+        });
     }
   }
 
@@ -202,16 +218,34 @@ function createHeatmap(data, isCumulative) {
   // Add SDG icons and text labels with click functionality
   const ticks = yAxis.selectAll('.tick');
   
+  // Add hover effects for each row
+  ticks.on('mouseover', function(event, d) {
+    const sdgIndex = d;
+    const sdgNumber = sdgNumbers[sdgIndex];
+    const sdgColor = sdgColors[sdgNumber];
+    
+    // Change text color on hover
+    d3.select(this).selectAll('.sdg-label, .sdg-label-second-line')
+      .attr('fill', sdgColor);
+  })
+  .on('mouseout', function() {
+    // Reset text color on mouseout
+    d3.select(this).selectAll('.sdg-label, .sdg-label-second-line')
+      .attr('fill', 'black');
+  });
+  
   // Add text labels
   ticks.append('text')
     .attr('x', -45)  // Position text to the left of the icon
     .attr('y', 0)
     .attr('text-anchor', 'end')
     .attr('dominant-baseline', 'middle')
-    .attr('fill', (d, i) => sdgColors[sdgNumbers[i]])
+    .attr('fill', 'black')  // Default color is black
     .attr('font-size', '12px')
     .attr('font-weight', 'bold')
     .attr('cursor', 'pointer')
+    .attr('class', 'sdg-label')
+    .attr('data-sdg', (d, i) => sdgNumbers[i])  // Store SDG number for hover effects
     .text((d, i) => {
       const sdgName = constants.sdgNames[sdgNumbers[i]];
       // Split into two lines if name is long
@@ -254,10 +288,12 @@ function createHeatmap(data, isCumulative) {
     .attr('y', 15)  // Position below the first line
     .attr('text-anchor', 'end')
     .attr('dominant-baseline', 'middle')
-    .attr('fill', (d, i) => sdgColors[sdgNumbers[i]])
+    .attr('fill', 'black')  // Default color is black
     .attr('font-size', '12px')
     .attr('font-weight', 'bold')
     .attr('cursor', 'pointer')
+    .attr('class', 'sdg-label-second-line')
+    .attr('data-sdg', (d, i) => sdgNumbers[i])  // Store SDG number for hover effects
     .text((d, i) => {
       const sdgName = constants.sdgNames[sdgNumbers[i]];
       // Only add second line if name is long
@@ -343,54 +379,92 @@ function createHeatmap(data, isCumulative) {
 
   // Add tooltip interaction - only for non-cumulative heatmap
   if (!isCumulative) {
+    // We've already added mouseover/mouseout events to the cells for the SDG label color change
+    // Now we'll extend those event handlers to also show tooltips
     svg.selectAll('rect')
-      .on('mouseover', function(event, d) {
-        const i = Math.floor(d3.select(this).attr('y') / yScale.bandwidth());
-        const j = Math.floor(d3.select(this).attr('x') / xScale.bandwidth());
-        const cell = matrix[i][j];
+      .each(function() {
+        const rect = d3.select(this);
         
-        let tooltipContent = `<b>Course: ${cell.course}</b><br>`;
-        tooltipContent += `<b>SDG ${cell.sdg}: ${cell.sdg_name}</b><br>`;
-        tooltipContent += `Present: ${cell.addressed ? 'Yes' : 'No'}<br>`;
+        // Get the original mouseover handler
+        const originalMouseover = rect.on('mouseover');
         
-        // Only add target info if it exists and the SDG is addressed
-        if (cell.addressed && cell.target_number && cell.target_name) {
-          tooltipContent += `Target: ${cell.target_number} - ${cell.target_name}<br>`;
-        }
-        
-        // Only add justification if it exists and the SDG is addressed
-        if (cell.addressed && cell.justification) {
-          // Format justification text to fit better in tooltip
-          let justification = cell.justification;
-          if (justification.length > 0) {
-            const words = justification.split(' ');
-            let currentLine = '';
-            let formattedJustification = '';
-            const wordsPerLine = 10; // Adjusted for potentially better wrapping
-
-            for (let i = 0; i < words.length; i++) {
-              currentLine += words[i] + ' ';
-              if ((i + 1) % wordsPerLine === 0 || i === words.length - 1) {
-                formattedJustification += currentLine.trim() + '<br>';
-                currentLine = '';
-              }
-            }
-            // Keep original justification or formatted, but avoid trailing <br>
-            justification = formattedJustification.trim();
+        // Replace with a new handler that calls the original and adds tooltip functionality
+        rect.on('mouseover', function(event, d) {
+          // Call the original handler to change text color
+          if (originalMouseover) originalMouseover.call(this, event, d);
+          
+          // Add tooltip functionality
+          const i = Math.floor(d3.select(this).attr('y') / yScale.bandwidth());
+          const j = Math.floor(d3.select(this).attr('x') / xScale.bandwidth());
+          const cell = matrix[i][j];
+          
+          // Highlight the course name in the x-axis
+          svg.selectAll('.tick text')
+            .filter(function(d, idx) { return idx === j; })
+            .style('fill', 'var(--primary-color)')
+            .style('font-weight', 'bold');
+          
+          let tooltipContent = `<b>Course: ${cell.course}</b><br>`;
+          tooltipContent += `<b>SDG ${cell.sdg}: ${cell.sdg_name}</b><br>`;
+          tooltipContent += `Present: ${cell.addressed ? 'Yes' : 'No'}<br>`;
+          
+          // Only add target info if it exists and the SDG is addressed
+          if (cell.addressed && cell.target_number && cell.target_name) {
+            tooltipContent += `Target: ${cell.target_number} - ${cell.target_name}<br>`;
           }
           
-          tooltipContent += `Justification:<br>${justification}`;
-        }
+          // Only add justification if it exists and the SDG is addressed
+          if (cell.addressed && cell.justification) {
+            // Format justification text to fit better in tooltip
+            let justification = cell.justification;
+            if (justification.length > 0) {
+              const words = justification.split(' ');
+              let currentLine = '';
+              let formattedJustification = '';
+              const wordsPerLine = 10; // Adjusted for potentially better wrapping
+
+              for (let i = 0; i < words.length; i++) {
+                currentLine += words[i] + ' ';
+                if ((i + 1) % wordsPerLine === 0 || i === words.length - 1) {
+                  formattedJustification += currentLine.trim() + '<br>';
+                  currentLine = '';
+                }
+              }
+              // Keep original justification or formatted, but avoid trailing <br>
+              justification = formattedJustification.trim();
+            }
+            
+            tooltipContent += `Justification:<br>${justification}`;
+          }
+          
+          tooltip.html(tooltipContent)
+            .style('visibility', 'visible');
+        });
         
-        tooltip.html(tooltipContent)
-          .style('visibility', 'visible');
-      })
-      .on('mousemove', function(event) {
-        tooltip.style('top', (event.pageY - 10) + 'px')
-               .style('left', (event.pageX + 10) + 'px');
-      })
-      .on('mouseout', function() {
-        tooltip.style('visibility', 'hidden');
+        // Add mousemove handler for tooltip positioning
+        rect.on('mousemove', function(event) {
+          tooltip.style('top', (event.pageY - 10) + 'px')
+                 .style('left', (event.pageX + 10) + 'px');
+        });
+        
+        // Get the original mouseout handler
+        const originalMouseout = rect.on('mouseout');
+        
+        // Replace with a new handler that calls the original and hides tooltip
+        rect.on('mouseout', function(event, d) {
+          // Call the original handler to reset text color
+          if (originalMouseout) originalMouseout.call(this, event, d);
+          
+          // Reset course name color in the x-axis
+          const j = Math.floor(d3.select(this).attr('x') / xScale.bandwidth());
+          svg.selectAll('.tick text')
+            .filter(function(d, idx) { return idx === j; })
+            .style('fill', 'black')
+            .style('font-weight', 'normal');
+          
+          // Hide tooltip
+          tooltip.style('visibility', 'hidden');
+        });
       });
   }
 

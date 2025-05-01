@@ -48,9 +48,9 @@ function createBubbleChart(data, selectedSDG = 1) {
   }).filter(d => d.value > 0)
     .sort((a, b) => a.percentage - b.percentage);
 
-  const maxPercentage = Math.ceil(d3.max(bubbleData, d => d.percentage) / 10) * 10 || 10;
+  // Always set x-axis from 0 to 100 as requested
   const xScale = d3.scaleLinear()
-    .domain([0, maxPercentage])
+    .domain([0, 100])
     .range([0, width]);
   const radiusScale = d3.scaleSqrt()
     .domain([0, d3.max(bubbleData, d => d.value)])
@@ -179,5 +179,25 @@ function createBubbleChart(data, selectedSDG = 1) {
   })
   .on('mouseout', function() {
     tooltip.style('visibility', 'hidden');
-  });
+  })
+  .on('click', function(event, d) {
+    // When a bubble is clicked, switch to binary heatmap view of that specialization
+    currentDiscipline = d.id;
+    
+    // Update the discipline select dropdown
+    const select = document.getElementById('disciplineSelect');
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === d.id) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+    
+    // Hide the tooltip before switching views to prevent it from staying visible
+    tooltip.style('visibility', 'hidden');
+    
+    // Switch to binary heatmap view
+    document.querySelector('#sidebar .visualisation-icons #heatmapBtn').click();
+  })
+  .style('cursor', 'pointer'); // Change cursor to indicate clickable
 }
