@@ -1,29 +1,37 @@
 function createRadar(data) {
   // Build hidden cumulative heatmap first to calculate values
+  // This is okay as it doesn't draw anything visible, just calculates finalCumulativeValues
   createHeatmap(data, true);
 
-  // Clear previous plot
-  d3.select('#plot-container').html('');
+  const targetDivId = 'radar-div'; // Target the specific div
+  const plotContainer = document.getElementById(targetDivId);
+  if (!plotContainer) {
+    console.error(`Target container #${targetDivId} not found.`);
+    return;
+  }
+  // Clear previous plot using D3 by selecting the target div
+  d3.select(`#${targetDivId}`).html('');
 
   const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
   const values = finalCumulativeValues || sdgNumbers.map(() => 0);
   const maxValue = Math.max(...values, 1);
   const percentages = values.map(v => (v / maxValue) * 100);
 
-  // Calculate dimensions
+  // Calculate dimensions based on the target div
   const margin = { top: 100, right: 300, bottom: 100, left: 300 };
-  const dimensions = getPlotDimensions();
-  const width = dimensions.width - margin.left - margin.right;
-  const height = dimensions.height - margin.top - margin.bottom;
+  // Use the target div's dimensions
+  const width = plotContainer.offsetWidth - margin.left - margin.right;
+  const height = plotContainer.offsetHeight - margin.top - margin.bottom;
   const radius = Math.min(width, height) / 2;
 
-  // Create SVG
-  const svg = d3.select('#plot-container')
+  // Create SVG within the target div
+  const svg = d3.select(`#${targetDivId}`)
     .append('svg')
-    .attr('width', dimensions.width)
-    .attr('height', dimensions.height)
+    .attr('width', plotContainer.offsetWidth) // Use full div width for SVG
+    .attr('height', plotContainer.offsetHeight) // Use full div height for SVG
     .append('g')
-    .attr('transform', `translate(${dimensions.width / 2},${dimensions.height / 2})`);
+    // Center the radar chart within the SVG based on the div's dimensions
+    .attr('transform', `translate(${plotContainer.offsetWidth / 2},${plotContainer.offsetHeight / 2})`);
 
   // Create scales
   const angleScale = d3.scaleLinear()

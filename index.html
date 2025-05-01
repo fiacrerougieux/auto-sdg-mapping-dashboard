@@ -223,7 +223,12 @@
   <!-- Main Content Area -->
   <div id="main-content">
     <!-- Plot Area -->
-    <div id="plot-container"></div>
+    <div id="plot-container">
+      <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+      <div id="heatmap-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+      <div id="radar-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+      <!-- Cumulative heatmap will reuse #heatmap-div -->
+    </div>
   </div>
 
   <!-- Main Script -->
@@ -330,6 +335,8 @@
     // ---------- Data & Visualization Logic -----------
     let currentDiscipline = 'ALL';
     let currentFaculty = 'ALL';
+    let currentChartType = 'heatmap'; // Default active viz
+    let previousChartType = null;
     const dataSources = [
       'sdg_analysis_llm_match.csv',      // v1
       'sdg_analysis_llm.csv',            // v2
@@ -356,20 +363,24 @@
       }
     }
 
-    function getPlotDimensions() {
-      const container = document.getElementById('plot-container');
-      return {
-        width: container.offsetWidth,
-        height: container.offsetHeight
-      };
-    }
+    // Note: getPlotDimensions might need adjustment if called by D3 charts now,
+    // as they target specific divs. Plotly handles its own resizing within its div.
+    // D3 charts might need to get dimensions from their specific div if resize logic is added there.
 
+    // Generic resize handler for Plotly charts if needed, targeting the visible one.
+    // D3 resize needs to be handled within bubblechart.js if required.
     window.addEventListener('resize', function () {
-      const update = {
-        width: document.getElementById('plot-container').offsetWidth,
-        height: document.getElementById('plot-container').offsetHeight
-      };
-      Plotly.relayout('plot-container', update);
+      const activePlotlyDivId = currentChartType === 'heatmap' || currentChartType === 'cumulative' ? 'heatmap-div'
+                              : currentChartType === 'radar' ? 'radar-div'
+                              : null;
+      if (activePlotlyDivId) {
+        const container = document.getElementById(activePlotlyDivId);
+        if (container && container.offsetParent !== null) { // Check if visible
+          Plotly.Plots.resize(container);
+        }
+      }
+      // If bubble chart needs resize handling, it should be added within bubblechart.js
+      // listening to resize and redrawing based on #bubble-chart-div dimensions.
     });
 
     // Load CSV data
@@ -555,45 +566,67 @@
     });
 
     function redrawVisualization(data) {
+      const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
       // Which button is active?
-      if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
-        createBubbleChart(data, currentSDG);
-      } else if (document.querySelector('#sidebar .visualisation-icons #radarBtn').classList.contains('active')) {
+      if (currentChartType === 'bubble') {
+        createBubbleChart(data, currentSDG, shouldAnimate);
+      } else if (currentChartType === 'radar') {
         createRadar(data);
-      } else if (document.querySelector('#sidebar .visualisation-icons #heatmapBtn').classList.contains('active')) {
+      } else if (currentChartType === 'heatmap') {
         createHeatmap(data, false);
-      } else if (document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').classList.contains('active')) {
+      } else if (currentChartType === 'cumulative') {
         createHeatmap(data, true);
       }
     }
 
     // Add event listeners to the visualization buttons in the left sidebar
     document.querySelector('#sidebar .visualisation-icons #bubbleBtn').addEventListener('click', function () {
-      setActiveVizButton(this);
-      loadData().then(data => createBubbleChart(data, currentSDG));
+      setActiveVizButton(this, 'bubble');
+      const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
+      loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
     });
     document.querySelector('#sidebar .visualisation-icons #radarBtn').addEventListener('click', function () {
-      setActiveVizButton(this);
+      setActiveVizButton(this, 'radar');
       loadData().then(data => createRadar(data));
     });
     document.querySelector('#sidebar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
-      setActiveVizButton(this);
+      setActiveVizButton(this, 'heatmap');
       loadData().then(data => createHeatmap(data, false));
     });
     document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
-      setActiveVizButton(this);
+      setActiveVizButton(this, 'cumulative');
       loadData().then(data => createHeatmap(data, true));
     });
     document.querySelector('#sidebar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG);
 
-    function setActiveVizButton(btn) {
-      // Remove active class from all visualization buttons
-      document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
+    function setActiveVizButton(btn, newChartType) {
+      // Update chart type state
+      previousChartType = currentChartType;
+      currentChartType = newChartType;
+
+      // Update active class visually
+      document.querySelectorAll('#sidebar .visualisation-icons .viz-button').forEach(button => {
         button.classList.remove('active');
       });
-      // Add active class to the clicked button
       btn.classList.add('active');
+
+      // Toggle visibility of chart divs
+      document.querySelectorAll('.chart-div').forEach(div => {
+        div.style.display = 'none';
+      });
+      let targetDivId;
+      if (newChartType === 'bubble') {
+        targetDivId = 'bubble-chart-div';
+      } else if (newChartType === 'heatmap' || newChartType === 'cumulative') {
+        targetDivId = 'heatmap-div'; // Both heatmaps use the same div
+      } else if (newChartType === 'radar') {
+        targetDivId = 'radar-div';
+      }
+      if (targetDivId) {
+        document.getElementById(targetDivId).style.display = 'block';
+      }
     }
+
 
     // Faculty icon clicks
     const facultyIconsList = document.getElementById('facultyIconsList');
@@ -603,21 +636,15 @@
         this.classList.add('active');
         currentFaculty = this.getAttribute('data-faculty');
 
-        // If currently on bubble chart, switch to heatmap
-        if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
-          document.querySelector('#sidebar .visualisation-icons #heatmapBtn').click();
+        // If currently on bubble chart, switch to heatmap (default for faculty/discipline view)
+        if (currentChartType === 'bubble') {
+          // Manually trigger the heatmap button's logic without simulating a click
+          const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
+          setActiveVizButton(heatmapBtn, 'heatmap');
+          loadData().then(data => createHeatmap(data, false));
         } else {
-          loadData().then(data => {
-            if (document.querySelector('#sidebar .visualisation-icons #radarBtn').classList.contains('active')) {
-              createRadar(data);
-            } else if (document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').classList.contains('active')) {
-              createHeatmap(data, true);
-            } else if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
-              createBubbleChart(data, currentSDG);
-            } else {
-              createHeatmap(data, false);
-            }
-          });
+          // Otherwise, just reload the current visualization with the new faculty/discipline filter
+          loadData().then(data => redrawVisualization(data));
         }
       });
     });
@@ -626,21 +653,15 @@
     document.getElementById('disciplineSelect').addEventListener('change', function () {
       currentDiscipline = this.value;
 
-      // If currently on bubble chart, switch to heatmap
-      if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
-        document.querySelector('#sidebar .visualisation-icons #heatmapBtn').click();
+      // If currently on bubble chart, switch to heatmap (default for faculty/discipline view)
+      if (currentChartType === 'bubble') {
+         // Manually trigger the heatmap button's logic without simulating a click
+         const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
+         setActiveVizButton(heatmapBtn, 'heatmap');
+         loadData().then(data => createHeatmap(data, false));
       } else {
-        loadData().then(data => {
-          if (document.querySelector('#sidebar .visualisation-icons #radarBtn').classList.contains('active')) {
-              createRadar(data);
-            } else if (document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').classList.contains('active')) {
-              createHeatmap(data, true);
-            } else if (document.querySelector('#sidebar .visualisation-icons #bubbleBtn').classList.contains('active')) {
-              createBubbleChart(data, currentSDG);
-            } else {
-              createHeatmap(data, false);
-            }
-        });
+        // Otherwise, just reload the current visualization with the new faculty/discipline filter
+        loadData().then(data => redrawVisualization(data));
       }
     });
 
@@ -651,9 +672,17 @@
         sdgIconsList.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
         this.classList.add('active');
         currentSDG = parseInt(this.getAttribute('data-sdg')) || 1;
-        // Switch to Bubble by default
-        setActiveVizButton(document.querySelector('#sidebar .visualisation-icons #bubbleBtn'));
-        loadData().then(data => createBubbleChart(data, currentSDG));
+
+        // Update state *before* calling setActiveVizButton
+        previousChartType = currentChartType;
+        currentChartType = 'bubble';
+
+        // Switch to Bubble chart visually and functionally
+        const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
+        setActiveVizButton(bubbleBtn, 'bubble'); // This now correctly uses the updated previous/current types
+
+        const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
+        loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
       });
     });
 
@@ -661,8 +690,10 @@
     loadConstants().then(() => {
       loadData().then(data => {
         updateCourseCount(data);
-        // Default: binary heatmap is marked active
-        createHeatmap(data, false);
+        // Default: binary heatmap is marked active and its div shown
+        const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
+        setActiveVizButton(heatmapBtn, 'heatmap'); // Set state and show div
+        createHeatmap(data, false); // Draw into the now visible div
       });
     });
   </script>

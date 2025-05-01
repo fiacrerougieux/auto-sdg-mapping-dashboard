@@ -1,8 +1,14 @@
 let finalCumulativeValues = [];
 
 function createHeatmap(data, isCumulative) {
-  // Clear previous plot
-  d3.select('#plot-container').html('');
+  const targetDivId = 'heatmap-div'; // Target the specific div
+  const plotContainer = document.getElementById(targetDivId);
+  if (!plotContainer) {
+    console.error(`Target container #${targetDivId} not found.`);
+    return;
+  }
+  // Clear previous plot using D3 by selecting the target div
+  d3.select(`#${targetDivId}`).html('');
 
   data = filterDataByDiscipline(data, currentDiscipline);
 
@@ -96,13 +102,13 @@ function createHeatmap(data, isCumulative) {
     matrix.push(row);
   }
 
-  // Calculate dimensions
+  // Calculate dimensions based on the target div
   const margin = { top: 20, right: 50, bottom: 150, left: 250 }; // Increased left margin to accommodate text and icons
-  const width = document.getElementById('plot-container').offsetWidth - margin.left - margin.right;
-  const height = document.getElementById('plot-container').offsetHeight - margin.top - margin.bottom;
+  const width = plotContainer.offsetWidth - margin.left - margin.right;
+  const height = plotContainer.offsetHeight - margin.top - margin.bottom;
 
-  // Create SVG
-  const svg = d3.select('#plot-container')
+  // Create SVG within the target div
+  const svg = d3.select(`#${targetDivId}`)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)

@@ -1,8 +1,18 @@
-function createBubbleChart(data, selectedSDG = 1) {
-  d3.select('#plot-container').html('');
+function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
+  // Tooltip removal - always remove the old one from the body
+  d3.select('body').select('.tooltip').remove(); // Keep removing old tooltip from body
+
+  const targetDivId = 'bubble-chart-div'; // Target the specific div
+  const containerElement = document.getElementById(targetDivId);
+  if (!containerElement) {
+    console.error(`Target container #${targetDivId} not found.`);
+    return;
+  }
+
   const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-  const width = document.getElementById('plot-container').offsetWidth - margin.left - margin.right;
-  const height = document.getElementById('plot-container').offsetHeight - margin.top - margin.bottom;
+  // Calculate dimensions based on the target div
+  const width = containerElement.offsetWidth - margin.left - margin.right;
+  const height = containerElement.offsetHeight - margin.top - margin.bottom;
 
   const facultyColors = {
     'ADA': '#2C3E50',
@@ -62,17 +72,38 @@ function createBubbleChart(data, selectedSDG = 1) {
     .force('collision', d3.forceCollide().radius(d => radiusScale(d.value) + 1))
     .stop();
 
-  for (let i = 0; i < 120; i++) simulation.tick();
+  for (let i = 0; i < 120; i++) simulation.tick(); // Calculate positions
 
-  const svg = d3.select('#plot-container')
-    .append('svg')
-    .attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom)
-    .append('g')
-    .attr('transform', `translate(${margin.left},${margin.top})`);
+  // --- SVG and G selection/creation ---
+  const container = d3.select(`#${targetDivId}`); // Select the specific div
+  let svg = container.select('svg'); // Look for SVG within this div
+  let g;
+  let initialCreate = svg.empty(); // Check if SVG needs creation within this div
 
-  // Grid lines
-  const gridLines = svg.append('g');
+  if (initialCreate) {
+      animateTransition = false; // No transition on initial creation
+      svg = container.append('svg');
+      g = svg.append('g')
+          .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      // Add grid lines group only once on creation
+      g.append('g').attr('class', 'grid-lines');
+      // Add legend group only once on creation
+      g.append('g').attr('class', 'legend');
+      // Add labels group only once on creation
+      g.append('g').attr('class', 'labels-group');
+
+  } else { // If SVG exists, just select the main group 'g'
+      g = svg.select('g');
+  }
+
+  // Update SVG/g dimensions (handles resize and ensures consistency)
+  svg.attr('width', width + margin.left + margin.right)
+     .attr('height', height + margin.top + margin.bottom);
+  g.attr('transform', `translate(${margin.left},${margin.top})`); // Ensure group transform is correct
+
+  // --- Grid Lines Update/Creation ---
+  const gridLines = g.select('.grid-lines');
   for (let p = 0; p <= 100; p += 10) {
     gridLines.append('line')
       .attr('x1', xScale(p))
@@ -82,81 +113,135 @@ function createBubbleChart(data, selectedSDG = 1) {
       .attr('stroke', '#dde')
       .attr('stroke-width', 2);
 
-    gridLines.append('text')
+    // Add text only if it doesn't exist (or handle update)
+    let text = gridLines.selectAll(`.grid-text-${p}`).data([p]);
+    text.enter()
+      .append('text')
+      .attr('class', `grid-text-${p}`)
       .attr('x', xScale(p))
       .attr('y', height + 20)
       .attr('text-anchor', 'middle')
       .style('font-size', '16px')
       .style('fill', '#666')
-      .text(p + '%');
+      .text(d => d + '%') // Use data bound
+      .merge(text) // Update existing text position if needed (e.g., on resize)
+      .attr('x', xScale(p))
+      .attr('y', height + 20);
   }
-
-  const bubbles = svg.selectAll('circle')
-    .data(bubbleData)
-    .join('circle')
-    .attr('cx', d => d.x)
-    .attr('cy', d => d.y)
-    .attr('r', d => radiusScale(d.value))
-    .attr('fill', d => facultyColors[d.faculty] || '#999999')
-    .attr('opacity', 0.7)
-    .attr('stroke', '#fff')
-    .attr('stroke-width', 2);
-
-  // Bubble labels
-  const labelsGroup = svg.append('g').attr('class', 'labels-group');
-  const labels = labelsGroup.selectAll('.bubble-label')
-    .data(bubbleData)
-    .join('text')
-    .attr('x', d => d.x)
-    .attr('y', d => d.y)
-    .attr('text-anchor', 'middle')
-    .attr('dominant-baseline', 'middle')
-    .style('font-weight', 'bold')
-    .style('fill', '#fff')
-    .text(d => d.id)
-    .style('font-size', d => {
-      const fs = radiusScale(d.value) * 0.5;
-      return `${Math.min(fs, 14)}px`;
-    })
-    .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block');
-
-  // Toggle labels
-  let labelsVisible = true;
+  // --- End Grid Lines ---
 
 
-  // Legend
-  const legendGroup = svg.append('g')
-    .attr('class', 'legend')
-    .attr('transform', `translate(${width - 220},20)`);
+  // --- Legend Update/Creation ---
+  const legendGroup = g.select('.legend')
+      .attr('transform', `translate(${width - 220},20)`); // Update position
 
-  legendGroup.append('rect')
-    .attr('width', 180)
-    .attr('height', Object.keys(facultyColors).length * 25 + 10)
-    .attr('fill', 'white')
-    .attr('stroke', '#fff')
-    .attr('rx', 5).attr('ry', 5)
-    .style('opacity', 0.9);
+  if (initialCreate) { // Only create legend content initially
+      legendGroup.append('rect')
+          .attr('width', 180)
+          .attr('height', Object.keys(facultyColors).length * 25 + 10)
+          .attr('fill', 'white')
+          .attr('stroke', '#fff')
+          .attr('rx', 5).attr('ry', 5)
+          .style('opacity', 0.9);
 
-  const legendItems = legendGroup.selectAll('.legend-item')
-    .data(Object.entries(facultyColors))
-    .join('g')
-    .attr('class', 'legend-item')
-    .attr('transform', (d, i) => `translate(10,${i * 25 + 15})`);
+      const legendItems = legendGroup.selectAll('.legend-item')
+          .data(Object.entries(facultyColors))
+          .join('g')
+          .attr('class', 'legend-item')
+          .attr('transform', (d, i) => `translate(10,${i * 25 + 15})`);
 
-  legendItems.append('circle')
-    .attr('r', 6)
-    .attr('fill', d => d[1])
-    .attr('opacity', 0.7)
-    .attr('stroke', '#fff')
-    .attr('stroke-width', 1);
+      legendItems.append('circle')
+          .attr('r', 6)
+          .attr('fill', d => d[1])
+          .attr('opacity', 0.7)
+          .attr('stroke', '#fff')
+          .attr('stroke-width', 1);
 
-  legendItems.append('text')
-    .attr('x', 15)
-    .attr('y', 5)
-    .style('font-size', '16px')
-    .text(d => constants.facultyNames[d[0]] || d[0]);
+      legendItems.append('text')
+          .attr('x', 15)
+          .attr('y', 5)
+          .style('font-size', '16px')
+          .text(d => constants.facultyNames[d[0]] || d[0]);
+  }
+  // --- End Legend ---
 
-  // Tooltip
+
+  const transitionDuration = animateTransition ? 750 : 0; // Duration for animation or 0 for none
+
+  // --- Bubbles Update/Creation ---
+  // Select circles within the persistent 'g'
+  const bubbles = g.selectAll('circle.bubble') // Use class selector
+    .data(bubbleData, d => d.id)
+    .join(
+      enter => enter.append('circle')
+        .attr('class', 'bubble') // Add class on enter
+        .attr('cx', d => d.x) // Initial position from simulation
+        .attr('cy', d => d.y) // Initial position from simulation
+        .attr('r', 0) // Start with radius 0 for entering bubbles
+        .attr('fill', d => facultyColors[d.faculty] || '#999999')
+        .attr('opacity', 0.7)
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 2)
+        .call(enter => enter.transition().duration(transitionDuration) // Animate radius on enter
+          .attr('r', d => radiusScale(d.value))) // Transition radius in
+          .style('cursor', 'pointer'), // Add cursor style on enter
+      update => update
+        .call(update => update.transition().duration(transitionDuration)
+          // Transition position, radius, and fill on update
+          .attr('cx', d => d.x)
+          .attr('cy', d => d.y)
+          .attr('r', d => radiusScale(d.value))
+          .attr('fill', d => facultyColors[d.faculty] || '#999999')
+        ),
+      exit => exit
+        // Add cursor style removal if needed, though removing the element handles it
+        .call(exit => exit.transition().duration(transitionDuration) // Animate radius on exit
+          .attr('r', 0)
+          .remove()) // Remove after transition
+    );
+
+  // --- Labels Update/Creation ---
+  const labelsGroup = g.select('.labels-group'); // Select existing group
+
+  labelsGroup.selectAll('.bubble-label')
+    .data(bubbleData, d => d.id)
+    .join(
+      enter => enter.append('text')
+        .attr('class', 'bubble-label')
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'middle')
+        .style('font-weight', 'bold')
+        .style('fill', '#fff')
+        .style('pointer-events', 'none') // Prevent labels interfering with bubble clicks
+        .attr('x', d => d.x) // Initial position
+        .attr('y', d => d.y)
+        .text(d => d.id)
+        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.5, 14)}px`)
+        .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block')
+        .style('opacity', 0) // Start transparent
+        .call(enter => enter.transition().duration(transitionDuration)
+          .style('opacity', 1)), // Fade in
+      update => update
+        // Apply non-transitioning styles first
+        .style('pointer-events', 'none') // Ensure pointer-events are set on update too
+        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.5, 14)}px`)
+        .style('display', d => radiusScale(d.value) < 10 ? 'none' : 'block')
+        .style('opacity', 1) // Ensure final opacity is 1
+        // Then apply transitions
+        .call(update => update.transition().duration(transitionDuration)
+          .attr('x', d => d.x) // Transition position
+          .attr('y', d => d.y)
+        ),
+      exit => exit
+        .call(exit => exit.transition().duration(transitionDuration)
+          .style('opacity', 0) // Fade out
+          .remove())
+    );
+  // --- End Labels ---
+
+
+  // --- Tooltip ---
+  // Create tooltip (appends to body, safe to recreate)
   const tooltip = d3.select('body').append('div')
     .attr('class', 'tooltip')
     .style('position', 'absolute')
