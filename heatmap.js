@@ -97,7 +97,7 @@ function createHeatmap(data, isCumulative) {
   }
 
   // Calculate dimensions
-  const margin = { top: 20, right: 50, bottom: 150, left: 450 }; // Increased left margin for SDG labels
+  const margin = { top: 20, right: 50, bottom: 150, left: 250 }; // Increased left margin to accommodate text and icons
   const width = document.getElementById('plot-container').offsetWidth - margin.left - margin.right;
   const height = document.getElementById('plot-container').offsetHeight - margin.top - margin.bottom;
 
@@ -169,16 +169,164 @@ function createHeatmap(data, isCumulative) {
   // Remove the x-axis line
   svg.select('.domain').remove();
 
-  // Add y-axis
-  svg.append('g')
+  // Add y-axis with SDG icons instead of text
+  const yAxis = svg.append('g')
     .call(d3.axisLeft(yScale)
-      .tickFormat(i => `SDG ${sdgNumbers[i]} - ${constants.sdgNames[sdgNumbers[i]]}`)
-      .tickSize(0))
-    .selectAll('text')
-    .style('font-size', '16px');
+      .tickFormat(() => '')  // Remove default text labels
+      .tickSize(0));
   
   // Remove the y-axis line
   svg.selectAll('.domain').remove();
+  
+  // Define SDG colors
+  const sdgColors = {
+    1: "#E5243B", // Red
+    2: "#DDA63A", // Yellow
+    3: "#4C9F38", // Green
+    4: "#C5192D", // Red
+    5: "#FF3A21", // Orange
+    6: "#26BDE2", // Blue
+    7: "#FCC30B", // Yellow
+    8: "#A21942", // Burgundy
+    9: "#FD6925", // Orange
+    10: "#DD1367", // Pink
+    11: "#FD9D24", // Gold
+    12: "#BF8B2E", // Dark Gold
+    13: "#3F7E44", // Dark Green
+    14: "#0A97D9", // Blue
+    15: "#56C02B", // Light Green
+    16: "#00689D", // Blue
+    17: "#19486A"  // Navy
+  };
+
+  // Add SDG icons and text labels with click functionality
+  const ticks = yAxis.selectAll('.tick');
+  
+  // Add text labels
+  ticks.append('text')
+    .attr('x', -45)  // Position text to the left of the icon
+    .attr('y', 0)
+    .attr('text-anchor', 'end')
+    .attr('dominant-baseline', 'middle')
+    .attr('fill', (d, i) => sdgColors[sdgNumbers[i]])
+    .attr('font-size', '12px')
+    .attr('font-weight', 'bold')
+    .attr('cursor', 'pointer')
+    .text((d, i) => {
+      const sdgName = constants.sdgNames[sdgNumbers[i]];
+      // Split into two lines if name is long
+      if (sdgName.length > 15) {
+        const words = sdgName.split(' ');
+        const midpoint = Math.floor(words.length / 2);
+        const firstLine = words.slice(0, midpoint).join(' ');
+        return firstLine;
+      }
+      return sdgName;
+    })
+    .on('click', function(event, d) {
+      const sdgNumber = d3.select(this.parentNode).select('image').attr('data-sdg');
+      // Update currentSDG
+      currentSDG = parseInt(sdgNumber);
+      
+      // Remove active class from all SDG icons in sidebar
+      document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
+      
+      // Add active class to the corresponding SDG icon in sidebar
+      const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
+      if (sidebarIcon) sidebarIcon.classList.add('active');
+      
+      // Switch to Bubble chart
+      const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
+      // Remove active class from all visualization buttons
+      document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
+        button.classList.remove('active');
+      });
+      // Add active class to the bubble button
+      bubbleBtn.classList.add('active');
+      
+      // Load data and create bubble chart
+      loadData().then(data => createBubbleChart(data, currentSDG));
+    });
+  
+  // Add second line of text for long names
+  ticks.append('text')
+    .attr('x', -45)  // Position text to the left of the icon
+    .attr('y', 15)  // Position below the first line
+    .attr('text-anchor', 'end')
+    .attr('dominant-baseline', 'middle')
+    .attr('fill', (d, i) => sdgColors[sdgNumbers[i]])
+    .attr('font-size', '12px')
+    .attr('font-weight', 'bold')
+    .attr('cursor', 'pointer')
+    .text((d, i) => {
+      const sdgName = constants.sdgNames[sdgNumbers[i]];
+      // Only add second line if name is long
+      if (sdgName.length > 15) {
+        const words = sdgName.split(' ');
+        const midpoint = Math.floor(words.length / 2);
+        const secondLine = words.slice(midpoint).join(' ');
+        return secondLine;
+      }
+      return '';
+    })
+    .on('click', function(event, d) {
+      const sdgNumber = d3.select(this.parentNode).select('image').attr('data-sdg');
+      // Update currentSDG
+      currentSDG = parseInt(sdgNumber);
+      
+      // Remove active class from all SDG icons in sidebar
+      document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
+      
+      // Add active class to the corresponding SDG icon in sidebar
+      const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
+      if (sidebarIcon) sidebarIcon.classList.add('active');
+      
+      // Switch to Bubble chart
+      const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
+      // Remove active class from all visualization buttons
+      document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
+        button.classList.remove('active');
+      });
+      // Add active class to the bubble button
+      bubbleBtn.classList.add('active');
+      
+      // Load data and create bubble chart
+      loadData().then(data => createBubbleChart(data, currentSDG));
+    });
+  
+  // Add SDG icons
+  ticks.append('image')
+    .attr('xlink:href', (d, i) => `logo/E Inverted Icons_WEB-${(sdgNumbers[i] < 10 ? '0' : '') + sdgNumbers[i]}.png`)
+    .attr('x', -40)  // Position the icon to the left of the axis
+    .attr('y', -20)  // Center the icon vertically
+    .attr('width', 40)
+    .attr('height', 40)
+    .attr('cursor', 'pointer')  // Change cursor to indicate clickable
+    .attr('data-sdg', (d, i) => sdgNumbers[i])  // Store SDG number as data attribute
+    .on('click', function(event, d) {
+      const sdgNumber = d3.select(this).attr('data-sdg');
+      // Update currentSDG
+      currentSDG = parseInt(sdgNumber);
+      
+      // Remove active class from all SDG icons in sidebar
+      document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
+      
+      // Add active class to the corresponding SDG icon in sidebar
+      const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
+      if (sidebarIcon) sidebarIcon.classList.add('active');
+      
+      // Switch to Bubble chart
+      const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
+      // Remove active class from all visualization buttons
+      document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
+        button.classList.remove('active');
+      });
+      // Add active class to the bubble button
+      bubbleBtn.classList.add('active');
+      
+      // Load data and create bubble chart
+      loadData().then(data => createBubbleChart(data, currentSDG));
+    });
 
   // Create tooltip (same as bubble chart)
   const tooltip = d3.select('body').append('div')

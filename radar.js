@@ -57,6 +57,27 @@ function createRadar(data) {
       .text(`${value}%`);
   });
 
+  // Define SDG colors
+  const sdgColors = {
+    1: "#E5243B", // Red
+    2: "#DDA63A", // Yellow
+    3: "#4C9F38", // Green
+    4: "#C5192D", // Red
+    5: "#FF3A21", // Orange
+    6: "#26BDE2", // Blue
+    7: "#FCC30B", // Yellow
+    8: "#A21942", // Burgundy
+    9: "#FD6925", // Orange
+    10: "#DD1367", // Pink
+    11: "#FD9D24", // Gold
+    12: "#BF8B2E", // Dark Gold
+    13: "#3F7E44", // Dark Green
+    14: "#0A97D9", // Blue
+    15: "#56C02B", // Light Green
+    16: "#00689D", // Blue
+    17: "#19486A"  // Navy
+  };
+  
   // Create radar grid lines and axis labels
   const labels = sdgNumbers.map(sdg => `SDG ${sdg} - ${constants.sdgNames[sdg]}`);
   
@@ -64,6 +85,7 @@ function createRadar(data) {
     const angle = angleScale(i);
     const lineX = radius * Math.sin(angle);
     const lineY = -radius * Math.cos(angle);
+    const sdgNumber = sdgNumbers[i];
     
     // Draw axis line
     svg.append('line')
@@ -74,21 +96,67 @@ function createRadar(data) {
       .attr('stroke', '#dde')
       .attr('stroke-width', 1);
     
-    // Position label horizontally at the periphery
-    const labelRadius = radius + 20;
-    const labelX = labelRadius * Math.sin(angle);
-    const labelY = -labelRadius * Math.cos(angle);
+    // Position icon and text at the periphery
+    const labelRadius = radius + 40; // Increased radius for icon + text
+    const iconX = labelRadius * Math.sin(angle);
+    const iconY = -labelRadius * Math.cos(angle);
     
-    svg.append('text')
-      .attr('x', labelX)
-      .attr('y', labelY)
-      .attr('text-anchor', angle > Math.PI ? 'end' : angle < Math.PI ? 'start' : 'middle')
-      .attr('dominant-baseline', angle === 0 ? 'text-after-edge' : 
-                                angle === Math.PI ? 'text-before-edge' : 'middle')
-      // Remove rotation transform to keep text horizontal
-      .style('font-size', '16px')
-      .style('fill', '#666')
-      .text(label);
+    // Create a group for the icon and text
+    const labelGroup = svg.append('g')
+      .attr('transform', `translate(${iconX},${iconY})`)
+      .attr('cursor', 'pointer')
+      .attr('data-sdg', sdgNumber)
+      .on('click', function() {
+        const sdgNum = d3.select(this).attr('data-sdg');
+        // Update currentSDG
+        currentSDG = parseInt(sdgNum);
+        
+        // Remove active class from all SDG icons in sidebar
+        document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
+        
+        // Add active class to the corresponding SDG icon in sidebar
+        const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNum}"]`);
+        if (sidebarIcon) sidebarIcon.classList.add('active');
+        
+        // Switch to Bubble chart
+        const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
+        // Remove active class from all visualization buttons
+        document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
+          button.classList.remove('active');
+        });
+        // Add active class to the bubble button
+        bubbleBtn.classList.add('active');
+        
+        // Load data and create bubble chart
+        loadData().then(data => createBubbleChart(data, currentSDG));
+      });
+    
+    // Add SDG icon
+    labelGroup.append('image')
+      .attr('xlink:href', `logo/E Inverted Icons_WEB-${(sdgNumber < 10 ? '0' : '') + sdgNumber}.png`)
+      .attr('width', 30)
+      .attr('height', 30)
+      .attr('x', -15) // Center the icon
+      .attr('y', -15);
+    
+    // Add text label with SDG color
+    // Determine text position based on angle
+    const textX = angle > Math.PI ? -25 : angle < Math.PI ? 25 : 0;
+    const textAnchor = angle > Math.PI ? 'end' : angle < Math.PI ? 'start' : 'middle';
+    
+    // Get SDG name
+    const sdgName = constants.sdgNames[sdgNumber];
+    
+    // Add text with SDG color
+    labelGroup.append('text')
+      .attr('x', textX)
+      .attr('y', 0)
+      .attr('text-anchor', textAnchor)
+      .attr('dominant-baseline', 'middle')
+      .style('font-size', '12px')
+      .style('font-weight', 'bold')
+      .style('fill', sdgColors[sdgNumber])
+      .text(sdgName);
   });
 
   // Create radar path with spline for smoother curve
