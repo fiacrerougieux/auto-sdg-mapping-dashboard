@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=1.6"></script>
-  <script src="heatmap.js?v=1.6"></script>
-  <script src="bubblechart.js?v=1.6"></script>
+  <script src="radar.js?v=1.7"></script>
+  <script src="heatmap.js?v=1.7"></script>
+  <script src="bubblechart.js?v=1.7"></script>
 
-  <link rel="stylesheet" href="style.css?v=1.6">
+  <link rel="stylesheet" href="style.css?v=1.7">
 </head>
 
 <body>
@@ -41,6 +41,65 @@
       </p>
       <button onclick="hideWelcomeModal()">Get Started</button>
     </div>
+  </div>
+
+  <!-- Top Bar for SDG Icons -->
+  <div id="top-bar">
+      <div class="sdg-icons-list" id="sdgIconsList">
+        <div class="sdg-icon-item" data-sdg="1">
+          <img src="logo/E Inverted Icons_WEB-01.png" alt="SDG 1 - No Poverty" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="2">
+          <img src="logo/E Inverted Icons_WEB-02.png" alt="SDG 2 - Zero Hunger" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="3">
+          <img src="logo/E Inverted Icons_WEB-03.png" alt="SDG 3 - Good Health" />
+        </div>
+        <!-- Quality Education icon hidden as requested
+        <div class="sdg-icon-item" data-sdg="4">
+          <img src="logo/E Inverted Icons_WEB-04.png" alt="SDG 4 - Quality Education" />
+        </div>
+        -->
+        <div class="sdg-icon-item" data-sdg="5">
+          <img src="logo/E Inverted Icons_WEB-05.png" alt="SDG 5 - Gender Equality" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="6">
+          <img src="logo/E Inverted Icons_WEB-06.png" alt="SDG 6 - Clean Water" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="7">
+          <img src="logo/E Inverted Icons_WEB-07.png" alt="SDG 7 - Clean Energy" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="8">
+          <img src="logo/E Inverted Icons_WEB-08.png" alt="SDG 8 - Decent Work" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="9">
+          <img src="logo/E Inverted Icons_WEB-09.png" alt="SDG 9 - Industry & Innovation" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="10">
+          <img src="logo/E Inverted Icons_WEB-10.png" alt="SDG 10 - Reduced Inequalities" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="11">
+          <img src="logo/E Inverted Icons_WEB-11.png" alt="SDG 11 - Sustainable Cities" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="12">
+          <img src="logo/E Inverted Icons_WEB-12.png" alt="SDG 12 - Responsible Production" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="13">
+          <img src="logo/E Inverted Icons_WEB-13.png" alt="SDG 13 - Climate Action" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="14">
+          <img src="logo/E Inverted Icons_WEB-14.png" alt="SDG 14 - Life Below Water" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="15">
+          <img src="logo/E Inverted Icons_WEB-15.png" alt="SDG 15 - Life on Land" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="16">
+          <img src="logo/E Inverted Icons_WEB-16.png" alt="SDG 16 - Peace and Justice" />
+        </div>
+        <div class="sdg-icon-item" data-sdg="17">
+          <img src="logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
+        </div>
+      </div>
   </div>
 
   <!-- Sidebar -->
@@ -110,66 +169,6 @@
         <button id="exportPNG" class="viz-button">
           <img src="visualisation/export-visualization.svg" alt="Export" />
         </button>
-      </div>
-    </div>
-
-    <!-- SDG Icon Grid -->
-    <div class="button-group">
-      <h3 class="section-title">Percentage of SDG in specialisations</h3>
-      <div class="sdg-icons-list" id="sdgIconsList">
-        <div class="sdg-icon-item" data-sdg="1">
-          <img src="logo/E Inverted Icons_WEB-01.png" alt="SDG 1 - No Poverty" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="2">
-          <img src="logo/E Inverted Icons_WEB-02.png" alt="SDG 2 - Zero Hunger" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="3">
-          <img src="logo/E Inverted Icons_WEB-03.png" alt="SDG 3 - Good Health" />
-        </div>
-        <!-- Quality Education icon hidden as requested
-        <div class="sdg-icon-item" data-sdg="4">
-          <img src="logo/E Inverted Icons_WEB-04.png" alt="SDG 4 - Quality Education" />
-        </div>
-        -->
-        <div class="sdg-icon-item" data-sdg="5">
-          <img src="logo/E Inverted Icons_WEB-05.png" alt="SDG 5 - Gender Equality" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="6">
-          <img src="logo/E Inverted Icons_WEB-06.png" alt="SDG 6 - Clean Water" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="7">
-          <img src="logo/E Inverted Icons_WEB-07.png" alt="SDG 7 - Clean Energy" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="8">
-          <img src="logo/E Inverted Icons_WEB-08.png" alt="SDG 8 - Decent Work" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="9">
-          <img src="logo/E Inverted Icons_WEB-09.png" alt="SDG 9 - Industry & Innovation" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="10">
-          <img src="logo/E Inverted Icons_WEB-10.png" alt="SDG 10 - Reduced Inequalities" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="11">
-          <img src="logo/E Inverted Icons_WEB-11.png" alt="SDG 11 - Sustainable Cities" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="12">
-          <img src="logo/E Inverted Icons_WEB-12.png" alt="SDG 12 - Responsible Production" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="13">
-          <img src="logo/E Inverted Icons_WEB-13.png" alt="SDG 13 - Climate Action" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="14">
-          <img src="logo/E Inverted Icons_WEB-14.png" alt="SDG 14 - Life Below Water" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="15">
-          <img src="logo/E Inverted Icons_WEB-15.png" alt="SDG 15 - Life on Land" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="16">
-          <img src="logo/E Inverted Icons_WEB-16.png" alt="SDG 16 - Peace and Justice" />
-        </div>
-        <div class="sdg-icon-item" data-sdg="17">
-          <img src="logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
-        </div>
       </div>
     </div>
 
@@ -603,6 +602,9 @@
       // Update chart type state
       previousChartType = currentChartType;
       currentChartType = newChartType;
+
+      // Remove any existing tooltips when switching visualizations
+      d3.select('body').select('.tooltip').remove();
 
       // Update active class visually
       document.querySelectorAll('#sidebar .visualisation-icons .viz-button').forEach(button => {

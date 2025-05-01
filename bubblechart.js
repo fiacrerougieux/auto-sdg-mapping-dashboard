@@ -92,6 +92,8 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
       g.append('g').attr('class', 'legend');
       // Add labels group only once on creation
       g.append('g').attr('class', 'labels-group');
+      // Add title group only once on creation
+      g.append('g').attr('class', 'chart-title');
 
   } else { // If SVG exists, just select the main group 'g'
       g = svg.select('g');
@@ -101,6 +103,17 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   svg.attr('width', width + margin.left + margin.right)
      .attr('height', height + margin.top + margin.bottom);
   g.attr('transform', `translate(${margin.left},${margin.top})`); // Ensure group transform is correct
+  
+  // Add or update chart title
+  const titleGroup = g.select('.chart-title');
+  titleGroup.selectAll('text').remove(); // Remove existing title if any
+  titleGroup.append('text')
+    .attr('x', width / 2)
+    .attr('y', -20)
+    .attr('text-anchor', 'middle')
+    .style('font-size', '18px')
+    .style('font-weight', 'bold')
+    .text('Percentage of SDG in specialisations');
 
   // --- Grid Lines Update/Creation ---
   const gridLines = g.select('.grid-lines');

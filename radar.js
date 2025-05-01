@@ -1,4 +1,7 @@
 function createRadar(data) {
+  // Remove any existing tooltips from the body
+  d3.select('body').select('.tooltip').remove();
+  
   // Build hidden cumulative heatmap first to calculate values
   // This is okay as it doesn't draw anything visible, just calculates finalCumulativeValues
   createHeatmap(data, true);
@@ -126,17 +129,19 @@ function createRadar(data) {
         const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNum}"]`);
         if (sidebarIcon) sidebarIcon.classList.add('active');
         
-        // Switch to Bubble chart
+        // Switch to Bubble chart using the setActiveVizButton function
         const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-        // Remove active class from all visualization buttons
-        document.querySelectorAll('#sidebar .visualisation-icons button').forEach(button => {
-          button.classList.remove('active');
-        });
-        // Add active class to the bubble button
-        bubbleBtn.classList.add('active');
         
-        // Load data and create bubble chart
-        loadData().then(data => createBubbleChart(data, currentSDG));
+        // Update state before calling setActiveVizButton
+        previousChartType = currentChartType;
+        currentChartType = 'bubble';
+        
+        // Use the setActiveVizButton function to properly switch visualization
+        setActiveVizButton(bubbleBtn, 'bubble');
+        
+        // Load data and create bubble chart with animation if appropriate
+        const shouldAnimate = previousChartType === 'bubble';
+        loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
       });
     
     // Add SDG icon
