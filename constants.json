@@ -41,8 +41,8 @@
     "SOCF": "Social Work", "SOCW": "Social Work", "SOLA": "Photovoltaics & Solar Energy", "SOMS": "Medical Science",
     "SOSS": "Social Sciences", "SPRC": "Social Policy", "SRAP": "Social Research & Policy", "STAM": "Arts and Media",
     "SUSD": "Sustainable Development", "SWCH": "Women & Childrens Health", "TABL": "Tax & Business Law",
-    "TELE": "Telecommunications", "UDES": "Urban Development Studies", "VISN": "Vision Science", "ZBUS": "CANBERRA",
-    "ZEIT": "CANBERRA", "ZGEN": "CANBERRA", "ZINT": "CANBERRA", "ZPEM": "CANBERRA", "ZSPS": "CANBERRA", "ZZCA": "CANBERRA"
+    "TELE": "Telecommunications", "UDES": "Urban Development Studies", "VISN": "Vision Science", "YCAN": "ASU Canberra", "ZBUS": "Business",
+    "ZEIT": "Engineering and Technology", "ZGEN": "University College General Education", "ZINT": "University College (Interdisciplinary)", "ZPEM": "Physical, Environmental & Mathematical Sciences", "ZHSS": "Humanities & Social Sciences", "ZSPS": "Professional Studies Canberra", "ZZBU": "Business Accelerated", "ZZCA": "Canberra Accelerated","PPEC": "Philosophy, Politics and Economics"
   },
   "facultyMapping": {
     "ACCT": "BUSINESS", "ACTL": "BUSINESS", "ADAD": "ADA", "AERO": "ENG", "AGSM": "BUSINESS", "ANAT": "MED", "ARCH": "ADA",
@@ -61,7 +61,7 @@
     "PSYC": "SCIENCE", "PTRL": "ENG", "REST": "ADA", "RISK": "BUSINESS", "SAHT": "ADA", "SCIF": "SCIENCE", "SENG": "ENG",
     "SOCF": "ADA", "SOCW": "ADA", "SOLA": "ENG", "SOMS": "MED", "SOSS": "ADA", "SRAP": "ADA", "SUSD": "ADA", "SWCH": "MED",
     "TABL": "BUSINESS", "TELE": "ENG", "UDES": "ADA", "VISN": "MED", "ZBUS": "CANBERRA", "ZEIT": "CANBERRA", "ZGEN": "CANBERRA",
-    "ZINT": "CANBERRA", "ZPEM": "CANBERRA", "ZSPS": "CANBERRA", "ZZCA": "CANBERRA"
+    "ZINT": "CANBERRA", "ZPEM": "CANBERRA", "ZSPS": "CANBERRA", "ZZCA": "CANBERRA", "ZZBU": "CANBERRA", "YCAN": "CANBERRA", "PPEC": "ADA"
   },
   "sdgNames": {
     "1": "No Poverty", "2": "Zero Hunger", "3": "Good Health and Well-being", "4": "Quality Education", "5": "Gender Equality",
