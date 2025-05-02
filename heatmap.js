@@ -421,7 +421,7 @@ function createHeatmap(data, isCumulative) {
           
           let tooltipContent = `<b>Course: ${cell.course}</b><br>`;
           tooltipContent += `<b>SDG ${cell.sdg}: ${cell.sdg_name}</b><br>`;
-          tooltipContent += `Present: ${cell.addressed ? 'Yes' : 'No'}<br>`;
+          tooltipContent += `Present: ${cell.addressed ? 'Yes' : 'Not detected when analysing public data for this course. N.B. that more granular course level data may uncover more SDG coverage.'}<br>`;
           
           // Only add target info if it exists and the SDG is addressed
           if (cell.addressed && cell.target_number && cell.target_name) {
