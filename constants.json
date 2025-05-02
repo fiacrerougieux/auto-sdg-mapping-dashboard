@@ -42,7 +42,7 @@
     "SOSS": "Social Sciences", "SPRC": "Social Policy", "SRAP": "Social Research & Policy", "STAM": "Arts and Media",
     "SUSD": "Sustainable Development", "SWCH": "Women & Childrens Health", "TABL": "Tax & Business Law",
     "TELE": "Telecommunications", "UDES": "Urban Development Studies", "VISN": "Vision Science", "YCAN": "ASU Canberra", "ZBUS": "Business",
-    "ZEIT": "Engineering and Technology", "ZGEN": "University College General Education", "ZINT": "University College (Interdisciplinary)", "ZPEM": "Physical, Environmental & Mathematical Sciences", "ZHSS": "Humanities & Social Sciences", "ZSPS": "Professional Studies Canberra", "ZZBU": "Business Accelerated", "ZZCA": "Canberra Accelerated","PPEC": "Philosophy, Politics and Economics"
+    "ZEIT": "Engineering and Technology", "ZGEN": "University College General Education", "ZINT": "University College (Interdisciplinary)", "ZPEM": "Physical, Environmental & Mathematical Sciences", "ZHSS": "Humanities & Social Sciences", "ZSPS": "Professional Studies Canberra", "ZZBU": "Business Accelerated", "ZZCA": "Canberra Accelerated", "COMD": "Comparative Development", "PPEC": "Philosophy, Politics and Economics"
   },
   "facultyMapping": {
     "ACCT": "BUSINESS", "ACTL": "BUSINESS", "ADAD": "ADA", "AERO": "ENG", "AGSM": "BUSINESS", "ANAT": "MED", "ARCH": "ADA",
