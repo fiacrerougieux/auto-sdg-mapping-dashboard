@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=1.9"></script>
-  <script src="heatmap.js?v=1.9"></script>
-  <script src="bubblechart.js?v=1.9"></script>
+  <script src="radar.js?v=2.0"></script>
+  <script src="heatmap.js?v=2.0"></script>
+  <script src="bubblechart.js?v=2.0"></script>
 
-  <link rel="stylesheet" href="style.css?v=1.9">
+  <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 
 <body>
@@ -27,13 +27,95 @@
       <h2>Welcome to the SDG Analysis Dashboard</h2>
       <p>
         This tool allows you to explore how university courses map to the UN Sustainable Development Goals (SDGs).
-        <strong>Select an SDG</strong> on the left to view coverage across all specialisations (the "bubble chart").
+        <strong>Select an SDG</strong> on the top bar or below to view coverage across all specialisations (the "bubble chart"):
       </p>
+      <div class="modal-sdg-icons">
+        <div class="sdg-icons-list" id="modalSdgIconsList">
+          <div class="sdg-icon-item" data-sdg="1">
+            <img src="logo/E Inverted Icons_WEB-01.png" alt="SDG 1 - No Poverty" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="2">
+            <img src="logo/E Inverted Icons_WEB-02.png" alt="SDG 2 - Zero Hunger" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="3">
+            <img src="logo/E Inverted Icons_WEB-03.png" alt="SDG 3 - Good Health" />
+          </div>
+          <!-- Quality Education icon hidden as requested
+          <div class="sdg-icon-item" data-sdg="4">
+            <img src="logo/E Inverted Icons_WEB-04.png" alt="SDG 4 - Quality Education" />
+          </div>
+          -->
+          <div class="sdg-icon-item" data-sdg="5">
+            <img src="logo/E Inverted Icons_WEB-05.png" alt="SDG 5 - Gender Equality" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="6">
+            <img src="logo/E Inverted Icons_WEB-06.png" alt="SDG 6 - Clean Water" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="7">
+            <img src="logo/E Inverted Icons_WEB-07.png" alt="SDG 7 - Clean Energy" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="8">
+            <img src="logo/E Inverted Icons_WEB-08.png" alt="SDG 8 - Decent Work" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="9">
+            <img src="logo/E Inverted Icons_WEB-09.png" alt="SDG 9 - Industry & Innovation" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="10">
+            <img src="logo/E Inverted Icons_WEB-10.png" alt="SDG 10 - Reduced Inequalities" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="11">
+            <img src="logo/E Inverted Icons_WEB-11.png" alt="SDG 11 - Sustainable Cities" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="12">
+            <img src="logo/E Inverted Icons_WEB-12.png" alt="SDG 12 - Responsible Production" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="13">
+            <img src="logo/E Inverted Icons_WEB-13.png" alt="SDG 13 - Climate Action" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="14">
+            <img src="logo/E Inverted Icons_WEB-14.png" alt="SDG 14 - Life Below Water" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="15">
+            <img src="logo/E Inverted Icons_WEB-15.png" alt="SDG 15 - Life on Land" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="16">
+            <img src="logo/E Inverted Icons_WEB-16.png" alt="SDG 16 - Peace and Justice" />
+          </div>
+          <div class="sdg-icon-item" data-sdg="17">
+            <img src="logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
+          </div>
+        </div>
+      </div>
       <p>
-        <strong>Or</strong>, pick a faculty and specialisation to see which courses in that area address each SDG (via
+        <strong>Or</strong>, pick a faculty and specialisation in the left sidebar or below to see which courses in that area address each SDG (via
         a heatmap or cumulative chart). You can toggle between different visualisations (radar, heatmap, cumulative)
         under "Visualisation".
       </p>
+      <div class="modal-faculty-icons">
+        <div class="faculty-icons-list" id="modalFacultyIconsList">
+          <div class="faculty-icon-item" data-faculty="ADA">
+            <img src="faculty/ada.svg" alt="Arts, Design & Architecture" />
+          </div>
+          <div class="faculty-icon-item" data-faculty="BUSINESS">
+            <img src="faculty/business.svg" alt="Business School" />
+          </div>
+          <div class="faculty-icon-item" data-faculty="ENG">
+            <img src="faculty/engineering.svg" alt="Engineering" />
+          </div>
+          <div class="faculty-icon-item" data-faculty="LAW">
+            <img src="faculty/law.svg" alt="Law & Justice" />
+          </div>
+          <div class="faculty-icon-item" data-faculty="MED">
+            <img src="faculty/medicine.svg" alt="Medicine & Health" />
+          </div>
+          <div class="faculty-icon-item" data-faculty="SCIENCE">
+            <img src="faculty/science.svg" alt="Science" />
+          </div>
+          <div class="faculty-icon-item" data-faculty="CANBERRA">
+            <img src="faculty/canberra.svg" alt="UNSW Canberra" />
+          </div>
+        </div>
+      </div>
       <p>
         Use the sidebar to switch between SDGs, faculties, and visualisation types. The disclaimer section below
         provides
@@ -687,6 +769,77 @@
         loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
       });
     });
+
+    // Modal SDG icon clicks
+    const modalSdgIconsList = document.getElementById('modalSdgIconsList');
+    if (modalSdgIconsList) { // Check if the element exists
+      modalSdgIconsList.querySelectorAll('.sdg-icon-item').forEach(item => {
+        item.addEventListener('click', function () {
+          const clickedSDG = parseInt(this.getAttribute('data-sdg')) || 1;
+          currentSDG = clickedSDG;
+
+          // Deactivate all top bar icons and activate the corresponding one
+          const topBarIcons = document.getElementById('sdgIconsList');
+          if (topBarIcons) {
+            topBarIcons.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
+            const correspondingTopBarIcon = topBarIcons.querySelector(`.sdg-icon-item[data-sdg="${clickedSDG}"]`);
+            if (correspondingTopBarIcon) {
+              correspondingTopBarIcon.classList.add('active');
+            }
+          }
+
+          // Update state *before* calling setActiveVizButton
+          previousChartType = currentChartType;
+          currentChartType = 'bubble';
+
+          // Switch to Bubble chart visually and functionally
+          const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
+          setActiveVizButton(bubbleBtn, 'bubble');
+
+          const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
+          loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
+
+          // Hide the modal
+          hideWelcomeModal();
+        });
+      });
+    }
+
+    // Modal Faculty icon clicks
+    const modalFacultyIconsList = document.getElementById('modalFacultyIconsList');
+    if (modalFacultyIconsList) { // Check if the element exists
+      modalFacultyIconsList.querySelectorAll('.faculty-icon-item').forEach(item => {
+        item.addEventListener('click', function () {
+          const clickedFaculty = this.getAttribute('data-faculty');
+          currentFaculty = clickedFaculty;
+
+          // Deactivate all sidebar faculty icons and activate the corresponding one
+          const sidebarFacultyIcons = document.getElementById('facultyIconsList');
+          if (sidebarFacultyIcons) {
+            sidebarFacultyIcons.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active'));
+            const correspondingSidebarIcon = sidebarFacultyIcons.querySelector(`.faculty-icon-item[data-faculty="${clickedFaculty}"]`);
+            if (correspondingSidebarIcon) {
+              correspondingSidebarIcon.classList.add('active');
+            }
+          }
+
+          // If currently on bubble chart, switch to heatmap (default for faculty view)
+          let targetChartType = currentChartType;
+          if (currentChartType === 'bubble') {
+            targetChartType = 'heatmap'; // Switch to heatmap when a faculty is selected
+            const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
+            setActiveVizButton(heatmapBtn, targetChartType);
+            loadData().then(data => createHeatmap(data, false)); // Draw heatmap
+          } else {
+            // Otherwise, just reload the current visualization with the new faculty filter
+            loadData().then(data => redrawVisualization(data));
+          }
+
+          // Hide the modal
+          hideWelcomeModal();
+        });
+      });
+    }
 
     // Initial load
     loadConstants().then(() => {
