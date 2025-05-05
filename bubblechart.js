@@ -52,7 +52,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
       name: constants.specializationNames[spec] || spec,
       value: total,
       sdgCount: hits,
-      percentage: (hits / total) * 100,
+      percentage: total > 0 ? (hits / total) * 100 : 0, // Avoid division by zero
       faculty: constants.facultyMapping[spec] || 'OTHER'
     };
   }).filter(d => d.value > 0)
@@ -64,238 +64,219 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     .range([0, width]);
   const radiusScale = d3.scaleSqrt()
     .domain([0, d3.max(bubbleData, d => d.value)])
-    .range([5, 40]);
+    .range([5, 40]); // Min radius 5, max 40
 
   const simulation = d3.forceSimulation(bubbleData)
     .force('x', d3.forceX(d => xScale(d.percentage)).strength(1))
     .force('y', d3.forceY(height / 2).strength(0.1))
-    .force('collision', d3.forceCollide().radius(d => radiusScale(d.value) + 1))
+    .force('collision', d3.forceCollide().radius(d => radiusScale(d.value) + 1)) // Add padding to collision radius
     .stop();
 
-  for (let i = 0; i < 120; i++) simulation.tick(); // Calculate positions
+  // Run simulation sufficiently
+  for (let i = 0; i < 120; i++) simulation.tick();
+
+  // --- Determine theme colors ---
+  const isDarkTheme = document.body.classList.contains('dark-theme');
+  const themeTextColor = isDarkTheme ? '#00e8ff' : 'black';
+  const themeBgColor = isDarkTheme ? '#0a0e17' : '#ffffff';
+  const themeGridColor = isDarkTheme ? '#2a3446' : '#dde';
+  const themeGridTextColor = isDarkTheme ? '#88a0cc' : '#666';
+  const themeLegendBgColor = isDarkTheme ? 'rgba(18, 26, 41, 0.8)' : 'rgba(255, 255, 255, 0.9)';
+  const themeLegendStrokeColor = isDarkTheme ? '#2a3446' : '#fff';
+  const themeLegendTextColor = isDarkTheme ? '#00e8ff' : 'black';
+  const themeBubbleLabelFillColor = isDarkTheme ? '#00e8ff' : '#fff';
+  const themeBubbleLabelStrokeColor = isDarkTheme ? 'none' : '#000';
+  const themeBubbleStrokeColor = isDarkTheme ? '#0a0e17' : '#fff'; // Match background
 
   // --- SVG and G selection/creation ---
-  const container = d3.select(`#${targetDivId}`); // Select the specific div
-  let svg = container.select('svg'); // Look for SVG within this div
+  const container = d3.select(`#${targetDivId}`);
+  let svg = container.select('svg');
   let g;
-  let initialCreate = svg.empty(); // Check if SVG needs creation within this div
+  let initialCreate = svg.empty();
 
   if (initialCreate) {
-      animateTransition = false; // No transition on initial creation
-      svg = container.append('svg');
-      g = svg.append('g')
-          .attr('transform', `translate(${margin.left},${margin.top})`);
-
-      // Add grid lines group only once on creation
-      g.append('g').attr('class', 'grid-lines');
-      // Add legend group only once on creation
-      g.append('g').attr('class', 'legend');
-      // Add labels group only once on creation
-      g.append('g').attr('class', 'labels-group');
-      // Add title group only once on creation
-      g.append('g').attr('class', 'chart-title');
-
-  } else { // If SVG exists, just select the main group 'g'
-      g = svg.select('g');
+    animateTransition = false; // No transition on initial creation
+    svg = container.append('svg');
+    g = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+    // Add persistent groups only once
+    g.append('g').attr('class', 'grid-lines');
+    g.append('g').attr('class', 'legend');
+    g.append('g').attr('class', 'labels-group');
+    g.append('g').attr('class', 'chart-title');
+  } else {
+    g = svg.select('g'); // Select existing group
   }
 
-  // Update SVG/g dimensions (handles resize and ensures consistency)
+  // Update SVG/g dimensions and background
   svg.attr('width', width + margin.left + margin.right)
-     .attr('height', height + margin.top + margin.bottom);
-  g.attr('transform', `translate(${margin.left},${margin.top})`); // Ensure group transform is correct
-  
+     .attr('height', height + margin.top + margin.bottom)
+     .style('background-color', themeBgColor); // Apply theme background color
+  g.attr('transform', `translate(${margin.left},${margin.top})`);
+
   // Add or update chart title
   const titleGroup = g.select('.chart-title');
-  titleGroup.selectAll('text').remove(); // Remove existing title if any
+  titleGroup.selectAll('text').remove(); // Clear existing title
   titleGroup.append('text')
     .attr('x', width / 2)
-    .attr('y', -20)
+    .attr('y', -20) // Position above the plot area
     .attr('text-anchor', 'middle')
     .style('font-size', '18px')
     .style('font-weight', 'bold')
+    .style('fill', themeTextColor) // Apply theme text color
     .text('Percentage of SDG in specialisations');
 
   // --- Grid Lines Update/Creation ---
   const gridLines = g.select('.grid-lines');
+  gridLines.selectAll('*').remove(); // Clear previous grid lines
   for (let p = 0; p <= 100; p += 10) {
     gridLines.append('line')
       .attr('x1', xScale(p))
       .attr('x2', xScale(p))
       .attr('y1', 0)
       .attr('y2', height)
-      .attr('stroke', '#dde')
-      .attr('stroke-width', 2);
+      .attr('stroke', themeGridColor) // Apply theme grid color
+      .attr('stroke-width', 1);
 
-    // Add text only if it doesn't exist (or handle update)
-    let text = gridLines.selectAll(`.grid-text-${p}`).data([p]);
-    text.enter()
-      .append('text')
+    gridLines.append('text')
       .attr('class', `grid-text-${p}`)
       .attr('x', xScale(p))
-      .attr('y', height + 20)
+      .attr('y', height + 20) // Position below the grid
       .attr('text-anchor', 'middle')
-      .style('font-size', '16px')
-      .style('fill', '#666')
-      .text(d => d + '%') // Use data bound
-      .merge(text) // Update existing text position if needed (e.g., on resize)
-      .attr('x', xScale(p))
-      .attr('y', height + 20);
+      .style('font-size', '12px')
+      .style('fill', themeGridTextColor) // Apply theme grid text color
+      .text(p + '%');
   }
   // --- End Grid Lines ---
 
-
   // --- Legend Update/Creation ---
   const legendGroup = g.select('.legend')
-      .attr('transform', `translate(${width - 220},20)`); // Update position
+      .attr('transform', `translate(${width - 190}, 10)`); // Position legend
+  legendGroup.selectAll('*').remove(); // Clear previous legend items
 
-  if (initialCreate) { // Only create legend content initially
-      legendGroup.append('rect')
-          .attr('width', 180)
-          .attr('height', Object.keys(facultyColors).length * 25 + 10)
-          .attr('fill', 'white')
-          .attr('stroke', '#fff')
-          .attr('rx', 5).attr('ry', 5)
-          .style('opacity', 0.9);
+  legendGroup.append('rect')
+      .attr('width', 180)
+      .attr('height', Object.keys(facultyColors).length * 20 + 10) // Dynamic height
+      .attr('fill', themeLegendBgColor) // Apply theme legend background
+      .attr('stroke', themeLegendStrokeColor) // Apply theme legend stroke
+      .attr('rx', 5).attr('ry', 5);
 
-      const legendItems = legendGroup.selectAll('.legend-item')
-          .data(Object.entries(facultyColors))
-          .join('g')
-          .attr('class', 'legend-item')
-          .attr('transform', (d, i) => `translate(10,${i * 25 + 15})`);
+  const legendItems = legendGroup.selectAll('.legend-item')
+      .data(Object.entries(facultyColors))
+      .join('g')
+      .attr('class', 'legend-item')
+      .attr('transform', (d, i) => `translate(10,${i * 20 + 15})`);
 
-      legendItems.append('circle')
-          .attr('r', 6)
-          .attr('fill', d => d[1])
-          .attr('opacity', 0.7)
-          .attr('stroke', '#fff')
-          .attr('stroke-width', 1);
+  legendItems.append('circle')
+      .attr('r', 5)
+      .attr('fill', d => d[1])
+      .attr('opacity', 0.7)
+      .attr('stroke', themeLegendStrokeColor)
+      .attr('stroke-width', 1);
 
-      legendItems.append('text')
-          .attr('x', 15)
-          .attr('y', 5)
-          .style('font-size', '16px')
-          .text(d => constants.facultyNames[d[0]] || d[0]);
-  }
+  legendItems.append('text')
+      .attr('x', 12)
+      .attr('y', 4)
+      .style('font-size', '11px')
+      .style('fill', themeLegendTextColor) // Apply theme legend text color
+      .text(d => constants.facultyNames[d[0]] || d[0]);
   // --- End Legend ---
 
+  const transitionDuration = animateTransition ? 750 : 0; // Use parameter for duration
 
-  const transitionDuration = animateTransition ? 750 : 0; // Duration for animation or 0 for none
-
-  // --- Bubbles Update/Creation ---
-  // Select circles within the persistent 'g'
-  const bubbles = g.selectAll('circle.bubble') // Use class selector
-    .data(bubbleData, d => d.id)
+  // --- Bubbles Update/Creation with Transitions ---
+  const bubbles = g.selectAll('circle.bubble')
+    .data(bubbleData, d => d.id) // Use ID for object constancy
     .join(
       enter => enter.append('circle')
-        .attr('class', 'bubble') // Add class on enter
-        .attr('cx', d => d.x) // Initial position from simulation
-        .attr('cy', d => d.y) // Initial position from simulation
-        .attr('r', 0) // Start with radius 0 for entering bubbles
+        .attr('class', 'bubble')
+        .attr('cx', d => d.x) // Start at simulated position
+        .attr('cy', d => d.y)
+        .attr('r', 0) // Start with radius 0
         .attr('fill', d => facultyColors[d.faculty] || '#999999')
         .attr('opacity', 0.7)
-        .attr('stroke', '#fff')
-        .attr('stroke-width', 2)
-        .call(enter => enter.transition().duration(transitionDuration) // Animate radius on enter
-          .attr('r', d => radiusScale(d.value))) // Transition radius in
-          .style('cursor', 'pointer'), // Add cursor style on enter
+        .attr('stroke', themeBubbleStrokeColor) // Use theme stroke
+        .attr('stroke-width', 1)
+        .style('cursor', 'pointer')
+        .call(enter => enter.transition().duration(transitionDuration) // Transition radius in
+          .attr('r', d => radiusScale(d.value))),
       update => update
-        .call(update => update.transition().duration(transitionDuration)
-          // Transition position, radius, and fill on update
+        .call(update => update.transition().duration(transitionDuration) // Transition existing bubbles
           .attr('cx', d => d.x)
           .attr('cy', d => d.y)
           .attr('r', d => radiusScale(d.value))
           .attr('fill', d => facultyColors[d.faculty] || '#999999')
+          .attr('stroke', themeBubbleStrokeColor) // Update stroke on update
         ),
       exit => exit
-        // Add cursor style removal if needed, though removing the element handles it
-        .call(exit => exit.transition().duration(transitionDuration) // Animate radius on exit
+        .call(exit => exit.transition().duration(transitionDuration) // Transition radius out
           .attr('r', 0)
           .remove()) // Remove after transition
     );
 
-  // --- Labels Update/Creation ---
-  const labelsGroup = g.select('.labels-group'); // Select existing group
+  // --- Labels Update/Creation with Transitions ---
+  const labelsGroup = g.select('.labels-group');
+  labelsGroup.selectAll('.bubble-label').remove(); // Clear previous labels
 
-  // Clear existing labels first to avoid stacking issues
-  labelsGroup.selectAll('.bubble-label').remove();
-  
-  // Create labels with improved visibility
   labelsGroup.selectAll('.bubble-label')
-    .data(bubbleData, d => d.id)
+    .data(bubbleData, d => d.id) // Use ID for object constancy
     .join(
       enter => enter.append('text')
         .attr('class', 'bubble-label')
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'middle')
         .style('font-weight', 'bold')
-        .style('fill', '#000')
-        .style('stroke', '#000')  // Add black outline back
-        .style('stroke-width', '1px')  // Make it slightly thicker
-        .style('pointer-events', 'none') // Prevent labels interfering with bubble clicks
+        .style('fill', themeBubbleLabelFillColor) // Apply theme label fill
+        .style('stroke', themeBubbleLabelStrokeColor) // Apply theme label stroke
+        .style('stroke-width', '0.5px')
+        .style('paint-order', 'stroke')
+        .style('pointer-events', 'none')
         .attr('x', d => d.x) // Initial position
         .attr('y', d => d.y)
         .text(d => d.id)
-        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.6, 16)}px`) // Slightly larger font
-        .style('display', d => radiusScale(d.value) < 8 ? 'none' : 'block') // Show more labels
+        .style('font-size', d => `${Math.max(5, Math.min(radiusScale(d.value) * 0.5, 12))}px`) // Ensure min size 5px
+        .style('display', d => radiusScale(d.value) < 8 ? 'none' : 'block') // Hide small labels
         .style('opacity', 0) // Start transparent
-        .call(enter => enter.transition().duration(transitionDuration*4)
-          .style('opacity', 1)), // Fade in
+        .call(enter => enter.transition().duration(transitionDuration * 1.5) // Fade in
+          .style('opacity', 1)),
       update => update
-        // Apply non-transitioning styles first
-        .style('pointer-events', 'none') // Ensure pointer-events are set on update too
-        .style('fill', '#fff')
-        .style('stroke', '#000')  // Add black outline back for updates too
-        .style('stroke-width', '1px')  // Make it slightly thicker
-        .text(d => d.id) // Update text content during updates too
-        .style('font-size', d => `${Math.min(radiusScale(d.value) * 0.6, 16)}px`)
+        .style('pointer-events', 'none') // Ensure non-interactive
+        .style('fill', themeBubbleLabelFillColor) // Update fill
+        .style('stroke', themeBubbleLabelStrokeColor) // Update stroke
+        .text(d => d.id) // Update text
+        .style('font-size', d => `${Math.max(5, Math.min(radiusScale(d.value) * 0.5, 12))}px`)
         .style('display', d => radiusScale(d.value) < 8 ? 'none' : 'block')
-        .style('opacity', 1) // Ensure final opacity is 1
-        // Then apply transitions
-        .call(update => update.transition().duration(transitionDuration)
-          .attr('x', d => d.x) // Transition position
+        .style('opacity', 1) // Ensure opacity is 1 after potential fade-in
+        .call(update => update.transition().duration(transitionDuration) // Transition position
+          .attr('x', d => d.x)
           .attr('y', d => d.y)
         ),
       exit => exit
-        .call(exit => exit.transition().duration(transitionDuration)
-          .style('opacity', 0) // Fade out
-          .remove())
+        .call(exit => exit.transition().duration(transitionDuration) // Fade out
+          .style('opacity', 0)
+          .remove()) // Remove after transition
     );
   // --- End Labels ---
 
-
   // --- Tooltip ---
-  // Create tooltip (appends to body, safe to recreate)
   const tooltip = d3.select('body').append('div')
-    .attr('class', 'tooltip bubble-tooltip')
+    .attr('class', 'tooltip bubble-tooltip') // CSS handles theme styles
     .style('position', 'absolute')
     .style('visibility', 'hidden')
-    .style('background-color', 'rgba(var(--surface-color-rgb), 0.8)') /* Add alpha for transparency */
-    .style('border', '1px solid var(--border-color)')
-    .style('border-radius', '8px') // Increased border-radius for rounder corners
-    .style('padding', '10px')
-    .style('font-size', '14px')
-    .style('color', 'var(--text-color)')
-    .style('pointer-events', 'none'); // Important for tooltip not to interfere with mouse events
-    
-  // Always initialize tooltip with content for the bubble with highest percentage
-  // Note: currentChartType is only used for bottom charts (heatmap, cumulative, radar)
-  // The bubble chart is always shown in the top container
-  if (bubbleData.length > 0) {
-    // Find the bubble with the highest percentage to highlight initially
-    const highlightBubble = bubbleData[bubbleData.length - 1]; // Last bubble has highest percentage due to sorting
-    
-    // Set tooltip content and position
+    .style('pointer-events', 'none');
+
+  // Initial tooltip for largest bubble (optional, can be removed if distracting)
+  if (bubbleData.length > 0 && initialCreate) { // Only show initial tooltip on first load
+    const highlightBubble = bubbleData[bubbleData.length - 1];
     tooltip.html(`<b>${highlightBubble.name}</b><br>Total Courses: ${highlightBubble.value}<br>Courses Addressing SDG ${selectedSDG}: ${highlightBubble.sdgCount}<br>Percentage: ${highlightBubble.percentage.toFixed(2)}%`);
-    
-    // Use setTimeout to ensure the DOM has fully rendered before positioning the tooltip
-    setTimeout(() => {
-      // Position tooltip near the bubble with highest percentage
+    setTimeout(() => { // Delay to allow positioning
       tooltip.style('visibility', 'visible')
         .style('top', (highlightBubble.y + margin.top + containerElement.getBoundingClientRect().top + window.scrollY - 10) + 'px')
         .style('left', (highlightBubble.x + margin.left + containerElement.getBoundingClientRect().left + window.scrollX + 20) + 'px');
-    }, 100); // Small delay to ensure DOM is ready
+    }, 100);
   }
 
+  // Tooltip event handlers for bubbles
   bubbles.on('mouseover', function(event, d) {
     tooltip.html(`<b>${d.name}</b><br>Total Courses: ${d.value}<br>Courses Addressing SDG ${selectedSDG}: ${d.sdgCount}<br>Percentage: ${d.percentage.toFixed(2)}%`)
       .style('visibility', 'visible');
@@ -308,30 +289,21 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     tooltip.style('visibility', 'hidden');
   })
   .on('click', function(event, d) {
-    // When a bubble is clicked, switch to binary heatmap view of that specialization
+    // Switch to heatmap view for the clicked specialization
     currentDiscipline = d.id;
-    
-    // Update the search input and dropdown
     const searchInput = document.getElementById('disciplineSearch');
     const dropdown = document.getElementById('disciplineDropdown');
-    
-    // Update the search input with the selected discipline name
-    searchInput.value = d.name;
-    
-    // Update the active state in the dropdown
-    const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
-    dropdownItems.forEach(item => {
+    searchInput.value = d.name; // Update search bar
+    // Update dropdown active state
+    dropdown.querySelectorAll('.dropdown-item').forEach(item => {
       item.classList.remove('active');
       if (item.getAttribute('data-value') === d.id) {
         item.classList.add('active');
       }
     });
-    
-    // Hide the tooltip before switching views to prevent it from staying visible
-    tooltip.style('visibility', 'hidden');
-    
-    // Switch to binary heatmap view
+    tooltip.style('visibility', 'hidden'); // Hide tooltip before switching
+    // Programmatically click the heatmap button
     document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn').click();
   })
-  .style('cursor', 'pointer'); // Change cursor to indicate clickable
+  .style('cursor', 'pointer'); // Indicate clickable
 }

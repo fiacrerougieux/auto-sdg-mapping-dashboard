@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.1"></script>
-  <script src="heatmap.js?v=2.1"></script>
-  <script src="bubblechart.js?v=2.1"></script>
+  <script src="radar.js?v=2.2"></script>
+  <script src="heatmap.js?v=2.2"></script>
+  <script src="bubblechart.js?v=2.2"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.1">
+  <link rel="stylesheet" href="style.css?v=2.2">
 </head>
 
 <body>
@@ -87,33 +87,14 @@
         </div>
       </div>
       <p>
-        <strong>Or</strong>, pick a faculty or search for a specialisation in the top bar or below to see which courses in that area address each SDG (via
-        a heatmap or cumulative chart). You can toggle between different visualisations (radar, heatmap, cumulative)
-        under "Visualisation".
+        <strong>Or</strong> search for a specialisation in the search field or here.
       </p>
-      <div class="modal-faculty-icons">
-        <div class="faculty-icons-list" id="modalFacultyIconsList">
-          <div class="faculty-icon-item" data-faculty="ADA">
-            <img src="faculty/ada.svg" alt="Arts, Design & Architecture" />
-          </div>
-          <div class="faculty-icon-item" data-faculty="BUSINESS">
-            <img src="faculty/business.svg" alt="Business School" />
-          </div>
-          <div class="faculty-icon-item" data-faculty="ENG">
-            <img src="faculty/engineering.svg" alt="Engineering" />
-          </div>
-          <div class="faculty-icon-item" data-faculty="LAW">
-            <img src="faculty/law.svg" alt="Law & Justice" />
-          </div>
-          <div class="faculty-icon-item" data-faculty="MED">
-            <img src="faculty/medicine.svg" alt="Medicine & Health" />
-          </div>
-          <div class="faculty-icon-item" data-faculty="SCIENCE">
-            <img src="faculty/science.svg" alt="Science" />
-          </div>
-          <div class="faculty-icon-item" data-faculty="CANBERRA">
-            <img src="faculty/canberra.svg" alt="UNSW Canberra" />
-          </div>
+      <!-- Faculty Icons Removed -->
+      <!-- Add Search Bar Here -->
+      <div class="search-container" id="modal-search-container" style="margin: 15px auto; width: 80%;"> <!-- Added inline style for spacing/width -->
+        <input type="text" id="modalDisciplineSearch" placeholder="Search specialisations..." class="search-input">
+        <div id="modalDisciplineDropdown" class="dropdown-content">
+          <!-- Populated by JS if needed -->
         </div>
       </div>
       <p>
@@ -201,78 +182,11 @@
       </div>
       <!-- Separator -->
       <div class="top-bar-separator"></div>
-      <!-- Search Container -->
-      <div class="search-container top-bar-search">
-        <input type="text" id="disciplineSearch" placeholder="Search specialisations..." class="search-input">
-        <div id="disciplineDropdown" class="dropdown-content">
-          <!-- Populated by JS -->
-        </div>
-      </div>
+      <!-- Search Container Removed from Top Bar -->
       <!-- Separator -->
       <div class="top-bar-separator"></div>
-      <!-- Faculty Icons Moved Here -->
-      <div class="faculty-icons-list" id="facultyIconsListTop"> <!-- Renamed ID to avoid conflict -->
-        <div class="faculty-icon-item" data-faculty="ALL">
-          <img src="faculty/all.svg" alt="All faculties" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="ADA">
-          <img src="faculty/ada.svg" alt="Arts, Design & Architecture" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="BUSINESS">
-          <img src="faculty/business.svg" alt="Business School" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="ENG">
-          <img src="faculty/engineering.svg" alt="Engineering" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="LAW">
-          <img src="faculty/law.svg" alt="Law & Justice" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="MED">
-          <img src="faculty/medicine.svg" alt="Medicine & Health" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="SCIENCE">
-          <img src="faculty/science.svg" alt="Science" />
-        </div>
-        <div class="faculty-icon-item" data-faculty="CANBERRA">
-          <img src="faculty/canberra.svg" alt="UNSW Canberra" />
-        </div>
-      </div>
-      <!-- Separator -->
-      <div class="top-bar-separator"></div>
-      <!-- Moved Analysis Data Source Section -->
-      <div class="top-bar-section" id="data-source-section">
-        <h3 class="top-bar-section-title">Analysis Data Source</h3>
-        <div class="data-source-row">
-          <div class="data-source-toggle">
-            <div id="ternaryToggleContainer" class="ternary-toggle-container">
-              <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
-                <!-- Labels moved inside -->
-                <div class="toggle-labels">
-                  <span>v1</span>
-                  <span>v2</span>
-                  <span>v3</span>
-                </div>
-                <div class="toggle-knob"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Separator within data source section -->
-          <div class="top-bar-separator"></div>
-          <div class="course-count-container">
-            <p id="course-count" style="font-size: 1.1em; color: #666; margin: 0;"></p>
-          </div>
-        </div>
-      </div>
-      <!-- End Moved Section -->
-      <!-- Separator after course count -->
-      <div class="top-bar-separator"></div>
-      <!-- SDG Knowledge Graph Link (moved after course count) -->
-      <div class="button-group knowledge-graph-container"> <!-- Added class for styling -->
-        <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank" class="knowledge-graph-link">
-          <img src="other/sdg_network.png" alt="SDG Knowledge Graph">
-          <span>knowledge graph</span>
-        </a>
-      </div>
+      <!-- Faculty Icons Removed -->
+      <!-- No additional elements in top bar -->
   </div>
 
   <!-- Compact Visualization Icons -->
@@ -300,38 +214,94 @@
     <!-- Plot Area -->
     <div id="plot-container">
       <div id="plot-container-top">
-        <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+        <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: block;"></div>
+      </div>
+      <!-- Search Container Moved Here -->
+      <div class="search-container" id="middle-search-container">
+        <input type="text" id="disciplineSearch" placeholder="Search specialisations..." class="search-input">
+        <div id="disciplineDropdown" class="dropdown-content">
+          <!-- Populated by JS -->
+        </div>
       </div>
       <div id="plot-container-bottom">
-        <div id="heatmap-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+        <div id="heatmap-div" class="chart-div" style="width: 100%; height: 100%; display: block;"></div>
         <div id="radar-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
         <!-- Cumulative heatmap will reuse #heatmap-div -->
       </div>
     </div>
   </div>
 
+  <!-- Bottom Bar -->
+  <div id="bottom-bar">
+    <!-- Version Toggle -->
+    <div class="bottom-bar-item">
+      <div id="ternaryToggleContainer" class="ternary-toggle-container">
+        <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
+          <div class="toggle-labels">
+            <span>v1</span>
+            <span>v2</span>
+            <span>v3</span>
+          </div>
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar-separator"></div>
+    <!-- Course Count -->
+    <div class="bottom-bar-item">
+      <p id="course-count" style="margin: 0;">Total Courses: 3417</p>
+    </div>
+    <div class="bottom-bar-separator"></div>
+    <!-- SDG Knowledge Graph Link -->
+    <div class="bottom-bar-item">
+      <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank" class="knowledge-graph-link">
+        <img src="other/sdg_network.png" alt="SDG Knowledge Graph" style="height: 24px; width: auto;">
+        <span>SDG Knowledge Graph</span>
+      </a>
+    </div>
+    <div class="bottom-bar-separator"></div>
+    <!-- Theme Toggle -->
+    <div class="bottom-bar-item" style="margin-left: auto;">
+      <div id="themeToggleContainer" class="theme-toggle-container">
+        <div id="themeToggle" class="theme-toggle light-mode"> <!-- Default to light mode -->
+          <div class="theme-toggle-labels">
+            <span>Light</span>
+            <span>Dark</span>
+          </div>
+          <div class="theme-toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Script -->
   <script>
-    // Function to adjust main content padding based on top bar height
+    // Function to adjust main content padding based on top and bottom bar heights
     function adjustMainContentPadding() {
       const topBar = document.getElementById('top-bar');
+      const bottomBar = document.getElementById('bottom-bar');
       const mainContent = document.getElementById('main-content');
       const topBarHeight = topBar.offsetHeight;
+      const bottomBarHeight = bottomBar.offsetHeight;
       
       // Set the top padding of main content to match the top bar height plus some extra space
       mainContent.style.paddingTop = (topBarHeight + 20) + 'px';
       
-      // Set a CSS variable for the top bar height that can be used in media queries
+      // Set the bottom padding of main content to match the bottom bar height plus some extra space
+      mainContent.style.paddingBottom = (bottomBarHeight + 20) + 'px';
+      
+      // Set CSS variables for the bar heights that can be used in media queries
       document.documentElement.style.setProperty('--top-bar-height', topBarHeight + 'px');
+      document.documentElement.style.setProperty('--bottom-bar-height', bottomBarHeight + 'px');
       
       // Adjust plot container height if needed
       const plotContainer = document.getElementById('plot-container');
       if (window.innerWidth <= 768) {
-        plotContainer.style.height = `calc(100vh - 30px - ${topBarHeight}px)`;
+        plotContainer.style.height = `calc(100vh - 30px - ${topBarHeight}px - ${bottomBarHeight}px)`;
       } else if (window.innerWidth <= 1024) {
-        plotContainer.style.height = `calc(100vh - 35px - ${topBarHeight}px)`;
+        plotContainer.style.height = `calc(100vh - 35px - ${topBarHeight}px - ${bottomBarHeight}px)`;
       } else {
-        plotContainer.style.height = `calc(100vh - 40px - ${topBarHeight}px)`;
+        plotContainer.style.height = `calc(100vh - 40px - ${topBarHeight}px - ${bottomBarHeight}px)`;
       }
     }
 
@@ -589,8 +559,9 @@
           dropdown.appendChild(item);
         });
         
-        // Setup search and dropdown functionality
+        // Setup search and dropdown functionality for both main and modal search bars
         setupDisciplineSearch();
+        setupModalDisciplineSearch(disc); // Pass disciplines to modal setup
 
         return data;
       } catch (error) {
@@ -867,37 +838,7 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     }
 
 
-    // Faculty icon clicks (Top Bar)
-    const facultyIconsListTop = document.getElementById('facultyIconsListTop'); // Updated ID
-    facultyIconsListTop.querySelectorAll('.faculty-icon-item').forEach(item => {
-      item.addEventListener('click', function () {
-        facultyIconsListTop.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active')); // Updated ID
-        this.classList.add('active');
-        currentFaculty = this.getAttribute('data-faculty');
-        currentDiscipline = 'ALL'; // Reset discipline when faculty changes
-
-        // Always ensure a bottom chart is active when faculty/discipline changes
-        let bottomChartType = currentChartType;
-        if (bottomChartType === 'bubble') { // If only bubble was active, default to heatmap
-            bottomChartType = 'heatmap';
-        }
-
-        // Activate the appropriate bottom viz button
-        let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-        const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
-        setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
-
-        // Reload data and redraw the selected bottom visualization
-        loadData().then(data => {
-            if (bottomChartType === 'radar') {
-                createRadar(data);
-            } else { // heatmap or cumulative
-                createHeatmap(data, bottomChartType === 'cumulative');
-            }
-            // Bubble chart remains visible in the top container, no need to redraw unless SDG changes
-        });
-      });
-    });
+    // Faculty icon clicks removed
 
     // Setup discipline search and dropdown functionality
     function setupDisciplineSearch() {
@@ -997,6 +938,120 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       }
     }
 
+    // Setup modal discipline search and dropdown functionality
+    function setupModalDisciplineSearch(disciplines) {
+      const modalSearchInput = document.getElementById('modalDisciplineSearch');
+      const modalDropdown = document.getElementById('modalDisciplineDropdown');
+
+      // Clear previous dropdown items
+      modalDropdown.innerHTML = '';
+
+      // Add "ALL" option first
+      const allItem = document.createElement('div');
+      allItem.className = 'dropdown-item'; // No initial active state needed for modal
+      allItem.setAttribute('data-value', 'ALL');
+      allItem.textContent = 'All Specialisations';
+      modalDropdown.appendChild(allItem);
+
+      // Add discipline options
+      disciplines.forEach(d => {
+        const item = document.createElement('div');
+        item.className = 'dropdown-item';
+        item.setAttribute('data-value', d);
+        item.textContent = constants.specializationNames[d] || d;
+        modalDropdown.appendChild(item);
+      });
+
+      const modalDropdownItems = modalDropdown.querySelectorAll('.dropdown-item');
+
+      // Show dropdown when input is focused
+      modalSearchInput.addEventListener('focus', function() {
+        modalDropdown.classList.add('show');
+      });
+
+      // Filter dropdown items as user types
+      modalSearchInput.addEventListener('input', function() {
+        const searchText = this.value.toLowerCase();
+        let hasVisibleItems = false;
+
+        modalDropdownItems.forEach(item => {
+          const itemText = item.textContent.toLowerCase();
+          const shouldShow = itemText.includes(searchText);
+          item.style.display = shouldShow ? 'block' : 'none';
+          if (shouldShow) hasVisibleItems = true;
+        });
+
+        // If no items match, show a message
+        if (!hasVisibleItems && searchText) {
+          if (!modalDropdown.querySelector('.no-results')) {
+            const noResults = document.createElement('div');
+            noResults.className = 'dropdown-item no-results';
+            noResults.textContent = 'No matching specialisations found';
+            noResults.style.fontStyle = 'italic';
+            noResults.style.color = '#999';
+            modalDropdown.appendChild(noResults);
+          }
+        } else {
+          // Remove any existing "no results" message
+          const noResults = modalDropdown.querySelector('.no-results');
+          if (noResults) modalDropdown.removeChild(noResults);
+        }
+      });
+
+      // Handle dropdown item clicks
+      modalDropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const selectedValue = this.getAttribute('data-value');
+          const selectedText = this.textContent;
+
+          // Update the MAIN search input and currentDiscipline
+          const mainSearchInput = document.getElementById('disciplineSearch');
+          mainSearchInput.value = selectedText;
+          currentDiscipline = selectedValue;
+
+          // Update active state in the MAIN dropdown
+          const mainDropdownItems = document.querySelectorAll('#disciplineDropdown .dropdown-item');
+          mainDropdownItems.forEach(el => el.classList.remove('active'));
+          const mainActiveItem = document.querySelector(`#disciplineDropdown .dropdown-item[data-value="${selectedValue}"]`);
+          if (mainActiveItem) {
+            mainActiveItem.classList.add('active');
+          }
+
+          // Hide modal dropdown
+          modalDropdown.classList.remove('show');
+
+          // Trigger visualization update (similar to main search selection)
+          let bottomChartType = currentChartType;
+          if (bottomChartType === 'bubble') {
+              bottomChartType = 'heatmap'; // Default to heatmap if bubble was primary
+          }
+          let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
+          const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
+          setActiveVizButton(vizBtn, bottomChartType);
+
+          loadData().then(data => {
+              if (bottomChartType === 'radar') {
+                  createRadar(data);
+              } else {
+                  createHeatmap(data, bottomChartType === 'cumulative');
+              }
+          });
+
+          // Hide the modal
+          hideWelcomeModal();
+        });
+      });
+
+      // Close dropdown when clicking outside (within the modal context)
+      document.getElementById('welcomeModal').addEventListener('click', function(event) {
+          // Check if the click is outside the modal search input and dropdown
+          if (!modalSearchInput.contains(event.target) && !modalDropdown.contains(event.target)) {
+              modalDropdown.classList.remove('show');
+          }
+      });
+    }
+
+
     // SDG icon clicks
     const sdgIconsList = document.getElementById('sdgIconsList');
     sdgIconsList.querySelectorAll('.sdg-icon-item').forEach(item => {
@@ -1065,49 +1120,24 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       });
     }
 
-    // Modal Faculty icon clicks
-    const modalFacultyIconsList = document.getElementById('modalFacultyIconsList');
-    if (modalFacultyIconsList) { // Check if the element exists
-      modalFacultyIconsList.querySelectorAll('.faculty-icon-item').forEach(item => {
-        item.addEventListener('click', function () {
-          const clickedFaculty = this.getAttribute('data-faculty');
-          currentFaculty = clickedFaculty;
+    // Modal Faculty icon clicks removed
 
-          // Deactivate all TOP BAR faculty icons and activate the corresponding one
-          const topBarFacultyIcons = document.getElementById('facultyIconsListTop'); // Updated ID
-          if (topBarFacultyIcons) {
-            topBarFacultyIcons.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active'));
-            const correspondingTopBarIcon = topBarFacultyIcons.querySelector(`.faculty-icon-item[data-faculty="${clickedFaculty}"]`); // Updated ID
-            if (correspondingTopBarIcon) {
-              correspondingTopBarIcon.classList.add('active');
-            }
-          }
-
-          // Always ensure a bottom chart is active when faculty/discipline changes from modal
-          let bottomChartType = currentChartType;
-          if (bottomChartType === 'bubble') { // If only bubble was active, default to heatmap
-              bottomChartType = 'heatmap';
-          }
-
-          // Activate the appropriate bottom viz button
-          let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-          const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
-          setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
-
-          // Reload data and redraw the selected bottom visualization
-          loadData().then(data => {
-              if (bottomChartType === 'radar') {
-                  createRadar(data);
-              } else { // heatmap or cumulative
-                  createHeatmap(data, bottomChartType === 'cumulative');
-              }
-              // Bubble chart remains visible in the top container
-          });
-
-          // Hide the modal
-          hideWelcomeModal();
-        });
+    // Function to update bottom bar version indicators
+    function updateBottomBarVersions() {
+      const bottomBarItems = document.querySelectorAll('#bottom-bar .bottom-bar-item');
+      
+      // Reset all version indicators
+      bottomBarItems.forEach(item => {
+        if (item.textContent.startsWith('v')) {
+          item.classList.remove('active-version');
+        }
       });
+      
+      // Activate the current version
+      const versionToActivate = document.querySelector(`#bottom-bar .bottom-bar-item:nth-child(${currentDataSourceIndex * 2 + 1})`);
+      if (versionToActivate) {
+        versionToActivate.classList.add('active-version');
+      }
     }
 
     // Initial load
@@ -1128,6 +1158,9 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         // Set the default chart type state after initial setup
         currentChartType = 'heatmap'; // Heatmap is the default selected viz type
         previousChartType = null;
+        
+        // Update bottom bar version indicators
+        updateBottomBarVersions();
         // --- End Initial Load Modifications ---
         
         // Adjust main content padding based on top bar height
@@ -1137,6 +1170,56 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     
     // Add event listener for window resize to adjust padding
     window.addEventListener('resize', adjustMainContentPadding);
+  </script>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark-theme') {
+      body.classList.add('dark-theme');
+      themeToggle.classList.remove('light-mode');
+      themeToggle.classList.add('dark-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      // Toggle body class
+      body.classList.toggle('dark-theme');
+      
+      // Toggle the toggle appearance
+      themeToggle.classList.toggle('light-mode');
+      themeToggle.classList.toggle('dark-mode');
+
+      // Save theme preference to local storage
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark-theme');
+      } else {
+        localStorage.removeItem('theme');
+      }
+
+      // --- Redraw charts after theme change ---
+      loadData().then(data => {
+        // Redraw bubble chart (always visible in top container)
+        createBubbleChart(data, currentSDG, false); // No animation needed for theme change
+
+        // Redraw the currently active bottom chart
+        if (currentChartType === 'radar') {
+          createRadar(data);
+        } else if (currentChartType === 'heatmap') {
+          createHeatmap(data, false);
+        } else if (currentChartType === 'cumulative') {
+          createHeatmap(data, true);
+        }
+        // If currentChartType is 'bubble', the bottom chart might be hidden or showing an older state,
+        // but redrawing the bubble chart above is the primary action needed.
+        // The bottom chart will redraw correctly when its type is selected again.
+      }).catch(error => {
+        console.error("Error reloading data after theme change:", error);
+      });
+      // --- End Redraw ---
+    });
   </script>
 </body>
 
