@@ -402,24 +402,7 @@ body {
 }
 
 
-/* Compact Visualization Icons */
-#compact-viz-icons {
-  position: fixed;
-  left: 0;
-  top: 50%; /* Moved down to align better with the heatmap */
-  transform: translateY(-50%);
-  background-color: var(--background-color); /* Match body background */
-  padding: 10px;
-  box-shadow: none; /* Remove shadow */
-  border-radius: 0 8px 8px 0;
-  z-index: 1000;
-}
-
-#compact-viz-icons .visualisation-icons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+/* Compact Visualization Icons REMOVED */
 
 #main-content {
   flex: 1;
@@ -429,19 +412,41 @@ body {
   transition: margin-left 0.3s ease;
 }
 
-#toggle-sidebar {
-  display: none; /* Hidden by default, shown in media query */
-  position: fixed;
-  top: 15px; /* Position near top */
-  left: 15px;
-  z-index: 1002; /* Above sidebar and top bar */
-  padding: 8px 12px;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+/* Toggle Sidebar styles REMOVED */
+
+
+/* Container for centering the viz controls in the bottom bar */
+#viz-controls-container {
+  flex-grow: 1; /* Allow container to take up space */
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
 }
+
+/* Styles for viz icons specifically in the bottom bar */
+.bottom-bar-viz-icons {
+  display: flex;
+  flex-direction: row; /* Arrange horizontally */
+  gap: 8px; /* Space between buttons */
+  margin-bottom: 0; /* Override default margin */
+}
+
+.bottom-bar-viz-icons .viz-button {
+  width: 35px; /* Adjust size as needed */
+  height: 35px;
+  border: 1px solid var(--border-color); /* Use theme border */
+}
+
+body.dark-theme .bottom-bar-viz-icons .viz-button {
+  border: 1px solid #2a3446; /* Dark theme border */
+  background-color: #1a2436; /* Dark theme background */
+}
+
+body.dark-theme .bottom-bar-viz-icons .viz-button.active {
+  background-color: #00a8c7; /* Darker cyan for active state */
+  border-color: #00a8c7;
+}
+
 
 /* Buttons & Selections */
 .switch-button {
@@ -724,39 +729,18 @@ select::-webkit-scrollbar-thumb:hover {
     min-height: 50px; /* Reduced minimum height for the top bar */
     height: auto; /* Allow height to adjust based on content */
     padding: 5px 10px;
-  }
-  #top-bar .sdg-icon-item {
-    width: 40px;
-    height: 40px;
-  }
-  #bottom-bar {
-    min-height: 35px; /* Reduced height for smaller screens */
-    padding: 4px 10px;
-  }
-  .bottom-bar-item {
-    font-size: 0.9em; /* Smaller font on medium screens */
-  }
-  .bottom-bar-separator {
-    height: 25px; /* Shorter separator */
-  }
-  #sidebar {
-    transform: translateX(-100%);
-    top: 0; /* Still align to top */
-    height: 100vh; /* Full height */
-    z-index: 1003; /* Ensure sidebar slides over top-bar */
-  }
+}
 
-  #main-content {
+
+/* Compact Visualization Icons REMOVED */
+
+#main-content {
     margin-left: 0;
     width: 100%;
     padding: 65px 15px 50px 15px; /* Adjusted padding for top and bottom bars */
   }
 
-  #toggle-sidebar {
-    display: block;
-    top: 12px; /* Adjust position */
-    left: 10px;
-  }
+  /* #toggle-sidebar display rule removed as element is gone */
 
   #sidebar.active {
     transform: translateX(0); /* Sidebar slides in */
@@ -805,6 +789,7 @@ select::-webkit-scrollbar-thumb:hover {
    }
    #toggle-sidebar {
     top: 10px; /* Adjust as needed */
+    /* Toggle button removed */
    }
   #main-content {
     padding-top: 10px; /* Base padding */

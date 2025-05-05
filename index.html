@@ -9,16 +9,15 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.2"></script>
-  <script src="heatmap.js?v=2.2"></script>
-  <script src="bubblechart.js?v=2.2"></script>
+  <script src="radar.js?v=2.3"></script>
+  <script src="heatmap.js?v=2.3"></script>
+  <script src="bubblechart.js?v=2.3"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 
 <body>
-  <!-- Toggle Button for Sidebar on small screens -->
-  <button id="toggle-sidebar">☰</button>
+  <!-- Toggle Button for Sidebar on small screens REMOVED -->
 
   <!-- INTRO MODAL (Explainer) -->
   <div class="modal-overlay" id="welcomeModal">
@@ -189,25 +188,7 @@
       <!-- No additional elements in top bar -->
   </div>
 
-  <!-- Compact Visualization Icons -->
-  <div id="compact-viz-icons">
-    <div class="visualisation-icons">
-      <button id="heatmapBtn" class="viz-button active">
-        <img src="visualisation/heatmap.svg" alt="Heatmap" />
-      </button>
-      <button id="cumulativeBtn" class="viz-button">
-        <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
-      </button>
-      <button id="radarBtn" class="viz-button">
-        <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
-      </button>
-      <button id="exportPNG" class="viz-button">
-        <img src="visualisation/export-visualization.svg" alt="Export" />
-      </button>
-    </div>
-  </div>
-
-
+  <!-- Compact Visualization Icons REMOVED -->
 
   <!-- Main Content Area -->
   <div id="main-content">
@@ -259,7 +240,24 @@
         <span>SDG Knowledge Graph</span>
       </a>
     </div>
-    <div class="bottom-bar-separator"></div>
+    <!-- Visualization Buttons Moved Here -->
+    <div class="bottom-bar-item" id="viz-controls-container"> <!-- Container for centering -->
+        <div class="visualisation-icons bottom-bar-viz-icons"> <!-- Added class for specific styling -->
+            <button id="heatmapBtn" class="viz-button active">
+                <img src="visualisation/heatmap.svg" alt="Heatmap" />
+            </button>
+            <button id="cumulativeBtn" class="viz-button">
+                <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
+            </button>
+            <button id="radarBtn" class="viz-button">
+                <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
+            </button>
+            <button id="exportPNG" class="viz-button">
+                <img src="visualisation/export-visualization.svg" alt="Export" />
+            </button>
+        </div>
+    </div>
+    <div class="bottom-bar-separator"></div> <!-- This separator might be removed later via CSS -->
     <!-- Theme Toggle -->
     <div class="bottom-bar-item" style="margin-left: auto;">
       <div id="themeToggleContainer" class="theme-toggle-container">
@@ -398,11 +396,7 @@
     }
 
 
-    // Toggle sidebar
-    document.getElementById('toggle-sidebar').addEventListener('click', function () {
-      document.getElementById('sidebar').classList.toggle('active');
-      document.getElementById('main-content').classList.toggle('sidebar-active');
-    });
+    // Toggle sidebar REMOVED
 
     // ---------- Data & Visualization Logic -----------
     let currentDiscipline = 'ALL';
@@ -702,7 +696,7 @@ function downloadAllPlots() {
         // For other chart types, click the appropriate button
         const vizBtnId = originalChartType === 'radar' ? '#radarBtn' : 
                          (originalChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-        document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`).click();
+        document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`).click(); // Updated selector
       }
       
       // Remove status indicator after a short delay
@@ -724,7 +718,7 @@ function downloadAllPlots() {
       // For other chart types, click the appropriate button
       const vizBtnId = vizType === 'radar' ? '#radarBtn' : 
                        (vizType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-      document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`).click();
+      document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`).click(); // Updated selector
     }
     
     // Wait for the visualization to render
@@ -786,20 +780,20 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     //   }
     // }
 
-    // Add event listeners to the visualization buttons in the compact icons
-    document.querySelector('#compact-viz-icons .visualisation-icons #radarBtn').addEventListener('click', function () {
+    // Add event listeners to the visualization buttons in the BOTTOM BAR
+    document.querySelector('#bottom-bar .visualisation-icons #radarBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'radar');
       loadData().then(data => createRadar(data));
     });
-    document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn').addEventListener('click', function () {
+    document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'heatmap');
       loadData().then(data => createHeatmap(data, false));
     });
-    document.querySelector('#compact-viz-icons .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
+    document.querySelector('#bottom-bar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'cumulative');
       loadData().then(data => createHeatmap(data, true));
     });
-    document.querySelector('#compact-viz-icons .visualisation-icons #exportPNG').addEventListener('click', downloadPNG);
+    document.querySelector('#bottom-bar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG); // Assuming downloadPNG doesn't depend on the button's location context
 
     function setActiveVizButton(btn, newChartType) {
       // Update chart type state
@@ -809,8 +803,8 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       // Remove any existing tooltips when switching visualizations
       d3.select('body').select('.tooltip').remove();
 
-      // Update active class visually
-      document.querySelectorAll('#compact-viz-icons .visualisation-icons .viz-button').forEach(button => {
+      // Update active class visually for buttons in the bottom bar
+      document.querySelectorAll('#bottom-bar .visualisation-icons .viz-button').forEach(button => {
         button.classList.remove('active');
       });
       btn.classList.add('active');
@@ -908,7 +902,7 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
             
             // Activate the appropriate bottom viz button
             let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-            const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
+            const vizBtn = document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`); // Updated selector
             setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
             
             // Reload data and redraw the selected bottom visualization
@@ -1026,7 +1020,7 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
               bottomChartType = 'heatmap'; // Default to heatmap if bubble was primary
           }
           let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-          const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
+          const vizBtn = document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`); // Updated selector
           setActiveVizButton(vizBtn, bottomChartType);
 
           loadData().then(data => {
@@ -1151,7 +1145,7 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         createBubbleChart(data, currentSDG, false); // Draw initial bubble chart (no animation)
 
         // 2. Show Heatmap in bottom container for default ALL/ALL
-        const heatmapBtn = document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn');
+        const heatmapBtn = document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn'); // Updated selector
         setActiveVizButton(heatmapBtn, 'heatmap'); // Set heatmap as active viz *button* and show bottom div
         createHeatmap(data, false); // Draw initial heatmap
 

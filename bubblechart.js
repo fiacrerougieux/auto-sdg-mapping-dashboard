@@ -303,7 +303,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     });
     tooltip.style('visibility', 'hidden'); // Hide tooltip before switching
     // Programmatically click the heatmap button
-    document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn').click();
+    document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn').click();
   })
   .style('cursor', 'pointer'); // Indicate clickable
 }

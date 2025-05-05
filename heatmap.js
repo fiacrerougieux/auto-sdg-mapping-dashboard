@@ -287,12 +287,12 @@ function createHeatmap(data, isCumulative) {
           // Tooltip content
           let tooltipContent = `<b>Course: ${cellData.course}</b><br>`;
           tooltipContent += `<b>SDG ${cellData.sdg}: ${cellData.sdg_name}</b><br>`;
-          tooltipContent += `Present: ${cellData.addressed ? 'Yes' : 'Not detected'}<br>`;
+          tooltipContent += `Present: ${cellData.addressed ? 'Yes' : 'Not detected when analysing public data for this course. N.B. more granular data may reveal that this SDG may be present.'}<br>`; // Updated text
           if (cellData.addressed && cellData.target_number && cellData.target_name) {
             tooltipContent += `Target: ${cellData.target_number} - ${cellData.target_name}<br>`;
           }
           if (cellData.addressed && cellData.justification) {
-             tooltipContent += `Justification:<br>${cellData.justification.substring(0, 100)}${cellData.justification.length > 100 ? '...' : ''}`;
+             tooltipContent += `Justification:<br>${cellData.justification}`; // Show full justification
           }
           tooltip.html(tooltipContent).style('visibility', 'visible');
       })
