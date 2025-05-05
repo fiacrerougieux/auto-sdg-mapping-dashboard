@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.0"></script>
-  <script src="heatmap.js?v=2.0"></script>
-  <script src="bubblechart.js?v=2.0"></script>
+  <script src="radar.js?v=2.1"></script>
+  <script src="heatmap.js?v=2.1"></script>
+  <script src="bubblechart.js?v=2.1"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 
 <body>
@@ -87,7 +87,7 @@
         </div>
       </div>
       <p>
-        <strong>Or</strong>, pick a faculty and specialisation in the left sidebar or below to see which courses in that area address each SDG (via
+        <strong>Or</strong>, pick a faculty or search for a specialisation in the top bar or below to see which courses in that area address each SDG (via
         a heatmap or cumulative chart). You can toggle between different visualisations (radar, heatmap, cumulative)
         under "Visualisation".
       </p>
@@ -117,11 +117,28 @@
         </div>
       </div>
       <p>
-        Use the sidebar to switch between SDGs, faculties, and visualisation types. The disclaimer section below
-        provides
-        important info about how this data is generated.
+        Use the sidebar to visualisation types.
       </p>
       <button onclick="hideWelcomeModal()">Get Started</button>
+      <!-- Disclaimer Section (moved to modal) -->
+      <div class="modal-disclaimer-content">
+        <p>
+          This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
+          (SDGs) across courses. Please note:
+        </p>
+        <ul>
+          <li>This dashboard is provided "as is" and "as available" without any warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We make no guarantee regarding the accuracy, completeness, or reliability of the data or visualizations presented herein.</li>
+          <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+          <li>The mapping is likely incomplete and may contain inaccuracies</li>
+          <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+          <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
+          <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes
+          </li>
+          <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum
+            mapping initiatives</li>
+          <li>We intend this mapping to be a genuine tool for strategic transformation and curriculum enhancement, not a reporting tool. We hope this tool helps bring meaningful transformation of our educational programs.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -182,83 +199,19 @@
           <img src="logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
         </div>
       </div>
-  </div>
-
-  <!-- Sidebar -->
-  <div id="sidebar">
-    <!-- Disclaimer Section (moved to top of sidebar) -->
-    <div class="button-group">
-      <button class="disclaimer-button" onclick="toggleSidebarDisclaimer()" style="padding: 2px 8px; margin: 0; line-height: 1; font-size: 0.85em;">
-        ▼ Disclaimer
-      </button>
-      <div class="disclaimer-content" id="sidebarDisclaimerContent" style="display: none; padding: 10px; font-size: 0.9em;">
-        <p>
-          This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
-          (SDGs) across courses. Please note:
-        </p>
-        <ul>
-          <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
-          <li>The mapping is likely incomplete and may contain inaccuracies</li>
-          <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
-          <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
-          <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes
-          </li>
-          <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum
-            mapping initiatives</li>
-          <li>This dashboard is provided as is with no guarantee of accuracy or completeness.</li>
-          <li>We intend this mapping to be a genuine tool for strategic transformation and curriculum enhancement, not a reporting tool. We hope this tool helps bring meaningful transformation of our educational programs.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="button-group">
-      <h3 class="section-title">Analysis Data Source</h3>
-      <div class="data-source-row">
-        <div class="data-source-toggle">
-          <div id="ternaryToggleContainer" class="ternary-toggle-container">
-            <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
-              <div class="toggle-knob"></div>
-            </div>
-            <div class="toggle-labels">
-              <span>v1</span>
-              <span>v2</span>
-              <span>v3</span>
-            </div>
-          </div>
-        </div>
-        <div class="course-count-container">
-          <p id="course-count" style="font-size: 1.1em; color: #666; margin: 0;"></p>
+      <!-- Separator -->
+      <div class="top-bar-separator"></div>
+      <!-- Search Container -->
+      <div class="search-container top-bar-search">
+        <input type="text" id="disciplineSearch" placeholder="Search specialisations..." class="search-input">
+        <div id="disciplineDropdown" class="dropdown-content">
+          <!-- Populated by JS -->
         </div>
       </div>
-    </div>
-
-    <!-- Visualisation Icons -->
-    <div class="button-group">
-      <h3 class="section-title">Visualisation</h3>
-      <div class="visualisation-icons">
-        <button id="bubbleBtn" class="viz-button">
-          <img src="visualisation/bubble-chart.svg" alt="Bubble Chart" />
-        </button>
-        <button id="heatmapBtn" class="viz-button active">
-          <img src="visualisation/heatmap.svg" alt="Heatmap" />
-        </button>
-        <button id="cumulativeBtn" class="viz-button">
-          <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
-        </button>
-        <button id="radarBtn" class="viz-button">
-          <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
-        </button>
-        <button id="exportPNG" class="viz-button">
-          <img src="visualisation/export-visualization.svg" alt="Export" />
-        </button>
-      </div>
-    </div>
-
-
-    <!-- By Faculty & Specialisation -->
-    <div class="button-group">
-      <h3 class="section-title">SDGs present in each course of specialisations</h3>
-      <div class="faculty-icons-list" id="facultyIconsList">
+      <!-- Separator -->
+      <div class="top-bar-separator"></div>
+      <!-- Faculty Icons Moved Here -->
+      <div class="faculty-icons-list" id="facultyIconsListTop"> <!-- Renamed ID to avoid conflict -->
         <div class="faculty-icon-item" data-faculty="ALL">
           <img src="faculty/all.svg" alt="All faculties" />
         </div>
@@ -284,18 +237,59 @@
           <img src="faculty/canberra.svg" alt="UNSW Canberra" />
         </div>
       </div>
-      <select id="disciplineSelect" class="switch-button" size="8">
-        <!-- Populated by JS -->
-      </select>
-    </div>
+      <!-- Separator -->
+      <div class="top-bar-separator"></div>
+      <!-- Moved Analysis Data Source Section -->
+      <div class="top-bar-section" id="data-source-section">
+        <h3 class="top-bar-section-title">Analysis Data Source</h3>
+        <div class="data-source-row">
+          <div class="data-source-toggle">
+            <div id="ternaryToggleContainer" class="ternary-toggle-container">
+              <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
+                <!-- Labels moved inside -->
+                <div class="toggle-labels">
+                  <span>v1</span>
+                  <span>v2</span>
+                  <span>v3</span>
+                </div>
+                <div class="toggle-knob"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Separator within data source section -->
+          <div class="top-bar-separator"></div>
+          <div class="course-count-container">
+            <p id="course-count" style="font-size: 1.1em; color: #666; margin: 0;"></p>
+          </div>
+        </div>
+      </div>
+      <!-- End Moved Section -->
+      <!-- Separator after course count -->
+      <div class="top-bar-separator"></div>
+      <!-- SDG Knowledge Graph Link (moved after course count) -->
+      <div class="button-group knowledge-graph-container"> <!-- Added class for styling -->
+        <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank" class="knowledge-graph-link">
+          <img src="other/sdg_network.png" alt="SDG Knowledge Graph">
+          <span>knowledge graph</span>
+        </a>
+      </div>
+  </div>
 
-
-    <!-- SDG Knowledge Graph Link -->
-    <div class="button-group">
-      <h3 class="section-title">Check our SDG knowledge graph below!</h3>
-      <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank">
-        <img src="other/sdg_network.png" alt="SDG Knowledge Graph" style="width: 100%; border-radius: 4px; margin-top: 10px;">
-      </a>
+  <!-- Compact Visualization Icons -->
+  <div id="compact-viz-icons">
+    <div class="visualisation-icons">
+      <button id="heatmapBtn" class="viz-button active">
+        <img src="visualisation/heatmap.svg" alt="Heatmap" />
+      </button>
+      <button id="cumulativeBtn" class="viz-button">
+        <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
+      </button>
+      <button id="radarBtn" class="viz-button">
+        <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
+      </button>
+      <button id="exportPNG" class="viz-button">
+        <img src="visualisation/export-visualization.svg" alt="Export" />
+      </button>
     </div>
   </div>
 
@@ -305,15 +299,42 @@
   <div id="main-content">
     <!-- Plot Area -->
     <div id="plot-container">
-      <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
-      <div id="heatmap-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
-      <div id="radar-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
-      <!-- Cumulative heatmap will reuse #heatmap-div -->
+      <div id="plot-container-top">
+        <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+      </div>
+      <div id="plot-container-bottom">
+        <div id="heatmap-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+        <div id="radar-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
+        <!-- Cumulative heatmap will reuse #heatmap-div -->
+      </div>
     </div>
   </div>
 
   <!-- Main Script -->
   <script>
+    // Function to adjust main content padding based on top bar height
+    function adjustMainContentPadding() {
+      const topBar = document.getElementById('top-bar');
+      const mainContent = document.getElementById('main-content');
+      const topBarHeight = topBar.offsetHeight;
+      
+      // Set the top padding of main content to match the top bar height plus some extra space
+      mainContent.style.paddingTop = (topBarHeight + 20) + 'px';
+      
+      // Set a CSS variable for the top bar height that can be used in media queries
+      document.documentElement.style.setProperty('--top-bar-height', topBarHeight + 'px');
+      
+      // Adjust plot container height if needed
+      const plotContainer = document.getElementById('plot-container');
+      if (window.innerWidth <= 768) {
+        plotContainer.style.height = `calc(100vh - 30px - ${topBarHeight}px)`;
+      } else if (window.innerWidth <= 1024) {
+        plotContainer.style.height = `calc(100vh - 35px - ${topBarHeight}px)`;
+      } else {
+        plotContainer.style.height = `calc(100vh - 40px - ${topBarHeight}px)`;
+      }
+    }
+
     // On-load Modal
     function showWelcomeModal() {
       const modal = document.getElementById('welcomeModal');
@@ -541,18 +562,35 @@
           return rowData;
         }).filter(row => row && row.course_code); // Filter out nulls and rows without course_code
 
-        // Rebuild discipline select
+        // Rebuild discipline dropdown
         const disc = getDisciplines(data, currentFaculty);
-        const select = document.getElementById('disciplineSelect');
+        const dropdown = document.getElementById('disciplineDropdown');
         // If current discipline is not in the new list, reset it
         if (!currentDiscipline || !disc.includes(currentDiscipline)) {
           currentDiscipline = disc[0] || 'ALL';
         }
-        select.innerHTML = disc.map(d =>
-          `<option value="${d}" ${d === currentDiscipline ? 'selected' : ''}>
-             ${constants.specializationNames[d] || d}
-           </option>`
-        ).join('');
+        
+        // Clear previous dropdown items
+        dropdown.innerHTML = '';
+        
+        // Add "ALL" option first
+        const allItem = document.createElement('div');
+        allItem.className = 'dropdown-item' + (currentDiscipline === 'ALL' ? ' active' : '');
+        allItem.setAttribute('data-value', 'ALL');
+        allItem.textContent = 'All Specialisations';
+        dropdown.appendChild(allItem);
+        
+        // Add discipline options
+        disc.forEach(d => {
+          const item = document.createElement('div');
+          item.className = 'dropdown-item' + (d === currentDiscipline ? ' active' : '');
+          item.setAttribute('data-value', d);
+          item.textContent = constants.specializationNames[d] || d;
+          dropdown.appendChild(item);
+        });
+        
+        // Setup search and dropdown functionality
+        setupDisciplineSearch();
 
         return data;
       } catch (error) {
@@ -598,35 +636,143 @@
 
     // Bubble Chart
     // PNG Export
-    function downloadPNG() {
-      const svg = document.querySelector('#plot-container svg');
-      if (!svg) return;
-      const svgData = new XMLSerializer().serializeToString(svg);
+// Function to download a specific visualization as PNG
+function downloadPNG(vizType = currentChartType, filename = null) {
+  // Find the appropriate SVG based on the visualization type
+  let svg;
+  if (vizType === 'bubble') {
+    svg = document.querySelector('#bubble-chart-div svg');
+  } else if (vizType === 'heatmap' || vizType === 'cumulative') {
+    svg = document.querySelector('#heatmap-div svg');
+  } else if (vizType === 'radar') {
+    svg = document.querySelector('#radar-div svg');
+  }
+  
+  if (!svg) {
+    console.error(`No SVG found for visualization type: ${vizType}`);
+    return;
+  }
+  
+  const svgData = new XMLSerializer().serializeToString(svg);
 
-      const canvas = document.createElement('canvas');
-      const box = svg.getBoundingClientRect();
-      canvas.width = box.width;
-      canvas.height = box.height;
+  const canvas = document.createElement('canvas');
+  const box = svg.getBoundingClientRect();
+  canvas.width = box.width;
+  canvas.height = box.height;
 
-      const img = new Image();
-      const blob = new Blob([svgData], { type: 'image/svg+xml' });
-      const url = URL.createObjectURL(blob);
+  const img = new Image();
+  const blob = new Blob([svgData], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
 
-      img.onload = () => {
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0);
-        const a = document.createElement('a');
-        a.href = canvas.toDataURL('image/png');
-        a.download = `sdg_distribution_${currentSDG}.png`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      };
-      img.src = url;
+  img.onload = () => {
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+    
+    // Generate appropriate filename if not provided
+    if (!filename) {
+      const disciplineText = currentDiscipline === 'ALL' ? 'all_disciplines' : currentDiscipline;
+      const facultyText = currentFaculty === 'ALL' ? 'all_faculties' : currentFaculty;
+      
+      if (vizType === 'bubble') {
+        filename = `sdg${currentSDG}_bubble_chart_${facultyText}.png`;
+      } else if (vizType === 'heatmap') {
+        filename = `sdg_heatmap_${disciplineText}_${facultyText}.png`;
+      } else if (vizType === 'cumulative') {
+        filename = `sdg_cumulative_${disciplineText}_${facultyText}.png`;
+      } else if (vizType === 'radar') {
+        filename = `sdg_radar_${disciplineText}_${facultyText}.png`;
+      }
     }
-    document.getElementById('exportPNG').addEventListener('click', downloadPNG);
+    
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+  img.src = url;
+}
+
+// Function to download all plots sequentially
+function downloadAllPlots() {
+  // Store current state to restore later
+  const originalChartType = currentChartType;
+  
+  // Create a status indicator
+  const statusIndicator = document.createElement('div');
+  statusIndicator.style.position = 'fixed';
+  statusIndicator.style.top = '50%';
+  statusIndicator.style.left = '50%';
+  statusIndicator.style.transform = 'translate(-50%, -50%)';
+  statusIndicator.style.padding = '15px 20px';
+  statusIndicator.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  statusIndicator.style.color = 'white';
+  statusIndicator.style.borderRadius = '5px';
+  statusIndicator.style.zIndex = '9999';
+  statusIndicator.style.fontWeight = 'bold';
+  statusIndicator.textContent = 'Preparing downloads...';
+  document.body.appendChild(statusIndicator);
+  
+  // Define the visualization types to download
+  const vizTypes = ['bubble', 'heatmap', 'cumulative', 'radar'];
+  let currentIndex = 0;
+  
+  // Function to process the next visualization
+  function processNextViz() {
+    if (currentIndex >= vizTypes.length) {
+      // All done, restore original state and remove status indicator
+      if (originalChartType === 'bubble') {
+        // For bubble chart, just make sure it's visible
+        document.getElementById('bubble-chart-div').style.display = 'block';
+      } else {
+        // For other chart types, click the appropriate button
+        const vizBtnId = originalChartType === 'radar' ? '#radarBtn' : 
+                         (originalChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
+        document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`).click();
+      }
+      
+      // Remove status indicator after a short delay
+      setTimeout(() => {
+        document.body.removeChild(statusIndicator);
+      }, 500);
+      
+      return;
+    }
+    
+    const vizType = vizTypes[currentIndex];
+    statusIndicator.textContent = `Downloading ${vizType} chart (${currentIndex + 1}/${vizTypes.length})...`;
+    
+    // Switch to the current visualization type
+    if (vizType === 'bubble') {
+      // For bubble chart, just make sure it's visible
+      document.getElementById('bubble-chart-div').style.display = 'block';
+    } else {
+      // For other chart types, click the appropriate button
+      const vizBtnId = vizType === 'radar' ? '#radarBtn' : 
+                       (vizType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
+      document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`).click();
+    }
+    
+    // Wait for the visualization to render
+    setTimeout(() => {
+      // Download the current visualization
+      downloadPNG(vizType);
+      
+      // Move to the next visualization after a short delay
+      currentIndex++;
+      setTimeout(processNextViz, 500);
+    }, 500);
+  }
+  
+  // Start the process
+  processNextViz();
+}
+
+// Update event listener for the export button
+document.getElementById('exportPNG').addEventListener('click', downloadAllPlots);
 
     // Event Listener for Custom Ternary Toggle
     const ternaryToggle = document.getElementById('ternaryToggle');
@@ -642,43 +788,47 @@
 
       loadData().then(data => {
         updateCourseCount(data);
-        redrawVisualization(data);
+        // Update both bubble chart and the currently active bottom chart
+        createBubbleChart(data, currentSDG, true); // Re-enable animation on data source change
+        if (currentChartType === 'radar') {
+          createRadar(data);
+        } else if (currentChartType === 'heatmap') {
+          createHeatmap(data, false);
+        } else if (currentChartType === 'cumulative') {
+          createHeatmap(data, true);
+        }
       });
     });
 
-    function redrawVisualization(data) {
-      const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
-      // Which button is active?
-      if (currentChartType === 'bubble') {
-        createBubbleChart(data, currentSDG, shouldAnimate);
-      } else if (currentChartType === 'radar') {
-        createRadar(data);
-      } else if (currentChartType === 'heatmap') {
-        createHeatmap(data, false);
-      } else if (currentChartType === 'cumulative') {
-        createHeatmap(data, true);
-      }
-    }
+    // The redrawVisualization function is no longer needed as we update both charts explicitly
+    // function redrawVisualization(data) {
+    //   const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
+    //   // Which button is active?
+    //   if (currentChartType === 'bubble') {
+    //     createBubbleChart(data, currentSDG, shouldAnimate);
+    //   } else if (currentChartType === 'radar') {
+    //     createRadar(data);
+    //   } else if (currentChartType === 'heatmap') {
+    //     createHeatmap(data, false);
+    //   } else if (currentChartType === 'cumulative') {
+    //     createHeatmap(data, true);
+    //   }
+    // }
 
-    // Add event listeners to the visualization buttons in the left sidebar
-    document.querySelector('#sidebar .visualisation-icons #bubbleBtn').addEventListener('click', function () {
-      setActiveVizButton(this, 'bubble');
-      const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
-      loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
-    });
-    document.querySelector('#sidebar .visualisation-icons #radarBtn').addEventListener('click', function () {
+    // Add event listeners to the visualization buttons in the compact icons
+    document.querySelector('#compact-viz-icons .visualisation-icons #radarBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'radar');
       loadData().then(data => createRadar(data));
     });
-    document.querySelector('#sidebar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
+    document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'heatmap');
       loadData().then(data => createHeatmap(data, false));
     });
-    document.querySelector('#sidebar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
+    document.querySelector('#compact-viz-icons .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'cumulative');
       loadData().then(data => createHeatmap(data, true));
     });
-    document.querySelector('#sidebar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG);
+    document.querySelector('#compact-viz-icons .visualisation-icons #exportPNG').addEventListener('click', downloadPNG);
 
     function setActiveVizButton(btn, newChartType) {
       // Update chart type state
@@ -689,65 +839,163 @@
       d3.select('body').select('.tooltip').remove();
 
       // Update active class visually
-      document.querySelectorAll('#sidebar .visualisation-icons .viz-button').forEach(button => {
+      document.querySelectorAll('#compact-viz-icons .visualisation-icons .viz-button').forEach(button => {
         button.classList.remove('active');
       });
       btn.classList.add('active');
 
-      // Toggle visibility of chart divs
-      document.querySelectorAll('.chart-div').forEach(div => {
-        div.style.display = 'none';
-      });
-      let targetDivId;
+      // Toggle visibility of chart divs within their respective containers
       if (newChartType === 'bubble') {
-        targetDivId = 'bubble-chart-div';
-      } else if (newChartType === 'heatmap' || newChartType === 'cumulative') {
-        targetDivId = 'heatmap-div'; // Both heatmaps use the same div
-      } else if (newChartType === 'radar') {
-        targetDivId = 'radar-div';
-      }
-      if (targetDivId) {
-        document.getElementById(targetDivId).style.display = 'block';
+        // Show bubble chart in top container, hide others in top (if any)
+        document.querySelectorAll('#plot-container-top .chart-div').forEach(div => {
+          div.style.display = (div.id === 'bubble-chart-div') ? 'block' : 'none';
+        });
+        // Don't hide the bottom container's active chart
+      } else {
+        // Show selected chart in bottom container, hide others in bottom
+        let targetDivId;
+        if (newChartType === 'heatmap' || newChartType === 'cumulative') {
+          targetDivId = 'heatmap-div';
+        } else if (newChartType === 'radar') {
+          targetDivId = 'radar-div';
+        }
+        document.querySelectorAll('#plot-container-bottom .chart-div').forEach(div => {
+          div.style.display = (div.id === targetDivId) ? 'block' : 'none';
+        });
+        // Don't hide the top container's bubble chart
       }
     }
 
 
-    // Faculty icon clicks
-    const facultyIconsList = document.getElementById('facultyIconsList');
-    facultyIconsList.querySelectorAll('.faculty-icon-item').forEach(item => {
+    // Faculty icon clicks (Top Bar)
+    const facultyIconsListTop = document.getElementById('facultyIconsListTop'); // Updated ID
+    facultyIconsListTop.querySelectorAll('.faculty-icon-item').forEach(item => {
       item.addEventListener('click', function () {
-        facultyIconsList.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active'));
+        facultyIconsListTop.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active')); // Updated ID
         this.classList.add('active');
         currentFaculty = this.getAttribute('data-faculty');
+        currentDiscipline = 'ALL'; // Reset discipline when faculty changes
 
-        // If currently on bubble chart, switch to heatmap (default for faculty/discipline view)
-        if (currentChartType === 'bubble') {
-          // Manually trigger the heatmap button's logic without simulating a click
-          const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
-          setActiveVizButton(heatmapBtn, 'heatmap');
-          loadData().then(data => createHeatmap(data, false));
-        } else {
-          // Otherwise, just reload the current visualization with the new faculty/discipline filter
-          loadData().then(data => redrawVisualization(data));
+        // Always ensure a bottom chart is active when faculty/discipline changes
+        let bottomChartType = currentChartType;
+        if (bottomChartType === 'bubble') { // If only bubble was active, default to heatmap
+            bottomChartType = 'heatmap';
         }
+
+        // Activate the appropriate bottom viz button
+        let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
+        const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
+        setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
+
+        // Reload data and redraw the selected bottom visualization
+        loadData().then(data => {
+            if (bottomChartType === 'radar') {
+                createRadar(data);
+            } else { // heatmap or cumulative
+                createHeatmap(data, bottomChartType === 'cumulative');
+            }
+            // Bubble chart remains visible in the top container, no need to redraw unless SDG changes
+        });
       });
     });
 
-    // Discipline selection
-    document.getElementById('disciplineSelect').addEventListener('change', function () {
-      currentDiscipline = this.value;
-
-      // If currently on bubble chart, switch to heatmap (default for faculty/discipline view)
-      if (currentChartType === 'bubble') {
-         // Manually trigger the heatmap button's logic without simulating a click
-         const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
-         setActiveVizButton(heatmapBtn, 'heatmap');
-         loadData().then(data => createHeatmap(data, false));
-      } else {
-        // Otherwise, just reload the current visualization with the new faculty/discipline filter
-        loadData().then(data => redrawVisualization(data));
+    // Setup discipline search and dropdown functionality
+    function setupDisciplineSearch() {
+      const searchInput = document.getElementById('disciplineSearch');
+      const dropdown = document.getElementById('disciplineDropdown');
+      const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+      
+      // Show dropdown when input is focused
+      searchInput.addEventListener('focus', function() {
+        dropdown.classList.add('show');
+      });
+      
+      // Filter dropdown items as user types
+      searchInput.addEventListener('input', function() {
+        const searchText = this.value.toLowerCase();
+        let hasVisibleItems = false;
+        
+        dropdownItems.forEach(item => {
+          const itemText = item.textContent.toLowerCase();
+          const shouldShow = itemText.includes(searchText);
+          item.style.display = shouldShow ? 'block' : 'none';
+          if (shouldShow) hasVisibleItems = true;
+        });
+        
+        // If no items match, show a message
+        if (!hasVisibleItems && searchText) {
+          if (!dropdown.querySelector('.no-results')) {
+            const noResults = document.createElement('div');
+            noResults.className = 'dropdown-item no-results';
+            noResults.textContent = 'No matching specialisations found';
+            noResults.style.fontStyle = 'italic';
+            noResults.style.color = '#999';
+            dropdown.appendChild(noResults);
+          }
+        } else {
+          // Remove any existing "no results" message
+          const noResults = dropdown.querySelector('.no-results');
+          if (noResults) dropdown.removeChild(noResults);
+        }
+      });
+      
+      // Handle dropdown item clicks
+      dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const selectedValue = this.getAttribute('data-value');
+          const selectedText = this.textContent;
+          
+          // Update search input with selected text
+          searchInput.value = selectedText;
+          
+          // Update active state in dropdown
+          dropdownItems.forEach(el => el.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Hide dropdown
+          dropdown.classList.remove('show');
+          
+          // Update current discipline and redraw visualization
+          if (currentDiscipline !== selectedValue) {
+            currentDiscipline = selectedValue;
+            
+            // Always ensure a bottom chart is active when discipline changes
+            let bottomChartType = currentChartType;
+            if (bottomChartType === 'bubble') { // If only bubble was active, default to heatmap
+                bottomChartType = 'heatmap';
+            }
+            
+            // Activate the appropriate bottom viz button
+            let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
+            const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
+            setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
+            
+            // Reload data and redraw the selected bottom visualization
+            loadData().then(data => {
+                if (bottomChartType === 'radar') {
+                    createRadar(data);
+                } else { // heatmap or cumulative
+                    createHeatmap(data, bottomChartType === 'cumulative');
+                }
+                // Bubble chart remains visible in the top container
+            });
+          }
+        });
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!searchInput.contains(event.target) && !dropdown.contains(event.target)) {
+          dropdown.classList.remove('show');
+        }
+      });
+      
+      // Set initial search input value based on current discipline
+      const activeDiscipline = dropdown.querySelector('.dropdown-item.active');
+      if (activeDiscipline) {
+        searchInput.value = activeDiscipline.textContent;
       }
-    });
+    }
 
     // SDG icon clicks
     const sdgIconsList = document.getElementById('sdgIconsList');
@@ -757,16 +1005,23 @@
         this.classList.add('active');
         currentSDG = parseInt(this.getAttribute('data-sdg')) || 1;
 
-        // Update state *before* calling setActiveVizButton
-        previousChartType = currentChartType;
-        currentChartType = 'bubble';
+        // Note: We don't need to activate any button for bubble chart since it's not in the compact icons
 
-        // Switch to Bubble chart visually and functionally
-        const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-        setActiveVizButton(bubbleBtn, 'bubble'); // This now correctly uses the updated previous/current types
+        // Determine if animation is needed (always animate when SDG is clicked)
+        const shouldAnimate = true; // Always animate when SDG is clicked
 
-        const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
+        // Update state *after* checking animation, but before drawing
+        previousChartType = currentChartType; // Store what was active before
+        currentChartType = 'bubble'; // Bubble is now the focus, even if bottom chart remains
+
+        // Ensure bubble chart div is visible
+        document.getElementById('bubble-chart-div').style.display = 'block';
+
+        // Redraw bubble chart
         loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
+
+        // Keep the bottom chart visible if it was something other than bubble
+        // No need to explicitly redraw bottom chart unless faculty/discipline changes
       });
     });
 
@@ -788,15 +1043,20 @@
             }
           }
 
-          // Update state *before* calling setActiveVizButton
-          previousChartType = currentChartType;
-          currentChartType = 'bubble';
-
-          // Switch to Bubble chart visually and functionally
+          // Activate bubble chart button and display
           const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-          setActiveVizButton(bubbleBtn, 'bubble');
+          // setActiveVizButton(bubbleBtn, 'bubble'); // Ensure top div is shown
 
-          const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
+          const shouldAnimate = currentChartType === 'bubble'; // Animate if bubble was the main chart type
+
+          // Update state
+          previousChartType = currentChartType;
+          currentChartType = 'bubble'; // Bubble is now the focus
+
+          // Ensure bubble chart div is visible
+          document.getElementById('bubble-chart-div').style.display = 'block';
+
+          // Redraw bubble chart
           loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
 
           // Hide the modal
@@ -813,27 +1073,36 @@
           const clickedFaculty = this.getAttribute('data-faculty');
           currentFaculty = clickedFaculty;
 
-          // Deactivate all sidebar faculty icons and activate the corresponding one
-          const sidebarFacultyIcons = document.getElementById('facultyIconsList');
-          if (sidebarFacultyIcons) {
-            sidebarFacultyIcons.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active'));
-            const correspondingSidebarIcon = sidebarFacultyIcons.querySelector(`.faculty-icon-item[data-faculty="${clickedFaculty}"]`);
-            if (correspondingSidebarIcon) {
-              correspondingSidebarIcon.classList.add('active');
+          // Deactivate all TOP BAR faculty icons and activate the corresponding one
+          const topBarFacultyIcons = document.getElementById('facultyIconsListTop'); // Updated ID
+          if (topBarFacultyIcons) {
+            topBarFacultyIcons.querySelectorAll('.faculty-icon-item').forEach(el => el.classList.remove('active'));
+            const correspondingTopBarIcon = topBarFacultyIcons.querySelector(`.faculty-icon-item[data-faculty="${clickedFaculty}"]`); // Updated ID
+            if (correspondingTopBarIcon) {
+              correspondingTopBarIcon.classList.add('active');
             }
           }
 
-          // If currently on bubble chart, switch to heatmap (default for faculty view)
-          let targetChartType = currentChartType;
-          if (currentChartType === 'bubble') {
-            targetChartType = 'heatmap'; // Switch to heatmap when a faculty is selected
-            const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
-            setActiveVizButton(heatmapBtn, targetChartType);
-            loadData().then(data => createHeatmap(data, false)); // Draw heatmap
-          } else {
-            // Otherwise, just reload the current visualization with the new faculty filter
-            loadData().then(data => redrawVisualization(data));
+          // Always ensure a bottom chart is active when faculty/discipline changes from modal
+          let bottomChartType = currentChartType;
+          if (bottomChartType === 'bubble') { // If only bubble was active, default to heatmap
+              bottomChartType = 'heatmap';
           }
+
+          // Activate the appropriate bottom viz button
+          let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
+          const vizBtn = document.querySelector(`#compact-viz-icons .visualisation-icons ${vizBtnId}`);
+          setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
+
+          // Reload data and redraw the selected bottom visualization
+          loadData().then(data => {
+              if (bottomChartType === 'radar') {
+                  createRadar(data);
+              } else { // heatmap or cumulative
+                  createHeatmap(data, bottomChartType === 'cumulative');
+              }
+              // Bubble chart remains visible in the top container
+          });
 
           // Hide the modal
           hideWelcomeModal();
@@ -845,12 +1114,29 @@
     loadConstants().then(() => {
       loadData().then(data => {
         updateCourseCount(data);
-        // Default: binary heatmap is marked active and its div shown
-        const heatmapBtn = document.querySelector('#sidebar .visualisation-icons #heatmapBtn');
-        setActiveVizButton(heatmapBtn, 'heatmap'); // Set state and show div
-        createHeatmap(data, false); // Draw into the now visible div
+
+        // --- Initial Load Modifications ---
+        // 1. Show Bubble Chart in top container for default SDG
+        document.getElementById('bubble-chart-div').style.display = 'block'; // Make it visible
+        createBubbleChart(data, currentSDG, false); // Draw initial bubble chart (no animation)
+
+        // 2. Show Heatmap in bottom container for default ALL/ALL
+        const heatmapBtn = document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn');
+        setActiveVizButton(heatmapBtn, 'heatmap'); // Set heatmap as active viz *button* and show bottom div
+        createHeatmap(data, false); // Draw initial heatmap
+
+        // Set the default chart type state after initial setup
+        currentChartType = 'heatmap'; // Heatmap is the default selected viz type
+        previousChartType = null;
+        // --- End Initial Load Modifications ---
+        
+        // Adjust main content padding based on top bar height
+        adjustMainContentPadding();
       });
     });
+    
+    // Add event listener for window resize to adjust padding
+    window.addEventListener('resize', adjustMainContentPadding);
   </script>
 </body>
 

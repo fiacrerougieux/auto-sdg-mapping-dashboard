@@ -113,54 +113,142 @@ body {
 /* Top Bar */
 #top-bar {
   background-color: var(--surface-color);
-  padding: 10px 20px;
+  padding: 5px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
-  left: 270px; /* Start after the sidebar */
-  width: calc(100% - 270px); /* Fill remaining width */
-  height: 70px; /* Fixed height for the top bar */
+  left: 0; /* Start from the left edge */
+  width: 100%; /* Fill full width */
+  min-height: 60px; /* Reduced minimum height for the top bar */
+  height: auto; /* Allow height to adjust based on content */
   z-index: 1001; /* Ensure it's above the sidebar toggle if needed, but below active sidebar */
   display: flex;
   align-items: center;
-  overflow-x: auto; /* Allow horizontal scrolling for icons if needed */
+  justify-content: flex-start; /* Align items to the start */
+  gap: 6px; /* Reduced gap between icon groups and other elements */
+  flex-wrap: wrap; /* Allow items to wrap to next line */
+  overflow-x: visible; /* Remove horizontal scrolling */
+}
+
+/* Separator style */
+.top-bar-separator {
+  height: 30px; /* Reduced height to match smaller top bar */
+  border-left: 1px solid var(--border-color);
+  margin: 0 5px; /* Adjust margin as needed */
+}
+
+/* Style for the moved data source section in the top bar */
+#data-source-section {
+  display: flex;
+  align-items: center;
+  /* margin-left: auto; /* Removed: No longer pushing this section */
+}
+
+.top-bar-section-title {
+  display: none; /* Hide the "Analysis Data Source" title in the top bar */
+}
+
+#data-source-section .data-source-row {
+  margin-bottom: 0; /* Remove bottom margin in top bar */
+  gap: 15px; /* Add gap between toggle and count */
+}
+
+#data-source-section #course-count {
+  font-size: 0.95em; /* Slightly smaller font in top bar */
+  white-space: nowrap; /* Prevent wrapping */
 }
 
 /* Adjust SDG Icons List for Top Bar */
 #top-bar .sdg-icons-list {
   display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping in the top bar */
-  gap: 10px;
+  flex-wrap: wrap; /* Allow icons to wrap */
+  gap: 6px; /* Reduced gap for more compact layout */
   margin-bottom: 0; /* Remove bottom margin */
   align-items: center;
 }
 
 #top-bar .sdg-icon-item {
-  width: 45px; /* Slightly smaller icons for top bar */
-  height: 45px;
+  width: 40px; /* Reduced size for more compact layout */
+  height: 40px;
   flex-shrink: 0; /* Prevent icons from shrinking */
 }
 
-/* Sidebar */
-#sidebar {
-  background-color: var(--surface-color);
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
-  width: 270px;
+/* Faculty Icons List in Top Bar */
+#top-bar #facultyIconsListTop {
+  display: flex;
+  flex-wrap: wrap; /* Allow icons to wrap */
+  gap: 6px; /* Match SDG icon gap */
+  margin-bottom: 0; /* Remove default margin */
+  align-items: center;
+}
+
+/* Faculty Icon Items in Top Bar */
+#top-bar #facultyIconsListTop .faculty-icon-item {
+  width: 40px; /* Match SDG icon size */
+  height: 40px; /* Match SDG icon size */
+  flex-shrink: 0; /* Prevent shrinking */
+  /* Inherit other styles like border, cursor, hover from general .faculty-icon-item */
+}
+
+
+/* Knowledge Graph Link in Top Bar */
+.knowledge-graph-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  width: 40px; /* Match SDG icon width */
+  height: 40px; /* Match SDG icon height */
+  flex-shrink: 0;
+  /* margin-left: 10px; /* Removed: Now handled by parent container */
+}
+
+/* Container for the knowledge graph link */
+.knowledge-graph-container {
+  display: flex; /* Ensure it aligns correctly if needed */
+  align-items: center; /* Ensure it aligns correctly if needed */
+}
+
+.knowledge-graph-link img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  flex-grow: 1; /* Allow image to take available space */
+}
+
+.knowledge-graph-link span {
+  font-size: 0.6em; /* Small text size */
+  text-align: center;
+  margin-top: 2px; /* Space between image and text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+/* Compact Visualization Icons */
+#compact-viz-icons {
   position: fixed;
-  height: 100vh; /* Full height */
   left: 0;
-  top: 0; /* Align to top */
-  overflow-y: auto;
-  z-index: 1000; /* Below top-bar */
-  transition: transform 0.3s ease;
+  top: 50%; /* Moved down to align better with the heatmap */
+  transform: translateY(-50%);
+  background-color: var(--surface-color);
+  padding: 10px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+  border-radius: 0 8px 8px 0;
+  z-index: 1000;
+}
+
+#compact-viz-icons .visualisation-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #main-content {
   flex: 1;
-  margin-left: 270px;
-  padding: 90px 20px 20px 20px; /* Added 70px top padding (top-bar height) + original 20px */
-  width: calc(100% - 270px);
+  margin-left: 0;
+  padding: 80px 20px 20px 20px; /* Reduced top padding to match smaller top bar */
+  width: 100%;
   transition: margin-left 0.3s ease;
 }
 
@@ -261,9 +349,36 @@ select::-webkit-scrollbar-thumb:hover {
   background-color: var(--surface-color);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-  height: calc(100vh - 100px); /* Adjusted for top bar (70px) + main content padding (20px top + 20px bottom) */
+  height: calc(100vh - 110px); /* Adjusted for top bar (70px) + main content padding (20px top + 20px bottom) */
   width: 100%;
-  margin-top: 50px;
+  /* margin-top: 50px; Removed */
+  display: flex; /* Arrange top/bottom sections */
+  flex-direction: column; /* Stack vertically */
+}
+
+#plot-container-top {
+  height: 45%; /* Bubble chart area */
+  width: 100%;
+  position: relative; /* For positioning chart div inside */
+  overflow: hidden; /* Prevent overflow */
+}
+
+#plot-container-bottom {
+  height: 55%; /* Heatmap/Radar area */
+  width: 100%;
+  position: relative; /* For positioning chart div inside */
+  border-top: 1px solid var(--border-color); /* Separator line */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Individual chart divs */
+.chart-div {
+  width: 100%;
+  height: 100%;
+  display: none; /* Controlled by JS */
+  position: absolute; /* Position within top/bottom container */
+  top: 0;
+  left: 0;
 }
 
 /* Disclaimer Collapsible */
@@ -464,7 +579,8 @@ select::-webkit-scrollbar-thumb:hover {
   #top-bar {
     left: 0; /* Take full width when sidebar is hidden */
     width: 100%;
-    height: 60px; /* Slightly smaller top bar */
+    min-height: 50px; /* Reduced minimum height for the top bar */
+    height: auto; /* Allow height to adjust based on content */
     padding: 5px 10px;
   }
   #top-bar .sdg-icon-item {
@@ -481,7 +597,7 @@ select::-webkit-scrollbar-thumb:hover {
   #main-content {
     margin-left: 0;
     width: 100%;
-    padding: 75px 15px 15px 15px; /* Adjusted top padding: 60px (top-bar) + 15px */
+    padding: 65px 15px 15px 15px; /* Adjusted top padding for smaller top bar */
   }
 
   #toggle-sidebar {
@@ -508,13 +624,17 @@ select::-webkit-scrollbar-thumb:hover {
 @media (max-width: 768px) {
    /* No body padding adjustment */
   #top-bar {
-    height: 50px; /* Even smaller top bar */
-    padding: 5px 8px;
+    min-height: 40px; /* Reduced minimum height for the top bar */
+    height: auto; /* Allow height to adjust based on content */
+    padding: 4px 8px;
   }
    #top-bar .sdg-icon-item {
     width: 35px;
     height: 35px;
-    gap: 5px;
+  }
+  #top-bar .sdg-icons-list,
+  #top-bar #facultyIconsListTop {
+    gap: 6px; /* Reduce gap between icons */
   }
    #sidebar {
     /* top: 0 and height: 100vh remain */
@@ -523,10 +643,11 @@ select::-webkit-scrollbar-thumb:hover {
     top: 10px; /* Adjust as needed */
    }
   #main-content {
-    padding: 60px 10px 10px 10px; /* Adjusted top padding: 50px (top-bar) + 10px */
+    padding-top: 10px; /* Base padding */
+    margin-top: auto; /* Will be calculated by JavaScript */
   }
   #plot-container {
-    height: calc(100vh - 70px); /* Adjusted for smallest top bar (50px) + main content padding (10px top + 10px bottom) */
+    height: calc(100vh - 30px - var(--top-bar-height, 50px)); /* Dynamic calculation based on top bar height */
   }
 
   .switch-button {
@@ -569,11 +690,38 @@ select::-webkit-scrollbar-thumb:hover {
   transform: scale(0.95);
   opacity: 0;
   transition: all 0.3s ease;
+  max-height: 80vh; /* Set a max height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .modal-overlay.active .modal-content {
   transform: scale(1);
   opacity: 1;
+}
+
+/* Style for the disclaimer content within the modal */
+.modal-disclaimer-content {
+  margin-top: 20px; /* Add space above the disclaimer */
+  padding-top: 15px; /* Add padding above the content */
+  border-top: 1px solid var(--border-color); /* Add a separator line */
+  text-align: left; /* Align text to the left */
+  font-size: 0.9em; /* Slightly smaller font */
+  color: var(--text-color); /* Use text color */
+}
+
+.modal-disclaimer-content p {
+  margin: 0 0 10px 0; /* Adjust margin */
+  line-height: 1.5;
+}
+
+.modal-disclaimer-content ul {
+  margin: 0; /* Remove margin */
+  padding-left: 20px; /* Adjust padding */
+}
+
+.modal-disclaimer-content li {
+  margin-bottom: 5px; /* Adjust margin */
+  line-height: 1.4;
 }
 
 .modal-content h2 {
@@ -683,12 +831,12 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 
-/* Adjust main content to account for one sidebar */
+/* Main content takes full width */
 #main-content {
   flex: 1;
-  margin-left: 270px;
+  margin-left: 0;
   padding: 20px;
-  width: calc(100% - 270px);
+  width: 100%;
   transition: margin-left 0.3s ease;
 }
 
@@ -699,6 +847,119 @@ select::-webkit-scrollbar-thumb:hover {
 
 .tick:hover .sdg-label, .tick:hover .sdg-label-second-line {
   fill: attr(data-color); /* Will be overridden by JavaScript */
+}
+
+/* Tooltip styles for both charts */
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: rgba(var(--surface-color-rgb), 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  color: var(--text-color);
+  pointer-events: none;
+  z-index: 1500;
+}
+
+/* Specific styles for heatmap tooltip */
+.heatmap-tooltip {
+  max-width: 300px;
+}
+
+/* Specific styles for bubble chart tooltip */
+.bubble-tooltip {
+  max-width: 250px;
+}
+
+/* Search Container Styles */
+.search-container {
+  position: relative;
+  width: 100%;
+  margin: 5px 0;
+}
+
+/* Top bar search container specific styles */
+.top-bar-search {
+  width: 200px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.top-bar-search .search-input {
+  height: 35px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--surface-color);
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1500; /* Increased z-index to ensure it appears above other elements */
+  margin-top: 5px;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.dropdown-item.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+/* Scrollbar for dropdown */
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* Responsive Adjustments for Two Sidebars */
@@ -805,26 +1066,35 @@ input:checked + .slider:before {
   margin-bottom: 15px; /* Add some space below */
 }
 
+/* Ternary Toggle Switch Styles - Adjusted for Top Bar */
+.ternary-toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-bottom: 15px; Removed */
+}
+
 .ternary-toggle {
   position: relative;
-  width: 90px; /* Adjust width to comfortably fit 3 states */
-  height: 34px;
+  width: 75px; /* Make toggle slightly narrower */
+  height: 28px; /* Make toggle thinner */
   background-color: #ccc;
-  border-radius: 34px;
+  border-radius: 28px; /* Match height */
   cursor: pointer;
   transition: background-color 0.4s ease;
 }
 
 .toggle-knob {
   position: absolute;
-  width: 26px;
-  height: 26px;
+  width: 20px; /* Smaller knob */
+  height: 20px; /* Smaller knob */
   background-color: white;
   border-radius: 50%;
-  top: 4px;
+  top: 4px; /* Adjust vertical position */
   left: 4px; /* Initial position for state 0 */
   transition: transform 0.4s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Lighter shadow */
+  z-index: 2; /* Ensure knob is above labels */
 }
 
 /* State 0 (v1 - Left) */
@@ -840,7 +1110,7 @@ input:checked + .slider:before {
   background-color: var(--primary-color); /* Active color */
 }
 .ternary-toggle.state-1 .toggle-knob {
-  transform: translateX(28px); /* Position for middle state */
+  transform: translateX(25px); /* Adjusted position for middle state */
 }
 
 /* State 2 (v3 - Right) */
@@ -848,22 +1118,37 @@ input:checked + .slider:before {
   background-color: var(--primary-color); /* Active color */
 }
 .ternary-toggle.state-2 .toggle-knob {
-  transform: translateX(56px); /* Position for right state */
+  transform: translateX(48px); /* Adjusted position for right state */
 }
 
+/* Labels inside the toggle */
 .toggle-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  width: 90px; /* Match the toggle width */
-  margin-top: 5px;
-  font-size: 0.8em;
-  color: #555;
+  justify-content: space-around; /* Distribute labels evenly */
+  align-items: center; /* Center vertically */
+  padding: 0 5px; /* Add some horizontal padding */
+  font-size: 0.7em; /* Smaller labels */
+  color: rgba(255, 255, 255, 0.7); /* White text, slightly transparent */
+  z-index: 1; /* Ensure labels are behind the knob */
+  pointer-events: none; /* Prevent labels from interfering with clicks */
 }
 
 .toggle-labels span {
-  flex: 1;
+  flex: 1; /* Allow spans to take up space */
   text-align: center;
+  font-weight: bold;
 }
+
+/* Adjust label color for inactive state for better contrast */
+.ternary-toggle.state-0 .toggle-labels {
+  color: rgba(0, 0, 0, 0.4); /* Darker grey for inactive state */
+}
+
 
 .data-source-info {
   font-size: 0.9em;
@@ -891,7 +1176,54 @@ input:checked + .slider:before {
   justify-content: flex-end;
 }
 
-/* Adjust ternary toggle container to work in the new layout */
-.ternary-toggle-container {
-  margin-bottom: 0;
+/* Style for the disclaimer section in the top bar */
+#top-bar .button-group.disclaimer-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+#top-bar .disclaimer-button {
+  padding: 2px 8px; /* Adjust padding */
+  margin: 0; /* Remove margin */
+  line-height: 1; /* Adjust line height */
+  font-size: 0.85em; /* Adjust font size */
+  background-color: transparent; /* Make background transparent */
+  border: none; /* Remove border */
+  color: var(--text-color); /* Use text color */
+  font-weight: normal; /* Normal font weight */
+  transition: color 0.3s ease;
+}
+
+#top-bar .disclaimer-button:hover {
+  color: var(--primary-color); /* Change color on hover */
+  background-color: transparent; /* Keep background transparent */
+}
+
+#top-bar .disclaimer-content {
+  display: none; /* Keep hidden by default */
+  position: absolute; /* Position absolutely */
+  top: 60px; /* Position below the top bar (adjust if top bar height changes) */
+  right: 10px; /* Align to the right */
+  background-color: var(--surface-color); /* Use surface color */
+  border: 1px solid var(--border-color); /* Use border color */
+  border-radius: 4px; /* Add border radius */
+  padding: 10px; /* Adjust padding */
+  font-size: 0.9em; /* Adjust font size */
+  width: 300px; /* Set a width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#top-bar .disclaimer-content p {
+  margin: 0 0 10px 0; /* Adjust margin */
+}
+
+#top-bar .disclaimer-content ul {
+  margin: 0; /* Remove margin */
+  padding-left: 15px; /* Adjust padding */
+}
+
+#top-bar .disclaimer-content li {
+  margin-bottom: 5px; /* Adjust margin */
 }

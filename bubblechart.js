@@ -1,6 +1,6 @@
 function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
-  // Tooltip removal - always remove the old one from the body
-  d3.select('body').select('.tooltip').remove(); // Keep removing old tooltip from body
+  // Tooltip removal - only remove the bubble chart tooltip from the body
+  d3.select('body').select('.bubble-tooltip').remove(); // Keep removing old bubble tooltip from body
 
   const targetDivId = 'bubble-chart-div'; // Target the specific div
   const containerElement = document.getElementById(targetDivId);
@@ -58,9 +58,9 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   }).filter(d => d.value > 0)
     .sort((a, b) => a.percentage - b.percentage);
 
-  // Always set x-axis from 0 to 100 as requested
+  // Set x-axis from -5 to 100 to show all 0 values
   const xScale = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([-5, 100])
     .range([0, width]);
   const radiusScale = d3.scaleSqrt()
     .domain([0, d3.max(bubbleData, d => d.value)])
@@ -266,7 +266,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   // --- Tooltip ---
   // Create tooltip (appends to body, safe to recreate)
   const tooltip = d3.select('body').append('div')
-    .attr('class', 'tooltip')
+    .attr('class', 'tooltip bubble-tooltip')
     .style('position', 'absolute')
     .style('visibility', 'hidden')
     .style('background-color', 'rgba(var(--surface-color-rgb), 0.8)') /* Add alpha for transparency */
@@ -276,6 +276,25 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     .style('font-size', '14px')
     .style('color', 'var(--text-color)')
     .style('pointer-events', 'none'); // Important for tooltip not to interfere with mouse events
+    
+  // Always initialize tooltip with content for the bubble with highest percentage
+  // Note: currentChartType is only used for bottom charts (heatmap, cumulative, radar)
+  // The bubble chart is always shown in the top container
+  if (bubbleData.length > 0) {
+    // Find the bubble with the highest percentage to highlight initially
+    const highlightBubble = bubbleData[bubbleData.length - 1]; // Last bubble has highest percentage due to sorting
+    
+    // Set tooltip content and position
+    tooltip.html(`<b>${highlightBubble.name}</b><br>Total Courses: ${highlightBubble.value}<br>Courses Addressing SDG ${selectedSDG}: ${highlightBubble.sdgCount}<br>Percentage: ${highlightBubble.percentage.toFixed(2)}%`);
+    
+    // Use setTimeout to ensure the DOM has fully rendered before positioning the tooltip
+    setTimeout(() => {
+      // Position tooltip near the bubble with highest percentage
+      tooltip.style('visibility', 'visible')
+        .style('top', (highlightBubble.y + margin.top + containerElement.getBoundingClientRect().top + window.scrollY - 10) + 'px')
+        .style('left', (highlightBubble.x + margin.left + containerElement.getBoundingClientRect().left + window.scrollX + 20) + 'px');
+    }, 100); // Small delay to ensure DOM is ready
+  }
 
   bubbles.on('mouseover', function(event, d) {
     tooltip.html(`<b>${d.name}</b><br>Total Courses: ${d.value}<br>Courses Addressing SDG ${selectedSDG}: ${d.sdgCount}<br>Percentage: ${d.percentage.toFixed(2)}%`)
@@ -292,20 +311,27 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     // When a bubble is clicked, switch to binary heatmap view of that specialization
     currentDiscipline = d.id;
     
-    // Update the discipline select dropdown
-    const select = document.getElementById('disciplineSelect');
-    for (let i = 0; i < select.options.length; i++) {
-      if (select.options[i].value === d.id) {
-        select.selectedIndex = i;
-        break;
+    // Update the search input and dropdown
+    const searchInput = document.getElementById('disciplineSearch');
+    const dropdown = document.getElementById('disciplineDropdown');
+    
+    // Update the search input with the selected discipline name
+    searchInput.value = d.name;
+    
+    // Update the active state in the dropdown
+    const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('data-value') === d.id) {
+        item.classList.add('active');
       }
-    }
+    });
     
     // Hide the tooltip before switching views to prevent it from staying visible
     tooltip.style('visibility', 'hidden');
     
     // Switch to binary heatmap view
-    document.querySelector('#sidebar .visualisation-icons #heatmapBtn').click();
+    document.querySelector('#compact-viz-icons .visualisation-icons #heatmapBtn').click();
   })
   .style('cursor', 'pointer'); // Change cursor to indicate clickable
 }

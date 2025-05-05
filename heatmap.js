@@ -1,8 +1,8 @@
 let finalCumulativeValues = [];
 
 function createHeatmap(data, isCumulative) {
-  // Remove any existing tooltips from the body
-  d3.select('body').select('.tooltip').remove();
+  // Remove any existing heatmap tooltips from the body
+  d3.select('body').select('.heatmap-tooltip').remove();
   
   const targetDivId = 'heatmap-div'; // Target the specific div
   const plotContainer = document.getElementById(targetDivId);
@@ -278,15 +278,12 @@ function createHeatmap(data, isCumulative) {
       const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
       if (sidebarIcon) sidebarIcon.classList.add('active');
       
-      // Switch to Bubble chart using the setActiveVizButton function
-      const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-      
-      // Update state before calling setActiveVizButton
+      // Update state for bubble chart
       previousChartType = currentChartType;
       currentChartType = 'bubble';
       
-      // Use the setActiveVizButton function to properly switch visualization
-      setActiveVizButton(bubbleBtn, 'bubble');
+      // Make bubble chart div visible
+      document.getElementById('bubble-chart-div').style.display = 'block';
       
       // Load data and create bubble chart with animation if appropriate
       const shouldAnimate = previousChartType === 'bubble';
@@ -328,15 +325,12 @@ function createHeatmap(data, isCumulative) {
       const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
       if (sidebarIcon) sidebarIcon.classList.add('active');
       
-      // Switch to Bubble chart using the setActiveVizButton function
-      const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-      
-      // Update state before calling setActiveVizButton
+      // Update state for bubble chart
       previousChartType = currentChartType;
       currentChartType = 'bubble';
       
-      // Use the setActiveVizButton function to properly switch visualization
-      setActiveVizButton(bubbleBtn, 'bubble');
+      // Make bubble chart div visible
+      document.getElementById('bubble-chart-div').style.display = 'block';
       
       // Load data and create bubble chart with animation if appropriate
       const shouldAnimate = previousChartType === 'bubble';
@@ -364,15 +358,12 @@ function createHeatmap(data, isCumulative) {
       const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
       if (sidebarIcon) sidebarIcon.classList.add('active');
       
-      // Switch to Bubble chart using the setActiveVizButton function
-      const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-      
-      // Update state before calling setActiveVizButton
+      // Update state for bubble chart
       previousChartType = currentChartType;
       currentChartType = 'bubble';
       
-      // Use the setActiveVizButton function to properly switch visualization
-      setActiveVizButton(bubbleBtn, 'bubble');
+      // Make bubble chart div visible
+      document.getElementById('bubble-chart-div').style.display = 'block';
       
       // Load data and create bubble chart with animation if appropriate
       const shouldAnimate = previousChartType === 'bubble';
@@ -381,7 +372,7 @@ function createHeatmap(data, isCumulative) {
 
   // Create tooltip (same as bubble chart)
   const tooltip = d3.select('body').append('div')
-    .attr('class', 'tooltip')
+    .attr('class', 'tooltip heatmap-tooltip')
     .style('position', 'absolute')
     .style('visibility', 'hidden')
     .style('background-color', 'rgba(var(--surface-color-rgb), 0.8)') /* Add alpha for transparency */
