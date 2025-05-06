@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.5"></script>
-  <script src="heatmap.js?v=2.5"></script>
-  <script src="bubblechart.js?v=2.5"></script>
+  <script src="radar.js?v=2.6"></script>
+  <script src="heatmap.js?v=2.6"></script>
+  <script src="bubblechart.js?v=2.6"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.5">
+  <link rel="stylesheet" href="style.css?v=2.6">
 </head>
 
 <body>
@@ -230,7 +230,7 @@
     <div class="bottom-bar-separator"></div>
     <!-- Course Count -->
     <div class="bottom-bar-item">
-      <p id="course-count" style="margin: 0;">Total Courses: 3417</p>
+      <p id="course-count" style="margin: 0;">Courses: 3417</p>
     </div>
     <div class="bottom-bar-separator"></div>
     <!-- SDG Knowledge Graph Link -->
@@ -568,7 +568,7 @@
       // Count all unique courses
       const uniqueCourses = new Set(data.map(row => row.course_code));
       document.getElementById('course-count').innerHTML =
-        `Total Courses: <strong>${uniqueCourses.size}</strong>`;
+        `Courses: <strong>${uniqueCourses.size}</strong>`;
     }
 
     function getDisciplines(data, selectedFaculty = 'ALL') {

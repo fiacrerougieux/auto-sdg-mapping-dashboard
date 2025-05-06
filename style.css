@@ -532,23 +532,34 @@ select::-webkit-scrollbar-thumb:hover {
   /* margin-top: 50px; Removed */
   display: flex; /* Arrange top/bottom sections */
   flex-direction: column; /* Stack vertically */
-  position: relative; /* Needed for absolute positioning of search bar */
+  position: relative; /* Keep for potential future use, though search is not absolute */
 }
 
 #plot-container-top {
-  height: 45%; /* Bubble chart area - Keep height, but allow overflow */
+  flex: 0 0 40%; /* Don't grow, don't shrink, base size 40% */
   width: 100%;
   position: relative; /* For positioning chart div inside */
   overflow: visible; /* Allow bubbles to overflow */
   z-index: 10; /* Ensure bubbles are above heatmap background */
 }
 
+/* Middle Search Container Styles - Repositioned */
+#middle-search-container {
+  width: 60%; /* Made slightly wider */
+  margin: 15px auto; /* Center horizontally with top/bottom margin */
+  flex-shrink: 0; /* Prevent search bar from shrinking */
+  /* Removed absolute positioning properties: position, top, left, transform, z-index */
+}
+
 #plot-container-bottom {
-  height: 55%; /* Heatmap/Radar area - Takes remaining space */
+  flex-grow: 1; /* Allow this container to take remaining space */
+  flex-shrink: 1; /* Allow shrinking if content is small */
+  min-height: 50px; /* Further reduced minimum height */
   width: 100%;
   position: relative; /* For positioning chart div inside */
   border-top: none; /* Remove separator line */
-  overflow: hidden; /* Prevent overflow */
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Individual chart divs */
@@ -1053,12 +1064,9 @@ select::-webkit-scrollbar-thumb:hover {
 
 /* Middle Search Container Styles - Repositioned */
 #middle-search-container {
-  width: 40%; /* Adjust width as needed */
-  position: absolute; /* Position relative to #plot-container */
-  top: 43%; /* Position it near the bottom of the top container */
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
-  z-index: 20; /* Ensure search is above bubbles and heatmap */
+  width: 60%; /* Made slightly wider */
+  margin: 15px auto; /* Center horizontally with top/bottom margin */
+  /* Removed absolute positioning properties: position, top, left, transform, z-index */
 }
 
 .search-input {

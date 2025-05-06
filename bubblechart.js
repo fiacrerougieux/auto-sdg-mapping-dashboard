@@ -135,7 +135,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   titleGroup.selectAll('text').remove(); // Clear existing title
   titleGroup.append('text')
     .attr('x', width / 2)
-    .attr('y', -20) // Position above the plot area
+    .attr('y', 0) // Position at the top of the plot area
     .attr('text-anchor', 'middle')
     .style('font-size', '18px')
     .style('font-weight', 'bold')

@@ -232,10 +232,18 @@ function createHeatmap(data, isCumulative) {
     const verticalPadding = 50; // Padding for bubble overflow
     margin = { top: 20, right: 50, bottom: 150, left: 350 };
     plotWidth = plotContainer.offsetWidth - margin.left - margin.right;
-    // Ensure plotHeight is not negative
-    plotHeight = Math.max(10, plotContainer.offsetHeight - margin.top - margin.bottom - (2 * verticalPadding));
+
+    // Calculate minimum required height based on SDGs
+    const minPixelsPerSdg = 25; // Minimum vertical space per SDG label row
+    const requiredPlotHeight = sdgNumbers.length * minPixelsPerSdg;
+
+    // Use the larger of container-derived height or required height
+    const containerDerivedHeight = Math.max(10, plotContainer.offsetHeight - margin.top - margin.bottom - (2 * verticalPadding));
+    plotHeight = Math.max(containerDerivedHeight, requiredPlotHeight);
+
+    // Calculate total SVG height based on the determined plotHeight
     totalSvgWidth = plotWidth + margin.left + margin.right;
-    totalSvgHeight = plotContainer.offsetHeight;
+    totalSvgHeight = plotHeight + margin.top + margin.bottom + (2 * verticalPadding); // Use calculated plotHeight
 
     // Create SVG
     const svgElement = d3.select(`#${targetDivId}`)
