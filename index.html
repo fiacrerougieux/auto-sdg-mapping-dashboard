@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.3"></script>
-  <script src="heatmap.js?v=2.3"></script>
-  <script src="bubblechart.js?v=2.3"></script>
+  <script src="radar.js?v=2.4"></script>
+  <script src="heatmap.js?v=2.4"></script>
+  <script src="bubblechart.js?v=2.4"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.3">
+  <link rel="stylesheet" href="style.css?v=2.4">
 </head>
 
 <body>
@@ -1162,8 +1162,51 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       });
     });
     
-    // Add event listener for window resize to adjust padding
-    window.addEventListener('resize', adjustMainContentPadding);
+    // --- Debounce Function ---
+    function debounce(func, wait, immediate) {
+      var timeout;
+      return function() {
+        var context = this, args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    };
+
+    // --- Resize Handler ---
+    const handleResize = debounce(function() {
+      console.log("Window resized, redrawing charts..."); // Debug log
+      adjustMainContentPadding(); // Adjust padding first
+
+      loadData().then(data => {
+        // Redraw bubble chart (always visible in top container)
+        createBubbleChart(data, currentSDG, false); // No animation on resize
+
+        // Redraw the currently active bottom chart
+        if (currentChartType === 'radar') {
+          createRadar(data);
+        } else if (currentChartType === 'heatmap') {
+          createHeatmap(data, false);
+        } else if (currentChartType === 'cumulative') {
+          createHeatmap(data, true);
+        }
+        // If currentChartType is 'bubble', the bottom chart is likely hidden,
+        // but redrawing the bubble chart is the main requirement.
+      }).catch(error => {
+        console.error("Error reloading data after resize:", error);
+      });
+    }, 250); // Debounce timeout of 250ms
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+    // Also adjust padding immediately on load
+    window.addEventListener('resize', adjustMainContentPadding); // Keep this for immediate padding adjustment
+
   </script>
 
   <script>

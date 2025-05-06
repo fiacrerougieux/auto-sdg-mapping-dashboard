@@ -536,17 +536,19 @@ select::-webkit-scrollbar-thumb:hover {
   /* margin-top: 50px; Removed */
   display: flex; /* Arrange top/bottom sections */
   flex-direction: column; /* Stack vertically */
+  position: relative; /* Needed for absolute positioning of search bar */
 }
 
 #plot-container-top {
-  height: 45%; /* Bubble chart area */
+  height: 45%; /* Bubble chart area - Keep height, but allow overflow */
   width: 100%;
   position: relative; /* For positioning chart div inside */
-  overflow: hidden; /* Prevent overflow */
+  overflow: visible; /* Allow bubbles to overflow */
+  z-index: 10; /* Ensure bubbles are above heatmap background */
 }
 
 #plot-container-bottom {
-  height: 55%; /* Heatmap/Radar area */
+  height: 55%; /* Heatmap/Radar area - Takes remaining space */
   width: 100%;
   position: relative; /* For positioning chart div inside */
   border-top: none; /* Remove separator line */
@@ -1032,11 +1034,14 @@ select::-webkit-scrollbar-thumb:hover {
 
 /* Top bar search container specific styles removed */
 
-/* Middle Search Container Styles */
+/* Middle Search Container Styles - Repositioned */
 #middle-search-container {
-  width: 50%; /* Adjust width as needed */
-  margin: 15px auto; /* Center horizontally with top/bottom margin */
-  position: relative; /* Needed for dropdown positioning */
+  width: 40%; /* Adjust width as needed */
+  position: absolute; /* Position relative to #plot-container */
+  top: 43%; /* Position it near the bottom of the top container */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  z-index: 20; /* Ensure search is above bubbles and heatmap */
 }
 
 .search-input {

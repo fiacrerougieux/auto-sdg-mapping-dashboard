@@ -62,9 +62,25 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   const xScale = d3.scaleLinear()
     .domain([-5, 100])
     .range([0, width]);
+
+  // --- Responsive Radius Scale ---
+  const baseWidth = 1000; // Reference width for max radius
+  const baseMaxRadius = 25; // Further reduced base max radius (was 40, then 30)
+  const baseMinRadius = 3;  // Further reduced base min radius (was 5, then 4)
+  const minAllowedMaxRadius = 10; // Further adjusted smallest max radius allowed (was 15, then 12)
+  const minAllowedMinRadius = 2;  // Further adjusted smallest min radius allowed (was 3)
+
+  // Calculate scaled radius but cap it at the original base values for larger screens
+  const scaledMaxRadius = baseMaxRadius * (width / baseWidth);
+  const scaledMinRadius = baseMinRadius * (width / baseWidth);
+
+  const currentMaxRadius = Math.min(baseMaxRadius, Math.max(minAllowedMaxRadius, scaledMaxRadius)); // Cap at baseMaxRadius
+  const currentMinRadius = Math.min(baseMinRadius, Math.max(minAllowedMinRadius, scaledMinRadius)); // Cap at baseMinRadius
+
   const radiusScale = d3.scaleSqrt()
     .domain([0, d3.max(bubbleData, d => d.value)])
-    .range([5, 40]); // Min radius 5, max 40
+    .range([currentMinRadius, currentMaxRadius]); // Use dynamic range
+  // --- End Responsive Radius Scale ---
 
   const simulation = d3.forceSimulation(bubbleData)
     .force('x', d3.forceX(d => xScale(d.percentage)).strength(1))
@@ -133,15 +149,15 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     gridLines.append('line')
       .attr('x1', xScale(p))
       .attr('x2', xScale(p))
-      .attr('y1', 0)
-      .attr('y2', height)
+      .attr('y1', 0) // Start from the top
+      .attr('y2', height - 30) // Shorten the line by 30px from the bottom
       .attr('stroke', themeGridColor) // Apply theme grid color
       .attr('stroke-width', 1);
 
     gridLines.append('text')
       .attr('class', `grid-text-${p}`)
       .attr('x', xScale(p))
-      .attr('y', height + 20) // Position below the grid
+      .attr('y', height - 15) // Position just below the shortened grid lines (moved up)
       .attr('text-anchor', 'middle')
       .style('font-size', '12px')
       .style('fill', themeGridTextColor) // Apply theme grid text color
@@ -150,24 +166,21 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   // --- End Grid Lines ---
 
   // --- Legend Update/Creation ---
-  const legendGroup = g.select('.legend')
-      .attr('transform', `translate(${width - 190}, 10)`); // Position legend
+  const legendGroup = g.select('.legend');
   legendGroup.selectAll('*').remove(); // Clear previous legend items
 
-  legendGroup.append('rect')
-      .attr('width', 180)
-      .attr('height', Object.keys(facultyColors).length * 20 + 10) // Dynamic height
-      .attr('fill', themeLegendBgColor) // Apply theme legend background
-      .attr('stroke', themeLegendStrokeColor) // Apply theme legend stroke
-      .attr('rx', 5).attr('ry', 5);
+  const legendItemPadding = 60; // Significantly increased space between legend items (was 15, then 30)
+  let currentX = 0;
 
   const legendItems = legendGroup.selectAll('.legend-item')
       .data(Object.entries(facultyColors))
       .join('g')
-      .attr('class', 'legend-item')
-      .attr('transform', (d, i) => `translate(10,${i * 20 + 15})`);
+      .attr('class', 'legend-item'); // Create items first
 
+  // Append elements to each item
   legendItems.append('circle')
+      .attr('cx', 5) // Position circle at the start of the item
+      .attr('cy', 0)
       .attr('r', 5)
       .attr('fill', d => d[1])
       .attr('opacity', 0.7)
@@ -175,11 +188,40 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
       .attr('stroke-width', 1);
 
   legendItems.append('text')
-      .attr('x', 12)
-      .attr('y', 4)
+      .attr('x', 15) // Position text next to the circle
+      .attr('y', 0)
+      .attr('dominant-baseline', 'middle')
       .style('font-size', '11px')
-      .style('fill', themeLegendTextColor) // Apply theme legend text color
+      .style('fill', themeLegendTextColor)
       .text(d => constants.facultyNames[d[0]] || d[0]);
+
+  // --- Position legend items with wrapping ---
+  let currentXPos = 0; // Use a different name to avoid conflict if 'currentX' is used elsewhere
+  let currentYPos = 0;
+  const lineHeight = 20; // Height of each legend line
+  let maxLineWidth = 0;
+
+  legendItems.attr('transform', function(d, i) {
+      const itemWidth = this.getBBox().width;
+      // Check if adding this item exceeds the chart width (consider padding)
+      if (i > 0 && currentXPos + itemWidth + legendItemPadding > width) {
+          // Move to the next line
+          maxLineWidth = Math.max(maxLineWidth, currentXPos - legendItemPadding); // Store max width of the completed line
+          currentXPos = 0; // Reset X for the new line
+          currentYPos += lineHeight; // Move down
+      }
+      const tx = currentXPos;
+      currentXPos += itemWidth + legendItemPadding; // Increment X for the next item
+      return `translate(${tx}, ${currentYPos})`; // Apply position
+  });
+  // Calculate max width for the last line (or only line)
+  maxLineWidth = Math.max(maxLineWidth, currentXPos > 0 ? currentXPos - legendItemPadding : 0);
+
+  // Position the entire legend group below the tick labels, centered based on max line width
+  const legendGroupX = (width / 2) - (maxLineWidth / 2); // Center based on the widest line
+  const legendGroupY = height + 5; // Position below the tick labels (which are at height - 15)
+
+  legendGroup.attr('transform', `translate(${legendGroupX}, ${legendGroupY})`);
   // --- End Legend ---
 
   const transitionDuration = animateTransition ? 750 : 0; // Use parameter for duration

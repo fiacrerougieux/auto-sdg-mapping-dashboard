@@ -105,8 +105,10 @@ function createHeatmap(data, isCumulative) {
 
   // Calculate dimensions based on the target div
   const margin = { top: 20, right: 50, bottom: 150, left: 350 }; // Increased left margin
+  const verticalPadding = 50; // Add padding top and bottom for bubble overflow
   const width = plotContainer.offsetWidth - margin.left - margin.right;
-  const height = plotContainer.offsetHeight - margin.top - margin.bottom;
+  const plotHeight = plotContainer.offsetHeight - margin.top - margin.bottom - (2 * verticalPadding); // Actual height for chart elements
+  const totalSvgHeight = plotContainer.offsetHeight; // Use the full container height for the SVG
 
   // Determine theme colors
   const isDarkTheme = document.body.classList.contains('dark-theme');
@@ -120,13 +122,21 @@ function createHeatmap(data, isCumulative) {
   const svgElement = d3.select(`#${targetDivId}`)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom);
-    // Removed inline background style - will handle with CSS
+    .attr('height', totalSvgHeight); // Use the full container height
 
+  // Add background rectangle covering the entire SVG area *behind* the main group
+  svgElement.append('rect')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', totalSvgHeight)
+      .attr('fill', themeBgColor);
+
+  // Create the main group, translated to account for margin and top padding
   const svg = svgElement.append('g')
-    .attr('transform', `translate(${margin.left},${margin.top})`);
+    .attr('transform', `translate(${margin.left}, ${margin.top + verticalPadding})`);
 
-  // Define scales
+  // Define scales using the calculated plotHeight
   const xScale = d3.scaleBand()
     .domain(courses.map((_, i) => i))
     .range([0, width])
@@ -134,10 +144,10 @@ function createHeatmap(data, isCumulative) {
 
   const yScale = d3.scaleBand()
     .domain(sdgNumbers.map((_, i) => i))
-    .range([0, height])
+    .range([0, plotHeight]) // Use plotHeight for the range
     .padding(0.01);
 
-  // Create heatmap cells
+  // Create heatmap cells (using plotHeight implicitly via yScale)
   for (let i = 0; i < matrix.length; i++) {
     const row = matrix[i];
     for (let j = 0; j < row.length; j++) {
@@ -151,9 +161,10 @@ function createHeatmap(data, isCumulative) {
           if (cell.value === 0) return themeEmptyCellColor; // Use theme empty cell color
           if (isCumulative) {
             const intensity = cell.value / (courses.length * 0.5);
-            return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`;
+            return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`; // Keep blue for cumulative intensity
           } else {
-            return 'var(--primary-color)';
+            // Use theme text color for non-cumulative cells in dark mode, otherwise use primary blue
+            return isDarkTheme ? themeTextColor : 'var(--primary-color)';
           }
         })
         .attr('stroke', themeCellStrokeColor) // Use theme stroke color
@@ -165,9 +176,9 @@ function createHeatmap(data, isCumulative) {
     }
   }
 
-  // Add x-axis with vertical labels
+  // Add x-axis with vertical labels, positioned at the bottom of the plot area
   const xAxisGroup = svg.append('g')
-    .attr('transform', `translate(0,${height})`)
+    .attr('transform', `translate(0,${plotHeight})`) // Use plotHeight
     .call(d3.axisBottom(xScale)
       .tickFormat(i => courses[i])
       .tickSize(0));
