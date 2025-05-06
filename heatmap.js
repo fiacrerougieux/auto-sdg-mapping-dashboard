@@ -99,109 +99,30 @@ function createHeatmap(data, isCumulative) {
         });
       }
     }
-
     matrix.push(row);
   }
 
-  // Calculate dimensions based on the target div
-  const margin = { top: 20, right: 50, bottom: 150, left: 350 }; // Increased left margin
-  const verticalPadding = 50; // Add padding top and bottom for bubble overflow
-  const width = plotContainer.offsetWidth - margin.left - margin.right;
-  const plotHeight = plotContainer.offsetHeight - margin.top - margin.bottom - (2 * verticalPadding); // Actual height for chart elements
-  const totalSvgHeight = plotContainer.offsetHeight; // Use the full container height for the SVG
+  // --- Responsive Layout Logic ---
+  const mobileBreakpoint = 768;
+  const isMobile = window.innerWidth <= mobileBreakpoint;
 
-  // Determine theme colors
+  // --- Define variables needed in both layouts ---
+  let margin, width, height, plotWidth, plotHeight, totalSvgWidth, totalSvgHeight;
+  const cellPadding = 0.01;
+  const mobileCellSize = 20; // Fixed cell size for mobile vertical layout
+  const mobileLeftMargin = 100; // Margin for course labels on mobile
+  const mobileTopMargin = 150; // Margin for SDG labels on mobile
+  let xScale, yScale, xAxisGroup, yAxisGroup; // Declare scales and axes groups
+
+  // --- Determine theme colors (needed early) ---
   const isDarkTheme = document.body.classList.contains('dark-theme');
   const themeTextColor = isDarkTheme ? '#00e8ff' : 'black';
-  const themeBgColor = isDarkTheme ? '#0a0e17' : '#ffffff'; // Dark theme background or white
-  const themeGridTextColor = isDarkTheme ? '#88a0cc' : '#666'; // Lighter grey/blue for dark theme grid text
-  const themeCellStrokeColor = isDarkTheme ? '#0a0e17' : '#fff'; // Match background for stroke
-  const themeEmptyCellColor = isDarkTheme ? '#121a29' : '#f8f9fa'; // Slightly lighter dark for empty cells
+  const themeBgColor = isDarkTheme ? '#0a0e17' : '#ffffff';
+  const themeGridTextColor = isDarkTheme ? '#88a0cc' : '#666';
+  const themeCellStrokeColor = isDarkTheme ? '#0a0e17' : '#fff';
+  const themeEmptyCellColor = isDarkTheme ? '#121a29' : '#f8f9fa';
 
-  // Create SVG within the target div
-  const svgElement = d3.select(`#${targetDivId}`)
-    .append('svg')
-    .attr('width', width + margin.left + margin.right)
-    .attr('height', totalSvgHeight); // Use the full container height
-
-  // Add background rectangle covering the entire SVG area *behind* the main group
-  svgElement.append('rect')
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', totalSvgHeight)
-      .attr('fill', themeBgColor);
-
-  // Create the main group, translated to account for margin and top padding
-  const svg = svgElement.append('g')
-    .attr('transform', `translate(${margin.left}, ${margin.top + verticalPadding})`);
-
-  // Define scales using the calculated plotHeight
-  const xScale = d3.scaleBand()
-    .domain(courses.map((_, i) => i))
-    .range([0, width])
-    .padding(0.01);
-
-  const yScale = d3.scaleBand()
-    .domain(sdgNumbers.map((_, i) => i))
-    .range([0, plotHeight]) // Use plotHeight for the range
-    .padding(0.01);
-
-  // Create heatmap cells (using plotHeight implicitly via yScale)
-  for (let i = 0; i < matrix.length; i++) {
-    const row = matrix[i];
-    for (let j = 0; j < row.length; j++) {
-      const cell = row[j];
-      svg.append('rect')
-        .attr('x', xScale(j))
-        .attr('y', yScale(i))
-        .attr('width', xScale.bandwidth())
-        .attr('height', yScale.bandwidth())
-        .attr('fill', function() {
-          if (cell.value === 0) return themeEmptyCellColor; // Use theme empty cell color
-          if (isCumulative) {
-            const intensity = cell.value / (courses.length * 0.5);
-            return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`; // Keep blue for cumulative intensity
-          } else {
-            // Use theme text color for non-cumulative cells in dark mode, otherwise use primary blue
-            return isDarkTheme ? themeTextColor : 'var(--primary-color)';
-          }
-        })
-        .attr('stroke', themeCellStrokeColor) // Use theme stroke color
-        .attr('stroke-width', 1)
-        .attr('data-sdg', cell.sdg)
-        .attr('data-course', cell.course)
-        .attr('data-value', cell.value)
-        .attr('class', `sdg-cell sdg-${cell.sdg}`); // Removed hover/mouseout from here, will add later if needed for tooltip
-    }
-  }
-
-  // Add x-axis with vertical labels, positioned at the bottom of the plot area
-  const xAxisGroup = svg.append('g')
-    .attr('transform', `translate(0,${plotHeight})`) // Use plotHeight
-    .call(d3.axisBottom(xScale)
-      .tickFormat(i => courses[i])
-      .tickSize(0));
-
-  xAxisGroup.selectAll('text')
-    .attr('transform', 'rotate(90)')
-    .style('text-anchor', 'start')
-    .attr('dx', '0.8em')
-    .attr('dy', '-0.15em')
-    .style('font-size', '12px')
-    .style('fill', themeGridTextColor); // Use theme grid text color
-
-  xAxisGroup.select('.domain').remove(); // Remove axis line
-
-  // Add y-axis with SDG icons instead of text
-  const yAxisGroup = svg.append('g')
-    .call(d3.axisLeft(yScale)
-      .tickFormat(() => '')
-      .tickSize(0));
-
-  yAxisGroup.select('.domain').remove(); // Remove axis line
-
-  // Define SDG colors (used for hover/click on labels)
+  // Define SDG colors (used for hover/click on labels - needed in both layouts)
   const sdgColors = {
     1: "#E5243B", 2: "#DDA63A", 3: "#4C9F38", 4: "#C5192D", 5: "#FF3A21",
     6: "#26BDE2", 7: "#FCC30B", 8: "#A21942", 9: "#FD6925", 10: "#DD1367",
@@ -209,51 +130,242 @@ function createHeatmap(data, isCumulative) {
     16: "#00689D", 17: "#19486A"
   };
 
-  // Add SDG icons and text labels with click functionality
-  const ticks = yAxisGroup.selectAll('.tick');
+  // --- Start Layout Specific Drawing ---
+  let svg; // Declare svg variable outside the if/else
 
-  // Add hover effects for each row (tick group)
-  ticks.on('mouseover', function(event, d) {
-    const sdgIndex = d; // The index passed by d3
-    const sdgNumber = sdgNumbers[sdgIndex];
-    const sdgColor = sdgColors[sdgNumber];
-    d3.select(this).select('.sdg-label') // Target only the single label
-      .attr('fill', sdgColor);
-  })
-  .on('mouseout', function() {
-    d3.select(this).select('.sdg-label') // Target only the single label
-      .attr('fill', themeTextColor); // Use theme text color
-  });
+  if (isMobile) {
+    // --- Vertical Layout (Mobile) ---
+    console.log("Drawing mobile heatmap layout");
+    margin = { top: mobileTopMargin, right: 20, bottom: 20, left: mobileLeftMargin };
+    plotWidth = sdgNumbers.length * mobileCellSize; // Width based on SDGs
+    plotHeight = courses.length * mobileCellSize; // Height based on Courses
+    totalSvgWidth = plotWidth + margin.left + margin.right;
+    totalSvgHeight = plotHeight + margin.top + margin.bottom;
 
-  // Add text labels (single line)
-  ticks.append('text')
-    .attr('x', -10) // Adjust x position for the increased margin
-    .attr('y', 0) // Center vertically
-    .attr('text-anchor', 'end')
-    .attr('dominant-baseline', 'middle')
-    .attr('fill', themeTextColor) // Use theme color
-    .attr('font-size', '12px')
-    .attr('font-weight', 'bold')
-    .attr('cursor', 'pointer')
-    .attr('class', 'sdg-label')
-    .attr('data-sdg', (d, i) => sdgNumbers[i])
-    .text((d, i) => constants.sdgNames[sdgNumbers[i]] || `SDG ${sdgNumbers[i]}`) // Display full name
-    .on('click', function(event, d) {
-       const sdgNumber = d3.select(this).attr('data-sdg') || sdgNumbers[d]; // Get SDG number directly from label
-       currentSDG = parseInt(sdgNumber);
-       document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
-       const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
-       if (sidebarIcon) sidebarIcon.classList.add('active');
-       previousChartType = currentChartType;
-       currentChartType = 'bubble';
-       document.getElementById('bubble-chart-div').style.display = 'block';
-       document.querySelectorAll('#plot-container-bottom .chart-div').forEach(div => div.style.display = 'none');
-       const shouldAnimate = previousChartType === 'bubble';
-       loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
+    // Create SVG - width determined by content, height by container initially
+    const svgElement = d3.select(`#${targetDivId}`)
+      .append('svg')
+      .attr('width', totalSvgWidth) // Set calculated width
+      .attr('height', plotContainer.offsetHeight); // Use container height for initial view
+
+    // Add background
+    svgElement.append('rect')
+        .attr('x', 0).attr('y', 0)
+        .attr('width', totalSvgWidth).attr('height', totalSvgHeight) // Cover calculated size
+        .attr('fill', themeBgColor);
+
+    // Create main group
+    svg = svgElement.append('g') // Assign to the outer svg variable
+      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    // Define scales (x=SDGs, y=Courses)
+    xScale = d3.scaleBand()
+      .domain(sdgNumbers.map((_, i) => i)) // SDGs along X
+      .range([0, plotWidth])
+      .padding(cellPadding);
+
+    yScale = d3.scaleBand()
+      .domain(courses.map((_, i) => i)) // Courses along Y
+      .range([0, plotHeight])
+      .padding(cellPadding);
+
+    // Create heatmap cells (x=sdgIndex, y=courseIndex)
+    for (let i = 0; i < matrix.length; i++) { // i = sdgIndex
+      const row = matrix[i];
+      for (let j = 0; j < row.length; j++) { // j = courseIndex
+        const cell = row[j];
+        svg.append('rect')
+          .attr('x', xScale(i)) // x based on SDG index
+          .attr('y', yScale(j)) // y based on Course index
+          .attr('width', xScale.bandwidth())
+          .attr('height', yScale.bandwidth())
+          .attr('fill', function() {
+            if (cell.value === 0) return themeEmptyCellColor;
+            if (isCumulative) {
+              const intensity = cell.value / (courses.length * 0.5);
+              return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`;
+            } else {
+              return isDarkTheme ? themeTextColor : 'var(--primary-color)';
+            }
+          })
+          .attr('stroke', themeCellStrokeColor)
+          .attr('stroke-width', 1)
+          .attr('data-sdg', cell.sdg)
+          .attr('data-course', cell.course)
+          .attr('data-value', cell.value)
+          .attr('class', `sdg-cell sdg-${cell.sdg}`);
+      }
+    }
+
+    // Add x-axis (SDGs at top)
+    xAxisGroup = svg.append('g')
+      .call(d3.axisTop(xScale) // Use axisTop
+        .tickFormat((d, i) => sdgNumbers[i]) // Show SDG numbers
+        .tickSize(0));
+
+    xAxisGroup.selectAll('text')
+      .attr('transform', 'rotate(-90)') // Rotate labels
+      .style('text-anchor', 'end')
+      .attr('dx', '-0.8em')
+      .attr('dy', '-0.15em')
+      .style('font-size', '10px') // Smaller font
+      .style('fill', themeGridTextColor);
+
+    xAxisGroup.select('.domain').remove();
+
+    // Add y-axis (Courses on left)
+    yAxisGroup = svg.append('g')
+      .call(d3.axisLeft(yScale) // Use axisLeft
+        .tickFormat((d, i) => courses[i]) // Show course codes
+        .tickSize(0));
+
+    yAxisGroup.selectAll('text')
+      .style('text-anchor', 'end')
+      .style('font-size', '10px') // Smaller font
+      .style('fill', themeGridTextColor);
+
+    yAxisGroup.select('.domain').remove();
+
+  } else {
+    // --- Horizontal Layout (Desktop) ---
+    console.log("Drawing desktop heatmap layout");
+    const verticalPadding = 50; // Padding for bubble overflow
+    margin = { top: 20, right: 50, bottom: 150, left: 350 };
+    plotWidth = plotContainer.offsetWidth - margin.left - margin.right;
+    // Ensure plotHeight is not negative
+    plotHeight = Math.max(10, plotContainer.offsetHeight - margin.top - margin.bottom - (2 * verticalPadding));
+    totalSvgWidth = plotWidth + margin.left + margin.right;
+    totalSvgHeight = plotContainer.offsetHeight;
+
+    // Create SVG
+    const svgElement = d3.select(`#${targetDivId}`)
+      .append('svg')
+      .attr('width', totalSvgWidth)
+      .attr('height', totalSvgHeight);
+
+    // Add background
+    svgElement.append('rect')
+        .attr('x', 0).attr('y', 0)
+        .attr('width', totalSvgWidth).attr('height', totalSvgHeight)
+        .attr('fill', themeBgColor);
+
+    // Create main group
+    svg = svgElement.append('g') // Assign to the outer svg variable
+      .attr('transform', `translate(${margin.left}, ${margin.top + verticalPadding})`);
+
+    // Define scales (x=Courses, y=SDGs)
+    xScale = d3.scaleBand()
+      .domain(courses.map((_, i) => i)) // Courses along X
+      .range([0, plotWidth])
+      .padding(cellPadding);
+
+    yScale = d3.scaleBand()
+      .domain(sdgNumbers.map((_, i) => i)) // SDGs along Y
+      .range([0, plotHeight])
+      .padding(cellPadding);
+
+    // Create heatmap cells (x=courseIndex, y=sdgIndex)
+    for (let i = 0; i < matrix.length; i++) { // i = sdgIndex
+      const row = matrix[i];
+      for (let j = 0; j < row.length; j++) { // j = courseIndex
+        const cell = row[j];
+        svg.append('rect')
+          .attr('x', xScale(j)) // x based on Course index
+          .attr('y', yScale(i)) // y based on SDG index
+          .attr('width', xScale.bandwidth())
+          .attr('height', yScale.bandwidth())
+          .attr('fill', function() {
+            if (cell.value === 0) return themeEmptyCellColor;
+            if (isCumulative) {
+              const intensity = cell.value / (courses.length * 0.5);
+              return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`;
+            } else {
+              return isDarkTheme ? themeTextColor : 'var(--primary-color)';
+            }
+          })
+          .attr('stroke', themeCellStrokeColor)
+          .attr('stroke-width', 1)
+          .attr('data-sdg', cell.sdg)
+          .attr('data-course', cell.course)
+          .attr('data-value', cell.value)
+          .attr('class', `sdg-cell sdg-${cell.sdg}`);
+      }
+    }
+
+    // Add x-axis (Courses at bottom)
+    xAxisGroup = svg.append('g')
+      .attr('transform', `translate(0,${plotHeight})`)
+      .call(d3.axisBottom(xScale)
+        .tickFormat((d, i) => courses[i])
+        .tickSize(0));
+
+    xAxisGroup.selectAll('text')
+      .attr('transform', 'rotate(90)')
+      .style('text-anchor', 'start')
+      .attr('dx', '0.8em')
+      .attr('dy', '-0.15em')
+      .style('font-size', '12px')
+      .style('fill', themeGridTextColor);
+
+    xAxisGroup.select('.domain').remove();
+
+    // Add y-axis (SDGs on left)
+    yAxisGroup = svg.append('g')
+      .call(d3.axisLeft(yScale)
+        .tickFormat(() => '') // No ticks needed, labels added manually
+        .tickSize(0));
+
+    yAxisGroup.select('.domain').remove();
+
+    // Add SDG text labels manually for horizontal layout
+    const ticks = yAxisGroup.selectAll('.tick') // Select existing ticks (even if empty)
+      .data(sdgNumbers.map((_, i) => i)) // Bind data for labels
+      .join('g') // Join data
+      .attr('class', 'tick') // Add tick class if needed
+      .attr('transform', (d, i) => `translate(0, ${yScale(i) + yScale.bandwidth() / 2})`); // Position based on scale
+
+    // Add hover effects for each row (tick group)
+    ticks.on('mouseover', function(event, d) {
+      const sdgIndex = d; // The index passed by d3
+      const sdgNumber = sdgNumbers[sdgIndex];
+      const sdgColor = sdgColors[sdgNumber];
+      d3.select(this).select('.sdg-label') // Target only the single label
+        .attr('fill', sdgColor);
+    })
+    .on('mouseout', function() {
+      d3.select(this).select('.sdg-label') // Target only the single label
+        .attr('fill', themeTextColor); // Use theme text color
     });
 
-  // Remove second line label code
-  // Remove SDG icon code
+    // Add text labels (single line)
+    ticks.append('text')
+      .attr('x', -10) // Adjust x position for the increased margin
+      .attr('y', 0) // Center vertically
+      .attr('text-anchor', 'end')
+      .attr('dominant-baseline', 'middle')
+      .attr('fill', themeTextColor) // Use theme color
+      .attr('font-size', '12px')
+      .attr('font-weight', 'bold')
+      .attr('cursor', 'pointer')
+      .attr('class', 'sdg-label')
+      .attr('data-sdg', (d, i) => sdgNumbers[i])
+      .text((d, i) => constants.sdgNames[sdgNumbers[i]] || `SDG ${sdgNumbers[i]}`) // Display full name
+      .on('click', function(event, d) {
+         const sdgNumber = d3.select(this).attr('data-sdg') || sdgNumbers[d]; // Get SDG number directly from label
+         currentSDG = parseInt(sdgNumber);
+         document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
+         const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
+         if (sidebarIcon) sidebarIcon.classList.add('active');
+         previousChartType = currentChartType;
+         currentChartType = 'bubble';
+         document.getElementById('bubble-chart-div').style.display = 'block';
+         document.querySelectorAll('#plot-container-bottom .chart-div').forEach(div => div.style.display = 'none');
+         const shouldAnimate = previousChartType === 'bubble';
+         loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
+      });
+  } // End of layout specific drawing
+
+  // --- Common Logic (Tooltips, etc.) ---
 
   // Create tooltip
   const tooltip = d3.select('body').append('div')
@@ -271,39 +383,57 @@ function createHeatmap(data, isCumulative) {
           const sdg = parseInt(rect.attr('data-sdg'));
           const course = rect.attr('data-course');
 
-          // Find indices
-          const sdgIndex = sdgNumbers.indexOf(sdg);
-          const courseIndex = courses.indexOf(course);
+          // Find indices based on current layout
+          let sdgIndex, courseIndex;
+          if (isMobile) {
+              sdgIndex = sdgNumbers.indexOf(sdg);
+              courseIndex = courses.indexOf(course);
+          } else {
+              sdgIndex = sdgNumbers.indexOf(sdg);
+              courseIndex = courses.indexOf(course);
+          }
 
           if (sdgIndex < 0 || courseIndex < 0) {
               console.warn("Could not find indices for tooltip", sdg, course);
               return; // Exit if indices not found
           }
-          const cellData = matrix[sdgIndex][courseIndex];
-          // --- End index finding ---
+          const cellData = matrix[sdgIndex][courseIndex]; // Access matrix correctly
 
-          // Highlight SDG label
-          const sdgNumber = cellData.sdg; // Use sdgNumber from cellData
+          // Highlight SDG label (handle both layouts)
+          const sdgNumber = cellData.sdg;
           const sdgColor = sdgColors[sdgNumber];
-          d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`) // Target single label
-            .attr('fill', sdgColor);
+          if (isMobile) {
+              xAxisGroup.selectAll('text') // SDGs are on X axis in mobile
+                .filter((_, idx) => idx === sdgIndex)
+                .style('fill', sdgColor)
+                .style('font-weight', 'bold');
+          } else {
+              d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`) // SDGs are Y axis labels in desktop
+                .attr('fill', sdgColor);
+          }
 
-          // Highlight course label
-          // const courseIndex = j; // Use the calculated courseIndex from above
-          xAxisGroup.selectAll('text')
-            .filter((_, idx) => idx === courseIndex) // Use correct courseIndex
-            .style('fill', 'var(--primary-color)')
-            .style('font-weight', 'bold');
+          // Highlight course label (handle both layouts)
+          if (isMobile) {
+              yAxisGroup.selectAll('text') // Courses are on Y axis in mobile
+                .filter((_, idx) => idx === courseIndex)
+                .style('fill', 'var(--primary-color)')
+                .style('font-weight', 'bold');
+          } else {
+              xAxisGroup.selectAll('text') // Courses are on X axis in desktop
+                .filter((_, idx) => idx === courseIndex)
+                .style('fill', 'var(--primary-color)')
+                .style('font-weight', 'bold');
+          }
 
           // Tooltip content
           let tooltipContent = `<b>Course: ${cellData.course}</b><br>`;
           tooltipContent += `<b>SDG ${cellData.sdg}: ${cellData.sdg_name}</b><br>`;
-          tooltipContent += `Present: ${cellData.addressed ? 'Yes' : 'Not detected when analysing public data for this course. N.B. more granular data may reveal that this SDG may be present.'}<br>`; // Updated text
+          tooltipContent += `Present: ${cellData.addressed ? 'Yes' : 'Not detected when analysing public data for this course. N.B. more granular data may reveal that this SDG may be present.'}<br>`;
           if (cellData.addressed && cellData.target_number && cellData.target_name) {
             tooltipContent += `Target: ${cellData.target_number} - ${cellData.target_name}<br>`;
           }
           if (cellData.addressed && cellData.justification) {
-             tooltipContent += `Justification:<br>${cellData.justification}`; // Show full justification
+             tooltipContent += `Justification:<br>${cellData.justification}`;
           }
           tooltip.html(tooltipContent).style('visibility', 'visible');
       })
@@ -317,28 +447,44 @@ function createHeatmap(data, isCumulative) {
           const sdg = parseInt(rect.attr('data-sdg'));
           const course = rect.attr('data-course');
 
-          // Find indices
-          const sdgIndex = sdgNumbers.indexOf(sdg);
-          const courseIndex = courses.indexOf(course);
+          // Find indices based on current layout
+          let sdgIndex, courseIndex;
+           if (isMobile) {
+              sdgIndex = sdgNumbers.indexOf(sdg);
+              courseIndex = courses.indexOf(course);
+          } else {
+              sdgIndex = sdgNumbers.indexOf(sdg);
+              courseIndex = courses.indexOf(course);
+          }
 
           if (sdgIndex < 0 || courseIndex < 0) {
-              // Don't need to warn again on mouseout
               return; // Exit if indices not found
           }
-          // const cellData = matrix[sdgIndex][courseIndex]; // Not strictly needed for mouseout styling reset
-          // --- End index finding ---
 
           // Reset SDG label color
-          const sdgNumber = sdg; // Use sdg directly
-          d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`) // Target single label
-            .attr('fill', themeTextColor);
+          const sdgNumber = sdg;
+          if (isMobile) {
+              xAxisGroup.selectAll('text')
+                .filter((_, idx) => idx === sdgIndex)
+                .style('fill', themeGridTextColor)
+                .style('font-weight', 'normal');
+          } else {
+              d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`)
+                .attr('fill', themeTextColor);
+          }
 
           // Reset course label color
-          // const courseIndex = j; // Use the calculated courseIndex from above
-           xAxisGroup.selectAll('text')
-             .filter((_, idx) => idx === courseIndex) // Use correct courseIndex
-             .style('fill', themeGridTextColor) // Use theme grid text color
-             .style('font-weight', 'normal');
+          if (isMobile) {
+              yAxisGroup.selectAll('text')
+                .filter((_, idx) => idx === courseIndex)
+                .style('fill', themeGridTextColor)
+                .style('font-weight', 'normal');
+          } else {
+              xAxisGroup.selectAll('text')
+                .filter((_, idx) => idx === courseIndex)
+                .style('fill', themeGridTextColor)
+                .style('font-weight', 'normal');
+          }
 
           tooltip.style('visibility', 'hidden');
       });
@@ -349,7 +495,11 @@ function createHeatmap(data, isCumulative) {
     finalCumulativeValues = sdgNumbers.map(sdg => {
       const sdgIndex = sdgNumbers.indexOf(sdg);
       const lastCourseIndex = courses.length - 1;
-      return lastCourseIndex >= 0 ? matrix[sdgIndex][lastCourseIndex].value : 0;
+      // Ensure matrix access is valid
+      if (sdgIndex >= 0 && lastCourseIndex >= 0 && matrix[sdgIndex] && matrix[sdgIndex][lastCourseIndex]) {
+        return matrix[sdgIndex][lastCourseIndex].value;
+      }
+      return 0; // Return 0 if indices are invalid
     });
   }
 }

@@ -96,11 +96,7 @@ body.dark-theme .modal-content {
   background-color: #0a0e17; /* Match body background */
   color: #00e8ff; /* Cyan/teal text */
   box-shadow: none; /* Remove shadow */
-}
-
-body.dark-theme .modal-disclaimer-content {
-  background-color: #1a2436; /* Even lighter dark blue */
-}
+} /* Removed extra closing brace and subsequent misplaced rules */
 
 body.dark-theme .modal-disclaimer-content ul li {
   color: #00e8ff; /* Cyan/teal text */
@@ -731,7 +727,7 @@ select::-webkit-scrollbar-thumb:hover {
     min-height: 50px; /* Reduced minimum height for the top bar */
     height: auto; /* Allow height to adjust based on content */
     padding: 5px 10px;
-}
+} /* Correctly placed closing brace for #top-bar */
 
 
 /* Compact Visualization Icons REMOVED */
@@ -757,7 +753,18 @@ select::-webkit-scrollbar-thumb:hover {
    #plot-container {
      height: calc(100vh - 90px); /* Adjusted for smaller top bar (60px) + main content padding (15px top + 15px bottom) */
    }
-}
+   /* Responsive Heatmap Container */
+   #heatmap-div {
+       overflow-x: auto; /* Enable horizontal scrolling */
+       overflow-y: auto; /* Enable vertical scrolling */
+       -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+   }
+   #heatmap-div svg {
+       /* Ensure SVG width can expand beyond the container */
+       min-width: 100%; /* Start at container width */
+       width: auto; /* Allow SVG to grow */
+   }
+} /* Moved closing brace here */
 
 @media (max-width: 768px) {
    /* No body padding adjustment */
@@ -801,6 +808,16 @@ select::-webkit-scrollbar-thumb:hover {
   #plot-container {
     height: calc(100vh - 30px - var(--top-bar-height, 50px) - 30px); /* Dynamic calculation based on top and bottom bar heights */
   }
+  /* Responsive Heatmap Container (ensure rules apply here too) */
+   #heatmap-div {
+       overflow-x: auto; /* Enable horizontal scrolling */
+       overflow-y: auto; /* Enable vertical scrolling */
+       -webkit-overflow-scrolling: touch;
+   }
+   #heatmap-div svg {
+       min-width: 100%;
+       width: auto;
+   }
 
   .switch-button {
     padding: 15px;

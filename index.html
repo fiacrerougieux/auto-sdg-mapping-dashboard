@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.4"></script>
-  <script src="heatmap.js?v=2.4"></script>
-  <script src="bubblechart.js?v=2.4"></script>
+  <script src="radar.js?v=2.5"></script>
+  <script src="heatmap.js?v=2.5"></script>
+  <script src="bubblechart.js?v=2.5"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.4">
+  <link rel="stylesheet" href="style.css?v=2.5">
 </head>
 
 <body>
@@ -1180,22 +1180,27 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
 
     // --- Resize Handler ---
     const handleResize = debounce(function() {
-      console.log("Window resized, redrawing charts..."); // Debug log
+      // console.log(`Window resized. Current chart type: ${currentChartType}`); // Debug log removed
       adjustMainContentPadding(); // Adjust padding first
 
       loadData().then(data => {
+        // console.log("Data reloaded after resize. Redrawing bubble chart..."); // Debug log removed
         // Redraw bubble chart (always visible in top container)
         createBubbleChart(data, currentSDG, false); // No animation on resize
+        // console.log("Bubble chart redraw called."); // Debug log removed
 
         // Redraw the currently active bottom chart
+        // The createHeatmap function itself contains the mobile/desktop layout logic
         if (currentChartType === 'radar') {
+          // console.log("Redrawing Radar chart..."); // Debug log removed
           createRadar(data);
-        } else if (currentChartType === 'heatmap') {
-          createHeatmap(data, false);
-        } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true);
+        } else if (currentChartType === 'heatmap' || currentChartType === 'cumulative') {
+          // console.log(`Redrawing Heatmap chart (${currentChartType})...`); // Debug log removed
+          createHeatmap(data, currentChartType === 'cumulative'); // Pass the cumulative flag
         }
-        // If currentChartType is 'bubble', the bottom chart is likely hidden,
+        // If currentChartType is 'bubble', only the bubble chart needs redrawing on resize.
+        // The bottom chart (heatmap/radar) is hidden anyway.
+        // console.log(`Resize redraw complete for chart type: ${currentChartType}`); // Debug log removed
         // but redrawing the bubble chart is the main requirement.
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
