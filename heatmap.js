@@ -44,12 +44,12 @@ function createHeatmap(data, isCumulative) {
     return yearA - yearB || a.localeCompare(b);
   });
 
-  const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1);
+  // Filter out SDG 4
+  const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1).filter(sdg => sdg !== 4);
 
-  // Create matrix data
+  // Create matrix data - only for filtered SDGs
   const matrix = [];
-  for (let i = 0; i < sdgNumbers.length; i++) {
-    const sdg = sdgNumbers[i];
+  sdgNumbers.forEach(sdg => { // Iterate over filtered SDGs
     const row = [];
 
     if (isCumulative) {
@@ -99,8 +99,8 @@ function createHeatmap(data, isCumulative) {
         });
       }
     }
-    matrix.push(row);
-  }
+    matrix.push(row); // Matrix will only have rows for filtered SDGs
+  });
 
   // --- Responsive Layout Logic ---
   const mobileBreakpoint = 768;
@@ -160,7 +160,7 @@ function createHeatmap(data, isCumulative) {
 
     // Define scales (x=SDGs, y=Courses)
     xScale = d3.scaleBand()
-      .domain(sdgNumbers.map((_, i) => i)) // SDGs along X
+      .domain(d3.range(sdgNumbers.length)) // Use indices of filtered SDGs
       .range([0, plotWidth])
       .padding(cellPadding);
 
@@ -200,7 +200,7 @@ function createHeatmap(data, isCumulative) {
     // Add x-axis (SDGs at top)
     xAxisGroup = svg.append('g')
       .call(d3.axisTop(xScale) // Use axisTop
-        .tickFormat((d, i) => sdgNumbers[i]) // Show SDG numbers
+        .tickFormat((d, i) => sdgNumbers[i]) // Show filtered SDG numbers
         .tickSize(0));
 
     xAxisGroup.selectAll('text')
@@ -233,9 +233,9 @@ function createHeatmap(data, isCumulative) {
     margin = { top: 20, right: 50, bottom: 150, left: 350 };
     plotWidth = plotContainer.offsetWidth - margin.left - margin.right;
 
-    // Calculate minimum required height based on SDGs
+    // Calculate minimum required height based on filtered SDGs
     const minPixelsPerSdg = 25; // Minimum vertical space per SDG label row
-    const requiredPlotHeight = sdgNumbers.length * minPixelsPerSdg;
+    const requiredPlotHeight = sdgNumbers.length * minPixelsPerSdg; // Use filtered length
 
     // Use the larger of container-derived height or required height
     const containerDerivedHeight = Math.max(10, plotContainer.offsetHeight - margin.top - margin.bottom - (2 * verticalPadding));
@@ -268,18 +268,19 @@ function createHeatmap(data, isCumulative) {
       .padding(cellPadding);
 
     yScale = d3.scaleBand()
-      .domain(sdgNumbers.map((_, i) => i)) // SDGs along Y
+      .domain(d3.range(sdgNumbers.length)) // Use indices of filtered SDGs
       .range([0, plotHeight])
       .padding(cellPadding);
 
     // Create heatmap cells (x=courseIndex, y=sdgIndex)
-    for (let i = 0; i < matrix.length; i++) { // i = sdgIndex
-      const row = matrix[i];
+    // Iterate using filtered sdgNumbers length for the outer loop (matrix rows)
+    for (let i = 0; i < sdgNumbers.length; i++) { // i = filtered sdgIndex
+      const row = matrix[i]; // Get the correct row from the filtered matrix
       for (let j = 0; j < row.length; j++) { // j = courseIndex
         const cell = row[j];
         svg.append('rect')
           .attr('x', xScale(j)) // x based on Course index
-          .attr('y', yScale(i)) // y based on SDG index
+          .attr('y', yScale(i)) // y based on filtered SDG index
           .attr('width', xScale.bandwidth())
           .attr('height', yScale.bandwidth())
           .attr('fill', function() {
@@ -327,15 +328,15 @@ function createHeatmap(data, isCumulative) {
 
     // Add SDG text labels manually for horizontal layout
     const ticks = yAxisGroup.selectAll('.tick') // Select existing ticks (even if empty)
-      .data(sdgNumbers.map((_, i) => i)) // Bind data for labels
+      .data(d3.range(sdgNumbers.length)) // Bind indices of filtered SDGs
       .join('g') // Join data
       .attr('class', 'tick') // Add tick class if needed
-      .attr('transform', (d, i) => `translate(0, ${yScale(i) + yScale.bandwidth() / 2})`); // Position based on scale
+      .attr('transform', (d, i) => `translate(0, ${yScale(i) + yScale.bandwidth() / 2})`); // Position based on filtered scale
 
     // Add hover effects for each row (tick group)
     ticks.on('mouseover', function(event, d) {
-      const sdgIndex = d; // The index passed by d3
-      const sdgNumber = sdgNumbers[sdgIndex];
+      const sdgIndex = d; // The filtered index passed by d3
+      const sdgNumber = sdgNumbers[sdgIndex]; // Get the actual SDG number
       const sdgColor = sdgColors[sdgNumber];
       d3.select(this).select('.sdg-label') // Target only the single label
         .attr('fill', sdgColor);
@@ -356,10 +357,10 @@ function createHeatmap(data, isCumulative) {
       .attr('font-weight', 'bold')
       .attr('cursor', 'pointer')
       .attr('class', 'sdg-label')
-      .attr('data-sdg', (d, i) => sdgNumbers[i])
-      .text((d, i) => constants.sdgNames[sdgNumbers[i]] || `SDG ${sdgNumbers[i]}`) // Display full name
+      .attr('data-sdg', (d, i) => sdgNumbers[i]) // Store the actual SDG number
+      .text((d, i) => constants.sdgNames[sdgNumbers[i]] || `SDG ${sdgNumbers[i]}`) // Display name for filtered SDG
       .on('click', function(event, d) {
-         const sdgNumber = d3.select(this).attr('data-sdg') || sdgNumbers[d]; // Get SDG number directly from label
+         const sdgNumber = sdgNumbers[d]; // Get the actual SDG number using the filtered index
          currentSDG = parseInt(sdgNumber);
          document.querySelectorAll('#sdgIconsList .sdg-icon-item').forEach(el => el.classList.remove('active'));
          const sidebarIcon = document.querySelector(`#sdgIconsList .sdg-icon-item[data-sdg="${sdgNumber}"]`);
@@ -393,30 +394,26 @@ function createHeatmap(data, isCumulative) {
 
           // Find indices based on current layout
           let sdgIndex, courseIndex;
-          if (isMobile) {
-              sdgIndex = sdgNumbers.indexOf(sdg);
-              courseIndex = courses.indexOf(course);
-          } else {
-              sdgIndex = sdgNumbers.indexOf(sdg);
-              courseIndex = courses.indexOf(course);
-          }
+          // Find indices based on filtered sdgNumbers
+          sdgIndex = sdgNumbers.indexOf(sdg); // Use filtered list
+          courseIndex = courses.indexOf(course);
 
-          if (sdgIndex < 0 || courseIndex < 0) {
+          if (sdgIndex < 0 || courseIndex < 0) { // sdgIndex will be -1 if SDG 4 is hovered (it shouldn't be possible)
               console.warn("Could not find indices for tooltip", sdg, course);
               return; // Exit if indices not found
           }
           const cellData = matrix[sdgIndex][courseIndex]; // Access matrix correctly
 
           // Highlight SDG label (handle both layouts)
-          const sdgNumber = cellData.sdg;
+          const sdgNumber = cellData.sdg; // Actual SDG number (e.g., 3, 5)
           const sdgColor = sdgColors[sdgNumber];
           if (isMobile) {
               xAxisGroup.selectAll('text') // SDGs are on X axis in mobile
-                .filter((_, idx) => idx === sdgIndex)
+                .filter((d, i) => i === sdgIndex) // Filter based on filtered index
                 .style('fill', sdgColor)
                 .style('font-weight', 'bold');
           } else {
-              d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`) // SDGs are Y axis labels in desktop
+              d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`) // Select label by actual SDG number
                 .attr('fill', sdgColor);
           }
 
@@ -457,27 +454,23 @@ function createHeatmap(data, isCumulative) {
 
           // Find indices based on current layout
           let sdgIndex, courseIndex;
-           if (isMobile) {
-              sdgIndex = sdgNumbers.indexOf(sdg);
-              courseIndex = courses.indexOf(course);
-          } else {
-              sdgIndex = sdgNumbers.indexOf(sdg);
-              courseIndex = courses.indexOf(course);
-          }
+          // Find indices based on filtered sdgNumbers
+          sdgIndex = sdgNumbers.indexOf(sdg); // Use filtered list
+          courseIndex = courses.indexOf(course);
 
-          if (sdgIndex < 0 || courseIndex < 0) {
+          if (sdgIndex < 0 || courseIndex < 0) { // sdgIndex will be -1 if SDG 4 is hovered
               return; // Exit if indices not found
           }
 
           // Reset SDG label color
-          const sdgNumber = sdg;
+          const sdgNumber = sdg; // Actual SDG number
           if (isMobile) {
               xAxisGroup.selectAll('text')
-                .filter((_, idx) => idx === sdgIndex)
+                .filter((d, i) => i === sdgIndex) // Filter based on filtered index
                 .style('fill', themeGridTextColor)
                 .style('font-weight', 'normal');
           } else {
-              d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`)
+              d3.select(`.sdg-label[data-sdg="${sdgNumber}"]`) // Select label by actual SDG number
                 .attr('fill', themeTextColor);
           }
 
@@ -498,14 +491,13 @@ function createHeatmap(data, isCumulative) {
       });
   }
 
-  // Store cumulative values for radar chart if needed
+  // Store cumulative values for radar chart if needed - use filtered sdgNumbers
   if (isCumulative) {
-    finalCumulativeValues = sdgNumbers.map(sdg => {
-      const sdgIndex = sdgNumbers.indexOf(sdg);
+    finalCumulativeValues = sdgNumbers.map((sdg, filteredIndex) => { // Iterate over filtered SDGs
       const lastCourseIndex = courses.length - 1;
-      // Ensure matrix access is valid
-      if (sdgIndex >= 0 && lastCourseIndex >= 0 && matrix[sdgIndex] && matrix[sdgIndex][lastCourseIndex]) {
-        return matrix[sdgIndex][lastCourseIndex].value;
+      // Ensure matrix access is valid using the filteredIndex
+      if (filteredIndex >= 0 && lastCourseIndex >= 0 && matrix[filteredIndex] && matrix[filteredIndex][lastCourseIndex]) {
+        return matrix[filteredIndex][lastCourseIndex].value;
       }
       return 0; // Return 0 if indices are invalid
     });
