@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="radar.js?v=2.7"></script>
-  <script src="heatmap.js?v=2.7"></script>
-  <script src="bubblechart.js?v=2.7"></script>
+  <script src="lollipop.js?v=2.8"></script>
+  <script src="heatmap.js?v=2.8"></script>
+  <script src="bubblechart.js?v=2.8"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.7">
+  <link rel="stylesheet" href="style.css?v=2.8">
 </head>
 
 <body>
@@ -205,9 +205,11 @@
         </div>
       </div>
       <div id="plot-container-bottom">
-        <div id="heatmap-div" class="chart-div" style="width: 100%; height: 100%; display: block;"></div>
-        <div id="radar-div" class="chart-div" style="width: 100%; height: 100%; display: none;"></div>
-        <!-- Cumulative heatmap will reuse #heatmap-div -->
+        <div class="chart-container">
+          <div id="heatmap-div" class="chart-div" style="height: 100%; display: block;"></div>
+          <div id="radar-div" class="chart-div" style="height: 100%; display: none;"></div>
+          <!-- Cumulative heatmap will reuse #heatmap-div -->
+        </div>
       </div>
     </div>
   </div>
@@ -249,9 +251,7 @@
             <button id="cumulativeBtn" class="viz-button">
                 <img src="visualisation/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
             </button>
-            <button id="radarBtn" class="viz-button">
-                <img src="visualisation/radar-plot.svg" alt="Radar Chart" />
-            </button>
+            <!-- Removed radarBtn as lollipop chart will now be displayed alongside heatmap -->
             <button id="exportPNG" class="viz-button">
                 <img src="visualisation/export-visualization.svg" alt="Export" />
             </button>
@@ -658,10 +658,11 @@ function downloadPNG(vizType = currentChartType, filename = null) {
     svgData = svgData.replace(/<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
   }
 
+  const scaleFactor = 2; // Increase resolution by 2x
   const canvas = document.createElement('canvas');
   const box = svg.getBoundingClientRect();
-  canvas.width = box.width;
-  canvas.height = box.height;
+  canvas.width = box.width * scaleFactor;
+  canvas.height = box.height * scaleFactor;
 
   const img = new Image();
   const blob = new Blob([svgData], { type: 'image/svg+xml' });
@@ -673,11 +674,14 @@ function downloadPNG(vizType = currentChartType, filename = null) {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
+    // Scale the context to draw the image larger
+    ctx.scale(scaleFactor, scaleFactor);
+    
     // Ensure default composite operation and alpha to preserve colors
     ctx.globalCompositeOperation = 'source-over';
     ctx.globalAlpha = 1.0;
     
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0, box.width, box.height); // Draw at original SVG size, it will be scaled
     
     // Generate appropriate filename if not provided
     if (!filename) {
@@ -756,13 +760,17 @@ function downloadAllPlots() {
     
     // Switch to the current visualization type
     if (vizType === 'bubble') {
-      // For bubble chart, just make sure it's visible
       document.getElementById('bubble-chart-div').style.display = 'block';
-    } else {
-      // For other chart types, click the appropriate button
-      const vizBtnId = vizType === 'radar' ? '#radarBtn' : 
-                       (vizType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-      document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`).click(); // Updated selector
+      // Ensure bottom plots are hidden if bubble is the primary view for download
+      document.getElementById('heatmap-div').style.display = 'none';
+      document.getElementById('radar-div').style.display = 'none';
+    } else if (vizType === 'heatmap' || vizType === 'cumulative') {
+      const vizBtnId = vizType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn';
+      document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`).click();
+    } else if (vizType === 'radar') {
+      // To show the lollipop (in radar-div), ensure heatmap or cumulative is active.
+      // Activate the standard heatmap. This will also make radar-div visible.
+      document.querySelector(`#bottom-bar .visualisation-icons #heatmapBtn`).click();
     }
     
     // Wait for the visualization to render
@@ -799,13 +807,18 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         updateCourseCount(data);
         // Update both bubble chart and the currently active bottom chart
         createBubbleChart(data, currentSDG, true); // Re-enable animation on data source change
-        if (currentChartType === 'radar') {
-          createRadar(data);
-        } else if (currentChartType === 'heatmap') {
+        
+        // Update the active bottom chart(s)
+        if (currentChartType === 'heatmap') {
           createHeatmap(data, false);
+          createLollipop(data); 
+          createHeatmap(data, false); // Redraw binary heatmap as lollipop's internal call overwrites it
         } else if (currentChartType === 'cumulative') {
           createHeatmap(data, true);
+          createLollipop(data); 
         }
+        // If currentChartType was 'bubble', only bubble chart is updated, bottom charts are hidden.
+        // The 'radar' case for currentChartType is effectively obsolete with current setup.
       });
     });
 
@@ -825,17 +838,20 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     // }
 
     // Add event listeners to the visualization buttons in the BOTTOM BAR
-    document.querySelector('#bottom-bar .visualisation-icons #radarBtn').addEventListener('click', function () {
-      setActiveVizButton(this, 'radar');
-      loadData().then(data => createRadar(data));
-    });
     document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'heatmap');
-      loadData().then(data => createHeatmap(data, false));
+      loadData().then(data => {
+        createHeatmap(data, false);
+        createLollipop(data); 
+        createHeatmap(data, false); // Redraw binary heatmap
+      });
     });
     document.querySelector('#bottom-bar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'cumulative');
-      loadData().then(data => createHeatmap(data, true));
+      loadData().then(data => {
+        createHeatmap(data, true);
+        createLollipop(data); 
+      });
     });
     document.querySelector('#bottom-bar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG); // Assuming downloadPNG doesn't depend on the button's location context
 
@@ -859,19 +875,15 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         document.querySelectorAll('#plot-container-top .chart-div').forEach(div => {
           div.style.display = (div.id === 'bubble-chart-div') ? 'block' : 'none';
         });
-        // Don't hide the bottom container's active chart
+        // Hide bottom charts when showing bubble chart
+        document.getElementById('heatmap-div').style.display = 'none';
+        document.getElementById('radar-div').style.display = 'none';
       } else {
-        // Show selected chart in bottom container, hide others in bottom
-        let targetDivId;
-        if (newChartType === 'heatmap' || newChartType === 'cumulative') {
-          targetDivId = 'heatmap-div';
-        } else if (newChartType === 'radar') {
-          targetDivId = 'radar-div';
-        }
-        document.querySelectorAll('#plot-container-bottom .chart-div').forEach(div => {
-          div.style.display = (div.id === targetDivId) ? 'block' : 'none';
-        });
-        // Don't hide the top container's bubble chart
+        // For all other chart types (heatmap, cumulative), always show both heatmap and lollipop
+        document.getElementById('heatmap-div').style.display = 'block';
+        document.getElementById('radar-div').style.display = 'block';
+        // Lollipop chart creation/update will be handled by the button's event listener
+        // after data is loaded, so no need to call createLollipop here directly.
       }
     }
 
@@ -951,10 +963,10 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
             
             // Reload data and redraw the selected bottom visualization
             loadData().then(data => {
-                if (bottomChartType === 'radar') {
-                    createRadar(data);
-                } else { // heatmap or cumulative
-                    createHeatmap(data, bottomChartType === 'cumulative');
+                createHeatmap(data, bottomChartType === 'cumulative');
+                createLollipop(data);
+                if (bottomChartType === 'heatmap') {
+                    createHeatmap(data, false); // Redraw binary if it was overwritten
                 }
                 // Bubble chart remains visible in the top container
             });
@@ -1068,10 +1080,10 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
           setActiveVizButton(vizBtn, bottomChartType);
 
           loadData().then(data => {
-              if (bottomChartType === 'radar') {
-                  createRadar(data);
-              } else {
-                  createHeatmap(data, bottomChartType === 'cumulative');
+              createHeatmap(data, bottomChartType === 'cumulative');
+              createLollipop(data);
+              if (bottomChartType === 'heatmap') {
+                  createHeatmap(data, false); // Redraw binary if it was overwritten
               }
           });
 
@@ -1191,7 +1203,9 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         // 2. Show Heatmap in bottom container for default ALL/ALL
         const heatmapBtn = document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn'); // Updated selector
         setActiveVizButton(heatmapBtn, 'heatmap'); // Set heatmap as active viz *button* and show bottom div
-        createHeatmap(data, false); // Draw initial heatmap
+        createHeatmap(data, false); // Draw initial binary heatmap
+        createLollipop(data);       // This will call createHeatmap(data,true) internally
+        createHeatmap(data, false); // Redraw initial binary heatmap to ensure it's the one shown
 
         // Set the default chart type state after initial setup
         currentChartType = 'heatmap'; // Heatmap is the default selected viz type
@@ -1228,24 +1242,20 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       adjustMainContentPadding(); // Adjust padding first
 
       loadData().then(data => {
-        // console.log("Data reloaded after resize. Redrawing bubble chart..."); // Debug log removed
-        // Redraw bubble chart (always visible in top container)
-        createBubbleChart(data, currentSDG, false); // No animation on resize
-        // console.log("Bubble chart redraw called."); // Debug log removed
+        createBubbleChart(data, currentSDG, false); // Always redraw bubble
 
-        // Redraw the currently active bottom chart
-        // The createHeatmap function itself contains the mobile/desktop layout logic
-        if (currentChartType === 'radar') {
-          // console.log("Redrawing Radar chart..."); // Debug log removed
-          createRadar(data);
-        } else if (currentChartType === 'heatmap' || currentChartType === 'cumulative') {
-          // console.log(`Redrawing Heatmap chart (${currentChartType})...`); // Debug log removed
-          createHeatmap(data, currentChartType === 'cumulative'); // Pass the cumulative flag
+        // If the active chart type is heatmap or cumulative,
+        // then both the heatmap and the lollipop chart (in radar-div) should be redrawn.
+        if (currentChartType === 'heatmap') {
+          createHeatmap(data, false);
+          createLollipop(data);
+          createHeatmap(data, false); // Redraw binary
+        } else if (currentChartType === 'cumulative') {
+          createHeatmap(data, true);
+          createLollipop(data);
         }
-        // If currentChartType is 'bubble', only the bubble chart needs redrawing on resize.
-        // The bottom chart (heatmap/radar) is hidden anyway.
-        // console.log(`Resize redraw complete for chart type: ${currentChartType}`); // Debug log removed
-        // but redrawing the bubble chart is the main requirement.
+        // If currentChartType is 'bubble', the bottom divs (heatmap-div, radar-div) are hidden
+        // by setActiveVizButton, so no need to redraw them here.
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
       });
@@ -1290,14 +1300,17 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         // Redraw bubble chart (always visible in top container)
         createBubbleChart(data, currentSDG, false); // No animation needed for theme change
 
-        // Redraw the currently active bottom chart
-        if (currentChartType === 'radar') {
-          createRadar(data);
-        } else if (currentChartType === 'heatmap') {
+        // Redraw the currently active bottom chart(s)
+        if (currentChartType === 'heatmap') {
           createHeatmap(data, false);
+          createLollipop(data); 
+          createHeatmap(data, false); // Redraw binary for theme change
         } else if (currentChartType === 'cumulative') {
           createHeatmap(data, true);
+          createLollipop(data); 
         }
+        // If currentChartType was 'bubble', only bubble chart is updated, bottom charts are hidden.
+        // The 'radar' case for currentChartType is effectively obsolete.
         // If currentChartType is 'bubble', the bottom chart might be hidden or showing an older state,
         // but redrawing the bubble chart above is the primary action needed.
         // The bottom chart will redraw correctly when its type is selected again.
