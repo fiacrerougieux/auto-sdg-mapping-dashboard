@@ -235,7 +235,7 @@
     <div class="bottom-bar-separator"></div>
     <!-- SDG Knowledge Graph Link -->
     <div class="bottom-bar-item">
-      <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank" class="knowledge-graph-link">
+      <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank" rel="noopener noreferrer" class="knowledge-graph-link">
         <img src="other/sdg_network.png" alt="SDG Knowledge Graph" style="height: 24px; width: auto;">
         <span>SDG Knowledge Graph</span>
       </a>
@@ -618,7 +618,45 @@ function downloadPNG(vizType = currentChartType, filename = null) {
     return;
   }
   
-  const svgData = new XMLSerializer().serializeToString(svg);
+  // Clone the SVG to avoid modifying the original
+  const clonedSvg = svg.cloneNode(true);
+  
+  // Force the theme blue color for all cells in the heatmap
+  if (vizType === 'heatmap' || vizType === 'cumulative') {
+    // Find all rect elements in the cloned SVG
+    const rects = clonedSvg.querySelectorAll('rect.sdg-cell');
+    rects.forEach(rect => {
+      // Get the cell value
+      const value = parseFloat(rect.getAttribute('data-value') || '0');
+      
+      if (value > 0) {
+        if (vizType === 'cumulative') {
+          // For cumulative heatmap, modulate the alpha based on the value
+          // This mimics the logic in heatmap.js for cumulative cells
+          const courses = clonedSvg.querySelectorAll('rect.sdg-cell[data-course]');
+          const uniqueCourses = new Set();
+          courses.forEach(c => uniqueCourses.add(c.getAttribute('data-course')));
+          const coursesLength = uniqueCourses.size;
+          
+          // Calculate intensity similar to heatmap.js
+          const intensity = value / (coursesLength * 0.5);
+          const alpha = Math.min(0.3 + intensity * 0.7, 1);
+          
+          // Set the fill color with calculated alpha
+          rect.setAttribute('fill', `rgba(0, 123, 255, ${alpha})`);
+        } else {
+          // For regular heatmap, use solid theme blue for "true" cells
+          rect.setAttribute('fill', '#007bff'); // Use the theme blue
+        }
+      }
+    });
+  }
+  
+  // Serialize the modified SVG and ensure it has the correct namespace
+  let svgData = new XMLSerializer().serializeToString(clonedSvg);
+  if (!svgData.includes('xmlns="http://www.w3.org/2000/svg"')) {
+    svgData = svgData.replace(/<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+  }
 
   const canvas = document.createElement('canvas');
   const box = svg.getBoundingClientRect();
@@ -628,11 +666,17 @@ function downloadPNG(vizType = currentChartType, filename = null) {
   const img = new Image();
   const blob = new Blob([svgData], { type: 'image/svg+xml' });
   const url = URL.createObjectURL(blob);
-
+  
   img.onload = () => {
     const ctx = canvas.getContext('2d');
+    // Always use white background for export
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Ensure default composite operation and alpha to preserve colors
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1.0;
+    
     ctx.drawImage(img, 0, 0);
     
     // Generate appropriate filename if not provided

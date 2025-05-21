@@ -358,7 +358,7 @@ function createHeatmap(data, isCumulative) {
       .attr('cursor', 'pointer')
       .attr('class', 'sdg-label')
       .attr('data-sdg', (d, i) => sdgNumbers[i]) // Store the actual SDG number
-      .text((d, i) => constants.sdgNames[sdgNumbers[i]] || `SDG ${sdgNumbers[i]}`) // Display name for filtered SDG
+      .text((d, i) => `SDG ${sdgNumbers[i]}${constants.sdgNames[sdgNumbers[i]] ? ': ' + constants.sdgNames[sdgNumbers[i]] : ''}`) // Display SDG number and name for filtered SDG
       .on('click', function(event, d) {
          const sdgNumber = sdgNumbers[d]; // Get the actual SDG number using the filtered index
          currentSDG = parseInt(sdgNumber);
