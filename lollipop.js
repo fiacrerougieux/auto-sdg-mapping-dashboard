@@ -17,9 +17,25 @@ function createLollipop(data) {
 
   // Filter out SDG 4 (as done in heatmap.js)
   const sdgNumbers = Array.from({ length: 17 }, (_, i) => i + 1).filter(sdg => sdg !== 4);
-  const values = finalCumulativeValues || sdgNumbers.map(() => 0); // Use calculated cumulative values
-  const maxValue = Math.max(...values, 1); // Ensure maxValue is at least 1
-  const percentages = values.map(v => (v / maxValue) * 100); // Calculate percentages based on max value
+
+  // Calculate total number of courses for the current discipline.
+  // This ensures the percentage calculation is based on the relevant subset of courses.
+  let relevantDataForTotalCourses = data; // 'data' is the argument to createLollipop
+  if (typeof filterDataByDiscipline === 'function' && typeof currentDiscipline !== 'undefined' && currentDiscipline !== "All") {
+    relevantDataForTotalCourses = filterDataByDiscipline(data, currentDiscipline);
+  }
+  
+  const uniqueCourseCodesForPercentage = new Set();
+  relevantDataForTotalCourses.forEach(row => {
+    uniqueCourseCodesForPercentage.add(row.course_code);
+  });
+  const totalCoursesForPercentage = uniqueCourseCodesForPercentage.size > 0 ? uniqueCourseCodesForPercentage.size : 1; // Avoid division by zero
+
+  const rawCounts = finalCumulativeValues || sdgNumbers.map(() => 0); // These are raw counts from heatmap
+  
+  // Calculate true coverage percentages: (count for SDG / total relevant courses) * 100
+  // This avoids normalizing by the max count among SDGs.
+  const percentages = rawCounts.map(count => (count / totalCoursesForPercentage) * 100);
 
   // Calculate dimensions
   const margin = { top: 20, right: 20, bottom: 40, left: 50 }; // Increased bottom margin

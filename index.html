@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="lollipop.js?v=2.8"></script>
-  <script src="heatmap.js?v=2.8"></script>
-  <script src="bubblechart.js?v=2.8"></script>
+  <script src="lollipop.js?v=2.9"></script>
+  <script src="heatmap.js?v=2.9"></script>
+  <script src="bubblechart.js?v=2.9"></script>
 
-  <link rel="stylesheet" href="style.css?v=2.8">
+  <link rel="stylesheet" href="style.css?v=2.9">
 </head>
 
 <body>
@@ -694,8 +694,8 @@ function downloadPNG(vizType = currentChartType, filename = null) {
         filename = `sdg_heatmap_${disciplineText}_${facultyText}.png`;
       } else if (vizType === 'cumulative') {
         filename = `sdg_cumulative_${disciplineText}_${facultyText}.png`;
-      } else if (vizType === 'radar') {
-        filename = `sdg_radar_${disciplineText}_${facultyText}.png`;
+      } else if (vizType === 'radar') { // This 'radar' type corresponds to the lollipop chart now
+        filename = `sdg_lollipop_${disciplineText}_${facultyText}.png`;
       }
     }
     
