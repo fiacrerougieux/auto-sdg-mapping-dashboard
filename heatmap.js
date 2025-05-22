@@ -503,3 +503,253 @@ function createHeatmap(data, isCumulative) {
     });
   }
 }
+
+async function createMethodValidationHeatmap(targetDivId) {
+  // Remove any existing heatmap tooltips from the body
+  d3.select('body').select('.method-validation-tooltip').remove();
+
+  const plotContainer = document.getElementById(targetDivId);
+  if (!plotContainer) {
+    console.error(`Target container #${targetDivId} not found for method validation heatmap.`);
+    return;
+  }
+  d3.select(`#${targetDivId}`).html(''); // Clear previous plot
+
+  // Fetch and parse the CSV data
+  let data;
+  try {
+    const response = await fetch('comparison_heatmap_f1_scores_ordered.csv');
+    const csvText = await response.text();
+    const lines = csvText.split('\n').filter(line => line.trim() !== '');
+    if (lines.length < 2) {
+      console.error('CSV file for method validation is empty or has no data rows.');
+      plotContainer.innerHTML = '<p style="color: red; text-align: center;">Error: Data file is empty or invalid.</p>';
+      return;
+    }
+
+    const headers = parseCsvLine(lines[0]); // Use existing parseCsvLine from index.html
+    const methods = headers.slice(1); // First column is 'sdg', rest are methods
+    const sdgLabels = [];
+    
+    data = lines.slice(1).map(line => {
+      const values = parseCsvLine(line);
+      const rowData = { sdg: values[0] };
+      sdgLabels.push(`SDG ${values[0]}`);
+      methods.forEach((method, i) => {
+        rowData[method] = parseFloat(values[i + 1]);
+      });
+      return rowData;
+    });
+
+    // --- Heatmap Drawing Logic (adapted from createHeatmap) ---
+    const isDarkTheme = document.body.classList.contains('dark-theme');
+    const themeTextColor = isDarkTheme ? '#00e8ff' : 'black';
+    const themeBgColor = isDarkTheme ? '#0a0e17' : '#ffffff';
+    const themeGridTextColor = isDarkTheme ? '#88a0cc' : '#666';
+    const themeCellStrokeColor = isDarkTheme ? '#0a0e17' : '#fff';
+    
+    // Define an enhanced color scale for F1 scores to show more differentiation at high levels
+    const lightThemeColors = ["#f7f7f7", "#d1e5f0", "#92c5de", "#4393c3", "#2166ac", "#053061"]; // Light grey to dark blue
+    const darkThemeColors = ["#333333", "#446e80", "#00779a", "#00a8c7", "#00d0f0", "#00e8ff"]; // Dark grey to bright cyan
+
+    const f1ColorScale = d3.scaleLinear()
+      .domain([0, 0.5, 0.7, 0.85, 0.95, 1]) // F1 scores domain stops
+      .range(isDarkTheme ? darkThemeColors : lightThemeColors)
+      .clamp(true); // Clamp values outside the domain to the range's ends
+
+
+    const margin = { top: 50, right: 50, bottom: 150, left: 200 }; // Adjusted margins for new orientation (more left margin for method names)
+
+    // Calculate cell size for square cells (SDGs on X, Methods on Y)
+    let sdgIds = data.map(d => d.sdg); // Extract SDG IDs for X-axis domain
+
+    // Calculate averages for each method
+    const methodAverages = {};
+    methods.forEach(method => {
+      let sum = 0;
+      let count = 0;
+      data.forEach(sdgRow => {
+        if (typeof sdgRow[method] === 'number' && !isNaN(sdgRow[method])) {
+          sum += sdgRow[method];
+          count++;
+        }
+      });
+      methodAverages[method] = count > 0 ? sum / count : 0;
+    });
+
+    // Add "Average" to sdgIds for the X-axis
+    const averageCategoryLabel = "Avg."; // Shorter label for axis
+    sdgIds.push(averageCategoryLabel);
+
+    const availableWidthForPlot = Math.max(300, plotContainer.offsetWidth - margin.left - margin.right);
+    const availableHeightForPlot = Math.max(200, plotContainer.offsetHeight - margin.top - margin.bottom);
+    
+    const cellSizeBasedOnWidth = availableWidthForPlot / sdgIds.length; // Width based on number of SDGs
+    const cellSizeBasedOnHeight = availableHeightForPlot / methods.length; // Height based on number of Methods
+    const cellSize = Math.min(cellSizeBasedOnWidth, cellSizeBasedOnHeight, 50); // Add a max cell size e.g. 50px
+
+    const plotWidth = sdgIds.length * cellSize; // SDGs determine plot width
+    const plotHeight = methods.length * cellSize; // Methods determine plot height
+
+    const totalSvgWidth = plotWidth + margin.left + margin.right;
+    const totalSvgHeight = plotHeight + margin.top + margin.bottom;
+
+    const svg = d3.select(`#${targetDivId}`)
+      .append('svg')
+      .attr('width', totalSvgWidth)
+      .attr('height', totalSvgHeight)
+      .append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    svg.append('rect')
+        .attr('x', -margin.left)
+        .attr('y', -margin.top)
+        .attr('width', totalSvgWidth)
+        .attr('height', totalSvgHeight)
+        .attr('fill', themeBgColor);
+
+    // X scale (SDGs + Average)
+    const xScale = d3.scaleBand()
+      .domain(sdgIds) // Domain now includes "Average"
+      .range([0, plotWidth])
+      .padding(0.02);
+
+    // Y scale (Methods)
+    const yScale = d3.scaleBand()
+      .domain(methods) // Domain is now methods
+      .range([0, plotHeight])
+      .padding(0.02);
+
+    // X Axis (SDGs at bottom + Average)
+    svg.append('g')
+      .attr('transform', `translate(0,${plotHeight})`)
+      .call(d3.axisBottom(xScale).tickFormat(d => d === averageCategoryLabel ? averageCategoryLabel : `SDG ${d}`).tickSize(0))
+      .selectAll('text')
+      .attr('transform', 'rotate(45)')
+      .style('text-anchor', 'start')
+      .attr('dx', '0.5em')
+      .attr('dy', '0.5em')
+      .style('font-size', '10px')
+      .style('fill', themeGridTextColor);
+
+    // Y Axis (Methods on left)
+    svg.append('g')
+      .call(d3.axisLeft(yScale).tickSize(0)) // Method names directly
+      .selectAll('text')
+      .style('font-size', '10px')
+      .style('fill', themeGridTextColor);
+      
+    // Remove axis lines
+    svg.selectAll('.domain').remove();
+
+    // Remove axis lines
+    svg.selectAll('.domain').remove();
+
+    // Prepare data for cells, including averages
+    const allCellData = [];
+    data.forEach(sdgRow => {
+      methods.forEach(method => {
+        allCellData.push({
+          sdg: sdgRow.sdg, // X-axis category for actual SDGs
+          method: method,   // Y-axis category
+          value: sdgRow[method]
+        });
+      });
+    });
+    methods.forEach(method => {
+      allCellData.push({
+        sdg: averageCategoryLabel, // X-axis category for the average column
+        method: method,       // Y-axis category
+        value: methodAverages[method]
+      });
+    });
+
+    // Draw a separation line before the "Average" column
+    if (sdgIds.includes(averageCategoryLabel)) {
+        const averageBandX = xScale(averageCategoryLabel);
+        const paddingOffset = (xScale.step() - xScale.bandwidth()) / 2;
+        const lineX = averageBandX - paddingOffset;
+        if (averageBandX !== undefined && isFinite(lineX)) { // Check if lineX is a valid number
+            svg.append("line")
+                .attr("x1", lineX)
+                .attr("y1", 0)
+                .attr("x2", lineX)
+                .attr("y2", plotHeight)
+                .attr("stroke", themeGridTextColor)
+                .attr("stroke-width", 1)
+                .attr("stroke-dasharray", "3,3");
+        }
+    }
+
+    // Create heatmap cells
+    const cells = svg.selectAll('.cell')
+      .data(allCellData)
+      .enter()
+      .append('rect')
+      .attr('class', 'cell')
+      .attr('x', d => xScale(d.sdg)) // X is now SDG
+      .attr('y', d => yScale(d.method)) // Y is now Method
+      .attr('width', xScale.bandwidth())
+      .attr('height', yScale.bandwidth())
+      .attr('fill', d => f1ColorScale(d.value))
+      .attr('stroke', themeCellStrokeColor)
+      .attr('stroke-width', 1);
+
+    // Add text labels to cells
+    svg.selectAll('.cell-text')
+      .data(allCellData)
+      .enter()
+      .append('text')
+      .attr('class', 'cell-text')
+      .attr('x', d => xScale(d.sdg) + xScale.bandwidth() / 2) // X is now SDG
+      .attr('y', d => yScale(d.method) + yScale.bandwidth() / 2) // Y is now Method
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'middle')
+      .style('font-size', Math.min(10, xScale.bandwidth() / 3.5) + 'px') // Adjust font size based on cell size
+      .style('fill', d => {
+        // Basic contrast: white text for dark cells, black for light cells
+        const bgColor = d3.color(f1ColorScale(d.value));
+        if (!bgColor) return themeTextColor; // Fallback
+        const brightness = (bgColor.r * 299 + bgColor.g * 587 + bgColor.b * 114) / 1000;
+        return brightness > 128 ? (isDarkTheme ? '#111' : 'black') : (isDarkTheme ? '#eee' :'white');
+      })
+      .text(d => {
+        if (d.sdg === averageCategoryLabel) { // "Avg." column
+          return d.value.toFixed(2);
+        } else { // SDG specific columns
+          return Number(d.value).toPrecision(1);
+        }
+      });
+
+    // Tooltip
+    const tooltip = d3.select('body').append('div')
+      .attr('class', 'tooltip method-validation-tooltip') // Use a specific class
+      .style('position', 'absolute')
+      .style('visibility', 'hidden')
+      .style('pointer-events', 'none')
+      .style('background-color', isDarkTheme ? 'rgba(10, 14, 23, 0.9)' : 'rgba(255, 255, 255, 0.9)')
+      .style('border', `1px solid ${isDarkTheme ? '#2a3446' : '#ccc'}`)
+      .style('padding', '8px')
+      .style('border-radius', '4px')
+      .style('font-size', '12px')
+      .style('color', themeTextColor);
+
+    cells.on('mouseover', function(event, d) {
+        tooltip.html(`<b>Method:</b> ${d.method}<br><b>${d.sdg === averageCategoryLabel ? 'Category' : 'SDG'}:</b> ${d.sdg}<br><b>F1 Score:</b> ${d.value.toFixed(2)}`)
+          .style('visibility', 'visible');
+        d3.select(this).attr('stroke', isDarkTheme ? '#00e8ff' :'black').attr('stroke-width', 2);
+      })
+      .on('mousemove', function(event) {
+        tooltip.style('top', (event.pageY - 10) + 'px')
+          .style('left', (event.pageX + 10) + 'px');
+      })
+      .on('mouseout', function() {
+        tooltip.style('visibility', 'hidden');
+        d3.select(this).attr('stroke', themeCellStrokeColor).attr('stroke-width', 1);
+      });
+
+  } catch (error) {
+    console.error('Error creating method validation heatmap:', error);
+    plotContainer.innerHTML = `<p style="color: red; text-align: center;">Error loading or processing data for heatmap: ${error.message}</p>`;
+  }
+}
