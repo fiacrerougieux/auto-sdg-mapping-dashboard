@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="lollipop.js?v=3.0"></script>
-  <script src="heatmap.js?v=3.0"></script>
-  <script src="bubblechart.js?v=3.0"></script>
+  <script src="lollipop.js?v=3.1"></script>
+  <script src="heatmap.js?v=3.1"></script>
+  <script src="bubblechart.js?v=3.1"></script>
 
-  <link rel="stylesheet" href="style.css?v=3.0">
+  <link rel="stylesheet" href="style.css?v=3.1">
 </head>
 
 <body>
@@ -462,7 +462,7 @@
     const dataSources = [
       'sdg_analysis_llm_match.csv',      // v1
       'sdg_analysis_llm.csv',            // v2
-      'sdg_analysis_llm_with_targets.csv' // v3
+      'sdg_analysis_llm_with_targets_and_names.csv' // v3
     ];
     const dataSourceLabels = [
       'Data: v1 (Match)',
@@ -525,21 +525,31 @@
         }
 
         const headers = headerLine.split(delimiter).map(header => header.trim().replace(/^"(.+)"$/, '$1'));
-        const getColumnIndex = (columnName) => headers.indexOf(columnName);
+        
+        // Case-insensitive column index finder
+        const getColumnIndex = (columnName, isOptional = false) => {
+          const lowerCaseColumnName = columnName.toLowerCase();
+          const index = headers.findIndex(h => h.toLowerCase() === lowerCaseColumnName);
+          if (index === -1 && !isOptional) {
+            // console.warn(`Required column "${columnName}" not found. Available headers:`, headers.join(', '));
+          }
+          return index;
+        };
 
         const colIndices = {
           course_code: getColumnIndex('course_code'),
           sdg_number: getColumnIndex('sdg_number'),
           sdg_name: getColumnIndex('sdg_name'),
           addressed: getColumnIndex('addressed'),
-          justification: getColumnIndex('justification'),
-          timestamp: getColumnIndex('timestamp'),
-          target_number: getColumnIndex('target_number'),
-          target_name: getColumnIndex('target_name')
+          justification: getColumnIndex('justification', true), // Justification can be optional for some datasets
+          timestamp: getColumnIndex('timestamp', true),       // Timestamp can be optional
+          target_number: getColumnIndex('target_number', true), // Targets are optional
+          target_name: getColumnIndex('target_name', true),   // Targets are optional
+          course_name: getColumnIndex('course_name')       // Course name is essential for this feature
         };
 
-        // Check if essential columns are present
-        const essentialColumns = ['course_code', 'sdg_number', 'sdg_name', 'addressed', 'justification', 'timestamp'];
+        // Check if essential columns are present (those not marked optional in getColumnIndex)
+        const essentialColumns = ['course_code', 'sdg_number', 'sdg_name', 'addressed', 'course_name'];
         const missingEssentialColumns = essentialColumns.filter(col => colIndices[col] === -1);
 
         if (missingEssentialColumns.length > 0) {
@@ -568,7 +578,8 @@
                        (values[colIndices.addressed] || '').toLowerCase() === 'supported' ||
                        (values[colIndices.addressed] || '').toLowerCase() === 'focus',
             justification: values[colIndices.justification] || '',
-            timestamp: values[colIndices.timestamp] || ''
+            timestamp: values[colIndices.timestamp] || '',
+            course_name: values[colIndices.course_name] || '' // Added course_name
           };
 
           // Include target information if columns exist

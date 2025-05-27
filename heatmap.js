@@ -65,7 +65,8 @@ function createHeatmap(data, isCumulative) {
           justification: courseJustifications[course]?.[sdg] || '',
           sdg_name: constants.sdgNames[sdg],
           target_number: '',
-          target_name: ''
+          target_name: '',
+          course_name: data.find(r => r.course_code === course)?.course_name || '' // Added course_name for cumulative
         });
       }
     } else {
@@ -74,28 +75,37 @@ function createHeatmap(data, isCumulative) {
         const value = courseSDGs[course][sdg];
         const justification = courseJustifications[course]?.[sdg] || '';
 
-        const originalRow = data.find(r => r.course_code === course && r.sdg_number === sdg);
+        // Fetch course name based on course_code from the main data array
+        // This is done for every cell, regardless of whether this specific SDG is addressed.
+        const courseInfoRow = data.find(r => r.course_code === course);
+        const courseName = courseInfoRow ? courseInfoRow.course_name : '';
+
+        // For SDG-specific data like target_number and target_name,
+        // we still need to look at rows where this particular SDG is mapped.
+        const originalRowForSdgData = data.find(r => r.course_code === course && r.sdg_number === sdg);
         let targetNumber = '';
         let targetName = '';
 
-        if (value && originalRow) {
-          if (originalRow.target_number !== undefined) {
-            targetNumber = originalRow.target_number;
+        if (value && originalRowForSdgData) { // value is 1 if SDG is addressed for this cell
+          if (originalRowForSdgData.target_number !== undefined) {
+            targetNumber = originalRowForSdgData.target_number;
           }
-          if (originalRow.target_name !== undefined) {
-            targetName = originalRow.target_name;
+          if (originalRowForSdgData.target_name !== undefined) {
+            targetName = originalRowForSdgData.target_name;
           }
+          // Note: courseName is already fetched above, independently of this SDG cell's 'addressed' status.
         }
 
         row.push({
           value: value,
           sdg: sdg,
-          course: course,
+          course: course, // course_code
           addressed: value === 1,
           justification: justification,
           sdg_name: constants.sdgNames[sdg],
           target_number: targetNumber,
-          target_name: targetName
+          target_name: targetName,
+          course_name: courseName // Now fetched independently
         });
       }
     }
@@ -431,7 +441,8 @@ function createHeatmap(data, isCumulative) {
           }
 
           // Tooltip content
-          let tooltipContent = `<b>Course: ${cellData.course}</b><br>`;
+          let tooltipContent = `<b>Course Name:</b> ${cellData.course_name ? cellData.course_name : 'N/A'}<br>`;
+          tooltipContent += `<b>Course Code:</b> ${cellData.course}<br>`;
           tooltipContent += `<b>SDG ${cellData.sdg}: ${cellData.sdg_name}</b><br>`;
           tooltipContent += `Present: ${cellData.addressed ? 'Yes' : 'Not detected when analysing public data for this course. N.B. more granular data may reveal that this SDG may be present.'}<br>`;
           if (cellData.addressed && cellData.target_number && cellData.target_name) {
@@ -443,8 +454,33 @@ function createHeatmap(data, isCumulative) {
           tooltip.html(tooltipContent).style('visibility', 'visible');
       })
       .on('mousemove', function(event) {
-          tooltip.style('top', (event.pageY - 10) + 'px')
-                  .style('left', (event.pageX + 10) + 'px');
+          const tooltipNode = tooltip.node();
+          if (!tooltipNode) return;
+
+          let topPosition = event.pageY - tooltipNode.offsetHeight - 15; // 15px buffer above cursor
+          let leftPosition = event.pageX - (tooltipNode.offsetWidth / 2); // Horizontally center on cursor
+
+          // Boundary checks
+          // Adjust if tooltip goes off the top edge
+          if (topPosition < window.scrollY) {
+              topPosition = event.pageY + 20; // Move below cursor if it would go off top
+          }
+          // Adjust if tooltip goes off the left edge
+          if (leftPosition < window.scrollX) {
+              leftPosition = window.scrollX + 5; // Keep it within left boundary
+          }
+          // Adjust if tooltip goes off the right edge
+          if (leftPosition + tooltipNode.offsetWidth > window.scrollX + window.innerWidth) {
+              leftPosition = window.scrollX + window.innerWidth - tooltipNode.offsetWidth - 5; // Keep it within right boundary
+          }
+          // Adjust if tooltip (after potential bottom repositioning) goes off bottom edge (less common for above-cursor logic)
+          if (topPosition + tooltipNode.offsetHeight > window.scrollY + window.innerHeight) {
+            topPosition = window.scrollY + window.innerHeight - tooltipNode.offsetHeight - 5;
+          }
+
+
+          tooltip.style('top', topPosition + 'px')
+                 .style('left', leftPosition + 'px');
       })
       .on('mouseout', function(event) {
           // Get data from attributes again for mouseout
