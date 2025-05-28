@@ -1,6 +1,6 @@
 let finalCumulativeValues = [];
 
-function createHeatmap(data, isCumulative) {
+function createHeatmap(data, isCumulative, courseNameMapping) {
   // Remove any existing heatmap tooltips from the body
   d3.select('body').select('.heatmap-tooltip').remove();
 
@@ -66,7 +66,7 @@ function createHeatmap(data, isCumulative) {
           sdg_name: constants.sdgNames[sdg],
           target_number: '',
           target_name: '',
-          course_name: data.find(r => r.course_code === course)?.course_name || '' // Added course_name for cumulative
+          course_name: courseNameMapping[course] || course // Fallback to course code if not found
         });
       }
     } else {
@@ -75,10 +75,8 @@ function createHeatmap(data, isCumulative) {
         const value = courseSDGs[course][sdg];
         const justification = courseJustifications[course]?.[sdg] || '';
 
-        // Fetch course name based on course_code from the main data array
-        // This is done for every cell, regardless of whether this specific SDG is addressed.
-        const courseInfoRow = data.find(r => r.course_code === course);
-        const courseName = courseInfoRow ? courseInfoRow.course_name : '';
+        // Use the passed-in courseNameMapping
+        const courseName = courseNameMapping[course] || course; // Fallback to course code if not found
 
         // For SDG-specific data like target_number and target_name,
         // we still need to look at rows where this particular SDG is mapped.
@@ -146,7 +144,7 @@ function createHeatmap(data, isCumulative) {
   if (isMobile) {
     // --- Vertical Layout (Mobile) ---
     console.log("Drawing mobile heatmap layout");
-    margin = { top: mobileTopMargin, right: 20, bottom: 20, left: mobileLeftMargin };
+    margin = { top: 1, right: 20, bottom: 10, left: mobileLeftMargin };
     plotWidth = sdgNumbers.length * mobileCellSize; // Width based on SDGs
     plotHeight = courses.length * mobileCellSize; // Height based on Courses
     totalSvgWidth = plotWidth + margin.left + margin.right;
@@ -240,7 +238,7 @@ function createHeatmap(data, isCumulative) {
     // --- Horizontal Layout (Desktop) ---
     console.log("Drawing desktop heatmap layout");
     const verticalPadding = 50; // Padding for bubble overflow
-    margin = { top: 20, right: 50, bottom: 150, left: 350 };
+    margin = { top: 5, right: 50, bottom: 50, left: 350 };
     plotWidth = plotContainer.offsetWidth - margin.left - margin.right;
 
     // Calculate minimum required height based on filtered SDGs

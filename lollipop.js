@@ -1,10 +1,10 @@
-function createLollipop(data) {
+function createLollipop(data, courseNameMapping) {
   // Remove any existing tooltips from the body
   d3.select('body').select('.tooltip').remove();
 
   // Build hidden cumulative heatmap first to calculate values
   // This is okay as it doesn't draw anything visible, just calculates finalCumulativeValues
-  createHeatmap(data, true);
+  createHeatmap(data, true, courseNameMapping);
 
   const targetDivId = 'radar-div'; // Keep using the same div for now
   const plotContainer = document.getElementById(targetDivId);

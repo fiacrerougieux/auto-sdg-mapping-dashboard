@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="lollipop.js?v=3.1"></script>
-  <script src="heatmap.js?v=3.1"></script>
-  <script src="bubblechart.js?v=3.1"></script>
+  <script src="lollipop.js?v=3.2"></script>
+  <script src="heatmap.js?v=3.2"></script>
+  <script src="bubblechart.js?v=3.2"></script>
 
-  <link rel="stylesheet" href="style.css?v=3.1">
+  <link rel="stylesheet" href="style.css?v=3.2">
 </head>
 
 <body>
@@ -197,13 +197,7 @@
       <div id="plot-container-top">
         <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: block;"></div>
       </div>
-      <!-- Search Container Moved Here -->
-      <div class="search-container" id="middle-search-container">
-        <input type="text" id="disciplineSearch" placeholder="Search specialisations..." class="search-input">
-        <div id="disciplineDropdown" class="dropdown-content">
-          <!-- Populated by JS -->
-        </div>
-      </div>
+      <!-- Search Container will be moved to bottom bar -->
       <div id="plot-container-bottom">
         <div class="chart-container">
           <div id="heatmap-div" class="chart-div" style="height: 100%; display: block;"></div>
@@ -242,6 +236,17 @@
         <span>SDG Knowledge Graph</span>
       </a>
     </div>
+    <div class="bottom-bar-separator"></div>
+    <!-- Search Container Moved Here -->
+    <div class="bottom-bar-item" id="bottom-bar-search-container-wrapper" style="flex-grow: 1; display: flex; justify-content: center;">
+      <div class="search-container" id="middle-search-container" style="width: 50%; max-width: 400px;"> <!-- Adjusted width and added max-width -->
+        <input type="text" id="disciplineSearch" placeholder="Search specialisations..." class="search-input">
+        <div id="disciplineDropdown" class="dropdown-content">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar-separator"></div>
     <!-- Visualization Buttons Moved Here -->
     <div class="bottom-bar-item" id="viz-controls-container"> <!-- Container for centering -->
         <div class="visualisation-icons bottom-bar-viz-icons"> <!-- Added class for specific styling -->
@@ -474,6 +479,29 @@
     let currentSDG = 1; // default SDG (updated when user clicks an SDG icon)
 
     let constants = {};
+    let courseNameData = {}; // To store the course code to name mapping
+
+    async function loadCourseNameMapping() {
+      try {
+        const response = await fetch('course_code_name_mapping.csv');
+        const csvText = await response.text();
+        const lines = csvText.split('\n').slice(1); // Skip header
+        const mapping = {};
+        lines.forEach(line => {
+          if (line.trim()) {
+            const parts = parseCsvLine(line); // Use existing robust parser
+            if (parts.length >= 2) {
+              mapping[parts[0].trim()] = parts[1].trim();
+            }
+          }
+        });
+        courseNameData = mapping;
+        console.log("Course name mapping loaded:", Object.keys(courseNameData).length, "entries");
+      } catch (error) {
+        console.error('Error loading course name mapping:', error);
+        courseNameData = {}; // Ensure it's an empty object on error
+      }
+    }
 
     async function loadConstants() {
       try {
@@ -545,11 +573,12 @@
           timestamp: getColumnIndex('timestamp', true),       // Timestamp can be optional
           target_number: getColumnIndex('target_number', true), // Targets are optional
           target_name: getColumnIndex('target_name', true),   // Targets are optional
-          course_name: getColumnIndex('course_name')       // Course name is essential for this feature
+          course_name: getColumnIndex('course_name', true)    // Course name is now optional in the CSV
         };
 
         // Check if essential columns are present (those not marked optional in getColumnIndex)
-        const essentialColumns = ['course_code', 'sdg_number', 'sdg_name', 'addressed', 'course_name'];
+        // Course name is no longer strictly essential here as we have a fallback mapping
+        const essentialColumns = ['course_code', 'sdg_number', 'sdg_name', 'addressed'];
         const missingEssentialColumns = essentialColumns.filter(col => colIndices[col] === -1);
 
         if (missingEssentialColumns.length > 0) {
@@ -579,7 +608,9 @@
                        (values[colIndices.addressed] || '').toLowerCase() === 'focus',
             justification: values[colIndices.justification] || '',
             timestamp: values[colIndices.timestamp] || '',
-            course_name: values[colIndices.course_name] || '' // Added course_name
+            // Use courseNameData as primary, then CSV, then course_code as fallback (handled in heatmap.js)
+            // Here, just try to get from CSV if column exists, otherwise empty string.
+            course_name: (colIndices.course_name !== -1 && values[colIndices.course_name]) ? values[colIndices.course_name] : ''
           };
 
           // Include target information if columns exist
@@ -877,12 +908,12 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         
         // Update the active bottom chart(s)
         if (currentChartType === 'heatmap') {
-          createHeatmap(data, false);
-          createLollipop(data); 
-          createHeatmap(data, false); // Redraw binary heatmap as lollipop's internal call overwrites it
+          createHeatmap(data, false, courseNameData);
+          createLollipop(data, courseNameData); 
+          createHeatmap(data, false, courseNameData); // Redraw binary heatmap as lollipop's internal call overwrites it
         } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true);
-          createLollipop(data); 
+          createHeatmap(data, true, courseNameData);
+          createLollipop(data, courseNameData); 
         }
         // If currentChartType was 'bubble', only bubble chart is updated, bottom charts are hidden.
         // The 'radar' case for currentChartType is effectively obsolete with current setup.
@@ -908,16 +939,16 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'heatmap');
       loadData().then(data => {
-        createHeatmap(data, false);
-        createLollipop(data); 
-        createHeatmap(data, false); // Redraw binary heatmap
+        createHeatmap(data, false, courseNameData);
+        createLollipop(data, courseNameData); 
+        createHeatmap(data, false, courseNameData); // Redraw binary heatmap
       });
     });
     document.querySelector('#bottom-bar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
       setActiveVizButton(this, 'cumulative');
       loadData().then(data => {
-        createHeatmap(data, true);
-        createLollipop(data); 
+        createHeatmap(data, true, courseNameData);
+        createLollipop(data, courseNameData); 
       });
     });
     document.querySelector('#bottom-bar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG); // Assuming downloadPNG doesn't depend on the button's location context
@@ -1030,10 +1061,10 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
             
             // Reload data and redraw the selected bottom visualization
             loadData().then(data => {
-                createHeatmap(data, bottomChartType === 'cumulative');
-                createLollipop(data);
+                createHeatmap(data, bottomChartType === 'cumulative', courseNameData);
+                createLollipop(data, courseNameData);
                 if (bottomChartType === 'heatmap') {
-                    createHeatmap(data, false); // Redraw binary if it was overwritten
+                    createHeatmap(data, false, courseNameData); // Redraw binary if it was overwritten
                 }
                 // Bubble chart remains visible in the top container
             });
@@ -1147,10 +1178,10 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
           setActiveVizButton(vizBtn, bottomChartType);
 
           loadData().then(data => {
-              createHeatmap(data, bottomChartType === 'cumulative');
-              createLollipop(data);
+              createHeatmap(data, bottomChartType === 'cumulative', courseNameData);
+              createLollipop(data, courseNameData);
               if (bottomChartType === 'heatmap') {
-                  createHeatmap(data, false); // Redraw binary if it was overwritten
+                  createHeatmap(data, false, courseNameData); // Redraw binary if it was overwritten
               }
           });
 
@@ -1258,7 +1289,7 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     }
 
     // Initial load
-    loadConstants().then(() => {
+    Promise.all([loadConstants(), loadCourseNameMapping()]).then(() => {
       loadData().then(data => {
         updateCourseCount(data);
 
@@ -1270,9 +1301,9 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         // 2. Show Heatmap in bottom container for default ALL/ALL
         const heatmapBtn = document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn'); // Updated selector
         setActiveVizButton(heatmapBtn, 'heatmap'); // Set heatmap as active viz *button* and show bottom div
-        createHeatmap(data, false); // Draw initial binary heatmap
-        createLollipop(data);       // This will call createHeatmap(data,true) internally
-        createHeatmap(data, false); // Redraw initial binary heatmap to ensure it's the one shown
+        createHeatmap(data, false, courseNameData); // Draw initial binary heatmap
+        createLollipop(data, courseNameData);       // This will call createHeatmap(data,true) internally
+        createHeatmap(data, false, courseNameData); // Redraw initial binary heatmap to ensure it's the one shown
 
         // Set the default chart type state after initial setup
         currentChartType = 'heatmap'; // Heatmap is the default selected viz type
@@ -1314,12 +1345,12 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         // If the active chart type is heatmap or cumulative,
         // then both the heatmap and the lollipop chart (in radar-div) should be redrawn.
         if (currentChartType === 'heatmap') {
-          createHeatmap(data, false);
-          createLollipop(data);
-          createHeatmap(data, false); // Redraw binary
+          createHeatmap(data, false, courseNameData);
+          createLollipop(data, courseNameData);
+          createHeatmap(data, false, courseNameData); // Redraw binary
         } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true);
-          createLollipop(data);
+          createHeatmap(data, true, courseNameData);
+          createLollipop(data, courseNameData);
         }
         // If currentChartType is 'bubble', the bottom divs (heatmap-div, radar-div) are hidden
         // by setActiveVizButton, so no need to redraw them here.
@@ -1369,12 +1400,12 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
 
         // Redraw the currently active bottom chart(s)
         if (currentChartType === 'heatmap') {
-          createHeatmap(data, false);
-          createLollipop(data); 
-          createHeatmap(data, false); // Redraw binary for theme change
+          createHeatmap(data, false, courseNameData);
+          createLollipop(data, courseNameData); 
+          createHeatmap(data, false, courseNameData); // Redraw binary for theme change
         } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true);
-          createLollipop(data); 
+          createHeatmap(data, true, courseNameData);
+          createLollipop(data, courseNameData); 
         }
         // If currentChartType was 'bubble', only bubble chart is updated, bottom charts are hidden.
         // The 'radar' case for currentChartType is effectively obsolete.
