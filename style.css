@@ -545,8 +545,8 @@ select::-webkit-scrollbar-thumb:hover {
 
 /* Middle Search Container Styles - Repositioned */
 #middle-search-container {
-  width: 60%; /* Made slightly wider */
-  margin: 15px auto; /* Center horizontally with top/bottom margin */
+  /* width: 60%; /* Made slightly wider - Now controlled by inline style in HTML */
+  /* margin: 15px auto; /* Centering now handled by wrapper in bottom-bar */
   flex-shrink: 0; /* Prevent search bar from shrinking */
   /* Removed absolute positioning properties: position, top, left, transform, z-index */
 }
@@ -1078,12 +1078,11 @@ select::-webkit-scrollbar-thumb:hover {
 
 /* Top bar search container specific styles removed */
 
-/* Middle Search Container Styles - Repositioned */
-#middle-search-container {
-  width: 60%; /* Made slightly wider */
-  margin: 15px auto; /* Center horizontally with top/bottom margin */
-  /* Removed absolute positioning properties: position, top, left, transform, z-index */
-}
+/* Middle Search Container Styles - Repositioned in bottom bar */
+/* #middle-search-container specific styles like width and margin are now handled by inline styles in HTML
+   or by its wrapper #bottom-bar-search-container-wrapper.
+   The .search-container class provides base styling.
+*/
 
 .search-input {
   width: 100%;
@@ -1104,37 +1103,38 @@ select::-webkit-scrollbar-thumb:hover {
   opacity: 0.7; /* Make placeholder slightly less prominent */
 }
 
-/* Dark theme adjustments for middle search */
-body.dark-theme #middle-search-container .search-input {
+/* Dark theme adjustments for search input (generic, applies to middle search too) */
+body.dark-theme .search-input {
   background-color: #1a2436; /* Darker blue */
   color: #00e8ff; /* Cyan/teal text */
   border: 1px solid #2a3446; /* Slightly lighter border */
 }
 
-body.dark-theme #middle-search-container .search-input::placeholder {
+body.dark-theme .search-input::placeholder {
   color: #00e8ff; /* Cyan/teal text */
   opacity: 0.7;
 }
 
-body.dark-theme #middle-search-container .search-input:focus {
+body.dark-theme .search-input:focus {
   border-color: #00a8c7; /* Darker cyan border on focus */
   box-shadow: 0 0 0 2px rgba(0, 168, 199, 0.25); /* Darker cyan glow */
 }
 
-body.dark-theme #middle-search-container .dropdown-content {
+/* Dark theme adjustments for dropdown (generic, applies to middle search too) */
+body.dark-theme .dropdown-content {
   background-color: #121a29; /* Slightly lighter dark blue */
   border: 1px solid #2a3446; /* Slightly lighter border */
 }
 
-body.dark-theme #middle-search-container .dropdown-item {
+body.dark-theme .dropdown-item {
   color: #00e8ff; /* Cyan/teal text */
 }
 
-body.dark-theme #middle-search-container .dropdown-item:hover {
+body.dark-theme .dropdown-item:hover {
   background-color: #1a2436; /* Darker blue */
 }
 
-body.dark-theme #middle-search-container .dropdown-item.active {
+body.dark-theme .dropdown-item.active {
   background-color: #00a8c7; /* Darker cyan for active state */
   color: #00e8ff !important; /* Ensure cyan/teal text */
 }
@@ -1156,7 +1156,14 @@ body.dark-theme #middle-search-container .dropdown-item.active {
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1500; /* Increased z-index to ensure it appears above other elements */
-  margin-top: 5px;
+  margin-top: 5px; /* Default for dropdowns opening downwards (e.g., modal) */
+}
+
+/* Specific style for the dropdown in the bottom bar to open upwards */
+#middle-search-container .dropdown-content {
+  bottom: 100%; /* Position above the input */
+  margin-top: 0; /* Remove default top margin */
+  margin-bottom: 5px; /* Add space between input and upward-opening dropdown */
 }
 
 .dropdown-content.show {
