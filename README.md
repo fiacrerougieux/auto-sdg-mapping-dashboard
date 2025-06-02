@@ -1,54 +1,78 @@
-- # SDG Analysis Dashboard
+# SDG Analysis Dashboard
 
-  This interactive dashboard visualizes the coverage of UN Sustainable Development Goals (SDGs) across university courses based on automated text analysis of course descriptions and outlines.
+**Note: This dashboard is a work in progress.**
 
-  ## Features
+This interactive dashboard visualizes the coverage of UN Sustainable Development Goals (SDGs) across university courses, based on automated text analysis of course information. It aims to provide insights into how SDGs are integrated into the curriculum.
 
-  ### Data Visualization Options
-  - **SDG Coverage**: Radar chart showing relative SDG coverage across selected courses
-  - **SDG Distribution**: Heatmap showing SDG presence in individual courses
-  - **Cumulative SDGs**: Cumulative heatmap showing progressive SDG coverage
+## Key Visualizations & Features
 
-  ### Filtering Options
-  - Filter by Faculty
-  - Filter by Academic Discipline
-  - Interactive course selection
+The dashboard offers several ways to explore SDG coverage:
 
-  ### Data Display
-  - Total number of courses analyzed
-  - Detailed hover information showing course codes and SDG justifications
-  - Responsive design for desktop and mobile viewing
+*   **Bubble Chart**:
+    *   Displays the percentage of courses within each specialization that address a user-selected SDG.
+    *   Bubble size indicates the total number of courses in a specialization.
+    *   Bubbles are color-coded by faculty.
+    *   Clicking a specialization bubble transitions to the Heatmap view for that specialization.
 
-  ## Technical Details
+*   **Paired Heatmap & Lollipop Chart View** (for a selected specialization):
+    *   **Heatmap**:
+        *   Shows SDG presence across individual courses within the selected specialization.
+        *   Courses are typically on the X-axis, and SDGs (excluding SDG 4: Quality Education) on the Y-axis.
+        *   Can display either:
+            *   **Binary View**: Indicates if an SDG is addressed ('Yes'/'No') by a course.
+            *   **Cumulative View**: Shows the progressive count of courses addressing each SDG.
+        *   Clicking an SDG label switches to the Bubble Chart for that SDG.
+    *   **Lollipop Chart**:
+        *   Complements the Heatmap, showing the overall percentage coverage for each SDG (excluding SDG 4) within the selected specialization.
+        *   SDGs are on the X-axis, and percentage coverage on the Y-axis.
+        *   Clicking an SDG on its axis switches to the Bubble Chart for that SDG.
 
-  ### Dependencies
-  - Plotly.js for data visualization
-  - Pure JavaScript/HTML/CSS (no additional frameworks required)
+*   **Interactive Exploration**:
+    *   **Welcome Modal**: Introduces the dashboard, its functionalities, and important disclaimers (e.g., v3 data is conservative, optimized for precision).
+    *   **Search & Filtering**: Users can search for specializations and select specific SDGs to focus the analysis.
+    *   **Data Version Toggle**: Switch between different underlying analysis datasets (v1, v2, v3) which may vary in precision/recall. v3 (`sdg_analysis_llm_with_targets_and_names.csv`) is the default.
+    *   **Theme Toggle**: Switch between light and dark modes.
+    *   **Export**: Download visualizations as PNG images.
+    *   **Tooltips**: Provide detailed information on hover for courses, SDGs, and data points.
 
-  ### Data Format
-  The dashboard expects a CSV file (`sdg_analysis.csv`) with the following columns:
-  - `course_code`: Unique course identifier (e.g., "COMP1511")
-  - `sdg_number`: SDG number (1-17)
-  - `sdg_name`: Full name of the SDG
-  - `addressed`: Whether the SDG is addressed ("Yes"/"No")
-  - `justification`: Text explaining why the SDG is relevant
-  - `timestamp`: When the analysis was performed
+*   **Method Validation Heatmap**:
+    *   Accessible via a modal, this chart displays F1 scores comparing different SDG mapping methodologies, using data from `comparison_heatmap_f1_scores_ordered.csv`.
 
-  ### Notes on Analysis Method
-  - Analysis is automated based on course descriptions and outlines
-  - Comparative analysis shows certain SDGs tend to be underestimated:
-    - SDG 4 (Quality Education)
-    - SDG 9 (Industry, Innovation and Infrastructure) 
+## Technical Details
+
+*   **Core Technologies**: Built with plain HTML, CSS, and JavaScript.
+*   **Visualization Libraries**: Uses D3.js and Plotly.js.
+*   **Data Sources**:
+    *   Primary analysis data: `sdg_analysis_llm_with_targets_and_names.csv` (default v3), with options for `sdg_analysis_llm_match.csv` (v1) and `sdg_analysis_llm.csv` (v2). These files typically include:
+        *   `course_code`, `sdg_number`, `sdg_name`, `addressed` (Yes/No), `justification`, `timestamp`, `target_number`, `target_name`, `course_name`.
+    *   Supporting data:
+        *   `constants.json`: Contains mappings like SDG names, faculty mappings, specialization names.
+        *   `course_code_name_mapping.csv`: Maps course codes to full course names.
+        *   `comparison_heatmap_f1_scores_ordered.csv`: Data for the method validation heatmap.
+
+## Notes on Analysis Method
+- Analysis is automated based on course descriptions and outlines.
+- The default v3 analysis is optimized for high precision, which means it tends to be conservative and may underestimate SDG coverage (lower recall). Earlier versions (v1, v2) offer higher recall but lower precision.
+- Comparative analysis shows certain SDGs tend to be underestimated by automated methods, including:
+    - SDG 4 (Quality Education) - *Note: SDG 4 is generally excluded from the main heatmap/lollipop displays due to its pervasive nature in educational contexts, which can skew comparative visualization if not handled separately.*
+    - SDG 9 (Industry, Innovation and Infrastructure)
     - SDG 10 (Reduced Inequalities)
     - SDG 12 (Responsible Consumption and Production)
 
-  ## Usage
+## Usage
 
-  1. Host the files on a web server
-  2. Ensure `sdg_analysis.csv` is in the same directory
-  3. Open index.html in a web browser
+1.  Host the files on a web server or open `index.html` directly in a modern web browser.
+2.  Ensure all required CSV and JSON data files are in the same directory as `index.html`.
 
-  ## Limitations
-  - Analysis is automated and may not capture all SDG connections
-  - Results should be used as indicative rather than definitive
-  - Manual verification recommended for detailed curriculum mapping
+## Community and Contribution
+
+We welcome contributions and feedback to improve this dashboard. Please see the following resources:
+- **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute to the project.
+- **[Code of Conduct](CODE_OF_CONDUCT.md)**: Our expectations for community interactions.
+- **[Security Policy](SECURITY.md)**: How to report security vulnerabilities.
+- **[License](LICENSE)**: The project is licensed under the MIT License.
+
+## Limitations
+- Analysis is automated and may not capture all SDG connections or nuances.
+- Results should be used as indicative for exploration and discussion, rather than as definitive statements of SDG coverage.
+- Manual verification and detailed curriculum mapping are recommended for precise assessments.
