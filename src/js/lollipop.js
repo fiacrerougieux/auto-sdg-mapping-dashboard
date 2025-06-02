@@ -208,7 +208,7 @@ function createLollipop(data, courseNameMapping) {
     .style('visibility', 'hidden')
     .style('pointer-events', 'none');
 
-  // Add tooltip interaction
+  // Add tooltip interaction for circles
   svg.selectAll('.lollipop-circle')
     .on('mouseover', function(event, d) {
       d3.select(this)
@@ -228,5 +228,23 @@ function createLollipop(data, courseNameMapping) {
         .attr('stroke-width', 1);
       
       tooltip.style('visibility', 'hidden');
+    });
+
+  // Add hover interaction for the entire plot container div
+  d3.select(`#${targetDivId}`)
+    .on('mouseover', function() {
+      // Switch heatmap to cumulative
+      if (typeof createHeatmap === 'function') {
+        createHeatmap(data, true, courseNameMapping);
+      }
+    })
+    .on('mouseout', function() {
+      // Switch heatmap back to binary, unless cumulative is explicitly selected
+      if (typeof createHeatmap === 'function') {
+        const cumulativeButton = document.getElementById('cumulativeBtn');
+        if (!cumulativeButton || !cumulativeButton.classList.contains('active')) {
+            createHeatmap(data, false, courseNameMapping);
+        }
+      }
     });
 }

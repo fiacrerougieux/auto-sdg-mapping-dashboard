@@ -1538,3 +1538,90 @@ input:checked + .slider:before {
 #top-bar .disclaimer-content li {
   margin-bottom: 5px; /* Adjust margin */
 }
+
+/* Tab Styles */
+.tabs-container {
+  display: flex;
+  justify-content: center; /* Center the tab buttons */
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  color: var(--secondary-color);
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 3px solid transparent;
+  display: flex; /* Added for icon alignment */
+  align-items: center; /* Added for icon alignment */
+  gap: 8px; /* Added for space between icon and text */
+}
+
+.tab-button-icon {
+  height: 1em; /* Match text size */
+  width: auto;
+  vertical-align: middle; /* Align with text */
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  font-weight: bold;
+}
+
+.tab-button:hover:not(.active) {
+  color: var(--primary-color);
+}
+
+.tab-content {
+  display: none;
+  width: 100%;
+  height: calc(100% - 48px); /* Adjust based on tab-button height and margin */
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Ensure chart divs within tabs take full height */
+.tab-content .chart-div {
+  width: 100%;
+  height: 100%;
+  display: block; /* Ensure they are block to take height */
+}
+/* If using flex for side-by-side in tab1Content */
+#tab1Content .chart-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+#tab1Content #heatmap-div {
+  flex: 1; /* Or specific percentage */
+  height: 100%;
+}
+#tab1Content #radar-div { /* Lollipop */
+  width: 30%; /* Or specific percentage/min-width */
+  min-width: 300px;
+  height: 100%;
+}
+
+body.dark-theme .tabs-container {
+  border-bottom-color: #2a3446;
+}
+
+body.dark-theme .tab-button {
+  color: #aaa; /* Lighter grey for inactive tabs in dark mode */
+}
+
+body.dark-theme .tab-button.active {
+  color: #00e8ff; /* Cyan for active tab */
+  border-bottom-color: #00e8ff;
+}
+
+body.dark-theme .tab-button:hover:not(.active) {
+  color: #00e8ff;
+}

@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="src/js/lollipop.js?v=3.4"></script>
-  <script src="src/js/heatmap.js?v=3.4"></script>
-  <script src="src/js/bubblechart.js?v=3.4"></script>
+  <script src="src/js/lollipop.js?v=3.5"></script>
+  <script src="src/js/heatmap.js?v=3.5"></script>
+  <script src="src/js/bubblechart.js?v=3.5"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=3.4">
+  <link rel="stylesheet" href="src/css/style.css?v=3.5">
 </head>
 
 <body>
@@ -197,16 +197,24 @@
   <div id="main-content">
     <!-- Plot Area -->
     <div id="plot-container">
-      <div id="plot-container-top">
-        <div id="bubble-chart-div" class="chart-div" style="width: 100%; height: 100%; display: block;"></div>
+      <div class="tabs-container">
+        <button class="tab-button active" data-tab-target="#tab1Content">
+          <img src="assets/svgs/heatmap.svg" alt="Heatmap icon" class="tab-button-icon" /> SDG Coverage within Specialisation
+        </button>
+        <button class="tab-button" data-tab-target="#tab2Content">
+          <img src="assets/svgs/bubble-chart.svg" alt="Bubble chart icon" class="tab-button-icon" /> Percentage of Courses Covering SDGs
+        </button>
       </div>
-      <!-- Search Container will be moved to bottom bar -->
-      <div id="plot-container-bottom">
-        <div class="chart-container">
-          <div id="heatmap-div" class="chart-div" style="height: 100%; display: block;"></div>
-          <div id="radar-div" class="chart-div" style="height: 100%; display: none;"></div>
-          <!-- Cumulative heatmap will reuse #heatmap-div -->
+
+      <div id="tab1Content" class="tab-content active">
+        <div class="chart-container"> <!-- Re-using existing class for layout -->
+          <div id="heatmap-div" class="chart-div"></div>
+          <div id="radar-div" class="chart-div"></div> <!-- Lollipop chart -->
         </div>
+      </div>
+
+      <div id="tab2Content" class="tab-content">
+        <div id="bubble-chart-div" class="chart-div"></div>
       </div>
     </div>
   </div>
@@ -234,7 +242,7 @@
     <div class="bottom-bar-separator"></div>
     <!-- Search Container Moved Here -->
     <div class="bottom-bar-item" id="bottom-bar-search-container-wrapper" style="flex-grow: 1; display: flex; justify-content: center;">
-      <div class="search-container" id="middle-search-container" style="width: 50%; max-width: 400px;"> <!-- Adjusted width and added max-width -->
+      <div class="search-container" id="middle-search-container" style="width: 50%; max-width: 400px; margin: 0;">
         <input type="text" id="disciplineSearch" placeholder="Search specialisations..." class="search-input">
         <div id="disciplineDropdown" class="dropdown-content">
           <!-- Populated by JS -->
@@ -245,22 +253,19 @@
     <!-- Visualization Buttons Moved Here -->
     <div class="bottom-bar-item" id="viz-controls-container"> <!-- Container for centering -->
         <div class="visualisation-icons bottom-bar-viz-icons"> <!-- Added class for specific styling -->
-            <button id="heatmapBtn" class="viz-button active">
-                <img src="assets/svgs/heatmap.svg" alt="Heatmap" />
-            </button>
-            <button id="cumulativeBtn" class="viz-button">
-                <img src="assets/svgs/cumulative-heatmap.svg" alt="Cumulative Heatmap" />
-            </button>
+            <!-- Removed heatmapBtn -->
+            <!-- Removed cumulativeBtn -->
             <!-- Removed radarBtn as lollipop chart will now be displayed alongside heatmap -->
-            <button id="exportPNG" class="viz-button">
-                <img src="assets/svgs/export-visualization.svg" alt="Export" />
-            </button>
+            <!-- exportPNG button moved -->
         </div>
     </div>
     <!-- Separator and Theme Toggle Area -->
     <div class="bottom-bar-item" style="margin-left: auto; display: flex; align-items: center;">
       <button id="methodValidationHeatmapBtn" class="viz-button" style="margin-right: 8px;"> <!-- Added margin-right for spacing -->
           <img src="assets/svgs/method-validation-heatmap.svg" alt="Method Validation Heatmap" />
+      </button>
+      <button id="exportPNG" class="viz-button" style="margin-right: 8px;">
+          <img src="assets/svgs/download-icon.svg" alt="Download" />
       </button>
       <div class="bottom-bar-separator" style="display: block; height: 20px; margin: 0 4px;"></div> <!-- Explicitly show separator -->
       <a href="https://github.com/fiacrerougieux/auto-sdg-mapping-dashboard" target="_blank" rel="noopener noreferrer" class="viz-button" style="margin-right: 8px;" title="View on GitHub">
@@ -461,7 +466,7 @@
     // ---------- Data & Visualization Logic -----------
     let currentDiscipline = 'ALL';
     let currentFaculty = 'ALL';
-    let currentChartType = 'heatmap'; // Default active viz
+    let currentChartType = 'heatmap'; // Default active viz (within Tab 1)
     let previousChartType = null;
     const dataSources = [
       'data/sdg_analysis_llm_match.csv',      // v1
@@ -512,24 +517,21 @@
       }
     }
 
-    // Note: getPlotDimensions might need adjustment if called by D3 charts now,
-    // as they target specific divs. Plotly handles its own resizing within its div.
-    // D3 charts might need to get dimensions from their specific div if resize logic is added there.
-
-    // Generic resize handler for Plotly charts if needed, targeting the visible one.
-    // D3 resize needs to be handled within bubblechart.js if required.
     window.addEventListener('resize', function () {
-      const activePlotlyDivId = currentChartType === 'heatmap' || currentChartType === 'cumulative' ? 'heatmap-div'
-                              : currentChartType === 'radar' ? 'radar-div'
-                              : null;
-      if (activePlotlyDivId) {
-        const container = document.getElementById(activePlotlyDivId);
-        if (container && container.offsetParent !== null) { // Check if visible
-          Plotly.Plots.resize(container);
-        }
+      // Generic resize handler for Plotly charts if needed, targeting the visible one.
+      // D3 resize needs to be handled within bubblechart.js if required.
+      const activeTabContent = document.querySelector('.tab-content.active');
+      if (!activeTabContent) return;
+
+      if (activeTabContent.id === 'tab1Content') {
+        const heatmapDiv = document.getElementById('heatmap-div');
+        const radarDiv = document.getElementById('radar-div'); // Lollipop
+        if (heatmapDiv && heatmapDiv.offsetParent !== null) Plotly.Plots.resize(heatmapDiv);
+        if (radarDiv && radarDiv.offsetParent !== null) Plotly.Plots.resize(radarDiv);
+      } else if (activeTabContent.id === 'tab2Content') {
+        // Bubble chart (D3) resize should be handled in bubblechart.js if needed
+        // For now, we call handleResize which will redraw it.
       }
-      // If bubble chart needs resize handling, it should be added within bubblechart.js
-      // listening to resize and redrawing based on #bubble-chart-div dimensions.
     });
 
     // Load CSV data
@@ -544,7 +546,6 @@
           return [];
         }
 
-        // Determine delimiter and column indices from header
         const headerLine = lines[0];
         let delimiter = ',';
         if (headerLine.split('\t').length > headerLine.split(',').length) {
@@ -553,7 +554,6 @@
 
         const headers = headerLine.split(delimiter).map(header => header.trim().replace(/^"(.+)"$/, '$1'));
         
-        // Case-insensitive column index finder
         const getColumnIndex = (columnName, isOptional = false) => {
           const lowerCaseColumnName = columnName.toLowerCase();
           const index = headers.findIndex(h => h.toLowerCase() === lowerCaseColumnName);
@@ -568,15 +568,13 @@
           sdg_number: getColumnIndex('sdg_number'),
           sdg_name: getColumnIndex('sdg_name'),
           addressed: getColumnIndex('addressed'),
-          justification: getColumnIndex('justification', true), // Justification can be optional for some datasets
-          timestamp: getColumnIndex('timestamp', true),       // Timestamp can be optional
-          target_number: getColumnIndex('target_number', true), // Targets are optional
-          target_name: getColumnIndex('target_name', true),   // Targets are optional
-          course_name: getColumnIndex('course_name', true)    // Course name is now optional in the CSV
+          justification: getColumnIndex('justification', true),
+          timestamp: getColumnIndex('timestamp', true),
+          target_number: getColumnIndex('target_number', true),
+          target_name: getColumnIndex('target_name', true),
+          course_name: getColumnIndex('course_name', true)
         };
 
-        // Check if essential columns are present (those not marked optional in getColumnIndex)
-        // Course name is no longer strictly essential here as we have a fallback mapping
         const essentialColumns = ['course_code', 'sdg_number', 'sdg_name', 'addressed'];
         const missingEssentialColumns = essentialColumns.filter(col => colIndices[col] === -1);
 
@@ -586,18 +584,14 @@
         }
 
         const data = lines.slice(1).map(line => {
-          if (!line.trim()) return null; // Skip empty lines
-          const values = parseCsvLine(line, delimiter); // Use the robust parser
+          if (!line.trim()) return null;
+          const values = parseCsvLine(line, delimiter);
 
-          // Check if the number of values matches the number of headers
           if (values.length !== headers.length) {
               console.warn(`Skipping line due to mismatched columns: ${line}`);
-              console.warn(`Expected ${headers.length} columns, found ${values.length}`);
-              console.warn(`Values found:`, values);
-              return null; // Skip this line
+              return null;
           }
 
-          // No need for cleanValue anymore as parseCsvLine handles quotes
           const rowData = {
             course_code: values[colIndices.course_code] || '',
             sdg_number: parseInt(values[colIndices.sdg_number]) || 0,
@@ -607,41 +601,31 @@
                        (values[colIndices.addressed] || '').toLowerCase() === 'focus',
             justification: values[colIndices.justification] || '',
             timestamp: values[colIndices.timestamp] || '',
-            // Use courseNameData as primary, then CSV, then course_code as fallback (handled in heatmap.js)
-            // Here, just try to get from CSV if column exists, otherwise empty string.
             course_name: (colIndices.course_name !== -1 && values[colIndices.course_name]) ? values[colIndices.course_name] : ''
           };
 
-          // Include target information if columns exist
           if (colIndices.target_number !== -1 && values[colIndices.target_number] !== undefined) {
             rowData.target_number = values[colIndices.target_number];
           }
           if (colIndices.target_name !== -1 && values[colIndices.target_name] !== undefined) {
             rowData.target_name = values[colIndices.target_name];
           }
-
           return rowData;
-        }).filter(row => row && row.course_code); // Filter out nulls and rows without course_code
+        }).filter(row => row && row.course_code);
 
-        // Rebuild discipline dropdown
         const disc = getDisciplines(data, currentFaculty);
         const dropdown = document.getElementById('disciplineDropdown');
-        // If current discipline is not in the new list, reset it
         if (!currentDiscipline || !disc.includes(currentDiscipline)) {
           currentDiscipline = disc[0] || 'ALL';
         }
         
-        // Clear previous dropdown items
         dropdown.innerHTML = '';
-        
-        // Add "ALL" option first
         const allItem = document.createElement('div');
         allItem.className = 'dropdown-item' + (currentDiscipline === 'ALL' ? ' active' : '');
         allItem.setAttribute('data-value', 'ALL');
         allItem.textContent = 'All Specialisations';
         dropdown.appendChild(allItem);
         
-        // Add discipline options
         disc.forEach(d => {
           const item = document.createElement('div');
           item.className = 'dropdown-item' + (d === currentDiscipline ? ' active' : '');
@@ -650,9 +634,8 @@
           dropdown.appendChild(item);
         });
         
-        // Setup search and dropdown functionality for both main and modal search bars
         setupDisciplineSearch();
-        setupModalDisciplineSearch(disc); // Pass disciplines to modal setup
+        setupModalDisciplineSearch(disc);
 
         return data;
       } catch (error) {
@@ -662,7 +645,6 @@
     }
 
     function updateCourseCount(data) {
-      // Count all unique courses
       const uniqueCourses = new Set(data.map(row => row.course_code));
       document.getElementById('course-count').innerHTML =
         `Courses: <strong>${uniqueCourses.size}</strong>`;
@@ -683,8 +665,6 @@
       return yearNum >= 5 ? 4 : yearNum;
     }
 
-    // Heatmap & Radar code
-    // Filter data by discipline & faculty
     function filterDataByDiscipline(data, discipline) {
       return data.filter(row => {
         const rowDiscipline = row.course_code.substring(0, 4);
@@ -696,304 +676,201 @@
       });
     }
 
-    // Bubble Chart
-    // PNG Export
-// Function to download a specific visualization as PNG
-function downloadPNG(vizType = currentChartType, filename = null) {
-  // Find the appropriate SVG based on the visualization type
-  let svg;
-  if (vizType === 'bubble') {
-    svg = document.querySelector('#bubble-chart-div svg');
-  } else if (vizType === 'heatmap' || vizType === 'cumulative') {
-    svg = document.querySelector('#heatmap-div svg');
-  } else if (vizType === 'radar') {
-    svg = document.querySelector('#radar-div svg');
-  }
-  
-  if (!svg) {
-    console.error(`No SVG found for visualization type: ${vizType}`);
-    return;
-  }
-  
-  // Clone the SVG to avoid modifying the original
-  const clonedSvg = svg.cloneNode(true);
-  
-  // Force the theme blue color for all cells in the heatmap
-  if (vizType === 'heatmap' || vizType === 'cumulative') {
-    // Find all rect elements in the cloned SVG
-    const rects = clonedSvg.querySelectorAll('rect.sdg-cell');
-    rects.forEach(rect => {
-      // Get the cell value
-      const value = parseFloat(rect.getAttribute('data-value') || '0');
-      
-      if (value > 0) {
-        if (vizType === 'cumulative') {
-          // For cumulative heatmap, modulate the alpha based on the value
-          // This mimics the logic in heatmap.js for cumulative cells
-          const courses = clonedSvg.querySelectorAll('rect.sdg-cell[data-course]');
-          const uniqueCourses = new Set();
-          courses.forEach(c => uniqueCourses.add(c.getAttribute('data-course')));
-          const coursesLength = uniqueCourses.size;
-          
-          // Calculate intensity similar to heatmap.js
-          const intensity = value / (coursesLength * 0.5);
-          const alpha = Math.min(0.3 + intensity * 0.7, 1);
-          
-          // Set the fill color with calculated alpha
-          rect.setAttribute('fill', `rgba(0, 123, 255, ${alpha})`);
-        } else {
-          // For regular heatmap, use solid theme blue for "true" cells
-          rect.setAttribute('fill', '#007bff'); // Use the theme blue
-        }
-      }
-    });
-  }
-  
-  // Serialize the modified SVG and ensure it has the correct namespace
-  let svgData = new XMLSerializer().serializeToString(clonedSvg);
-  if (!svgData.includes('xmlns="http://www.w3.org/2000/svg"')) {
-    svgData = svgData.replace(/<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
-  }
+    function downloadPNG(vizTypeToDownload, filename = null) {
+      let svg;
+      let targetDivId;
+      let chartNameForFile = vizTypeToDownload; // Default
 
-  const scaleFactor = 2; // Increase resolution by 2x
-  const canvas = document.createElement('canvas');
-  const box = svg.getBoundingClientRect();
-  canvas.width = box.width * scaleFactor;
-  canvas.height = box.height * scaleFactor;
-
-  const img = new Image();
-  const blob = new Blob([svgData], { type: 'image/svg+xml' });
-  const url = URL.createObjectURL(blob);
-  
-  img.onload = () => {
-    const ctx = canvas.getContext('2d');
-    // Always use white background for export
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Scale the context to draw the image larger
-    ctx.scale(scaleFactor, scaleFactor);
-    
-    // Ensure default composite operation and alpha to preserve colors
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.globalAlpha = 1.0;
-    
-    ctx.drawImage(img, 0, 0, box.width, box.height); // Draw at original SVG size, it will be scaled
-    
-    // Generate appropriate filename if not provided
-    if (!filename) {
-      const disciplineText = currentDiscipline === 'ALL' ? 'all_disciplines' : currentDiscipline;
-      const facultyText = currentFaculty === 'ALL' ? 'all_faculties' : currentFaculty;
-      
-      if (vizType === 'bubble') {
-        filename = `sdg${currentSDG}_bubble_chart_${facultyText}.png`;
-      } else if (vizType === 'heatmap') {
-        filename = `sdg_heatmap_${disciplineText}_${facultyText}.png`;
-      } else if (vizType === 'cumulative') {
-        filename = `sdg_cumulative_${disciplineText}_${facultyText}.png`;
-      } else if (vizType === 'radar') { // This 'radar' type corresponds to the lollipop chart now
-        filename = `sdg_lollipop_${disciplineText}_${facultyText}.png`;
-      }
-    }
-    
-    const a = document.createElement('a');
-    a.href = canvas.toDataURL('image/png');
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
-  img.src = url;
-}
-
-// Function to download all plots sequentially
-function downloadAllPlots() {
-  // Store current state to restore later
-  const originalChartType = currentChartType;
-  
-  // Create a status indicator
-  const statusIndicator = document.createElement('div');
-  statusIndicator.style.position = 'fixed';
-  statusIndicator.style.top = '50%';
-  statusIndicator.style.left = '50%';
-  statusIndicator.style.transform = 'translate(-50%, -50%)';
-  statusIndicator.style.padding = '15px 20px';
-  statusIndicator.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-  statusIndicator.style.color = 'white';
-  statusIndicator.style.borderRadius = '5px';
-  statusIndicator.style.zIndex = '9999';
-  statusIndicator.style.fontWeight = 'bold';
-  statusIndicator.textContent = 'Preparing downloads...';
-  document.body.appendChild(statusIndicator);
-  
-  // Define the visualization types to download
-  const vizTypes = ['bubble', 'heatmap', 'cumulative', 'radar'];
-  let currentIndex = 0;
-  
-  // Function to process the next visualization
-  function processNextViz() {
-    if (currentIndex >= vizTypes.length) {
-      // All done, restore original state and remove status indicator
-      if (originalChartType === 'bubble') {
-        // For bubble chart, just make sure it's visible
-        document.getElementById('bubble-chart-div').style.display = 'block';
+      if (vizTypeToDownload === 'bubble') {
+        targetDivId = '#bubble-chart-div';
+        chartNameForFile = `sdg${currentSDG}_bubble_chart`;
+      } else if (vizTypeToDownload === 'heatmap' || vizTypeToDownload === 'cumulative') {
+        targetDivId = '#heatmap-div';
+        chartNameForFile = vizTypeToDownload === 'cumulative' ? 'sdg_cumulative_heatmap' : 'sdg_heatmap';
+      } else if (vizTypeToDownload === 'lollipop') { // Explicitly 'lollipop'
+        targetDivId = '#radar-div'; // Lollipop is in radar-div
+        chartNameForFile = 'sdg_lollipop';
       } else {
-        // For other chart types, click the appropriate button
-        const vizBtnId = originalChartType === 'radar' ? '#radarBtn' : 
-                         (originalChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-        document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`).click(); // Updated selector
+        console.error(`Unknown vizType for download: ${vizTypeToDownload}`);
+        return;
       }
       
-      // Remove status indicator after a short delay
-      setTimeout(() => {
-        document.body.removeChild(statusIndicator);
-      }, 500);
+      svg = document.querySelector(`${targetDivId} svg`);
       
-      return;
-    }
-    
-    const vizType = vizTypes[currentIndex];
-    statusIndicator.textContent = `Downloading ${vizType} chart (${currentIndex + 1}/${vizTypes.length})...`;
-    
-    // Switch to the current visualization type
-    if (vizType === 'bubble') {
-      document.getElementById('bubble-chart-div').style.display = 'block';
-      // Ensure bottom plots are hidden if bubble is the primary view for download
-      document.getElementById('heatmap-div').style.display = 'none';
-      document.getElementById('radar-div').style.display = 'none';
-    } else if (vizType === 'heatmap' || vizType === 'cumulative') {
-      const vizBtnId = vizType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn';
-      document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`).click();
-    } else if (vizType === 'radar') {
-      // To show the lollipop (in radar-div), ensure heatmap or cumulative is active.
-      // Activate the standard heatmap. This will also make radar-div visible.
-      document.querySelector(`#bottom-bar .visualisation-icons #heatmapBtn`).click();
-    }
-    
-    // Wait for the visualization to render
-    setTimeout(() => {
-      // Download the current visualization
-      downloadPNG(vizType);
+      if (!svg) {
+        console.error(`No SVG found for visualization type: ${vizTypeToDownload} in ${targetDivId}`);
+        // Attempt to draw if not found, then try download again (simple case)
+        // This might be too complex for a generic download function.
+        // For now, just log error.
+        return;
+      }
       
-      // Move to the next visualization after a short delay
-      currentIndex++;
-      setTimeout(processNextViz, 500);
-    }, 500);
-  }
-  
-  // Start the process
-  processNextViz();
-}
+      const clonedSvg = svg.cloneNode(true);
+      
+      if (vizTypeToDownload === 'heatmap' || vizTypeToDownload === 'cumulative') {
+        const rects = clonedSvg.querySelectorAll('rect.sdg-cell');
+        rects.forEach(rect => {
+          const value = parseFloat(rect.getAttribute('data-value') || '0');
+          if (value > 0) {
+            if (vizTypeToDownload === 'cumulative') {
+              const courses = clonedSvg.querySelectorAll('rect.sdg-cell[data-course]');
+              const uniqueCourses = new Set();
+              courses.forEach(c => uniqueCourses.add(c.getAttribute('data-course')));
+              const coursesLength = uniqueCourses.size;
+              const intensity = value / (coursesLength * 0.5);
+              const alpha = Math.min(0.3 + intensity * 0.7, 1);
+              rect.setAttribute('fill', `rgba(0, 123, 255, ${alpha})`);
+            } else {
+              rect.setAttribute('fill', '#007bff');
+            }
+          }
+        });
+      }
+      
+      let svgData = new XMLSerializer().serializeToString(clonedSvg);
+      if (!svgData.includes('xmlns="http://www.w3.org/2000/svg"')) {
+        svgData = svgData.replace(/<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+      }
 
-// Update event listener for the export button
-document.getElementById('exportPNG').addEventListener('click', downloadAllPlots);
+      const scaleFactor = 2;
+      const canvas = document.createElement('canvas');
+      const box = svg.getBoundingClientRect();
+      canvas.width = box.width * scaleFactor;
+      canvas.height = box.height * scaleFactor;
 
-    // Event Listener for Custom Ternary Toggle
+      const img = new Image();
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      
+      img.onload = () => {
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.scale(scaleFactor, scaleFactor);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 1.0;
+        ctx.drawImage(img, 0, 0, box.width, box.height);
+        
+        if (!filename) {
+          const disciplineText = currentDiscipline === 'ALL' ? 'all_disciplines' : currentDiscipline;
+          const facultyText = currentFaculty === 'ALL' ? 'all_faculties' : currentFaculty;
+          filename = `${chartNameForFile}_${disciplineText}_${facultyText}.png`;
+        }
+        
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url); // Clean up blob URL
+      };
+      img.onerror = () => {
+        console.error("Error loading SVG image for download.");
+        URL.revokeObjectURL(url);
+      }
+      img.src = url;
+    }
+
+    function downloadActivePlot() {
+      const activeTabContent = document.querySelector('.tab-content.active');
+      if (!activeTabContent) {
+        console.error("No active tab found for download.");
+        return;
+      }
+
+      if (activeTabContent.id === 'tab1Content') {
+        // Determine if heatmap or cumulative is active for download
+        const activeVizButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
+        if (activeVizButton && activeVizButton.id === 'cumulativeBtn') {
+          downloadPNG('cumulative');
+        } else {
+          downloadPNG('heatmap');
+        }
+        // Optionally, also download lollipop if it's always paired
+        // downloadPNG('lollipop'); 
+      } else if (activeTabContent.id === 'tab2Content') {
+        downloadPNG('bubble');
+      }
+    }
+    // Update event listener for the export button to download only the active plot
+    document.getElementById('exportPNG').addEventListener('click', downloadActivePlot);
+
+
     const ternaryToggle = document.getElementById('ternaryToggle');
     ternaryToggle.addEventListener('click', function () {
-      currentDataSourceIndex = (currentDataSourceIndex + 1) % dataSources.length; // Cycle through 0, 1, 2
+      currentDataSourceIndex = (currentDataSourceIndex + 1) % dataSources.length;
       currentDataFile = dataSources[currentDataSourceIndex];
-
-      // Update toggle visual state
       this.classList.remove('state-0', 'state-1', 'state-2');
       this.classList.add(`state-${currentDataSourceIndex}`);
-
-      console.log(`Switched data source to: ${currentDataFile} (State: ${currentDataSourceIndex})`); // Debugging log
+      console.log(`Switched data source to: ${currentDataFile} (State: ${currentDataSourceIndex})`);
 
       loadData().then(data => {
         updateCourseCount(data);
-        // Update both bubble chart and the currently active bottom chart
-        createBubbleChart(data, currentSDG, true); // Re-enable animation on data source change
-        
-        // Update the active bottom chart(s)
-        if (currentChartType === 'heatmap') {
-          createHeatmap(data, false, courseNameData);
-          createLollipop(data, courseNameData); 
-          createHeatmap(data, false, courseNameData); // Redraw binary heatmap as lollipop's internal call overwrites it
-        } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true, courseNameData);
-          createLollipop(data, courseNameData); 
+        // Redraw charts in the active tab
+        const activeTabContent = document.querySelector('.tab-content.active');
+        if (activeTabContent) {
+            if (activeTabContent.id === 'tab1Content') {
+                const activeHeatmapType = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
+                const isCumulative = activeHeatmapType && activeHeatmapType.id === 'cumulativeBtn';
+                createHeatmap(data, isCumulative, courseNameData);
+                createLollipop(data, courseNameData);
+                if (!isCumulative) createHeatmap(data, false, courseNameData);
+            } else if (activeTabContent.id === 'tab2Content') {
+                createBubbleChart(data, currentSDG, true); // Animate on data source change for bubble
+            }
         }
-        // If currentChartType was 'bubble', only bubble chart is updated, bottom charts are hidden.
-        // The 'radar' case for currentChartType is effectively obsolete with current setup.
       });
     });
 
-    // The redrawVisualization function is no longer needed as we update both charts explicitly
-    // function redrawVisualization(data) {
-    //   const shouldAnimate = previousChartType === 'bubble' && currentChartType === 'bubble';
-    //   // Which button is active?
-    //   if (currentChartType === 'bubble') {
-    //     createBubbleChart(data, currentSDG, shouldAnimate);
-    //   } else if (currentChartType === 'radar') {
-    //     createRadar(data);
-    //   } else if (currentChartType === 'heatmap') {
-    //     createHeatmap(data, false);
-    //   } else if (currentChartType === 'cumulative') {
-    //     createHeatmap(data, true);
-    //   }
-    // }
+    // Event listeners for heatmapBtn and cumulativeBtn are removed as the buttons are removed.
+    // setActiveVizButton function is also removed as it's no longer needed.
 
-    // Add event listeners to the visualization buttons in the BOTTOM BAR
-    document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn').addEventListener('click', function () {
-      setActiveVizButton(this, 'heatmap');
-      loadData().then(data => {
-        createHeatmap(data, false, courseNameData);
-        createLollipop(data, courseNameData); 
-        createHeatmap(data, false, courseNameData); // Redraw binary heatmap
-      });
-    });
-    document.querySelector('#bottom-bar .visualisation-icons #cumulativeBtn').addEventListener('click', function () {
-      setActiveVizButton(this, 'cumulative');
-      loadData().then(data => {
-        createHeatmap(data, true, courseNameData);
-        createLollipop(data, courseNameData); 
-      });
-    });
-    document.querySelector('#bottom-bar .visualisation-icons #exportPNG').addEventListener('click', downloadPNG); // Assuming downloadPNG doesn't depend on the button's location context
-
-    function setActiveVizButton(btn, newChartType) {
-      // Update chart type state
-      previousChartType = currentChartType;
-      currentChartType = newChartType;
-
-      // Remove any existing tooltips when switching visualizations
-      d3.select('body').select('.tooltip').remove();
-
-      // Update active class visually for buttons in the bottom bar
-      document.querySelectorAll('#bottom-bar .visualisation-icons .viz-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      btn.classList.add('active');
-
-      // Toggle visibility of chart divs within their respective containers
-      if (newChartType === 'bubble') {
-        // Show bubble chart in top container, hide others in top (if any)
-        document.querySelectorAll('#plot-container-top .chart-div').forEach(div => {
-          div.style.display = (div.id === 'bubble-chart-div') ? 'block' : 'none';
-        });
-        // Hide bottom charts when showing bubble chart
-        document.getElementById('heatmap-div').style.display = 'none';
-        document.getElementById('radar-div').style.display = 'none';
-      } else {
-        // For all other chart types (heatmap, cumulative), always show both heatmap and lollipop
-        document.getElementById('heatmap-div').style.display = 'block';
-        document.getElementById('radar-div').style.display = 'block';
-        // Lollipop chart creation/update will be handled by the button's event listener
-        // after data is loaded, so no need to call createLollipop here directly.
-      }
-    }
-
-
-    // Faculty icon clicks removed
-
-    // Setup discipline search and dropdown functionality
     function setupDisciplineSearch() {
       const searchInput = document.getElementById('disciplineSearch');
       const dropdown = document.getElementById('disciplineDropdown');
-      const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
       
-      // Show dropdown when input is focused
+      // Event listeners for searchInput and dropdown items
+      // ... (existing setupDisciplineSearch logic) ...
+      // Ensure that when a discipline is selected, it redraws the
+      // charts in the *currently active tab*.
+
+      // Modify the click handler for dropdown items:
+      dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+        item.removeEventListener('click', handleDisciplineSelection); // Remove old listener if any
+        item.addEventListener('click', handleDisciplineSelection);
+      });
+
+      function handleDisciplineSelection() {
+        const selectedValue = this.getAttribute('data-value');
+        const selectedText = this.textContent;
+        
+        searchInput.value = selectedText;
+        dropdown.querySelectorAll('.dropdown-item').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+        dropdown.classList.remove('show');
+        
+        if (currentDiscipline !== selectedValue) {
+          currentDiscipline = selectedValue;
+          
+          loadData().then(data => {
+            const activeTabContent = document.querySelector('.tab-content.active');
+            if (activeTabContent) {
+              if (activeTabContent.id === 'tab1Content') {
+                const activeHeatmapType = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
+                const isCumulative = activeHeatmapType && activeHeatmapType.id === 'cumulativeBtn';
+                createHeatmap(data, isCumulative, courseNameData);
+                createLollipop(data, courseNameData);
+                if (!isCumulative) createHeatmap(data, false, courseNameData);
+              } else if (activeTabContent.id === 'tab2Content') {
+                createBubbleChart(data, currentSDG, false); // No animation on discipline change
+              }
+            }
+          });
+        }
+      }
+      // ... (rest of existing setupDisciplineSearch logic for focus, input, document click)
+       // Show dropdown when input is focused
       searchInput.addEventListener('focus', function() {
         dropdown.classList.add('show');
       });
@@ -1002,17 +879,18 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       searchInput.addEventListener('input', function() {
         const searchText = this.value.toLowerCase();
         let hasVisibleItems = false;
-        
-        dropdownItems.forEach(item => {
+        const currentDropdownItems = dropdown.querySelectorAll('.dropdown-item:not(.no-results)');
+
+        currentDropdownItems.forEach(item => {
           const itemText = item.textContent.toLowerCase();
           const shouldShow = itemText.includes(searchText);
           item.style.display = shouldShow ? 'block' : 'none';
           if (shouldShow) hasVisibleItems = true;
         });
         
-        // If no items match, show a message
+        const noResultsMessage = dropdown.querySelector('.no-results');
         if (!hasVisibleItems && searchText) {
-          if (!dropdown.querySelector('.no-results')) {
+          if (!noResultsMessage) {
             const noResults = document.createElement('div');
             noResults.className = 'dropdown-item no-results';
             noResults.textContent = 'No matching specialisations found';
@@ -1021,57 +899,10 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
             dropdown.appendChild(noResults);
           }
         } else {
-          // Remove any existing "no results" message
-          const noResults = dropdown.querySelector('.no-results');
-          if (noResults) dropdown.removeChild(noResults);
+          if (noResultsMessage) dropdown.removeChild(noResultsMessage);
         }
       });
-      
-      // Handle dropdown item clicks
-      dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
-          const selectedValue = this.getAttribute('data-value');
-          const selectedText = this.textContent;
-          
-          // Update search input with selected text
-          searchInput.value = selectedText;
-          
-          // Update active state in dropdown
-          dropdownItems.forEach(el => el.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Hide dropdown
-          dropdown.classList.remove('show');
-          
-          // Update current discipline and redraw visualization
-          if (currentDiscipline !== selectedValue) {
-            currentDiscipline = selectedValue;
-            
-            // Always ensure a bottom chart is active when discipline changes
-            let bottomChartType = currentChartType;
-            if (bottomChartType === 'bubble') { // If only bubble was active, default to heatmap
-                bottomChartType = 'heatmap';
-            }
-            
-            // Activate the appropriate bottom viz button
-            let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-            const vizBtn = document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`); // Updated selector
-            setActiveVizButton(vizBtn, bottomChartType); // Update button state and show correct bottom div
-            
-            // Reload data and redraw the selected bottom visualization
-            loadData().then(data => {
-                createHeatmap(data, bottomChartType === 'cumulative', courseNameData);
-                createLollipop(data, courseNameData);
-                if (bottomChartType === 'heatmap') {
-                    createHeatmap(data, false, courseNameData); // Redraw binary if it was overwritten
-                }
-                // Bubble chart remains visible in the top container
-            });
-          }
-        });
-      });
-      
-      // Close dropdown when clicking outside
+       // Close dropdown when clicking outside
       document.addEventListener('click', function(event) {
         if (!searchInput.contains(event.target) && !dropdown.contains(event.target)) {
           dropdown.classList.remove('show');
@@ -1079,28 +910,23 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       });
       
       // Set initial search input value based on current discipline
-      const activeDiscipline = dropdown.querySelector('.dropdown-item.active');
-      if (activeDiscipline) {
-        searchInput.value = activeDiscipline.textContent;
+      const activeDisciplineItem = dropdown.querySelector(`.dropdown-item[data-value="${currentDiscipline}"]`);
+      if (activeDisciplineItem) {
+        searchInput.value = activeDisciplineItem.textContent;
       }
     }
 
-    // Setup modal discipline search and dropdown functionality
     function setupModalDisciplineSearch(disciplines) {
       const modalSearchInput = document.getElementById('modalDisciplineSearch');
       const modalDropdown = document.getElementById('modalDisciplineDropdown');
+      modalDropdown.innerHTML = ''; // Clear previous
 
-      // Clear previous dropdown items
-      modalDropdown.innerHTML = '';
-
-      // Add "ALL" option first
       const allItem = document.createElement('div');
-      allItem.className = 'dropdown-item'; // No initial active state needed for modal
+      allItem.className = 'dropdown-item';
       allItem.setAttribute('data-value', 'ALL');
       allItem.textContent = 'All Specialisations';
       modalDropdown.appendChild(allItem);
 
-      // Add discipline options
       disciplines.forEach(d => {
         const item = document.createElement('div');
         item.className = 'dropdown-item';
@@ -1109,28 +935,78 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         modalDropdown.appendChild(item);
       });
 
-      const modalDropdownItems = modalDropdown.querySelectorAll('.dropdown-item');
+      // Modify the click handler for modal dropdown items:
+      modalDropdown.querySelectorAll('.dropdown-item').forEach(item => {
+        item.removeEventListener('click', handleModalDisciplineSelection); // Remove old listener
+        item.addEventListener('click', handleModalDisciplineSelection);
+      });
 
-      // Show dropdown when input is focused
+      function handleModalDisciplineSelection() {
+        const selectedValue = this.getAttribute('data-value');
+        const selectedText = this.textContent;
+
+        // Update global state
+        currentDiscipline = selectedValue;
+
+        // Update UI elements related to main search
+        document.getElementById('disciplineSearch').value = selectedText;
+        document.querySelectorAll('#disciplineDropdown .dropdown-item').forEach(el => el.classList.remove('active'));
+        const mainActiveItem = document.querySelector(`#disciplineDropdown .dropdown-item[data-value="${selectedValue}"]`);
+        if (mainActiveItem) mainActiveItem.classList.add('active');
+        
+        // Close modal UI
+        modalDropdown.classList.remove('show');
+        hideWelcomeModal();
+
+        // Ensure Tab 1 is visually and logically the active tab
+        const tab1Button = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
+        if (!tab1Button.classList.contains('active')) {
+            // Deactivate all other tab buttons and content
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Activate Tab 1 button and content
+            tab1Button.classList.add('active');
+            document.getElementById('tab1Content').classList.add('active');
+        }
+        activeTabId = '#tab1Content'; // Set global activeTabId
+
+        // Now, load data and redraw charts for Tab 1 with the new currentDiscipline
+        loadData().then(data => {
+            const isCumulative = false; // Assuming cumulative feature is not primary as buttons are removed
+            currentChartType = 'heatmap'; // Explicitly set for Tab 1 context
+
+            createHeatmap(data, isCumulative, courseNameData);
+            createLollipop(data, courseNameData);
+            if (!isCumulative) { // Redraw non-cumulative heatmap if that's the default
+                createHeatmap(data, false, courseNameData);
+            }
+            
+            handleResize(); // Adjust layout as chart dimensions might change
+        }).catch(error => {
+            console.error('Error redrawing charts after modal selection:', error);
+        });
+      }
+      // ... (rest of existing setupModalDisciplineSearch logic for focus, input, document click)
       modalSearchInput.addEventListener('focus', function() {
         modalDropdown.classList.add('show');
       });
 
-      // Filter dropdown items as user types
       modalSearchInput.addEventListener('input', function() {
         const searchText = this.value.toLowerCase();
         let hasVisibleItems = false;
+        const currentModalDropdownItems = modalDropdown.querySelectorAll('.dropdown-item:not(.no-results)');
 
-        modalDropdownItems.forEach(item => {
+        currentModalDropdownItems.forEach(item => {
           const itemText = item.textContent.toLowerCase();
           const shouldShow = itemText.includes(searchText);
           item.style.display = shouldShow ? 'block' : 'none';
           if (shouldShow) hasVisibleItems = true;
         });
-
-        // If no items match, show a message
+        
+        const noResultsMessage = modalDropdown.querySelector('.no-results');
         if (!hasVisibleItems && searchText) {
-          if (!modalDropdown.querySelector('.no-results')) {
+          if (!noResultsMessage) {
             const noResults = document.createElement('div');
             noResults.className = 'dropdown-item no-results';
             noResults.textContent = 'No matching specialisations found';
@@ -1139,67 +1015,16 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
             modalDropdown.appendChild(noResults);
           }
         } else {
-          // Remove any existing "no results" message
-          const noResults = modalDropdown.querySelector('.no-results');
-          if (noResults) modalDropdown.removeChild(noResults);
+           if (noResultsMessage) modalDropdown.removeChild(noResultsMessage);
         }
       });
-
-      // Handle dropdown item clicks
-      modalDropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
-          const selectedValue = this.getAttribute('data-value');
-          const selectedText = this.textContent;
-
-          // Update the MAIN search input and currentDiscipline
-          const mainSearchInput = document.getElementById('disciplineSearch');
-          mainSearchInput.value = selectedText;
-          currentDiscipline = selectedValue;
-
-          // Update active state in the MAIN dropdown
-          const mainDropdownItems = document.querySelectorAll('#disciplineDropdown .dropdown-item');
-          mainDropdownItems.forEach(el => el.classList.remove('active'));
-          const mainActiveItem = document.querySelector(`#disciplineDropdown .dropdown-item[data-value="${selectedValue}"]`);
-          if (mainActiveItem) {
-            mainActiveItem.classList.add('active');
-          }
-
-          // Hide modal dropdown
-          modalDropdown.classList.remove('show');
-
-          // Trigger visualization update (similar to main search selection)
-          let bottomChartType = currentChartType;
-          if (bottomChartType === 'bubble') {
-              bottomChartType = 'heatmap'; // Default to heatmap if bubble was primary
-          }
-          let vizBtnId = bottomChartType === 'radar' ? '#radarBtn' : (bottomChartType === 'cumulative' ? '#cumulativeBtn' : '#heatmapBtn');
-          const vizBtn = document.querySelector(`#bottom-bar .visualisation-icons ${vizBtnId}`); // Updated selector
-          setActiveVizButton(vizBtn, bottomChartType);
-
-          loadData().then(data => {
-              createHeatmap(data, bottomChartType === 'cumulative', courseNameData);
-              createLollipop(data, courseNameData);
-              if (bottomChartType === 'heatmap') {
-                  createHeatmap(data, false, courseNameData); // Redraw binary if it was overwritten
-              }
-          });
-
-          // Hide the modal
-          hideWelcomeModal();
-        });
-      });
-
-      // Close dropdown when clicking outside (within the modal context)
       document.getElementById('welcomeModal').addEventListener('click', function(event) {
-          // Check if the click is outside the modal search input and dropdown
           if (!modalSearchInput.contains(event.target) && !modalDropdown.contains(event.target)) {
               modalDropdown.classList.remove('show');
           }
       });
     }
 
-
-    // SDG icon clicks
     const sdgIconsList = document.getElementById('sdgIconsList');
     sdgIconsList.querySelectorAll('.sdg-icon-item').forEach(item => {
       item.addEventListener('click', function () {
@@ -1207,117 +1032,125 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
         this.classList.add('active');
         currentSDG = parseInt(this.getAttribute('data-sdg')) || 1;
 
-        // Note: We don't need to activate any button for bubble chart since it's not in the compact icons
+        const bubbleTabButton = document.querySelector('.tab-button[data-tab-target="#tab2Content"]');
+        const isBubbleTabActive = bubbleTabButton.classList.contains('active');
 
-        // Determine if animation is needed (always animate when SDG is clicked)
-        const shouldAnimate = true; // Always animate when SDG is clicked
-
-        // Update state *after* checking animation, but before drawing
-        previousChartType = currentChartType; // Store what was active before
-        currentChartType = 'bubble'; // Bubble is now the focus, even if bottom chart remains
-
-        // Ensure bubble chart div is visible
-        document.getElementById('bubble-chart-div').style.display = 'block';
-
-        // Redraw bubble chart
-        loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
-
-        // Keep the bottom chart visible if it was something other than bubble
-        // No need to explicitly redraw bottom chart unless faculty/discipline changes
+        if (!isBubbleTabActive) {
+          bubbleTabButton.click(); // This will trigger the tab switch and chart creation
+        } else {
+          // If bubble tab is already active, just reload its content
+          loadData().then(data => {
+            createBubbleChart(data, currentSDG, true); // Animate on SDG change
+            currentChartType = 'bubble'; // Ensure chart type is set
+            // handleResize(); // Adjust layout - REMOVED to prevent interruption of animation
+          });
+        }
       });
     });
 
-    // Modal SDG icon clicks
     const modalSdgIconsList = document.getElementById('modalSdgIconsList');
-    if (modalSdgIconsList) { // Check if the element exists
+    if (modalSdgIconsList) {
       modalSdgIconsList.querySelectorAll('.sdg-icon-item').forEach(item => {
         item.addEventListener('click', function () {
           const clickedSDG = parseInt(this.getAttribute('data-sdg')) || 1;
           currentSDG = clickedSDG;
 
-          // Deactivate all top bar icons and activate the corresponding one
           const topBarIcons = document.getElementById('sdgIconsList');
           if (topBarIcons) {
             topBarIcons.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
             const correspondingTopBarIcon = topBarIcons.querySelector(`.sdg-icon-item[data-sdg="${clickedSDG}"]`);
-            if (correspondingTopBarIcon) {
-              correspondingTopBarIcon.classList.add('active');
-            }
+            if (correspondingTopBarIcon) correspondingTopBarIcon.classList.add('active');
           }
-
-          // Activate bubble chart button and display
-          const bubbleBtn = document.querySelector('#sidebar .visualisation-icons #bubbleBtn');
-          // setActiveVizButton(bubbleBtn, 'bubble'); // Ensure top div is shown
-
-          const shouldAnimate = currentChartType === 'bubble'; // Animate if bubble was the main chart type
-
-          // Update state
-          previousChartType = currentChartType;
-          currentChartType = 'bubble'; // Bubble is now the focus
-
-          // Ensure bubble chart div is visible
-          document.getElementById('bubble-chart-div').style.display = 'block';
-
-          // Redraw bubble chart
-          loadData().then(data => createBubbleChart(data, currentSDG, shouldAnimate));
-
-          // Hide the modal
+          
           hideWelcomeModal();
+          
+          const bubbleTabButton = document.querySelector('.tab-button[data-tab-target="#tab2Content"]');
+          const isBubbleTabActive = bubbleTabButton.classList.contains('active');
+
+          if (!isBubbleTabActive) {
+            bubbleTabButton.click(); // This will trigger the tab switch and chart creation
+          } else {
+            // If bubble tab is already active, just reload its content
+            loadData().then(data => {
+              createBubbleChart(data, currentSDG, true); // Animate on SDG change
+              currentChartType = 'bubble'; // Ensure chart type is set
+              // handleResize(); // Adjust layout - REMOVED to prevent interruption of animation
+            });
+          }
         });
       });
     }
 
-    // Modal Faculty icon clicks removed
-
-    // Function to update bottom bar version indicators
     function updateBottomBarVersions() {
-      const bottomBarItems = document.querySelectorAll('#bottom-bar .bottom-bar-item');
-      
-      // Reset all version indicators
-      bottomBarItems.forEach(item => {
-        if (item.textContent.startsWith('v')) {
-          item.classList.remove('active-version');
-        }
-      });
-      
-      // Activate the current version
-      const versionToActivate = document.querySelector(`#bottom-bar .bottom-bar-item:nth-child(${currentDataSourceIndex * 2 + 1})`);
-      if (versionToActivate) {
-        versionToActivate.classList.add('active-version');
-      }
+      // This function seems to be for a different versioning UI, can be simplified or removed if not used
+      // For ternary toggle, the state class handles visual update.
     }
+
+    // ---------- Tab Switching Logic -----------
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    let activeTabId = '#tab1Content'; // Default active tab ID
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTabId = button.getAttribute('data-tab-target');
+        if (activeTabId === targetTabId) return; // Do nothing if already active
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        activeTabId = targetTabId;
+
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+          if (content.id === targetTabId.substring(1)) {
+            content.classList.add('active');
+          }
+        });
+
+        // Redraw charts in the newly active tab
+        loadData().then(data => {
+          if (activeTabId === '#tab1Content') {
+            const activeHeatmapTypeButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
+            const isCumulative = activeHeatmapTypeButton && activeHeatmapTypeButton.id === 'cumulativeBtn';
+            currentChartType = isCumulative ? 'cumulative' : 'heatmap'; // Update currentChartType for tab 1
+            createHeatmap(data, isCumulative, courseNameData);
+            createLollipop(data, courseNameData);
+            if (!isCumulative) createHeatmap(data, false, courseNameData);
+          } else if (activeTabId === '#tab2Content') {
+            currentChartType = 'bubble'; // Update currentChartType for tab 2
+            createBubbleChart(data, currentSDG, false);
+          }
+          handleResize(); // Adjust layout/size
+        });
+      });
+    });
 
     // Initial load
     Promise.all([loadConstants(), loadCourseNameMapping()]).then(() => {
       loadData().then(data => {
         updateCourseCount(data);
 
-        // --- Initial Load Modifications ---
-        // 1. Show Bubble Chart in top container for default SDG
-        document.getElementById('bubble-chart-div').style.display = 'block'; // Make it visible
-        createBubbleChart(data, currentSDG, false); // Draw initial bubble chart (no animation)
+        // Default to Tab 1 (Heatmap & Lollipop)
+        document.querySelector('.tab-button[data-tab-target="#tab1Content"]').classList.add('active');
+        document.getElementById('tab1Content').classList.add('active');
+        activeTabId = '#tab1Content';
+        currentChartType = 'heatmap'; // Initial chart type for tab 1
 
-        // 2. Show Heatmap in bottom container for default ALL/ALL
-        const heatmapBtn = document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn'); // Updated selector
-        setActiveVizButton(heatmapBtn, 'heatmap'); // Set heatmap as active viz *button* and show bottom div
-        createHeatmap(data, false, courseNameData); // Draw initial binary heatmap
-        createLollipop(data, courseNameData);       // This will call createHeatmap(data,true) internally
-        createHeatmap(data, false, courseNameData); // Redraw initial binary heatmap to ensure it's the one shown
+        const heatmapBtn = document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn');
+        if(heatmapBtn) heatmapBtn.classList.add('active'); // Set heatmap button active
 
-        // Set the default chart type state after initial setup
-        currentChartType = 'heatmap'; // Heatmap is the default selected viz type
-        previousChartType = null;
+        createHeatmap(data, false, courseNameData);
+        createLollipop(data, courseNameData);
+        createHeatmap(data, false, courseNameData); 
+
+        // Pre-load Bubble Chart in Tab 2 (it's hidden but ready)
+        createBubbleChart(data, currentSDG, false);
         
-        // Update bottom bar version indicators
-        updateBottomBarVersions();
-        // --- End Initial Load Modifications ---
-        
-        // Adjust main content padding based on top bar height
         adjustMainContentPadding();
+        handleResize(); // Initial resize
       });
     });
     
-    // --- Debounce Function ---
     function debounce(func, wait, immediate) {
       var timeout;
       return function() {
@@ -1333,35 +1166,28 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
       };
     };
 
-    // --- Resize Handler ---
     const handleResize = debounce(function() {
-      // console.log(`Window resized. Current chart type: ${currentChartType}`); // Debug log removed
-      adjustMainContentPadding(); // Adjust padding first
-
+      adjustMainContentPadding();
       loadData().then(data => {
-        createBubbleChart(data, currentSDG, false); // Always redraw bubble
+        const currentActiveTab = document.querySelector('.tab-content.active');
+        if (!currentActiveTab) return;
 
-        // If the active chart type is heatmap or cumulative,
-        // then both the heatmap and the lollipop chart (in radar-div) should be redrawn.
-        if (currentChartType === 'heatmap') {
-          createHeatmap(data, false, courseNameData);
+        if (currentActiveTab.id === 'tab1Content') {
+          const activeHeatmapTypeButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
+          const isCumulative = activeHeatmapTypeButton && activeHeatmapTypeButton.id === 'cumulativeBtn';
+          createHeatmap(data, isCumulative, courseNameData);
           createLollipop(data, courseNameData);
-          createHeatmap(data, false, courseNameData); // Redraw binary
-        } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true, courseNameData);
-          createLollipop(data, courseNameData);
+           if (!isCumulative) createHeatmap(data, false, courseNameData);
+        } else if (currentActiveTab.id === 'tab2Content') {
+          createBubbleChart(data, currentSDG, false);
         }
-        // If currentChartType is 'bubble', the bottom divs (heatmap-div, radar-div) are hidden
-        // by setActiveVizButton, so no need to redraw them here.
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
       });
-    }, 250); // Debounce timeout of 250ms
+    }, 250);
 
-    // Add event listener for window resize
     window.addEventListener('resize', handleResize);
-    // Also adjust padding immediately on load
-    window.addEventListener('resize', adjustMainContentPadding); // Keep this for immediate padding adjustment
+    window.addEventListener('load', adjustMainContentPadding); // Ensure padding is set on load too
 
   </script>
 
@@ -1369,7 +1195,6 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Check for saved theme preference on page load
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark-theme') {
       body.classList.add('dark-theme');
@@ -1378,43 +1203,32 @@ document.getElementById('exportPNG').addEventListener('click', downloadAllPlots)
     }
 
     themeToggle.addEventListener('click', () => {
-      // Toggle body class
       body.classList.toggle('dark-theme');
-      
-      // Toggle the toggle appearance
       themeToggle.classList.toggle('light-mode');
       themeToggle.classList.toggle('dark-mode');
 
-      // Save theme preference to local storage
       if (body.classList.contains('dark-theme')) {
         localStorage.setItem('theme', 'dark-theme');
       } else {
         localStorage.removeItem('theme');
       }
 
-      // --- Redraw charts after theme change ---
       loadData().then(data => {
-        // Redraw bubble chart (always visible in top container)
-        createBubbleChart(data, currentSDG, false); // No animation needed for theme change
+        const currentActiveTab = document.querySelector('.tab-content.active');
+        if (!currentActiveTab) return;
 
-        // Redraw the currently active bottom chart(s)
-        if (currentChartType === 'heatmap') {
-          createHeatmap(data, false, courseNameData);
-          createLollipop(data, courseNameData); 
-          createHeatmap(data, false, courseNameData); // Redraw binary for theme change
-        } else if (currentChartType === 'cumulative') {
-          createHeatmap(data, true, courseNameData);
-          createLollipop(data, courseNameData); 
+        if (currentActiveTab.id === 'tab1Content') {
+            const activeHeatmapTypeButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
+            const isCumulative = activeHeatmapTypeButton && activeHeatmapTypeButton.id === 'cumulativeBtn';
+            createHeatmap(data, isCumulative, courseNameData);
+            createLollipop(data, courseNameData);
+            if (!isCumulative) createHeatmap(data, false, courseNameData);
+        } else if (currentActiveTab.id === 'tab2Content') {
+            createBubbleChart(data, currentSDG, false);
         }
-        // If currentChartType was 'bubble', only bubble chart is updated, bottom charts are hidden.
-        // The 'radar' case for currentChartType is effectively obsolete.
-        // If currentChartType is 'bubble', the bottom chart might be hidden or showing an older state,
-        // but redrawing the bubble chart above is the primary action needed.
-        // The bottom chart will redraw correctly when its type is selected again.
       }).catch(error => {
         console.error("Error reloading data after theme change:", error);
       });
-      // --- End Redraw ---
     });
   </script>
 </body>

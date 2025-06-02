@@ -89,7 +89,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     .stop();
 
   // Run simulation sufficiently
-  for (let i = 0; i < 120; i++) simulation.tick();
+  for (let i = 0; i < 300; i++) simulation.tick(); // Increased ticks for better stability
 
   // --- Determine theme colors ---
   const isDarkTheme = document.body.classList.contains('dark-theme');
@@ -224,7 +224,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   legendGroup.attr('transform', `translate(${legendGroupX}, ${legendGroupY})`);
   // --- End Legend ---
 
-  const transitionDuration = animateTransition ? 750 : 0; // Use parameter for duration
+  const transitionDuration = animateTransition ? 1200 : 0; // Increased duration from 750ms
 
   // --- Bubbles Update/Creation with Transitions ---
   const bubbles = g.selectAll('circle.bubble')
@@ -307,17 +307,6 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
     .style('visibility', 'hidden')
     .style('pointer-events', 'none');
 
-  // Initial tooltip for largest bubble (optional, can be removed if distracting)
-  if (bubbleData.length > 0 && initialCreate) { // Only show initial tooltip on first load
-    const highlightBubble = bubbleData[bubbleData.length - 1];
-    tooltip.html(`<b>${highlightBubble.name}</b><br>Total Courses: ${highlightBubble.value}<br>Courses Addressing SDG ${selectedSDG}: ${highlightBubble.sdgCount}<br>Percentage: ${highlightBubble.percentage.toFixed(2)}%`);
-    setTimeout(() => { // Delay to allow positioning
-      tooltip.style('visibility', 'visible')
-        .style('top', (highlightBubble.y + margin.top + containerElement.getBoundingClientRect().top + window.scrollY - 10) + 'px')
-        .style('left', (highlightBubble.x + margin.left + containerElement.getBoundingClientRect().left + window.scrollX + 20) + 'px');
-    }, 100);
-  }
-
   // Tooltip event handlers for bubbles
   bubbles.on('mouseover', function(event, d) {
     tooltip.html(`<b>${d.name}</b><br>Total Courses: ${d.value}<br>Courses Addressing SDG ${selectedSDG}: ${d.sdgCount}<br>Percentage: ${d.percentage.toFixed(2)}%`)
@@ -344,8 +333,13 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
       }
     });
     tooltip.style('visibility', 'hidden'); // Hide tooltip before switching
-    // Programmatically click the heatmap button
-    document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn').click();
+    // Programmatically click the "Heatmap & Lollipop" tab button
+    const heatmapTabButton = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
+    if (heatmapTabButton) {
+      heatmapTabButton.click();
+    } else {
+      console.error('Heatmap & Lollipop tab button not found.');
+    }
   })
   .style('cursor', 'pointer'); // Indicate clickable
 }
