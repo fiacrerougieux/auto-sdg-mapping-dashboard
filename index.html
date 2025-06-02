@@ -9,11 +9,11 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="lollipop.js?v=3.3"></script>
-  <script src="heatmap.js?v=3.3"></script>
-  <script src="bubblechart.js?v=3.3"></script>
+  <script src="lollipop.js?v=3.4"></script>
+  <script src="heatmap.js?v=3.4"></script>
+  <script src="bubblechart.js?v=3.4"></script>
 
-  <link rel="stylesheet" href="style.css?v=3.3">
+  <link rel="stylesheet" href="style.css?v=3.4">
 </head>
 
 <body>
@@ -24,9 +24,23 @@
     <div class="modal-content">
       <button class="close-modal" onclick="hideWelcomeModal()">&times;</button>
       <h2>Welcome to the SDG Analysis Dashboard</h2>
+      <p style="color: orange; font-weight: bold;">
+        Warning: This tool (v3) is conservative and tends to underestimate SDG coverage. It is optimised for high precision at the expense of recall. Versions v1 and v2 offer higher recall but lower precision. Please read full disclaimer below for more information regarding limitation.
+      </p>
       <p>
         This tool allows you to explore how university courses map to the UN Sustainable Development Goals (SDGs).
-        <strong>Select an SDG</strong> on the top bar or below to view coverage across all specialisations (the "bubble chart"):
+        Search for a specialisation in the search field or here:
+      </p>
+      <!-- Faculty Icons Removed -->
+      <!-- Add Search Bar Here -->
+      <div class="search-container" id="modal-search-container" style="margin: 15px auto; width: 80%;"> <!-- Added inline style for spacing/width -->
+        <input type="text" id="modalDisciplineSearch" placeholder="Search specialisations..." class="search-input">
+        <div id="modalDisciplineDropdown" class="dropdown-content">
+          <!-- Populated by JS if needed -->
+        </div>
+      </div>
+      <p>
+        <strong>Or select an SDG</strong> on the top bar or below to view coverage across all specialisations (the "bubble chart"):
       </p>
       <div class="modal-sdg-icons">
         <div class="sdg-icons-list" id="modalSdgIconsList">
@@ -83,17 +97,6 @@
           <div class="sdg-icon-item" data-sdg="17">
             <img src="logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
           </div>
-        </div>
-      </div>
-      <p>
-        <strong>Or</strong> search for a specialisation in the search field or here.
-      </p>
-      <!-- Faculty Icons Removed -->
-      <!-- Add Search Bar Here -->
-      <div class="search-container" id="modal-search-container" style="margin: 15px auto; width: 80%;"> <!-- Added inline style for spacing/width -->
-        <input type="text" id="modalDisciplineSearch" placeholder="Search specialisations..." class="search-input">
-        <div id="modalDisciplineDropdown" class="dropdown-content">
-          <!-- Populated by JS if needed -->
         </div>
       </div>
       <p>
@@ -233,7 +236,7 @@
     <div class="bottom-bar-item">
       <a href="https://fiacrerougieux.github.io/sdg_network_explorer/" target="_blank" rel="noopener noreferrer" class="knowledge-graph-link">
         <img src="other/sdg_network.png" alt="SDG Knowledge Graph" style="height: 24px; width: auto;">
-        <span>SDG Knowledge Graph</span>
+        <span>SDG KG</span>
       </a>
     </div>
     <div class="bottom-bar-separator"></div>
