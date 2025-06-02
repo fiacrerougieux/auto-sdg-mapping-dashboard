@@ -552,7 +552,7 @@ async function createMethodValidationHeatmap(targetDivId) {
   // Fetch and parse the CSV data
   let data;
   try {
-    const response = await fetch('comparison_heatmap_f1_scores_ordered.csv');
+    const response = await fetch('data/comparison_heatmap_f1_scores_ordered.csv');
     const csvText = await response.text();
     const lines = csvText.split('\n').filter(line => line.trim() !== '');
     if (lines.length < 2) {

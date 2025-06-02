@@ -136,7 +136,7 @@ function createRadar(data) {
 
     // Add SDG icon
     labelGroup.append('image')
-      .attr('xlink:href', `logo/E Inverted Icons_WEB-${(sdgNumber < 10 ? '0' : '') + sdgNumber}.png`)
+      .attr('xlink:href', `assets/images/logo/E Inverted Icons_WEB-${(sdgNumber < 10 ? '0' : '') + sdgNumber}.png`)
       .attr('width', 25) // Smaller icon
       .attr('height', 25)
       .attr('x', -12.5) // Center the icon

@@ -5,15 +5,13 @@
 
 # Data and analysis files
 teaching_ideology_analysis.csv
-sdg_analysis_*.csv
 comparison_heatmap_f1_scores_ordered1.csv
 comparison_to_ground_truth.html
 logo/accounting_icon.svg
 results_zhang.xlsx
-water_enviro_sdg_focused.csv
-water_enviro_sdg_supportive.csv
+data/water_enviro_sdg_focused.csv
+data/water_enviro_sdg_supportive.csv
 faculty/
-
 
 # Documents and reports
 *.docx
