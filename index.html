@@ -9,12 +9,13 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="src/js/lollipop.js?v=3.6"></script>
-  <script src="src/js/heatmap.js?v=3.6"></script>
-  <script src="src/js/bubblechart.js?v=3.6"></script>
-  <script src="src/js/donutchart.js?v=3.6"></script>
+  <script src="src/js/lollipop.js?v=3.7"></script>
+  <script src="src/js/heatmap.js?v=3.7"></script>
+  <script src="src/js/bubblechart.js?v=3.7"></script>
+  <script src="src/js/donutchart.js?v=3.7"></script>
+  <script src="src/js/treemap.js?v=3.7"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=3.6">
+  <link rel="stylesheet" href="src/css/style.css?v=3.7">
 </head>
 
 <body>
@@ -223,7 +224,10 @@
       </div>
 
       <div id="tab2Content" class="tab-content">
-        <div id="bubble-chart-div" class="chart-div"></div>
+        <div class="chart-container"> <!-- Re-using existing class for layout -->
+          <div id="bubble-chart-div" class="chart-div"></div>
+          <div id="treemap-div" class="chart-div"></div>
+        </div>
       </div>
 
       <div id="tab3Content" class="tab-content">
@@ -501,7 +505,7 @@
     ];
     let currentDataSourceIndex = 2; // Start with v3 (index 2)
     let currentDataFile = dataSources[currentDataSourceIndex];
-    let currentSDG = 1; // default SDG (updated when user clicks an SDG icon)
+    let currentSDG = 10; // default SDG (updated when user clicks an SDG icon)
 
     let constants = {};
     let courseNameData = {}; // To store the course code to name mapping
@@ -532,6 +536,7 @@
       try {
         const response = await fetch('data/constants.json');
         constants = await response.json();
+        window.constants = constants; // Make constants globally available
         window.sdgNames = constants.sdgNames; // Make sdgNames globally available as before
       } catch (error) {
         console.error('Error loading constants:', error);
@@ -714,6 +719,9 @@
       } else if (vizTypeToDownload === 'donut') {
         targetDivId = '#donut-chart-div';
         chartNameForFile = 'university_profile_donut';
+      } else if (vizTypeToDownload === 'treemap') {
+        targetDivId = '#treemap-div';
+        chartNameForFile = 'sdg_treemap';
       } else {
         console.error(`Unknown vizType for download: ${vizTypeToDownload}`);
         return;
@@ -814,7 +822,11 @@
         // Optionally, also download lollipop if it's always paired
         // downloadPNG('lollipop'); 
       } else if (activeTabContent.id === 'tab2Content') {
-        downloadPNG('bubble');
+        if (currentChartType === 'treemap') {
+          downloadPNG('treemap');
+        } else {
+          downloadPNG('bubble');
+        }
       } else if (activeTabContent.id === 'tab3Content') {
         downloadPNG('donut');
       }
@@ -843,7 +855,9 @@
                 createLollipop(data, courseNameData);
                 if (!isCumulative) createHeatmap(data, false, courseNameData);
             } else if (activeTabContent.id === 'tab2Content') {
+                // Always create both charts for tab2
                 createBubbleChart(data, currentSDG, true); // Animate on data source change for bubble
+                createTreemap(data, courseNameData, currentSDG);
             } else if (activeTabContent.id === 'tab3Content') {
                 createDonutChart(data, true);
             }
@@ -891,7 +905,9 @@
                 createLollipop(data, courseNameData);
                 if (!isCumulative) createHeatmap(data, false, courseNameData);
               } else if (activeTabContent.id === 'tab2Content') {
-                createBubbleChart(data, currentSDG, false); // No animation on discipline change
+            // Always create both charts for tab2
+            createBubbleChart(data, currentSDG, false); // No animation on discipline change
+            createTreemap(data, courseNameData, currentSDG);
               } else if (activeTabContent.id === 'tab3Content') {
                 createDonutChart(data, false);
               }
@@ -1070,9 +1086,9 @@
         } else {
           // If bubble tab is already active, just reload its content
           loadData().then(data => {
+            // Always update both charts in tab2
             createBubbleChart(data, currentSDG, true); // Animate on SDG change
-            currentChartType = 'bubble'; // Ensure chart type is set
-            // handleResize(); // Adjust layout - REMOVED to prevent interruption of animation
+            createTreemap(data, courseNameData, currentSDG);
           });
         }
       });
@@ -1102,12 +1118,12 @@
           } else {
             // If bubble tab is already active, just reload its content
             loadData().then(data => {
-              createBubbleChart(data, currentSDG, true); // Animate on SDG change
-              currentChartType = 'bubble'; // Ensure chart type is set
-              // handleResize(); // Adjust layout - REMOVED to prevent interruption of animation
-            });
-          }
-        });
+            // Always update both charts in tab2
+            createBubbleChart(data, currentSDG, true); // Animate on SDG change
+            createTreemap(data, courseNameData, currentSDG);
+          });
+        }
+      });
       });
     }
 
@@ -1147,8 +1163,10 @@
             createLollipop(data, courseNameData);
             if (!isCumulative) createHeatmap(data, false, courseNameData);
           } else if (activeTabId === '#tab2Content') {
-            currentChartType = 'bubble'; // Update currentChartType for tab 2
+            // Always create both charts for tab2
             createBubbleChart(data, currentSDG, false);
+            createTreemap(data, courseNameData, currentSDG);
+            currentChartType = 'bubble'; // Keep for compatibility
           } else if (activeTabId === '#tab3Content') {
             currentChartType = 'donut';
             createDonutChart(data, false);
@@ -1175,6 +1193,16 @@
         // Pre-load other charts
         createBubbleChart(data, currentSDG, false);
         createDonutChart(data, false);
+        createTreemap(data, courseNameData, currentSDG);
+        
+        // Set initial active SDG icon
+        const topBarIcons = document.getElementById('sdgIconsList');
+        if (topBarIcons) {
+            const initialActiveIcon = topBarIcons.querySelector(`.sdg-icon-item[data-sdg="${currentSDG}"]`);
+            if (initialActiveIcon) {
+                initialActiveIcon.classList.add('active');
+            }
+        }
         
         adjustMainContentPadding();
         handleResize(); // Initial resize
@@ -1209,7 +1237,9 @@
           createLollipop(data, courseNameData);
            if (!isCumulative) createHeatmap(data, false, courseNameData);
         } else if (currentActiveTab.id === 'tab2Content') {
-          createBubbleChart(data, currentSDG, false);
+            // Always update both charts in tab2
+            createBubbleChart(data, currentSDG, false);
+            createTreemap(data, courseNameData, currentSDG);
         } else if (currentActiveTab.id === 'tab3Content') {
           createDonutChart(data, false);
         }
@@ -1221,6 +1251,7 @@
     window.addEventListener('resize', handleResize);
     window.addEventListener('load', adjustMainContentPadding); // Ensure padding is set on load too
 
+    // Button event listeners removed - both charts now display side-by-side
   </script>
 
   <script>
@@ -1256,7 +1287,11 @@
             createLollipop(data, courseNameData);
             if (!isCumulative) createHeatmap(data, false, courseNameData);
         } else if (currentActiveTab.id === 'tab2Content') {
-            createBubbleChart(data, currentSDG, false);
+            if (currentChartType === 'treemap') {
+                createTreemap(data, courseNameData, currentSDG);
+            } else {
+                createBubbleChart(data, currentSDG, false);
+            }
         } else if (currentActiveTab.id === 'tab3Content') {
             createDonutChart(data, false);
         }

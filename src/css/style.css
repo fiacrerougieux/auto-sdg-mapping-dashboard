@@ -218,7 +218,8 @@ body.dark-theme #plot-container-bottom {
 /* Ensure chart SVGs have correct background in dark mode */
 body.dark-theme #heatmap-div svg,
 body.dark-theme #bubble-chart-div svg,
-body.dark-theme #radar-div svg {
+body.dark-theme #radar-div svg,
+body.dark-theme #treemap-div svg {
     background-color: #0a0e17; /* Match dark theme body background */
 }
 
@@ -1609,6 +1610,28 @@ input:checked + .slider:before {
   height: 100%;
 }
 
+/* Side-by-side layout for tab2Content (bubble chart and treemap) */
+#tab2Content .chart-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+#tab2Content #bubble-chart-div {
+  flex: 1; /* Take available space */
+  width: 70%; /* Default width */
+  height: 100%;
+}
+#tab2Content #treemap-div {
+  width: 30%; /* Fixed width for treemap */
+  min-width: 300px; /* Ensure minimum width */
+  height: 100%;
+}
+
+/* Ensure both charts are always visible in tab2 */
+#tab2Content .chart-div {
+  display: block !important;
+}
+
 body.dark-theme .tabs-container {
   border-bottom-color: #2a3446;
 }
@@ -1624,4 +1647,43 @@ body.dark-theme .tab-button.active {
 
 body.dark-theme .tab-button:hover:not(.active) {
   color: #00e8ff;
+}
+
+.chart-controls {
+  padding: 5px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.chart-controls .viz-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.chart-controls .viz-button.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+body.dark-theme .chart-controls {
+    background-color: #1a2436;
+}
+
+body.dark-theme .chart-controls .viz-button {
+    background-color: #2a3446;
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-theme .chart-controls .viz-button.active {
+    background-color: #00a8c7;
+    border-color: #00a8c7;
+    color: #fff;
+}
+
+#tab2Content .chart-div {
+  height: calc(100% - 40px); /* Adjust height for controls */
 }

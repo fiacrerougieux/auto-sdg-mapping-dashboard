@@ -14,15 +14,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
   const width = containerElement.offsetWidth - margin.left - margin.right;
   const height = containerElement.offsetHeight - margin.top - margin.bottom;
 
-  const facultyColors = {
-    'ADA': '#2C3E50',
-    'BUSINESS': '#E74C3C',
-    'ENG': '#3498DB',
-    'LAW': '#8E44AD',
-    'MED': '#16A085',
-    'SCIENCE': '#27AE60',
-    'CANBERRA': '#F39C12'
-  };
+  const facultyColors = constants.facultyColors || {};
 
   // Build spec -> set of courses, and spec -> set of courses that address selected SDG
   const specCounts = {};

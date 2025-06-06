@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treemap Test</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #treemap-div {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Treemap Test</h1>
+    <p>This is a standalone test for the treemap functionality.</p>
+    
+    <div>
+        <button onclick="testTreemap()">Test Treemap</button>
+        <button onclick="clearTreemap()">Clear</button>
+    </div>
+    
+    <div id="treemap-div"></div>
+    
+    <script>
+        // Mock global variables
+        window.currentSDG = 1;
+        window.constants = {
+            facultyMapping: {
+                "COMP": "ENG",
+                "MATH": "SCIENCE", 
+                "PHYS": "SCIENCE",
+                "CHEM": "SCIENCE",
+                "BIOS": "SCIENCE",
+                "MECH": "ENG",
+                "ELEC": "ENG",
+                "ACCT": "BUSINESS",
+                "FINS": "BUSINESS",
+                "MGMT": "BUSINESS"
+            },
+            specializationNames: {
+                "COMP": "Computer Science",
+                "MATH": "Mathematics",
+                "PHYS": "Physics", 
+                "CHEM": "Chemistry",
+                "BIOS": "Biological Science",
+                "MECH": "Mechanical Engineering",
+                "ELEC": "Electrical Engineering",
+                "ACCT": "Accounting",
+                "FINS": "Finance",
+                "MGMT": "Management"
+            },
+            sdgNames: {
+                "1": "No Poverty",
+                "2": "Zero Hunger",
+                "3": "Good Health and Well-being"
+            }
+        };
+        
+        // Mock data
+        const mockData = [
+            {course_code: "COMP1511", sdg_number: 1, addressed: true},
+            {course_code: "COMP1521", sdg_number: 1, addressed: true},
+            {course_code: "COMP2521", sdg_number: 1, addressed: true},
+            {course_code: "MATH1131", sdg_number: 1, addressed: true},
+            {course_code: "MATH1231", sdg_number: 1, addressed: true},
+            {course_code: "PHYS1121", sdg_number: 1, addressed: true},
+            {course_code: "CHEM1011", sdg_number: 1, addressed: true},
+            {course_code: "BIOS1101", sdg_number: 1, addressed: true},
+            {course_code: "MECH1300", sdg_number: 1, addressed: true},
+            {course_code: "ELEC1111", sdg_number: 1, addressed: true},
+            {course_code: "ACCT1501", sdg_number: 1, addressed: true},
+            {course_code: "FINS1613", sdg_number: 1, addressed: true},
+            {course_code: "MGMT1001", sdg_number: 1, addressed: true}
+        ];
+        
+        const mockCourseNameData = {};
+        
+        function testTreemap() {
+            console.log('Testing treemap...');
+            createTreemap(mockData, mockCourseNameData);
+        }
+        
+        function clearTreemap() {
+            document.getElementById('treemap-div').innerHTML = '';
+        }
+    </script>
+    
+    <!-- Include the treemap function -->
+    <script src="src/js/treemap.js"></script>
+</body>
+</html>
