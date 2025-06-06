@@ -862,11 +862,8 @@
         const activeTabContent = document.querySelector('.tab-content.active');
         if (activeTabContent) {
             if (activeTabContent.id === 'tab1Content') {
-                const activeHeatmapType = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
-                const isCumulative = activeHeatmapType && activeHeatmapType.id === 'cumulativeBtn';
-                createHeatmap(data, isCumulative, courseNameData);
                 createLollipop(data, courseNameData);
-                if (!isCumulative) createHeatmap(data, false, courseNameData);
+                createHeatmap(data, false, courseNameData);
             } else if (activeTabContent.id === 'tab2Content') {
                 // Always create both charts for tab2
                 createBubbleChart(data, currentSDG, true); // Animate on data source change for bubble
@@ -908,17 +905,21 @@
         if (currentDiscipline !== selectedValue) {
           currentDiscipline = selectedValue;
           
-          // Switch to the "Specialisation Goals" tab
+          // Function to render the default view for Specialisation Goals
+          const renderSpecialisationView = () => {
+            loadData().then(data => {
+              createLollipop(data, courseNameData);
+              createHeatmap(data, false, courseNameData); // Always show normal heatmap after lollipop
+            });
+          };
+
+          // Switch to the "Specialisation Goals" tab if not already active
           const specialisationTabButton = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
           if (specialisationTabButton && !specialisationTabButton.classList.contains('active')) {
-            specialisationTabButton.click();
+            specialisationTabButton.click(); // The click handler will then call loadData and render the charts
           } else {
-            // If the tab is already active, just reload the data
-            loadData().then(data => {
-              const isCumulative = false; // Default to non-cumulative
-              createHeatmap(data, isCumulative, courseNameData);
-              createLollipop(data, courseNameData);
-            });
+            // If the tab is already active, just re-render our specific charts
+            renderSpecialisationView();
           }
         }
       }
@@ -1163,12 +1164,9 @@
         // Redraw charts in the newly active tab
         loadData().then(data => {
           if (activeTabId === '#tab1Content') {
-            const activeHeatmapTypeButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
-            const isCumulative = activeHeatmapTypeButton && activeHeatmapTypeButton.id === 'cumulativeBtn';
-            currentChartType = isCumulative ? 'cumulative' : 'heatmap'; // Update currentChartType for tab 1
-            createHeatmap(data, isCumulative, courseNameData);
+            currentChartType = 'heatmap'; // Default to normal heatmap on tab switch
             createLollipop(data, courseNameData);
-            if (!isCumulative) createHeatmap(data, false, courseNameData);
+            createHeatmap(data, false, courseNameData);
           } else if (activeTabId === '#tab2Content') {
             // Always create both charts for tab2
             createBubbleChart(data, currentSDG, false);
