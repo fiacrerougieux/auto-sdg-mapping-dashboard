@@ -277,3 +277,102 @@ function createTreemap(data, courseNameData, selectedSDG = 1) {
     }
   });
 }
+
+function createTargetTreemap(data) {
+  const treemapDiv = document.getElementById('treemap-by-target-div');
+  if (!treemapDiv) {
+    console.error('Target treemap div not found');
+    return;
+  }
+  treemapDiv.innerHTML = '';
+
+  const width = treemapDiv.clientWidth;
+  const height = treemapDiv.clientHeight;
+
+  if (width < 100 || height < 100) {
+    treemapDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Treemap area too small.</div>';
+    return;
+  }
+
+  const svg = d3.select(treemapDiv).append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+  if (!data || data.length === 0) {
+    svg.append("text").attr("x", width / 2).attr("y", height / 2).attr("text-anchor", "middle").text("No data for Target Treemap.");
+    return;
+  }
+
+  const addressedData = data.filter(d => d.addressed === true || d.addressed === 'yes');
+  
+  let hierarchy = { name: "All SDGs", children: [] };
+  const sdgMap = new Map();
+
+  addressedData.forEach(d => {
+    if (!d.target_number) return;
+
+    const sdgNode = sdgMap.get(d.sdg_number) || { name: `SDG ${d.sdg_number}: ${window.constants.sdgNames[d.sdg_number]}`, children: new Map() };
+    sdgMap.set(d.sdg_number, sdgNode);
+
+    const targetNode = sdgNode.children.get(d.target_number) || { name: `Target ${d.target_number}`, value: 0, courses: new Set() };
+    targetNode.courses.add(d.course_code);
+    targetNode.value = targetNode.courses.size;
+    sdgNode.children.set(d.target_number, targetNode);
+  });
+
+  sdgMap.forEach((sdgNode, sdgNumber) => {
+    const sdg = { name: sdgNode.name, children: [] };
+    sdgNode.children.forEach(targetNode => {
+      sdg.children.push(targetNode);
+    });
+    hierarchy.children.push(sdg);
+  });
+
+  const root = d3.hierarchy(hierarchy).sum(d => d.value);
+
+  d3.treemap()
+    .size([width, height])
+    .padding(1)
+    .paddingOuter(3)
+    (root);
+
+  const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+  const nodes = svg.selectAll("g")
+    .data(root.leaves())
+    .enter().append("g")
+      .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+  nodes.append("rect")
+    .attr("width", d => d.x1 - d.x0)
+    .attr("height", d => d.y1 - d.y0)
+    .attr("fill", d => color(d.parent.data.name))
+    .attr("stroke", "#fff");
+
+  nodes.append("text")
+    .selectAll("tspan")
+    .data(d => d.data.name.split(/(?=[A-Z][^A-Z])/g))
+    .enter().append("tspan")
+    .attr("x", 4)
+    .attr("y", (d, i) => 13 + i * 10)
+    .text(d => d)
+    .attr("font-size", "10px")
+    .attr("fill", "white");
+
+  let tooltip = d3.select("body").select(".target-treemap-tooltip");
+  if (tooltip.empty()) {
+    tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip target-treemap-tooltip")
+      .style("opacity", 0);
+  }
+
+  nodes.on("mouseover", (event, d) => {
+    tooltip.transition().duration(200).style("opacity", .9);
+    tooltip.html(`<strong>${d.parent.data.name}</strong><br/>${d.data.name}<br/>Courses: ${d.data.value}`)
+      .style("left", (event.pageX + 5) + "px")
+      .style("top", (event.pageY - 28) + "px");
+  })
+  .on("mouseout", () => {
+    tooltip.transition().duration(500).style("opacity", 0);
+  });
+}

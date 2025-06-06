@@ -9,13 +9,13 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="src/js/lollipop.js?v=3.7"></script>
-  <script src="src/js/heatmap.js?v=3.7"></script>
-  <script src="src/js/bubblechart.js?v=3.7"></script>
-  <script src="src/js/donutchart.js?v=3.7"></script>
-  <script src="src/js/treemap.js?v=3.7"></script>
+  <script src="src/js/lollipop.js?v=3.8"></script>
+  <script src="src/js/heatmap.js?v=3.8"></script>
+  <script src="src/js/bubblechart.js?v=3.8"></script>
+  <script src="src/js/donutchart.js?v=3.8"></script>
+  <script src="src/js/treemap.js?v=3.8"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=3.7">
+  <link rel="stylesheet" href="src/css/style.css?v=3.8">
 </head>
 
 <body>
@@ -105,9 +105,10 @@
         Explore the data using the main tabs:
       </p>
       <div class="modal-tabs-info">
-          <p><strong class="modal-link" onclick="switchToTab('#tab3Content')">University Profile:</strong> Get a high-level overview of SDG coverage across the entire university.</p>
-          <p><strong class="modal-link" onclick="switchToTab('#tab1Content')">SDG Coverage within Specialisation:</strong> Dive deep into how a specific specialisation addresses all SDGs.</p>
-          <p><strong class="modal-link" onclick="switchToTab('#tab2Content')">Percentage of Courses Covering SDGs:</strong> See the percentage of courses within each specialisation that cover a selected SDG.</p>
+          <p><strong class="modal-link" onclick="switchToTab('#tab3Content')">University Goals:</strong> Get a high-level overview of SDG coverage across the entire university.</p>
+          <p><strong class="modal-link" onclick="switchToTab('#tab4Content')">University Targets:</strong> Explore the university-wide breakdown of SDG coverage by specific targets.</p>
+          <p><strong class="modal-link" onclick="switchToTab('#tab1Content')">Specialisation Goals:</strong> Dive deep into how a specific specialisation addresses all SDGs.</p>
+          <p><strong class="modal-link" onclick="switchToTab('#tab2Content')">SDG Breakdown:</strong> See the percentage of courses within each specialisation that cover a selected SDG.</p>
       </div>
       <button onclick="hideWelcomeModal()">Get Started</button>
       <!-- Disclaimer Section (moved to modal) -->
@@ -206,13 +207,16 @@
     <div id="plot-container">
       <div class="tabs-container">
         <button class="tab-button" data-tab-target="#tab3Content">
-          <img src="assets/images/sdg_kg.png" alt="Bubble chart icon" class="tab-button-icon" /> University Profile
+          <img src="assets/images/sdg_kg.png" alt="Donut chart icon" class="tab-button-icon" /> University Goals
+        </button>
+        <button class="tab-button" data-tab-target="#tab4Content">
+          <img src="assets/images/sdg_kg.png" alt="Treemap icon" class="tab-button-icon" /> University Targets
         </button>
         <button class="tab-button active" data-tab-target="#tab1Content">
-          <img src="assets/svgs/heatmap.svg" alt="Heatmap icon" class="tab-button-icon" /> SDG Coverage within Specialisation
+          <img src="assets/svgs/heatmap.svg" alt="Heatmap icon" class="tab-button-icon" /> Specialisation Goals
         </button>
         <button class="tab-button" data-tab-target="#tab2Content">
-          <img src="assets/svgs/bubble-chart.svg" alt="Bubble chart icon" class="tab-button-icon" /> Percentage of Courses Covering SDGs
+          <img src="assets/svgs/bubble-chart.svg" alt="Bubble chart icon" class="tab-button-icon" /> SDG Breakdown
         </button>
       </div>
 
@@ -232,6 +236,10 @@
 
       <div id="tab3Content" class="tab-content">
         <div id="donut-chart-div" class="chart-div"></div>
+      </div>
+
+      <div id="tab4Content" class="tab-content">
+        <div id="treemap-by-target-div" class="chart-div"></div>
       </div>
     </div>
   </div>
@@ -722,6 +730,9 @@
       } else if (vizTypeToDownload === 'treemap') {
         targetDivId = '#treemap-div';
         chartNameForFile = 'sdg_treemap';
+      } else if (vizTypeToDownload === 'target-treemap') {
+        targetDivId = '#treemap-by-target-div';
+        chartNameForFile = 'university_targets_treemap';
       } else {
         console.error(`Unknown vizType for download: ${vizTypeToDownload}`);
         return;
@@ -829,6 +840,8 @@
         }
       } else if (activeTabContent.id === 'tab3Content') {
         downloadPNG('donut');
+      } else if (activeTabContent.id === 'tab4Content') {
+        downloadPNG('target-treemap');
       }
     }
     // Update event listener for the export button to download only the active plot
@@ -895,24 +908,18 @@
         if (currentDiscipline !== selectedValue) {
           currentDiscipline = selectedValue;
           
-          loadData().then(data => {
-            const activeTabContent = document.querySelector('.tab-content.active');
-            if (activeTabContent) {
-              if (activeTabContent.id === 'tab1Content') {
-                const activeHeatmapType = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
-                const isCumulative = activeHeatmapType && activeHeatmapType.id === 'cumulativeBtn';
-                createHeatmap(data, isCumulative, courseNameData);
-                createLollipop(data, courseNameData);
-                if (!isCumulative) createHeatmap(data, false, courseNameData);
-              } else if (activeTabContent.id === 'tab2Content') {
-            // Always create both charts for tab2
-            createBubbleChart(data, currentSDG, false); // No animation on discipline change
-            createTreemap(data, courseNameData, currentSDG);
-              } else if (activeTabContent.id === 'tab3Content') {
-                createDonutChart(data, false);
-              }
-            }
-          });
+          // Switch to the "Specialisation Goals" tab
+          const specialisationTabButton = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
+          if (specialisationTabButton && !specialisationTabButton.classList.contains('active')) {
+            specialisationTabButton.click();
+          } else {
+            // If the tab is already active, just reload the data
+            loadData().then(data => {
+              const isCumulative = false; // Default to non-cumulative
+              createHeatmap(data, isCumulative, courseNameData);
+              createLollipop(data, courseNameData);
+            });
+          }
         }
       }
       // ... (rest of existing setupDisciplineSearch logic for focus, input, document click)
@@ -1170,6 +1177,9 @@
           } else if (activeTabId === '#tab3Content') {
             currentChartType = 'donut';
             createDonutChart(data, false);
+          } else if (activeTabId === '#tab4Content') {
+            currentChartType = 'target-treemap';
+            createTargetTreemap(data);
           }
           handleResize(); // Adjust layout/size
         });
@@ -1194,6 +1204,7 @@
         createBubbleChart(data, currentSDG, false);
         createDonutChart(data, false);
         createTreemap(data, courseNameData, currentSDG);
+        createTargetTreemap(data);
         
         // Set initial active SDG icon
         const topBarIcons = document.getElementById('sdgIconsList');
@@ -1242,6 +1253,8 @@
             createTreemap(data, courseNameData, currentSDG);
         } else if (currentActiveTab.id === 'tab3Content') {
           createDonutChart(data, false);
+        } else if (currentActiveTab.id === 'tab4Content') {
+          createTargetTreemap(data);
         }
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
@@ -1294,6 +1307,8 @@
             }
         } else if (currentActiveTab.id === 'tab3Content') {
             createDonutChart(data, false);
+        } else if (currentActiveTab.id === 'tab4Content') {
+            createTargetTreemap(data);
         }
       }).catch(error => {
         console.error("Error reloading data after theme change:", error);
