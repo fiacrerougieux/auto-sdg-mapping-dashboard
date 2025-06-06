@@ -9,11 +9,12 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="src/js/lollipop.js?v=3.5"></script>
-  <script src="src/js/heatmap.js?v=3.5"></script>
-  <script src="src/js/bubblechart.js?v=3.5"></script>
+  <script src="src/js/lollipop.js?v=3.6"></script>
+  <script src="src/js/heatmap.js?v=3.6"></script>
+  <script src="src/js/bubblechart.js?v=3.6"></script>
+  <script src="src/js/donutchart.js?v=3.6"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=3.5">
+  <link rel="stylesheet" href="src/css/style.css?v=3.6">
 </head>
 
 <body>
@@ -100,8 +101,13 @@
         </div>
       </div>
       <p>
-        Use the sidebar to visualisation types.
+        Explore the data using the main tabs:
       </p>
+      <div class="modal-tabs-info">
+          <p><strong class="modal-link" onclick="switchToTab('#tab3Content')">University Profile:</strong> Get a high-level overview of SDG coverage across the entire university.</p>
+          <p><strong class="modal-link" onclick="switchToTab('#tab1Content')">SDG Coverage within Specialisation:</strong> Dive deep into how a specific specialisation addresses all SDGs.</p>
+          <p><strong class="modal-link" onclick="switchToTab('#tab2Content')">Percentage of Courses Covering SDGs:</strong> See the percentage of courses within each specialisation that cover a selected SDG.</p>
+      </div>
       <button onclick="hideWelcomeModal()">Get Started</button>
       <!-- Disclaimer Section (moved to modal) -->
       <div class="modal-disclaimer-content">
@@ -198,6 +204,9 @@
     <!-- Plot Area -->
     <div id="plot-container">
       <div class="tabs-container">
+        <button class="tab-button" data-tab-target="#tab3Content">
+          <img src="assets/images/sdg_kg.png" alt="Bubble chart icon" class="tab-button-icon" /> University Profile
+        </button>
         <button class="tab-button active" data-tab-target="#tab1Content">
           <img src="assets/svgs/heatmap.svg" alt="Heatmap icon" class="tab-button-icon" /> SDG Coverage within Specialisation
         </button>
@@ -215,6 +224,10 @@
 
       <div id="tab2Content" class="tab-content">
         <div id="bubble-chart-div" class="chart-div"></div>
+      </div>
+
+      <div id="tab3Content" class="tab-content">
+        <div id="donut-chart-div" class="chart-div"></div>
       </div>
     </div>
   </div>
@@ -342,6 +355,14 @@
       setTimeout(() => {
         modal.style.display = 'none';
       }, 300);
+    }
+
+    function switchToTab(tabId) {
+      const tabButton = document.querySelector(`.tab-button[data-tab-target="${tabId}"]`);
+      if (tabButton) {
+        tabButton.click();
+      }
+      hideWelcomeModal();
     }
 
     // Show the modal once DOM content has loaded
@@ -690,6 +711,9 @@
       } else if (vizTypeToDownload === 'lollipop') { // Explicitly 'lollipop'
         targetDivId = '#radar-div'; // Lollipop is in radar-div
         chartNameForFile = 'sdg_lollipop';
+      } else if (vizTypeToDownload === 'donut') {
+        targetDivId = '#donut-chart-div';
+        chartNameForFile = 'university_profile_donut';
       } else {
         console.error(`Unknown vizType for download: ${vizTypeToDownload}`);
         return;
@@ -791,6 +815,8 @@
         // downloadPNG('lollipop'); 
       } else if (activeTabContent.id === 'tab2Content') {
         downloadPNG('bubble');
+      } else if (activeTabContent.id === 'tab3Content') {
+        downloadPNG('donut');
       }
     }
     // Update event listener for the export button to download only the active plot
@@ -818,6 +844,8 @@
                 if (!isCumulative) createHeatmap(data, false, courseNameData);
             } else if (activeTabContent.id === 'tab2Content') {
                 createBubbleChart(data, currentSDG, true); // Animate on data source change for bubble
+            } else if (activeTabContent.id === 'tab3Content') {
+                createDonutChart(data, true);
             }
         }
       });
@@ -864,6 +892,8 @@
                 if (!isCumulative) createHeatmap(data, false, courseNameData);
               } else if (activeTabContent.id === 'tab2Content') {
                 createBubbleChart(data, currentSDG, false); // No animation on discipline change
+              } else if (activeTabContent.id === 'tab3Content') {
+                createDonutChart(data, false);
               }
             }
           });
@@ -1119,6 +1149,9 @@
           } else if (activeTabId === '#tab2Content') {
             currentChartType = 'bubble'; // Update currentChartType for tab 2
             createBubbleChart(data, currentSDG, false);
+          } else if (activeTabId === '#tab3Content') {
+            currentChartType = 'donut';
+            createDonutChart(data, false);
           }
           handleResize(); // Adjust layout/size
         });
@@ -1136,15 +1169,12 @@
         activeTabId = '#tab1Content';
         currentChartType = 'heatmap'; // Initial chart type for tab 1
 
-        const heatmapBtn = document.querySelector('#bottom-bar .visualisation-icons #heatmapBtn');
-        if(heatmapBtn) heatmapBtn.classList.add('active'); // Set heatmap button active
-
         createHeatmap(data, false, courseNameData);
         createLollipop(data, courseNameData);
-        createHeatmap(data, false, courseNameData); 
 
-        // Pre-load Bubble Chart in Tab 2 (it's hidden but ready)
+        // Pre-load other charts
         createBubbleChart(data, currentSDG, false);
+        createDonutChart(data, false);
         
         adjustMainContentPadding();
         handleResize(); // Initial resize
@@ -1180,6 +1210,8 @@
            if (!isCumulative) createHeatmap(data, false, courseNameData);
         } else if (currentActiveTab.id === 'tab2Content') {
           createBubbleChart(data, currentSDG, false);
+        } else if (currentActiveTab.id === 'tab3Content') {
+          createDonutChart(data, false);
         }
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
@@ -1225,6 +1257,8 @@
             if (!isCumulative) createHeatmap(data, false, courseNameData);
         } else if (currentActiveTab.id === 'tab2Content') {
             createBubbleChart(data, currentSDG, false);
+        } else if (currentActiveTab.id === 'tab3Content') {
+            createDonutChart(data, false);
         }
       }).catch(error => {
         console.error("Error reloading data after theme change:", error);
