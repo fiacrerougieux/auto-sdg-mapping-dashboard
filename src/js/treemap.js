@@ -146,7 +146,10 @@ function createTreemap(data, courseNameData, selectedSDG = 1) {
   nodes.append("rect")
     .attr("width", d => Math.max(0, d.x1 - d.x0))
     .attr("height", d => Math.max(0, d.y1 - d.y0))
-    .attr("fill", d => color(d.parent.data.code) || '#999999')
+    .attr("fill", d => {
+        // Use SDG color for the selected SDG
+        return window.constants.sdgColors[selectedSDG] || color(d.parent.data.code) || '#999999';
+    })
     .attr("stroke", "#fff")
     .attr("stroke-width", 1)
     .style("cursor", "pointer");
@@ -346,7 +349,20 @@ function createTargetTreemap(data) {
   nodes.append("rect")
     .attr("width", d => d.x1 - d.x0)
     .attr("height", d => d.y1 - d.y0)
-    .attr("fill", d => color(d.parent.data.name))
+    .attr("fill", d => {
+        // Traverse up to find the SDG number from the ancestor node
+        let ancestor = d;
+        let sdgNumber = null;
+        while (ancestor.parent) {
+            const match = ancestor.parent.data.name.match(/^SDG (\d+)/);
+            if (match) {
+                sdgNumber = parseInt(match[1], 10);
+                break;
+            }
+            ancestor = ancestor.parent;
+        }
+        return sdgNumber ? window.constants.sdgColors[sdgNumber] : color(d.parent.data.name);
+    })
     .attr("stroke", "#fff");
 
   nodes.append("text")
@@ -369,6 +385,166 @@ function createTargetTreemap(data) {
   nodes.on("mouseover", (event, d) => {
     tooltip.transition().duration(200).style("opacity", .9);
     tooltip.html(`<strong>${d.parent.data.name}</strong><br/>${d.data.name}<br/>Courses: ${d.data.value}`)
+      .style("left", (event.pageX + 5) + "px")
+      .style("top", (event.pageY - 28) + "px");
+  })
+  .on("mouseout", () => {
+    tooltip.transition().duration(500).style("opacity", 0);
+  });
+}
+
+function createSpecialisationTargetTreemap(data) {
+  const treemapDiv = document.getElementById('treemap-by-specialisation-target-div');
+  if (!treemapDiv) {
+    console.error('Specialisation target treemap div not found');
+    return;
+  }
+  treemapDiv.innerHTML = '';
+
+  const width = treemapDiv.clientWidth;
+  const height = treemapDiv.clientHeight;
+
+  if (width < 100 || height < 100) {
+    treemapDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Treemap area too small.</div>';
+    return;
+  }
+
+  const svg = d3.select(treemapDiv).append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+  if (!data || data.length === 0) {
+    svg.append("text").attr("x", width / 2).attr("y", height / 2).attr("text-anchor", "middle").text("No data for Specialisation Target Treemap.");
+    return;
+  }
+
+  const filteredData = filterDataByDiscipline(data, currentDiscipline);
+  const addressedData = filteredData.filter(d => d.addressed === true || d.addressed === 'yes');
+  
+  if (addressedData.length === 0) {
+    svg.append("text").attr("x", width / 2).attr("y", height / 2).attr("text-anchor", "middle").text(`No targets addressed for ${constants.specializationNames[currentDiscipline] || currentDiscipline}`);
+    return;
+  }
+
+  let hierarchy = { name: "All SDGs", children: [] };
+  const sdgMap = new Map();
+
+  addressedData.forEach(d => {
+    if (!d.target_number) return;
+
+    const sdgNode = sdgMap.get(d.sdg_number) || { name: `SDG ${d.sdg_number}: ${window.constants.sdgNames[d.sdg_number]}`, children: new Map() };
+    sdgMap.set(d.sdg_number, sdgNode);
+
+    const targetNode = sdgNode.children.get(d.target_number) || { name: `Target ${d.target_number}: ${d.target_name}`, children: new Map() };
+    sdgNode.children.set(d.target_number, targetNode);
+
+    const courseNode = targetNode.children.get(d.course_code) || { name: d.course_code, value: 1 };
+    targetNode.children.set(d.course_code, courseNode);
+  });
+
+  sdgMap.forEach((sdgNode, sdgNumber) => {
+    const sdg = { name: sdgNode.name, children: [] };
+    sdgNode.children.forEach(targetNode => {
+      const target = { name: targetNode.name, children: [] };
+      targetNode.children.forEach(courseNode => {
+        target.children.push(courseNode);
+      });
+      sdg.children.push(target);
+    });
+    hierarchy.children.push(sdg);
+  });
+
+  const root = d3.hierarchy(hierarchy).sum(d => d.value);
+
+  d3.treemap()
+    .size([width, height])
+    .padding(1)
+    .paddingOuter(3)
+    (root);
+
+  const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+
+  const nodes = svg.selectAll("g")
+    .data(root.leaves())
+    .enter().append("g")
+      .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+  nodes.append("rect")
+    .attr("width", d => d.x1 - d.x0)
+    .attr("height", d => d.y1 - d.y0)
+    .attr("fill", d => {
+        // Traverse up to find the SDG number from the ancestor node
+        let ancestor = d;
+        let sdgNumber = null;
+        while (ancestor.parent) {
+            const match = ancestor.parent.data.name.match(/^SDG (\d+)/);
+            if (match) {
+                sdgNumber = parseInt(match[1], 10);
+                break;
+            }
+            ancestor = ancestor.parent;
+        }
+        return sdgNumber ? window.constants.sdgColors[sdgNumber] : color(d.parent.data.name);
+    })
+    .attr("stroke", "#fff");
+
+  nodes.append("text")
+    .attr("fill", "white")
+    .each(function(d) {
+        const text = d3.select(this);
+        const courseName = d.data.name;
+        const targetName = d.parent.data.name.split(':')[0]; // e.g., "Target 1.1"
+        
+        const rectHeight = d.y1 - d.y0;
+        const rectWidth = d.x1 - d.x0;
+
+        // Only render text if the box is big enough
+        if (rectWidth < 30 || rectHeight < 20) return;
+
+        // Render course code, split if needed
+        const courseParts = courseName.split(/(?=[A-Z][^A-Z])/g);
+        let yOffset = 13;
+
+        courseParts.forEach((part, i) => {
+            if (yOffset < rectHeight - 5) {
+                text.append("tspan")
+                    .attr("x", 4)
+                    .attr("y", yOffset)
+                    .text(part)
+                    .attr("font-size", "10px");
+                yOffset += 10;
+            }
+        });
+
+        // Render target name on a new line if there is space
+        if (yOffset < rectHeight - 5) {
+            text.append("tspan")
+                .attr("x", 4)
+                .attr("y", yOffset)
+                .text(`(${targetName})`)
+                .attr("font-size", "9px");
+        }
+    });
+
+  let tooltip = d3.select("body").select(".target-treemap-tooltip");
+  if (tooltip.empty()) {
+    tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip target-treemap-tooltip")
+      .style("opacity", 0);
+  }
+
+  nodes.on("mouseover", (event, d) => {
+    tooltip.transition().duration(200).style("opacity", .9);
+    const courseName = window.constants.courseCodeNameMapping[d.data.name] || 'Unknown Course';
+    let html = `<strong>${d.data.name}</strong>: ${courseName}`;
+    if(d.parent) {
+        html = `<strong>${d.parent.data.name}</strong><br/>${html}`;
+        if(d.parent.parent) {
+            html = `<strong>${d.parent.parent.data.name}</strong><br/>${html}`;
+        }
+    }
+    tooltip.html(html)
       .style("left", (event.pageX + 5) + "px")
       .style("top", (event.pageY - 28) + "px");
   })

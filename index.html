@@ -9,13 +9,13 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="src/js/lollipop.js?v=3.9"></script>
-  <script src="src/js/heatmap.js?v=3.9"></script>
-  <script src="src/js/bubblechart.js?v=3.9"></script>
-  <script src="src/js/donutchart.js?v=3.9"></script>
-  <script src="src/js/treemap.js?v=3.9"></script>
+  <script src="src/js/lollipop.js?v=4.1"></script>
+  <script src="src/js/heatmap.js?v=4.1"></script>
+  <script src="src/js/bubblechart.js?v=4.1"></script>
+  <script src="src/js/donutchart.js?v=4.1"></script>
+  <script src="src/js/treemap.js?v=4.1"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=3.9">
+  <link rel="stylesheet" href="src/css/style.css?v=4.1">
 </head>
 
 <body>
@@ -24,111 +24,72 @@
   <!-- INTRO MODAL (Explainer) -->
   <div class="modal-overlay" id="welcomeModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="hideWelcomeModal()">&times;</button>
-      <h2>Welcome to the SDG Analysis Dashboard</h2>
-      <p style="color: orange; font-weight: bold;">
-        Warning: This tool (v3) is conservative and tends to underestimate SDG coverage. It is optimised for high precision at the expense of recall. Versions v1 and v2 offer higher recall but lower precision. Please read full disclaimer below for more information regarding limitation.
-      </p>
-      <p>
-        This tool allows you to explore how university courses map to the UN Sustainable Development Goals (SDGs).
-        Search for a specialisation in the search field or here:
-      </p>
-      <!-- Faculty Icons Removed -->
-      <!-- Add Search Bar Here -->
-      <div class="search-container" id="modal-search-container" style="margin: 15px auto; width: 80%;"> <!-- Added inline style for spacing/width -->
-        <input type="text" id="modalDisciplineSearch" placeholder="Search specialisations..." class="search-input">
-        <div id="modalDisciplineDropdown" class="dropdown-content">
-          <!-- Populated by JS if needed -->
-        </div>
+      <div class="modal-header">
+        <h2>Welcome to the SDG Analysis Dashboard</h2>
+        <button class="close-modal" onclick="hideWelcomeModal()">&times;</button>
       </div>
-      <p>
-        <strong>Or select an SDG</strong> on the top bar or below to view coverage across all specialisations (the "bubble chart"):
-      </p>
-      <div class="modal-sdg-icons">
-        <div class="sdg-icons-list" id="modalSdgIconsList">
-          <div class="sdg-icon-item" data-sdg="1">
-            <img src="assets/images/logo/E Inverted Icons_WEB-01.png" alt="SDG 1 - No Poverty" />
+      <div class="modal-body">
+        <div class="modal-intro-text">
+          <p>This interactive dashboard helps you explore how university courses map to the UN Sustainable Development Goals (SDGs). You can start by exploring the different tabs, searching for a specialisation, or selecting an SDG.</p>
+          <p class="modal-warning">
+            <strong>Note:</strong> The default analysis (v3) is conservative and optimized for high precision, which may result in underestimating SDG coverage. Use the version toggle for different perspectives.
+          </p>
+        </div>
+
+        <div class="modal-main-actions">
+          <div class="modal-action-card">
+            <h3><span class="card-icon">🏛️</span>Explore by View</h3>
+            <p>Use the main tabs to see different perspectives of the data.</p>
+            <div class="modal-tabs-info">
+              <button class="modal-link" onclick="switchToTab('#tab3Content')"><strong>University Goals</strong><br>High-level overview across the university.</button>
+              <button class="modal-link" onclick="switchToTab('#tab4Content')"><strong>University Targets</strong><br>Coverage by specific SDG targets.</button>
+              <button class="modal-link" onclick="switchToTab('#tab1Content')"><strong>Specialisation Goals</strong><br>Deep dive into a specific specialisation.</button>
+              <button class="modal-link" onclick="switchToTab('#tab5Content')"><strong>Specialisation Targets</strong><br>Target breakdown for a specialisation.</button>
+              <button class="modal-link" onclick="switchToTab('#tab2Content')"><strong>SDG Breakdown</strong><br>Coverage for a selected SDG.</button>
+            </div>
           </div>
-          <div class="sdg-icon-item" data-sdg="2">
-            <img src="assets/images/logo/E Inverted Icons_WEB-02.png" alt="SDG 2 - Zero Hunger" />
+          <div class="modal-action-card">
+            <h3><span class="card-icon">🔍</span>Find a Specialisation</h3>
+            <p>Jump directly to the analysis for a specific area of study.</p>
+            <div class="search-container" id="modal-search-container">
+              <input type="text" id="modalDisciplineSearch" placeholder="Search specialisations..." class="search-input">
+              <div id="modalDisciplineDropdown" class="dropdown-content"></div>
+            </div>
           </div>
-          <div class="sdg-icon-item" data-sdg="3">
-            <img src="assets/images/logo/E Inverted Icons_WEB-03.png" alt="SDG 3 - Good Health" />
-          </div>
-          <!-- Quality Education icon hidden as requested
-          <div class="sdg-icon-item" data-sdg="4">
-            <img src="assets/images/logo/E Inverted Icons_WEB-04.png" alt="SDG 4 - Quality Education" />
-          </div>
-          -->
-          <div class="sdg-icon-item" data-sdg="5">
-            <img src="assets/images/logo/E Inverted Icons_WEB-05.png" alt="SDG 5 - Gender Equality" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="6">
-            <img src="assets/images/logo/E Inverted Icons_WEB-06.png" alt="SDG 6 - Clean Water" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="7">
-            <img src="assets/images/logo/E Inverted Icons_WEB-07.png" alt="SDG 7 - Clean Energy" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="8">
-            <img src="assets/images/logo/E Inverted Icons_WEB-08.png" alt="SDG 8 - Decent Work" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="9">
-            <img src="assets/images/logo/E Inverted Icons_WEB-09.png" alt="SDG 9 - Industry & Innovation" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="10">
-            <img src="assets/images/logo/E Inverted Icons_WEB-10.png" alt="SDG 10 - Reduced Inequalities" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="11">
-            <img src="assets/images/logo/E Inverted Icons_WEB-11.png" alt="SDG 11 - Sustainable Cities" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="12">
-            <img src="assets/images/logo/E Inverted Icons_WEB-12.png" alt="SDG 12 - Responsible Production" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="13">
-            <img src="assets/images/logo/E Inverted Icons_WEB-13.png" alt="SDG 13 - Climate Action" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="14">
-            <img src="assets/images/logo/E Inverted Icons_WEB-14.png" alt="SDG 14 - Life Below Water" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="15">
-            <img src="assets/images/logo/E Inverted Icons_WEB-15.png" alt="SDG 15 - Life on Land" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="16">
-            <img src="assets/images/logo/E Inverted Icons_WEB-16.png" alt="SDG 16 - Peace and Justice" />
-          </div>
-          <div class="sdg-icon-item" data-sdg="17">
-            <img src="assets/images/logo/E Inverted Icons_WEB-17.png" alt="SDG 17 - Partnerships" />
+          <div class="modal-action-card">
+            <h3><span class="card-icon">🎯</span>Select an SDG</h3>
+            <p>See how a specific SDG is covered across all specialisations.</p>
+            <div class="modal-sdg-icons">
+              <div class="sdg-icons-list" id="modalSdgIconsList">
+                <!-- SDG Icons will be populated here by JS -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <p>
-        Explore the data using the main tabs:
-      </p>
-      <div class="modal-tabs-info">
-          <p><strong class="modal-link" onclick="switchToTab('#tab3Content')">University Goals:</strong> Get a high-level overview of SDG coverage across the entire university.</p>
-          <p><strong class="modal-link" onclick="switchToTab('#tab4Content')">University Targets:</strong> Explore the university-wide breakdown of SDG coverage by specific targets.</p>
-          <p><strong class="modal-link" onclick="switchToTab('#tab1Content')">Specialisation Goals:</strong> Dive deep into how a specific specialisation addresses all SDGs.</p>
-          <p><strong class="modal-link" onclick="switchToTab('#tab2Content')">SDG Breakdown:</strong> See the percentage of courses within each specialisation that cover a selected SDG.</p>
-      </div>
-      <button onclick="hideWelcomeModal()">Get Started</button>
-      <!-- Disclaimer Section (moved to modal) -->
-      <div class="modal-disclaimer-content">
-        <p>
-          This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
-          (SDGs) across courses. Please note:
-        </p>
-        <ul>
-          <li>This dashboard is provided "as is" and "as available" without any warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We make no guarantee regarding the accuracy, completeness, or reliability of the data or visualizations presented herein.</li>
-          <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
-          <li>The mapping is likely incomplete and may contain inaccuracies</li>
-          <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
-          <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
-          <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes
-          </li>
-          <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum
-            mapping initiatives</li>
-          <li>We intend this mapping to be a genuine tool for strategic transformation and curriculum enhancement, not a reporting tool. We hope this tool helps bring meaningful transformation of our educational programs.</li>
-        </ul>
+      <div class="modal-footer">
+        <div class="modal-disclaimer">
+          <details>
+            <summary>Disclaimer & Limitations</summary>
+            <div class="modal-disclaimer-content">
+              <p>
+                This visualization represents a high-level, automated mapping of UN Sustainable Development Goals
+                (SDGs) across courses. Please note:
+              </p>
+              <ul>
+                <li>This dashboard is provided "as is" and "as available" without any warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We make no guarantee regarding the accuracy, completeness, or reliability of the data or visualizations presented herein.</li>
+                <li>This is an automated, preliminary analysis based solely on publicly available course information</li>
+                <li>The mapping is likely incomplete and may contain inaccuracies</li>
+                <li>Many course activities, assessments, and learning outcomes that address SDGs may not be captured</li>
+                <li>This tool is not intended to replace detailed curriculum mapping efforts</li>
+                <li>This visualization serves as a broad overview to complement more comprehensive manual assessment processes</li>
+                <li>For accurate, detailed SDG mapping, please refer to official course documentation and detailed curriculum mapping initiatives</li>
+                <li>We intend this mapping to be a genuine tool for strategic transformation and curriculum enhancement, not a reporting tool. We hope this tool helps bring meaningful transformation of our educational programs.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+        <button class="modal-get-started-btn" onclick="hideWelcomeModal()">Get Started</button>
       </div>
     </div>
   </div>
@@ -215,6 +176,9 @@
         <button class="tab-button active" data-tab-target="#tab1Content">
           <img src="assets/svgs/heatmap.svg" alt="Heatmap icon" class="tab-button-icon" /> Specialisation Goals
         </button>
+        <button class="tab-button" data-tab-target="#tab5Content">
+          <img src="assets/images/sdg_kg.png" alt="Treemap icon" class="tab-button-icon" /> Specialisation Targets
+        </button>
         <button class="tab-button" data-tab-target="#tab2Content">
           <img src="assets/svgs/bubble-chart.svg" alt="Bubble chart icon" class="tab-button-icon" /> SDG Breakdown
         </button>
@@ -240,6 +204,10 @@
 
       <div id="tab4Content" class="tab-content">
         <div id="treemap-by-target-div" class="chart-div"></div>
+      </div>
+
+      <div id="tab5Content" class="tab-content">
+        <div id="treemap-by-specialisation-target-div" class="chart-div"></div>
       </div>
     </div>
   </div>
@@ -913,13 +881,23 @@
             });
           };
 
-          // Switch to the "Specialisation Goals" tab if not already active
-          const specialisationTabButton = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
-          if (specialisationTabButton && !specialisationTabButton.classList.contains('active')) {
-            specialisationTabButton.click(); // The click handler will then call loadData and render the charts
+          // If we are on the "Specialisation Targets" tab, just update it.
+          if (activeTabId === '#tab5Content') {
+            loadData().then(data => {
+              createSpecialisationTargetTreemap(data);
+            });
           } else {
-            // If the tab is already active, just re-render our specific charts
-            renderSpecialisationView();
+            // Otherwise, switch to the "Specialisation Goals" tab
+            const specialisationTabButton = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
+            if (specialisationTabButton && !specialisationTabButton.classList.contains('active')) {
+              specialisationTabButton.click(); // This will trigger the redraw
+            } else {
+              // If already on the Specialisation Goals tab, just redraw it
+              loadData().then(data => {
+                createLollipop(data, courseNameData);
+                createHeatmap(data, false, courseNameData);
+              });
+            }
           }
         }
       }
@@ -1102,37 +1080,58 @@
       });
     });
 
+    function populateSdgIcons(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = ''; // Clear existing icons
+
+      for (let i = 1; i <= 17; i++) {
+        if (i === 4) continue; // Skip SDG 4
+
+        const iconItem = document.createElement('div');
+        iconItem.className = 'sdg-icon-item';
+        iconItem.setAttribute('data-sdg', i);
+
+        const img = document.createElement('img');
+        const imgNumber = i.toString().padStart(2, '0');
+        img.src = `assets/images/logo/E Inverted Icons_WEB-${imgNumber}.png`;
+        img.alt = `SDG ${i} - ${constants.sdgNames[i] || 'Unknown'}`;
+        iconItem.appendChild(img);
+
+        container.appendChild(iconItem);
+      }
+    }
+    
     const modalSdgIconsList = document.getElementById('modalSdgIconsList');
     if (modalSdgIconsList) {
-      modalSdgIconsList.querySelectorAll('.sdg-icon-item').forEach(item => {
-        item.addEventListener('click', function () {
-          const clickedSDG = parseInt(this.getAttribute('data-sdg')) || 1;
-          currentSDG = clickedSDG;
+        modalSdgIconsList.addEventListener('click', function (event) {
+            const iconItem = event.target.closest('.sdg-icon-item');
+            if (!iconItem) return;
 
-          const topBarIcons = document.getElementById('sdgIconsList');
-          if (topBarIcons) {
-            topBarIcons.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
-            const correspondingTopBarIcon = topBarIcons.querySelector(`.sdg-icon-item[data-sdg="${clickedSDG}"]`);
-            if (correspondingTopBarIcon) correspondingTopBarIcon.classList.add('active');
-          }
-          
-          hideWelcomeModal();
-          
-          const bubbleTabButton = document.querySelector('.tab-button[data-tab-target="#tab2Content"]');
-          const isBubbleTabActive = bubbleTabButton.classList.contains('active');
+            const clickedSDG = parseInt(iconItem.getAttribute('data-sdg')) || 1;
+            currentSDG = clickedSDG;
 
-          if (!isBubbleTabActive) {
-            bubbleTabButton.click(); // This will trigger the tab switch and chart creation
-          } else {
-            // If bubble tab is already active, just reload its content
-            loadData().then(data => {
-            // Always update both charts in tab2
-            createBubbleChart(data, currentSDG, true); // Animate on SDG change
-            createTreemap(data, courseNameData, currentSDG);
-          });
-        }
-      });
-      });
+            // Update top bar icon state
+            const topBarIcons = document.getElementById('sdgIconsList');
+            if (topBarIcons) {
+                topBarIcons.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
+                const correspondingTopBarIcon = topBarIcons.querySelector(`.sdg-icon-item[data-sdg="${clickedSDG}"]`);
+                if (correspondingTopBarIcon) correspondingTopBarIcon.classList.add('active');
+            }
+
+            hideWelcomeModal();
+
+            // Switch to or update the SDG Breakdown tab
+            const bubbleTabButton = document.querySelector('.tab-button[data-tab-target="#tab2Content"]');
+            if (!bubbleTabButton.classList.contains('active')) {
+                bubbleTabButton.click();
+            } else {
+                loadData().then(data => {
+                    createBubbleChart(data, currentSDG, true);
+                    createTreemap(data, courseNameData, currentSDG);
+                });
+            }
+        });
     }
 
     function updateBottomBarVersions() {
@@ -1178,6 +1177,9 @@
           } else if (activeTabId === '#tab4Content') {
             currentChartType = 'target-treemap';
             createTargetTreemap(data);
+          } else if (activeTabId === '#tab5Content') {
+            currentChartType = 'specialisation-target-treemap';
+            createSpecialisationTargetTreemap(data);
           }
           handleResize(); // Adjust layout/size
         });
@@ -1188,6 +1190,9 @@
     Promise.all([loadConstants(), loadCourseNameMapping()]).then(() => {
       loadData().then(data => {
         updateCourseCount(data);
+
+        // Populate SDG icons in the modal
+        populateSdgIcons('modalSdgIconsList');
 
         // Default to Tab 1 (Heatmap & Lollipop)
         document.querySelector('.tab-button[data-tab-target="#tab1Content"]').classList.add('active');
@@ -1203,6 +1208,7 @@
         createDonutChart(data, false);
         createTreemap(data, courseNameData, currentSDG);
         createTargetTreemap(data);
+        createSpecialisationTargetTreemap(data);
         
         // Set initial active SDG icon
         const topBarIcons = document.getElementById('sdgIconsList');
@@ -1253,6 +1259,8 @@
           createDonutChart(data, false);
         } else if (currentActiveTab.id === 'tab4Content') {
           createTargetTreemap(data);
+        } else if (currentActiveTab.id === 'tab5Content') {
+          createSpecialisationTargetTreemap(data);
         }
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
@@ -1307,6 +1315,8 @@
             createDonutChart(data, false);
         } else if (currentActiveTab.id === 'tab4Content') {
             createTargetTreemap(data);
+        } else if (currentActiveTab.id === 'tab5Content') {
+            createSpecialisationTargetTreemap(data);
         }
       }).catch(error => {
         console.error("Error reloading data after theme change:", error);

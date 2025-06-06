@@ -6,37 +6,50 @@ This interactive dashboard visualizes the coverage of UN Sustainable Development
 
 ## Key Visualizations & Features
 
-The dashboard offers several ways to explore SDG coverage:
+The dashboard is organized into several tabs, each offering a unique perspective on SDG coverage:
 
-*   **Bubble Chart**:
-    *   Displays the percentage of courses within each specialization that address a user-selected SDG.
-    *   Bubble size indicates the total number of courses in a specialization.
-    *   Bubbles are color-coded by faculty.
-    *   Clicking a specialization bubble transitions to the Heatmap view for that specialization.
+### University-Wide Views
 
-*   **Paired Heatmap & Lollipop Chart View** (for a selected specialization):
-    *   **Heatmap**:
-        *   Shows SDG presence across individual courses within the selected specialization.
-        *   Courses are typically on the X-axis, and SDGs (excluding SDG 4: Quality Education) on the Y-axis.
-        *   Can display either:
-            *   **Binary View**: Indicates if an SDG is addressed ('Yes'/'No') by a course.
-            *   **Cumulative View**: Shows the progressive count of courses addressing each SDG.
-        *   Clicking an SDG label switches to the Bubble Chart for that SDG.
-    *   **Lollipop Chart**:
-        *   Complements the Heatmap, showing the overall percentage coverage for each SDG (excluding SDG 4) within the selected specialization.
-        *   SDGs are on the X-axis, and percentage coverage on the Y-axis.
-        *   Clicking an SDG on its axis switches to the Bubble Chart for that SDG.
+*   **University Goals (Donut Chart)**:
+    *   Provides a high-level overview of how many courses across the entire university address each SDG.
+    *   Each slice of the donut represents an SDG, with the size indicating the total count of courses mapped to it.
+    *   Hovering over a slice reveals the exact number and percentage of courses.
+
+*   **University Targets (Treemap)**:
+    *   Offers a detailed breakdown of SDG coverage by specific targets.
+    *   The treemap visualizes all 169 SDG targets, with the size of each rectangle proportional to the number of courses addressing that target.
+    *   This view helps identify which specific SDG targets are most prominent in the curriculum.
+
+### Specialisation-Specific Views
+
+*   **Specialisation Goals (Heatmap & Radar Chart)**:
+    *   This is the default view, providing a deep dive into a selected specialisation.
+    *   **Heatmap**: Shows the presence of each SDG across all individual courses within the specialisation.
+    *   **Radar Chart**: Complements the heatmap, showing the overall percentage coverage for each SDG within the specialisation, allowing for easy comparison of SDG focus.
+
+*   **Specialisation Targets (Treemap)**:
+    *   Similar to the university-wide target view, but filtered for a single specialisation.
+    *   Visualizes which specific SDG targets are addressed by the courses within the selected specialisation.
+
+### SDG-Focused View
+
+*   **SDG Breakdown (Bubble Chart & Treemap)**:
+    *   Focuses on a single, user-selected SDG.
+    *   **Bubble Chart**: Displays the percentage of courses within each specialisation that address the selected SDG. Bubble size indicates the total number of courses in that specialisation.
+    *   **Treemap**: Shows the breakdown of the selected SDG by its specific targets, with rectangle size representing the number of courses mapped to each target across all specialisations.
+
+### Other Features
 
 *   **Interactive Exploration**:
-    *   **Welcome Modal**: Introduces the dashboard, its functionalities, and important disclaimers (e.g., v3 data is conservative, optimized for precision).
-    *   **Search & Filtering**: Users can search for specializations and select specific SDGs to focus the analysis.
-    *   **Data Version Toggle**: Switch between different underlying analysis datasets (v1, v2, v3) which may vary in precision/recall. v3 (`sdg_analysis_llm_with_targets_and_names.csv`) is the default.
-    *   **Theme Toggle**: Switch between light and dark modes.
-    *   **Export**: Download visualizations as PNG images.
-    *   **Tooltips**: Provide detailed information on hover for courses, SDGs, and data points.
+    *   **Welcome Modal**: A comprehensive introduction to the dashboard's features, data, and limitations.
+    *   **Search & Filtering**: Users can search for specialisations and select specific SDGs to focus the analysis.
+    *   **Data Version Toggle**: Switch between three different analysis datasets (v1, v2, v3) which vary in their precision/recall trade-off. The default (v3) is optimized for high precision.
+    *   **Theme Toggle**: Switch between light and dark modes for comfortable viewing.
+    *   **Export**: Download any visualization as a high-quality PNG image.
+    *   **Tooltips**: Detailed information is available on hover for most data points.
 
 *   **Method Validation Heatmap**:
-    *   Accessible via a modal, this chart displays F1 scores comparing different SDG mapping methodologies, using data from `comparison_heatmap_f1_scores_ordered.csv`.
+    *   Accessible via a button on the bottom bar, this modal displays a heatmap of F1 scores comparing different SDG mapping methodologies. This provides transparency into the performance of the underlying automated analysis.
 
 ## Technical Details
 

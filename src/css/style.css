@@ -853,16 +853,16 @@ select::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* Intro Modal (on page load) */
+/* --- NEW PROFESSIONAL MODAL STYLES --- */
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: none;
-  /* hidden by default */
   justify-content: center;
   align-items: center;
   z-index: 2000;
@@ -876,19 +876,17 @@ select::-webkit-scrollbar-thumb:hover {
 
 .modal-content {
   background: var(--surface-color);
-  padding: 30px;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  max-width: 900px;
+  width: 95%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   font-family: var(--font-family);
   transform: scale(0.95);
   opacity: 0;
   transition: all 0.3s ease;
-  max-height: 80vh; /* Set a max height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-overlay.active .modal-content {
@@ -896,78 +894,222 @@ select::-webkit-scrollbar-thumb:hover {
   opacity: 1;
 }
 
-/* Style for the disclaimer content within the modal */
-.modal-disclaimer-content {
-  margin-top: 20px; /* Add space above the disclaimer */
-  padding-top: 15px; /* Add padding above the content */
-  border-top: 1px solid var(--border-color); /* Add a separator line */
-  text-align: left; /* Align text to the left */
-  font-size: 0.9em; /* Slightly smaller font */
-  color: var(--text-color); /* Use text color */
+.modal-header {
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.modal-disclaimer-content p {
-  margin: 0 0 10px 0; /* Adjust margin */
-  line-height: 1.5;
-}
-
-.modal-disclaimer-content ul {
-  margin: 0; /* Remove margin */
-  padding-left: 20px; /* Adjust padding */
-}
-
-.modal-disclaimer-content li {
-  margin-bottom: 5px; /* Adjust margin */
-  line-height: 1.4;
-}
-
-.modal-content h2 {
-  margin-bottom: 15px;
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.4em;
   color: var(--text-color);
-  font-size: 1.5em;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 10px;
-}
-
-.modal-content p {
-  color: var(--text-color);
-  margin-bottom: 20px;
-  line-height: 1.5;
-  text-align: left;
-}
-
-.modal-content button {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.modal-content button:hover {
-  background: #0069d9; /* Darker shade of primary color */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background: transparent;
-  color: var(--secondary-color);
-  font-size: 24px;
   border: none;
+  font-size: 2.5em;
+  line-height: 1;
+  color: var(--secondary-color);
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.2s;
 }
 
 .close-modal:hover {
+  color: var(--primary-color);
+}
+
+.modal-body {
+  padding: 30px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.modal-intro-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-intro-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
   color: var(--text-color);
+  margin: 0 auto 10px auto;
+  max-width: 80%;
+}
+
+.modal-warning {
+  background-color: rgba(255, 165, 0, 0.1);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 0.95em !important;
+  color: #c57700 !important;
+}
+
+body.dark-theme .modal-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.4);
+  color: #ffca28 !important;
+}
+
+.modal-main-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.modal-action-card {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.modal-action-card h3 {
+  font-size: 1.2em;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-action-card p {
+  font-size: 0.95em;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.modal-tabs-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-tabs-info .modal-link {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.modal-tabs-info .modal-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateX(3px);
+}
+
+.modal-tabs-info .modal-link strong {
+  display: block;
+  font-size: 1em;
+}
+
+.modal-action-card .search-container {
+  margin-top: 20px;
+}
+
+.modal-footer {
+  padding: 20px 30px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.modal-disclaimer details {
+  text-align: left;
+}
+
+.modal-disclaimer summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--secondary-color);
+  outline: none;
+}
+
+.modal-disclaimer summary:hover {
+  color: var(--primary-color);
+}
+
+.modal-disclaimer-content {
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: var(--secondary-color);
+  padding: 10px;
+  background: var(--surface-color);
+  border-radius: 6px;
+}
+
+.modal-disclaimer-content ul {
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.modal-get-started-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.modal-get-started-btn:hover {
+  background: #0069d9;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+body.dark-theme .modal-content {
+  background-color: #121a29;
+  border: 1px solid #2a3446;
+}
+
+body.dark-theme .modal-header,
+body.dark-theme .modal-footer {
+  border-color: #2a3446;
+}
+
+body.dark-theme .modal-footer {
+  background-color: #0a0e17;
+}
+
+body.dark-theme .modal-action-card {
+  background-color: #0a0e17;
+  border-color: #2a3446;
+}
+
+body.dark-theme .modal-tabs-info .modal-link {
+  background: #1a2436;
+  border-color: #2a3446;
+}
+
+body.dark-theme .modal-tabs-info .modal-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+body.dark-theme .modal-disclaimer-content {
+  background: #1a2436;
 }
 
 /* Second Sidebar */
