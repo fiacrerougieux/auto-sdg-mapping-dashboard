@@ -743,6 +743,7 @@
       
       if (vizTypeToDownload === 'heatmap' || vizTypeToDownload === 'cumulative') {
         const rects = clonedSvg.querySelectorAll('rect.sdg-cell');
+        
         rects.forEach(rect => {
           const value = parseFloat(rect.getAttribute('data-value') || '0');
           if (value > 0) {
@@ -755,7 +756,10 @@
               const alpha = Math.min(0.3 + intensity * 0.7, 1);
               rect.setAttribute('fill', `rgba(0, 123, 255, ${alpha})`);
             } else {
-              rect.setAttribute('fill', '#007bff');
+              // For regular heatmap, preserve the existing colors that are already applied
+              // The colors are already set correctly by the heatmap creation function
+              // so we don't need to override them - just leave them as they are
+              // This preserves the alignment-based colors (strong, moderate, weak)
             }
           }
         });
