@@ -26,7 +26,7 @@ function createBubbleChart(data, selectedSDG = 1, animateTransition = false) {
       sdgCounts[spec] = new Set();
     }
     specCounts[spec].add(row.course_code);
-    if (row.sdg_number === selectedSDG && row.addressed) {
+    if (row.sdg_number === selectedSDG && (row.alignment === 'strong' || row.alignment === 'moderate' || row.alignment === 'focus' || row.alignment === 'supported' || row.alignment === 'yes')) {
       sdgCounts[spec].add(row.course_code);
     }
   });

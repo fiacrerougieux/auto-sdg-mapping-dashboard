@@ -140,16 +140,16 @@ body.dark-theme .viz-button img {
   filter: invert(0.8) sepia(1) saturate(5) hue-rotate(155deg); /* Cyan tint for SVGs */
 }
 
-body.dark-theme .ternary-toggle-container {
+body.dark-theme .version-toggle-container {
   background-color: #1a2436; /* Darker blue */
   border: 1px solid #2a3446; /* Slightly lighter border */
 }
 
-body.dark-theme .ternary-toggle .toggle-labels span {
+body.dark-theme .version-toggle .toggle-labels span {
   color: #00e8ff; /* Cyan/teal text */
 }
 
-body.dark-theme .ternary-toggle .toggle-knob {
+body.dark-theme .version-toggle .toggle-knob {
   background-color: #00a8c7; /* Darker cyan for active state */
 }
 
@@ -1381,7 +1381,7 @@ body.dark-theme #bottom-bar .knowledge-graph-link span { /* Target link and span
 }
 
 /* Bottom bar specific styles for the toggle */
-#bottom-bar .ternary-toggle-container {
+#bottom-bar .version-toggle-container {
   margin: 0;
 }
 
@@ -1512,25 +1512,25 @@ input:checked + .slider:before {
   color: #333;
 }
 
-/* Ternary Toggle Switch Styles */
-.ternary-toggle-container {
+/* Version Toggle Switch Styles */
+.version-toggle-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px; /* Add some space below */
 }
 
-/* Ternary Toggle Switch Styles - Adjusted for Top Bar */
-.ternary-toggle-container {
+/* Version Toggle Switch Styles - Adjusted for Top Bar */
+.version-toggle-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* margin-bottom: 15px; Removed */
 }
 
-.ternary-toggle {
+.version-toggle {
   position: relative;
-  width: 75px; /* Make toggle slightly narrower */
+  width: 100px; /* Increased width for 4 states */
   height: 28px; /* Make toggle thinner */
   background-color: #ccc;
   border-radius: 28px; /* Match height */
@@ -1552,27 +1552,35 @@ input:checked + .slider:before {
 }
 
 /* State 0 (v1 - Left) */
-.ternary-toggle.state-0 {
+.version-toggle.state-0 {
   background-color: #ccc; /* Default off color */
 }
-.ternary-toggle.state-0 .toggle-knob {
+.version-toggle.state-0 .toggle-knob {
   transform: translateX(0px);
 }
 
-/* State 1 (v2 - Middle) */
-.ternary-toggle.state-1 {
+/* State 1 (v2 - Middle-Left) */
+.version-toggle.state-1 {
   background-color: var(--primary-color); /* Active color */
 }
-.ternary-toggle.state-1 .toggle-knob {
-  transform: translateX(25px); /* Adjusted position for middle state */
+.version-toggle.state-1 .toggle-knob {
+  transform: translateX(24px); /* Position for state 1 */
 }
 
-/* State 2 (v3 - Right) */
-.ternary-toggle.state-2 {
+/* State 2 (v3 - Middle-Right) */
+.version-toggle.state-2 {
   background-color: var(--primary-color); /* Active color */
 }
-.ternary-toggle.state-2 .toggle-knob {
-  transform: translateX(48px); /* Adjusted position for right state */
+.version-toggle.state-2 .toggle-knob {
+  transform: translateX(48px); /* Position for state 2 */
+}
+
+/* State 3 (v4 - Right) */
+.version-toggle.state-3 {
+  background-color: var(--primary-color); /* Active color */
+}
+.version-toggle.state-3 .toggle-knob {
+  transform: translateX(72px); /* Position for state 3 */
 }
 
 /* Labels inside the toggle */
@@ -1599,7 +1607,7 @@ input:checked + .slider:before {
 }
 
 /* Adjust label color for inactive state for better contrast */
-.ternary-toggle.state-0 .toggle-labels {
+.version-toggle.state-0 .toggle-labels {
   color: rgba(0, 0, 0, 0.4); /* Darker grey for inactive state */
 }
 

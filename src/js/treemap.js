@@ -66,9 +66,9 @@ function createTreemap(data, courseNameData, selectedSDG = 1) {
   }
 
   // 1. Process data for treemap
-  const coursesForSDG = data.filter(d => 
-    d.sdg_number === selectedSDG && 
-    (d.addressed === true || d.addressed === 'yes' || d.addressed === 'Yes' || d.addressed === 'YES')
+  const coursesForSDG = data.filter(d =>
+    d.sdg_number === selectedSDG &&
+    (d.alignment === 'strong' || d.alignment === 'moderate' || d.alignment === 'focus' || d.alignment === 'supported' || d.alignment === 'yes')
   );
   
   if (coursesForSDG.length === 0) {
@@ -289,6 +289,12 @@ function createTargetTreemap(data) {
   }
   treemapDiv.innerHTML = '';
 
+  // Check if the current data source has target data
+  if (currentDataSourceIndex < 2) { // v1 and v2 are indices 0 and 1
+    treemapDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">No target data available for this version.</div>';
+    return;
+  }
+
   const width = treemapDiv.clientWidth;
   const height = treemapDiv.clientHeight;
 
@@ -400,6 +406,12 @@ function createSpecialisationTargetTreemap(data) {
     return;
   }
   treemapDiv.innerHTML = '';
+
+  // Check if the current data source has target data
+  if (currentDataSourceIndex < 2) { // v1 and v2 are indices 0 and 1
+    treemapDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">No target data available for this version.</div>';
+    return;
+  }
 
   const width = treemapDiv.clientWidth;
   const height = treemapDiv.clientHeight;

@@ -5,17 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SDG Analysis Dashboard</title>
+  <link rel="icon" href="assets/images/logo/favicon.png" type="image/png">
 
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="src/js/lollipop.js?v=4.1"></script>
-  <script src="src/js/heatmap.js?v=4.1"></script>
-  <script src="src/js/bubblechart.js?v=4.1"></script>
-  <script src="src/js/donutchart.js?v=4.1"></script>
-  <script src="src/js/treemap.js?v=4.1"></script>
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <script src="src/js/barchart.js?v=4.2"></script>
+  <script src="src/js/lollipop.js?v=4.2"></script>
+  <script src="src/js/heatmap.js?v=4.2"></script>
+  <script src="src/js/bubblechart.js?v=4.2"></script>
+  <script src="src/js/donutchart.js?v=4.2"></script>
+  <script src="src/js/treemap.js?v=4.2"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=4.1">
+  <link rel="stylesheet" href="src/css/style.css?v=4.2">
 </head>
 
 <body>
@@ -32,7 +34,7 @@
         <div class="modal-intro-text">
           <p>This interactive dashboard helps you explore how university courses map to the UN Sustainable Development Goals (SDGs). You can start by exploring the different tabs, searching for a specialisation, or selecting an SDG.</p>
           <p class="modal-warning">
-            <strong>Note:</strong> The default analysis (v3) is conservative and optimised for high precision, which may result in underestimating SDG coverage. Use the version toggle for different perspectives.
+            <strong>Note:</strong> There are four analysis, v1 and v2 overpredicts (high recall at the expense of precision), v3 underpredicts (high precision at the expense of recall), v4 attemps to strike a better balance but reliance on public usually leads to underestimating SDG coverage (sometimes severly). Use the version toggle for different perspectives.
           </p>
         </div>
 
@@ -216,12 +218,13 @@
   <div id="bottom-bar">
     <!-- Version Toggle -->
     <div class="bottom-bar-item">
-      <div id="ternaryToggleContainer" class="ternary-toggle-container">
-        <div id="ternaryToggle" class="ternary-toggle state-2"> <!-- Set initial state to v3 -->
+      <div id="versionToggleContainer" class="version-toggle-container">
+        <div id="versionToggle" class="version-toggle state-3"> <!-- Set initial state to v4 -->
           <div class="toggle-labels">
             <span>v1</span>
             <span>v2</span>
             <span>v3</span>
+            <span>v4</span>
           </div>
           <div class="toggle-knob"></div>
         </div>
@@ -472,14 +475,16 @@
     const dataSources = [
       'data/sdg_analysis_llm_match.csv',      // v1
       'data/sdg_analysis_llm.csv',            // v2
-      'data/sdg_analysis_llm_with_targets_and_names.csv' // v3
+      'data/sdg_analysis_llm_with_targets_and_names.csv', // v3
+      'data/sdg_analysis_llm_with_targets_v4.csv' // v4
     ];
     const dataSourceLabels = [
       'Data: v1 (Match)',
       'Data: v2 (LLM)',
-      'Data: v3 (LLM+Targets)'
+      'Data: v3 (LLM+Targets)',
+      'Data: v4 (LLM+Targets Intensity)'
     ];
-    let currentDataSourceIndex = 2; // Start with v3 (index 2)
+    let currentDataSourceIndex = 3; // Start with v4 (index 3)
     let currentDataFile = dataSources[currentDataSourceIndex];
     let currentSDG = 10; // default SDG (updated when user clicks an SDG icon)
 
@@ -569,7 +574,8 @@
           course_code: getColumnIndex('course_code'),
           sdg_number: getColumnIndex('sdg_number'),
           sdg_name: getColumnIndex('sdg_name'),
-          addressed: getColumnIndex('addressed'),
+          addressed: getColumnIndex('addressed', true), // Make optional
+          alignment: getColumnIndex('alignment', true), // Add alignment as optional
           justification: getColumnIndex('justification', true),
           timestamp: getColumnIndex('timestamp', true),
           target_number: getColumnIndex('target_number', true),
@@ -577,8 +583,13 @@
           course_name: getColumnIndex('course_name', true)
         };
 
-        const essentialColumns = ['course_code', 'sdg_number', 'sdg_name', 'addressed'];
+        // Check for essential columns, allowing for either 'addressed' or 'alignment'
+        const hasAddressedOrAlignment = colIndices.addressed !== -1 || colIndices.alignment !== -1;
+        const essentialColumns = ['course_code', 'sdg_number', 'sdg_name'];
         const missingEssentialColumns = essentialColumns.filter(col => colIndices[col] === -1);
+        if (!hasAddressedOrAlignment) {
+          missingEssentialColumns.push('addressed/alignment');
+        }
 
         if (missingEssentialColumns.length > 0) {
           console.error(`Missing essential columns in CSV: ${missingEssentialColumns.join(', ')}`);
@@ -594,13 +605,25 @@
               return null;
           }
 
+          // Determine the value for addressed/alignment based on which column exists
+          let addressedValue = '';
+          if (colIndices.alignment !== -1) {
+            addressedValue = (values[colIndices.alignment] || '').toLowerCase();
+          } else if (colIndices.addressed !== -1) {
+            addressedValue = (values[colIndices.addressed] || '').toLowerCase();
+          }
+
           const rowData = {
             course_code: values[colIndices.course_code] || '',
             sdg_number: parseInt(values[colIndices.sdg_number]) || 0,
             sdg_name: values[colIndices.sdg_name] || '',
-            addressed: (values[colIndices.addressed] || '').toLowerCase() === 'yes' ||
-                       (values[colIndices.addressed] || '').toLowerCase() === 'supported' ||
-                       (values[colIndices.addressed] || '').toLowerCase() === 'focus',
+            addressed: addressedValue === 'yes' ||
+                       addressedValue === 'supported' ||
+                       addressedValue === 'focus' ||
+                       addressedValue === 'strong' ||
+                       addressedValue === 'moderate' ||
+                       addressedValue === 'weak',
+            alignment: addressedValue, // Keep the original value for coloring
             justification: values[colIndices.justification] || '',
             timestamp: values[colIndices.timestamp] || '',
             course_name: (colIndices.course_name !== -1 && values[colIndices.course_name]) ? values[colIndices.course_name] : ''
@@ -816,11 +839,11 @@
     document.getElementById('exportPNG').addEventListener('click', downloadActivePlot);
 
 
-    const ternaryToggle = document.getElementById('ternaryToggle');
-    ternaryToggle.addEventListener('click', function () {
+    const versionToggle = document.getElementById('versionToggle');
+    versionToggle.addEventListener('click', function () {
       currentDataSourceIndex = (currentDataSourceIndex + 1) % dataSources.length;
       currentDataFile = dataSources[currentDataSourceIndex];
-      this.classList.remove('state-0', 'state-1', 'state-2');
+      this.classList.remove('state-0', 'state-1', 'state-2', 'state-3');
       this.classList.add(`state-${currentDataSourceIndex}`);
       console.log(`Switched data source to: ${currentDataFile} (State: ${currentDataSourceIndex})`);
 
@@ -830,7 +853,7 @@
         const activeTabContent = document.querySelector('.tab-content.active');
         if (activeTabContent) {
             if (activeTabContent.id === 'tab1Content') {
-                createLollipop(data, courseNameData);
+                createBarChart(data, courseNameData);
                 createHeatmap(data, false, courseNameData);
             } else if (activeTabContent.id === 'tab2Content') {
                 // Always create both charts for tab2
@@ -838,6 +861,10 @@
                 createTreemap(data, courseNameData, currentSDG);
             } else if (activeTabContent.id === 'tab3Content') {
                 createDonutChart(data, true);
+            } else if (activeTabContent.id === 'tab4Content') {
+                createTargetTreemap(data);
+            } else if (activeTabContent.id === 'tab5Content') {
+                createSpecialisationTargetTreemap(data);
             }
         }
       });
@@ -876,7 +903,7 @@
           // Function to render the default view for Specialisation Goals
           const renderSpecialisationView = () => {
             loadData().then(data => {
-              createLollipop(data, courseNameData);
+                createBarChart(data, courseNameData);
               createHeatmap(data, false, courseNameData); // Always show normal heatmap after lollipop
             });
           };
@@ -894,7 +921,7 @@
             } else {
               // If already on the Specialisation Goals tab, just redraw it
               loadData().then(data => {
-                createLollipop(data, courseNameData);
+                createBarChart(data, courseNameData);
                 createHeatmap(data, false, courseNameData);
               });
             }
@@ -1009,7 +1036,7 @@
             currentChartType = 'heatmap'; // Explicitly set for Tab 1 context
 
             createHeatmap(data, isCumulative, courseNameData);
-            createLollipop(data, courseNameData);
+            createBarChart(data, courseNameData);
             if (!isCumulative) { // Redraw non-cumulative heatmap if that's the default
                 createHeatmap(data, false, courseNameData);
             }
@@ -1164,7 +1191,7 @@
         loadData().then(data => {
           if (activeTabId === '#tab1Content') {
             currentChartType = 'heatmap'; // Default to normal heatmap on tab switch
-            createLollipop(data, courseNameData);
+            createBarChart(data, courseNameData);
             createHeatmap(data, false, courseNameData);
           } else if (activeTabId === '#tab2Content') {
             // Always create both charts for tab2
@@ -1201,7 +1228,7 @@
         currentChartType = 'heatmap'; // Initial chart type for tab 1
 
         createHeatmap(data, false, courseNameData);
-        createLollipop(data, courseNameData);
+        createBarChart(data, courseNameData);
 
         // Pre-load other charts
         createBubbleChart(data, currentSDG, false);
@@ -1249,7 +1276,7 @@
           const activeHeatmapTypeButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
           const isCumulative = activeHeatmapTypeButton && activeHeatmapTypeButton.id === 'cumulativeBtn';
           createHeatmap(data, isCumulative, courseNameData);
-          createLollipop(data, courseNameData);
+            createBarChart(data, courseNameData);
            if (!isCumulative) createHeatmap(data, false, courseNameData);
         } else if (currentActiveTab.id === 'tab2Content') {
             // Always update both charts in tab2
@@ -1303,7 +1330,7 @@
             const activeHeatmapTypeButton = document.querySelector('#bottom-bar .visualisation-icons .viz-button.active');
             const isCumulative = activeHeatmapTypeButton && activeHeatmapTypeButton.id === 'cumulativeBtn';
             createHeatmap(data, isCumulative, courseNameData);
-            createLollipop(data, courseNameData);
+            createBarChart(data, courseNameData);
             if (!isCumulative) createHeatmap(data, false, courseNameData);
         } else if (currentActiveTab.id === 'tab2Content') {
             if (currentChartType === 'treemap') {

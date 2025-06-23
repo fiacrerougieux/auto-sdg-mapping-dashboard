@@ -40,7 +40,7 @@ function createDonutChart(data, animateTransition = false) {
       value: sdgCounts[sdgNum] || 0,
       color: constants.sdgColors[sdg]
     };
-  }).filter(d => d.value > 0 && d.sdg !== 4); // Exclude SDG 4 and those with 0 value
+  }).filter(d => d.value > 0);
 
   // --- Theme Colors ---
   const isDarkTheme = document.body.classList.contains('dark-theme');
@@ -64,13 +64,6 @@ function createDonutChart(data, animateTransition = false) {
     .style('font-weight', 'bold')
     .style('fill', themeTextColor)
     .text('University Profile');
-
-  svg.append('text')
-    .attr('text-anchor', 'middle')
-    .attr('dy', '1.2em')
-    .style('font-size', '14px')
-    .style('fill', themeTextColor)
-    .text('(excluding quality education)');
 
   // --- Donut Chart ---
   const pie = d3.pie()

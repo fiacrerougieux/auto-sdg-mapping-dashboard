@@ -1,5 +1,43 @@
 let finalCumulativeValues = [];
 
+function getAlignmentWeight(alignment) {
+  const alignmentValue = (typeof alignment === 'string') ? alignment.toLowerCase() : 'none';
+  switch (alignmentValue) {
+    case 'strong':
+    case 'yes':
+    case 'focus':
+    case 'supported':
+    case 1:
+      return 1.0;
+    case 'moderate':
+      return 0.65;
+    case 'weak':
+      return 0.35;
+    default:
+      return 0;
+  }
+}
+
+function getAlignmentColor(alignment, isDarkTheme) {
+  const baseColor = isDarkTheme ? '0, 232, 255' : '0, 123, 255'; // RGB string for cyan/blue
+  const alignmentValue = (typeof alignment === 'string') ? alignment.toLowerCase() : alignment;
+
+  switch (alignmentValue) {
+    case 'strong':
+    case 'yes':
+    case 'focus':
+    case 'supported':
+    case 1: // Handle numeric 1 from old data
+      return `rgb(${baseColor})`; // Full color
+    case 'moderate':
+      return `rgba(${baseColor}, 0.65)`; // Medium intensity
+    case 'weak':
+      return `rgba(${baseColor}, 0.35)`; // Low intensity
+    default:
+      return isDarkTheme ? '#121a29' : '#f8f9fa'; // themeEmptyCellColor
+  }
+}
+
 function createHeatmap(data, isCumulative, courseNameMapping) {
   // Remove any existing heatmap tooltips from the body
   d3.select('body').select('.heatmap-tooltip').remove();
@@ -16,22 +54,21 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
   data = filterDataByDiscipline(data, currentDiscipline);
 
   const courseSDGs = {};
+  const courseAlignments = {}; // New object for alignments
+  const courseJustifications = {};
   data.forEach(row => {
     if (!courseSDGs[row.course_code]) {
       courseSDGs[row.course_code] = {};
+      courseAlignments[row.course_code] = {}; // Initialize
+      courseJustifications[row.course_code] = {};
       for (let i = 1; i <= 17; i++) {
         courseSDGs[row.course_code][i] = 0;
+        courseAlignments[row.course_code][i] = 'none'; // Default
       }
     }
     if (row.addressed) {
       courseSDGs[row.course_code][row.sdg_number] = 1;
-    }
-  });
-
-  const courseJustifications = {};
-  data.forEach(row => {
-    if (!courseJustifications[row.course_code]) {
-      courseJustifications[row.course_code] = {};
+      courseAlignments[row.course_code][row.sdg_number] = row.alignment || 'yes'; // Store alignment
     }
     if (row.addressed && row.justification) {
       courseJustifications[row.course_code][row.sdg_number] = row.justification;
@@ -56,9 +93,12 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
       let sum = 0;
       for (let j = 0; j < courses.length; j++) {
         const course = courses[j];
-        sum += courseSDGs[course][sdg];
+        const alignment = courseAlignments[course]?.[sdg] || 'none';
+        const weight = getAlignmentWeight(alignment);
+        sum += weight;
         row.push({
           value: sum,
+          alignment: alignment,
           sdg: sdg,
           course: course,
           addressed: courseSDGs[course][sdg] === 1,
@@ -66,7 +106,7 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
           sdg_name: constants.sdgNames[sdg],
           target_number: '',
           target_name: '',
-          course_name: courseNameMapping[course] || course // Fallback to course code if not found
+          course_name: courseNameMapping[course] || course
         });
       }
     } else {
@@ -74,6 +114,7 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
         const course = courses[j];
         const value = courseSDGs[course][sdg];
         const justification = courseJustifications[course]?.[sdg] || '';
+        const alignment = courseAlignments[course]?.[sdg] || 'none';
 
         // Use the passed-in courseNameMapping
         const courseName = courseNameMapping[course] || course; // Fallback to course code if not found
@@ -96,6 +137,7 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
 
         row.push({
           value: value,
+          alignment: alignment,
           sdg: sdg,
           course: course, // course_code
           addressed: value === 1,
@@ -187,15 +229,15 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
           .attr('y', yScale(j)) // y based on Course index
           .attr('width', xScale.bandwidth())
           .attr('height', yScale.bandwidth())
-          .attr('fill', function() {
-            if (cell.value === 0) return themeEmptyCellColor;
+          .attr('fill', (() => {
             if (isCumulative) {
-              const intensity = cell.value / (courses.length * 0.5);
-              return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`;
+              if (cell.value === 0) return themeEmptyCellColor;
+              const intensity = courses.length > 0 ? cell.value / courses.length : 0;
+              return `rgba(0, 123, 255, ${Math.min(0.1 + intensity * 0.9, 1)})`;
             } else {
-              return isDarkTheme ? themeTextColor : 'var(--primary-color)';
+              return getAlignmentColor(cell.alignment, isDarkTheme);
             }
-          })
+          })())
           .attr('stroke', themeCellStrokeColor)
           .attr('stroke-width', 1)
           .attr('data-sdg', cell.sdg)
@@ -291,15 +333,15 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
           .attr('y', yScale(i)) // y based on filtered SDG index
           .attr('width', xScale.bandwidth())
           .attr('height', yScale.bandwidth())
-          .attr('fill', function() {
-            if (cell.value === 0) return themeEmptyCellColor;
+          .attr('fill', (() => {
             if (isCumulative) {
-              const intensity = cell.value / (courses.length * 0.5);
-              return `rgba(0, 123, 255, ${Math.min(0.3 + intensity * 0.7, 1)})`;
+              if (cell.value === 0) return themeEmptyCellColor;
+              const intensity = courses.length > 0 ? cell.value / courses.length : 0;
+              return `rgba(0, 123, 255, ${Math.min(0.1 + intensity * 0.9, 1)})`;
             } else {
-              return isDarkTheme ? themeTextColor : 'var(--primary-color)';
+              return getAlignmentColor(cell.alignment, isDarkTheme);
             }
-          })
+          })())
           .attr('stroke', themeCellStrokeColor)
           .attr('stroke-width', 1)
           .attr('data-sdg', cell.sdg)
@@ -391,8 +433,31 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
     .style('visibility', 'hidden')
     .style('pointer-events', 'none');
 
-  // Add tooltip interaction - only for non-cumulative heatmap
-  if (!isCumulative) {
+  // Add tooltip interaction
+  if (isCumulative) {
+    svg.selectAll('rect.sdg-cell')
+      .on('mouseover', function(event) {
+        const rect = d3.select(this);
+        const sdg = parseInt(rect.attr('data-sdg'));
+        const course = rect.attr('data-course');
+        const sdgIndex = sdgNumbers.indexOf(sdg);
+        const courseIndex = courses.indexOf(course);
+        if (sdgIndex < 0 || courseIndex < 0) return;
+        const cellData = matrix[sdgIndex][courseIndex];
+
+        tooltip.style('visibility', 'visible');
+        tooltip.html(`<b>Course:</b> ${cellData.course_name}<br>` +
+                     `<b>SDG ${cellData.sdg}:</b> ${cellData.sdg_name}<br>` +
+                     `<b>Cumulative Weighted Score:</b> ${cellData.value.toFixed(2)}`);
+      })
+      .on('mousemove', function(event) {
+        tooltip.style('top', (event.pageY - 10) + 'px')
+               .style('left', (event.pageX + 10) + 'px');
+      })
+      .on('mouseout', function() {
+        tooltip.style('visibility', 'hidden');
+      });
+  } else {
     svg.selectAll('rect.sdg-cell') // Select only the data cells
       .on('mouseover', function(event) {
           // Get data from attributes instead of unreliable invert
@@ -442,6 +507,9 @@ function createHeatmap(data, isCumulative, courseNameMapping) {
           let tooltipContent = `<b>Course Name:</b> ${cellData.course_name ? cellData.course_name : 'N/A'}<br>`;
           tooltipContent += `<b>Course Code:</b> ${cellData.course}<br>`;
           tooltipContent += `<b>SDG ${cellData.sdg}: ${cellData.sdg_name}</b><br>`;
+          if (typeof cellData.alignment === 'string' && cellData.alignment.match(/strong|moderate|weak/)) {
+            tooltipContent += `<b>Alignment:</b> <span style="text-transform: capitalize;">${cellData.alignment}</span><br>`;
+          }
           tooltipContent += `Present: ${cellData.addressed ? 'Yes' : 'Not detected when analysing public data for this course. N.B. more granular data may reveal that this SDG may be present.'}<br>`;
           if (cellData.addressed && cellData.target_number && cellData.target_name) {
             tooltipContent += `Target: ${cellData.target_number} - ${cellData.target_name}<br>`;
