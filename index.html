@@ -10,14 +10,14 @@
   <!-- D3 and Plotly -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-  <script src="src/js/barchart.js?v=4.2"></script>
-  <script src="src/js/lollipop.js?v=4.2"></script>
-  <script src="src/js/heatmap.js?v=4.2"></script>
-  <script src="src/js/bubblechart.js?v=4.2"></script>
-  <script src="src/js/donutchart.js?v=4.2"></script>
-  <script src="src/js/treemap.js?v=4.2"></script>
+  <script src="src/js/barchart.js?v=4.3"></script>
+  <script src="src/js/lollipop.js?v=4.3"></script>
+  <script src="src/js/heatmap.js?v=4.3"></script>
+  <script src="src/js/bubblechart.js?v=4.3"></script>
+  <script src="src/js/donutchart.js?v=4.3"></script>
+  <script src="src/js/treemap.js?v=4.3"></script>
 
-  <link rel="stylesheet" href="src/css/style.css?v=4.2">
+  <link rel="stylesheet" href="src/css/style.css?v=4.3">
 </head>
 
 <body>
@@ -184,6 +184,9 @@
         <button class="tab-button" data-tab-target="#tab2Content">
           <img src="assets/svgs/bubble-chart.svg" alt="Bubble chart icon" class="tab-button-icon" /> SDG Breakdown
         </button>
+        <button class="tab-button" data-tab-target="#tab6Content">
+          <img src="assets/images/sdg_kg.png" alt="Treemap icon" class="tab-button-icon" /> Target Breakdown
+        </button>
       </div>
 
       <div id="tab1Content" class="tab-content active">
@@ -194,6 +197,7 @@
       </div>
 
       <div id="tab2Content" class="tab-content">
+        <h3 id="sdg-breakdown-title" class="chart-title"></h3>
         <div class="chart-container"> <!-- Re-using existing class for layout -->
           <div id="bubble-chart-div" class="chart-div"></div>
           <div id="treemap-div" class="chart-div"></div>
@@ -210,6 +214,11 @@
 
       <div id="tab5Content" class="tab-content">
         <div id="treemap-by-specialisation-target-div" class="chart-div"></div>
+      </div>
+
+      <div id="tab6Content" class="tab-content">
+        <h3 id="target-breakdown-title" class="chart-title"></h3>
+        <div id="treemap-by-target-breakdown-div" class="chart-div"></div>
       </div>
     </div>
   </div>
@@ -487,6 +496,7 @@
     let currentDataSourceIndex = 3; // Start with v4 (index 3)
     let currentDataFile = dataSources[currentDataSourceIndex];
     let currentSDG = 10; // default SDG (updated when user clicks an SDG icon)
+    let currentTargetId = null; // To store the selected target ID
 
     let constants = {};
     let courseNameData = {}; // To store the course code to name mapping
@@ -506,10 +516,18 @@
           }
         });
         courseNameData = mapping;
+        // Also add it to the global constants object for treemap.js
+        if (window.constants) {
+          window.constants.courseCodeNameMapping = mapping;
+        }
         console.log("Course name mapping loaded:", Object.keys(courseNameData).length, "entries");
       } catch (error) {
         console.error('Error loading course name mapping:', error);
         courseNameData = {}; // Ensure it's an empty object on error
+        // Also ensure the constants object has an empty mapping
+        if (window.constants) {
+          window.constants.courseCodeNameMapping = {};
+        }
       }
     }
 
@@ -1094,6 +1112,11 @@
         sdgIconsList.querySelectorAll('.sdg-icon-item').forEach(el => el.classList.remove('active'));
         this.classList.add('active');
         currentSDG = parseInt(this.getAttribute('data-sdg')) || 1;
+        
+        const titleEl = document.getElementById('sdg-breakdown-title');
+        if (titleEl) {
+            titleEl.textContent = `Breakdown for SDG ${currentSDG}: ${window.constants.sdgNames[currentSDG]}`;
+        }
 
         const bubbleTabButton = document.querySelector('.tab-button[data-tab-target="#tab2Content"]');
         const isBubbleTabActive = bubbleTabButton.classList.contains('active');
@@ -1198,6 +1221,10 @@
             createBarChart(data, courseNameData);
             createHeatmap(data, false, courseNameData);
           } else if (activeTabId === '#tab2Content') {
+            const titleEl = document.getElementById('sdg-breakdown-title');
+            if (titleEl) {
+                titleEl.textContent = `Breakdown for SDG ${currentSDG}: ${window.constants.sdgNames[currentSDG]}`;
+            }
             // Always create both charts for tab2
             createBubbleChart(data, currentSDG, false);
             createTreemap(data, courseNameData, currentSDG);
@@ -1211,6 +1238,9 @@
           } else if (activeTabId === '#tab5Content') {
             currentChartType = 'specialisation-target-treemap';
             createSpecialisationTargetTreemap(data);
+          } else if (activeTabId === '#tab6Content') {
+            currentChartType = 'target-breakdown-treemap';
+            createTargetBreakdownTreemap(data, currentTargetId);
           }
           handleResize(); // Adjust layout/size
         });
@@ -1240,7 +1270,8 @@
         createTreemap(data, courseNameData, currentSDG);
         createTargetTreemap(data);
         createSpecialisationTargetTreemap(data);
-        
+        createTargetBreakdownTreemap(data, null); // Initial call for the new treemap
+
         // Set initial active SDG icon
         const topBarIcons = document.getElementById('sdgIconsList');
         if (topBarIcons) {
@@ -1292,6 +1323,8 @@
           createTargetTreemap(data);
         } else if (currentActiveTab.id === 'tab5Content') {
           createSpecialisationTargetTreemap(data);
+        } else if (currentActiveTab.id === 'tab6Content') {
+            createTargetBreakdownTreemap(data, currentTargetId);
         }
       }).catch(error => {
         console.error("Error reloading data after resize:", error);
@@ -1348,6 +1381,8 @@
             createTargetTreemap(data);
         } else if (currentActiveTab.id === 'tab5Content') {
             createSpecialisationTargetTreemap(data);
+        } else if (currentActiveTab.id === 'tab6Content') {
+            createTargetBreakdownTreemap(data, currentTargetId);
         }
       }).catch(error => {
         console.error("Error reloading data after theme change:", error);

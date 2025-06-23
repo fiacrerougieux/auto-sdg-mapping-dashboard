@@ -1212,6 +1212,11 @@ body.dark-theme .modal-disclaimer-content {
   max-width: 250px;
 }
 
+/* Specific styles for treemap tooltip */
+.treemap-tooltip {
+  max-width: 300px;
+}
+
 /* Search Container Styles */
 .search-container {
   position: relative;
@@ -1836,4 +1841,15 @@ body.dark-theme .chart-controls .viz-button.active {
 
 #tab2Content .chart-div {
   height: calc(100% - 40px); /* Adjust height for controls */
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: var(--primary-color);
+}
+
+body.dark-theme .chart-title {
+  color: #00e8ff;
 }

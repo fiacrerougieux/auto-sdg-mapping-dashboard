@@ -226,7 +226,8 @@ function createTreemap(data, courseNameData, selectedSDG = 1) {
       .style("opacity", 0);
   }
 
-  nodes.on("mouseover", (event, d) => {
+  nodes.on("mouseover", function(event, d) {
+    d3.select(this).select("rect").attr("opacity", 0.8);
     tooltip.transition().duration(200).style("opacity", 0.9);
     
     const sdgName = globalConstants.sdgNames ? globalConstants.sdgNames[selectedSDG] : `SDG ${selectedSDG}`;
@@ -245,7 +246,8 @@ function createTreemap(data, courseNameData, selectedSDG = 1) {
       .style("left", (event.pageX + 10) + "px")
       .style("top", (event.pageY - 10) + "px");
   })
-  .on("mouseout", () => {
+  .on("mouseout", function() {
+    d3.select(this).select("rect").attr("opacity", 1);
     tooltip.transition().duration(300).style("opacity", 0);
   })
   .on("click", (event, d) => {
@@ -388,14 +390,161 @@ function createTargetTreemap(data) {
       .style("opacity", 0);
   }
 
-  nodes.on("mouseover", (event, d) => {
+  nodes.on("mouseover", function(event, d) {
+    d3.select(this).select("rect").attr("opacity", 0.8);
     tooltip.transition().duration(200).style("opacity", .9);
     tooltip.html(`<strong>${d.parent.data.name}</strong><br/>${d.data.name}<br/>Courses: ${d.data.value}`)
       .style("left", (event.pageX + 5) + "px")
       .style("top", (event.pageY - 28) + "px");
   })
-  .on("mouseout", () => {
+  .on("mouseout", function() {
+    d3.select(this).select("rect").attr("opacity", 1);
     tooltip.transition().duration(500).style("opacity", 0);
+  })
+  .on("click", (event, d) => {
+    tooltip.style("opacity", 0);
+    const targetId = d.data.name.split(" ")[1];
+    currentTargetId = targetId; // Set the global variable
+    const targetTabButton = document.querySelector('.tab-button[data-tab-target="#tab6Content"]');
+    if (targetTabButton) {
+      targetTabButton.click();
+    }
+  });
+}
+
+function createTargetBreakdownTreemap(data, targetId) {
+  const treemapDiv = document.getElementById('treemap-by-target-breakdown-div');
+  const titleEl = document.getElementById('target-breakdown-title');
+
+  if (!treemapDiv || !titleEl) {
+    console.error('Target breakdown treemap div or title element not found');
+    return;
+  }
+  treemapDiv.innerHTML = '';
+  titleEl.textContent = '';
+
+  if (!targetId) {
+    treemapDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Click on a target in the "University Targets" or "Specialisation Targets" treemap to see a breakdown.</div>';
+    return;
+  }
+
+  titleEl.textContent = `Breakdown for Target: ${targetId}`;
+
+  const width = treemapDiv.clientWidth;
+  const height = treemapDiv.clientHeight;
+
+  if (width < 100 || height < 100) {
+    treemapDiv.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Treemap area too small.</div>';
+    return;
+  }
+
+  const svg = d3.select(treemapDiv).append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+  if (!data || data.length === 0) {
+    svg.append("text").attr("x", width / 2).attr("y", height / 2).attr("text-anchor", "middle").text("No data for Target Breakdown Treemap.");
+    return;
+  }
+
+  const filteredData = data.filter(d => d.target_number === targetId && (d.addressed === true || d.addressed === 'yes'));
+
+  if (filteredData.length === 0) {
+    svg.append("text").attr("x", width / 2).attr("y", height / 2).attr("text-anchor", "middle").text(`No specialisations found for Target ${targetId}`);
+    return;
+  }
+
+  let hierarchy = { name: `Target ${targetId}`, children: [] };
+  const specialisationMap = new Map();
+
+  filteredData.forEach(d => {
+    const discipline = d.course_code.substring(0, 4);
+    const specialisationName = window.constants.specializationNames[discipline] || discipline;
+
+    const specNode = specialisationMap.get(discipline) || { name: specialisationName, id: discipline, value: 0, courses: new Set() };
+    specNode.courses.add(d.course_code);
+    specNode.value = specNode.courses.size;
+    specialisationMap.set(discipline, specNode);
+  });
+
+  specialisationMap.forEach((specNode, specCode) => {
+    hierarchy.children.push(specNode);
+  });
+
+  const root = d3.hierarchy(hierarchy).sum(d => d.value);
+
+  d3.treemap()
+    .size([width, height])
+    .padding(1)
+    .paddingOuter(3)
+    (root);
+
+  const sdgNumber = filteredData[0].sdg_number;
+  const color = window.constants.sdgColors[sdgNumber] || '#ccc';
+
+  const nodes = svg.selectAll("g")
+    .data(root.leaves())
+    .enter().append("g")
+      .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+  nodes.append("rect")
+    .attr("width", d => d.x1 - d.x0)
+    .attr("height", d => d.y1 - d.y0)
+    .attr("fill", color)
+    .attr("stroke", "#fff");
+
+  nodes.append("text")
+    .selectAll("tspan")
+    .data(d => d.data.name.split(/(?=[A-Z][^A-Z])/g))
+    .enter().append("tspan")
+    .attr("x", 4)
+    .attr("y", (d, i) => 13 + i * 10)
+    .text(d => d)
+    .attr("font-size", "10px")
+    .attr("fill", "white");
+
+  let tooltip = d3.select("body").select(".target-breakdown-tooltip");
+  if (tooltip.empty()) {
+    tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip target-breakdown-tooltip")
+      .style("opacity", 0);
+  }
+
+  nodes.on("mouseover", function(event, d) {
+    d3.select(this).select("rect").attr("opacity", 0.8);
+    tooltip.transition().duration(200).style("opacity", .9);
+    tooltip.html(`<strong>${d.data.name}</strong><br/>Courses: ${d.data.value}`)
+      .style("left", (event.pageX + 5) + "px")
+      .style("top", (event.pageY - 28) + "px");
+  })
+  .on("mouseout", function() {
+    d3.select(this).select("rect").attr("opacity", 1);
+    tooltip.transition().duration(500).style("opacity", 0);
+  })
+  .on("click", (event, d) => {
+    tooltip.style("opacity", 0);
+
+    currentDiscipline = d.data.id;
+    const searchInput = document.getElementById('disciplineSearch');
+    const dropdown = document.getElementById('disciplineDropdown');
+
+    if (searchInput) {
+      searchInput.value = d.data.name;
+    }
+
+    if (dropdown) {
+      dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-value') === d.data.id) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    const heatmapTabButton = document.querySelector('.tab-button[data-tab-target="#tab1Content"]');
+    if (heatmapTabButton) {
+      heatmapTabButton.click();
+    }
   });
 }
 
@@ -546,7 +695,8 @@ function createSpecialisationTargetTreemap(data) {
       .style("opacity", 0);
   }
 
-  nodes.on("mouseover", (event, d) => {
+  nodes.on("mouseover", function(event, d) {
+    d3.select(this).select("rect").attr("opacity", 0.8);
     tooltip.transition().duration(200).style("opacity", .9);
     const courseName = window.constants.courseCodeNameMapping[d.data.name] || 'Unknown Course';
     let html = `<strong>${d.data.name}</strong>: ${courseName}`;
@@ -560,7 +710,19 @@ function createSpecialisationTargetTreemap(data) {
       .style("left", (event.pageX + 5) + "px")
       .style("top", (event.pageY - 28) + "px");
   })
-  .on("mouseout", () => {
+  .on("mouseout", function() {
+    d3.select(this).select("rect").attr("opacity", 1);
     tooltip.transition().duration(500).style("opacity", 0);
+  })
+  .on("click", (event, d) => {
+    tooltip.style("opacity", 0);
+    const match = d.parent.data.name.match(/Target ([\d.]+)/);
+    if (match && match[1]) {
+      currentTargetId = match[1]; // Set the global variable
+      const targetTabButton = document.querySelector('.tab-button[data-tab-target="#tab6Content"]');
+      if (targetTabButton) {
+        targetTabButton.click();
+      }
+    }
   });
 }
